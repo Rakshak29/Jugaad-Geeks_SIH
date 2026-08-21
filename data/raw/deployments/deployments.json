@@ -1,0 +1,101 @@
+[
+  {
+    "deployment_id": "DEP-501",
+    "deployed_by": "E004",
+    "timestamp": "2026-05-02T12:00:00Z",
+    "environment": "production",
+    "service": "acmepay-api",
+    "action": "DEPLOY",
+    "commit_hash": "c001a1",
+    "status": "SUCCESS",
+    "notes": "Deployed API v2 payment intent router."
+  },
+  {
+    "deployment_id": "DEP-502",
+    "deployed_by": "E004",
+    "timestamp": "2026-05-22T14:25:00Z",
+    "environment": "production",
+    "service": "acmepay-api",
+    "action": "ROLLBACK",
+    "commit_hash": "c001a4",
+    "status": "ROLLED_BACK",
+    "notes": "Automated rollback triggered during INC-402 due to elevated 504 error rate."
+  },
+  {
+    "deployment_id": "DEP-503",
+    "deployed_by": "E004",
+    "timestamp": "2026-05-22T15:00:00Z",
+    "environment": "production",
+    "service": "acmepay-api",
+    "action": "DEPLOY",
+    "commit_hash": "c001a5",
+    "status": "SUCCESS",
+    "notes": "Redeployed acmepay-api after database index patch."
+  },
+  {
+    "deployment_id": "DEP-504",
+    "deployed_by": "E003",
+    "timestamp": "2026-05-20T12:00:00Z",
+    "environment": "production",
+    "service": "acmepay-api",
+    "action": "DEPLOY",
+    "commit_hash": "c003a4",
+    "status": "SUCCESS",
+    "notes": "Blue-green cutover release for Kubernetes deployment templates."
+  },
+  {
+    "deployment_id": "DEP-505",
+    "deployed_by": "E003",
+    "timestamp": "2026-06-02T16:00:00Z",
+    "environment": "production",
+    "service": "acmepay-db",
+    "action": "DEPLOY",
+    "commit_hash": "c003a5",
+    "status": "SUCCESS",
+    "notes": "Applied PgBouncer connection pool tuning configuration."
+  },
+  {
+    "deployment_id": "DEP-506",
+    "deployed_by": "E004",
+    "timestamp": "2026-06-11T14:30:00Z",
+    "environment": "production",
+    "service": "acmepay-api",
+    "action": "DEPLOY",
+    "commit_hash": "c004a5",
+    "status": "SUCCESS",
+    "notes": "Updated deployment scripts and container execution permissions."
+  },
+  {
+    "deployment_id": "DEP-507",
+    "deployed_by": "E004",
+    "timestamp": "2026-06-17T22:15:00Z",
+    "environment": "production",
+    "service": "acmepay-deployments",
+    "action": "DEPLOY",
+    "commit_hash": "c003a6",
+    "status": "SUCCESS",
+    "notes": "Manual promotion of canary release after Argo Rollouts timeout."
+  },
+  {
+    "deployment_id": "DEP-508",
+    "deployed_by": "E003",
+    "timestamp": "2026-06-20T10:00:00Z",
+    "environment": "staging",
+    "service": "acmepay-db",
+    "action": "DEPLOY",
+    "commit_hash": "c003a2",
+    "status": "SUCCESS",
+    "notes": "Staging DB recovery harness validation deployment."
+  },
+  {
+    "deployment_id": "DEP-509",
+    "deployed_by": "E002",
+    "timestamp": "2024-04-02T17:00:00Z",
+    "environment": "production",
+    "service": "acmepay-reconciliation",
+    "action": "DEPLOY",
+    "commit_hash": "c002a3",
+    "status": "SUCCESS",
+    "notes": "[Legacy] Initial release of ledger transaction hashing audit worker."
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "doc_id": "DOC-601",
+    "author_id": "E003",
+    "last_modified_by": "E003",
+    "created_at": "2026-04-16T10:00:00Z",
+    "updated_at": "2026-05-11T09:00:00Z",
+    "doc_type": "Runbook",
+    "title": "PostgreSQL Database Point-In-Time Recovery (PITR) & Disaster Recovery Runbook",
+    "service": "acmepay-db",
+    "content_summary": "Step-by-step operational instructions for restoring PostgreSQL primary DB from WAL archive S3 backups during severe corruption or hardware failure.",
+    "filepath": "docs/runbooks/db_disaster_recovery.md"
+  },
+  {
+    "doc_id": "DOC-602",
+    "author_id": "E004",
+    "last_modified_by": "E004",
+    "created_at": "2026-05-05T14:00:00Z",
+    "updated_at": "2026-05-23T11:00:00Z",
+    "doc_type": "Runbook",
+    "title": "Automated Canary Deployment & Emergency Rollback Procedures",
+    "service": "acmepay-deployments",
+    "content_summary": "Guide to executing zero-downtime blue-green deployments, canary monitoring, and automated emergency rollback scripts.",
+    "filepath": "docs/runbooks/deployment_rollback_guide.md"
+  },
+  {
+    "doc_id": "DOC-603",
+    "author_id": "E001",
+    "last_modified_by": "E001",
+    "created_at": "2026-04-28T09:00:00Z",
+    "updated_at": "2026-05-03T16:00:00Z",
+    "doc_type": "Architecture RFC",
+    "title": "AcmePay High-Throughput API Gateway Architecture v2",
+    "service": "acmepay-api",
+    "content_summary": "Architecture RFC defining v2 intent routing, idempotency key verification, rate limiting, and payout payload schemas.",
+    "filepath": "docs/architecture/api_gateway_v2_design.md"
+  },
+  {
+    "doc_id": "DOC-604",
+    "author_id": "E002",
+    "last_modified_by": "E002",
+    "created_at": "2024-02-12T11:00:00Z",
+    "updated_at": "2024-04-05T15:00:00Z",
+    "doc_type": "Runbook",
+    "title": "[Legacy] Bank Statement MT940 Parser Operational Manual",
+    "service": "acmepay-reconciliation",
+    "content_summary": "Manual operational procedures for parsing end-of-day bank statement feeds and resolving parsing exceptions.",
+    "filepath": "docs/runbooks/legacy_bank_parser_ops.md"
+  },
+  {
+    "doc_id": "DOC-605",
+    "author_id": "E004",
+    "last_modified_by": "E005",
+    "created_at": "2026-05-20T10:00:00Z",
+    "updated_at": "2026-06-04T14:00:00Z",
+    "doc_type": "Runbook",
+    "title": "AcmePay On-Call Incident Triage & Escalation Standard Operating Procedure",
+    "service": "acmepay-incidents",
+    "content_summary": "SOP for triage, PagerDuty routing, severity classification, and postmortem creation for production payment outages.",
+    "filepath": "docs/runbooks/incident_triage_sop.md"
+  },
+  {
+    "doc_id": "DOC-606",
+    "author_id": "E005",
+    "last_modified_by": "E005",
+    "created_at": "2026-05-26T13:00:00Z",
+    "updated_at": "2026-06-07T10:00:00Z",
+    "doc_type": "Design Doc",
+    "title": "Merchant Chargeback & Dispute Settlement Design",
+    "service": "acmepay-reconciliation",
+    "content_summary": "Technical design doc for matching dispute transaction events against merchant reserve accounts.",
+    "filepath": "docs/architecture/dispute_settlement_design.md"
+  }
+]

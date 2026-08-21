@@ -1,0 +1,162 @@
+[
+  {
+    "review_id": "REV-201",
+    "pr_id": "PR-101",
+    "reviewer_id": "E002",
+    "timestamp": "2026-05-02T11:15:00Z",
+    "state": "APPROVED",
+    "comments": [
+      "Looks good. Code structure for intent routing is clean."
+    ]
+  },
+  {
+    "review_id": "REV-202",
+    "pr_id": "PR-101",
+    "reviewer_id": "E005",
+    "timestamp": "2026-05-02T11:40:00Z",
+    "state": "APPROVED",
+    "comments": [
+      "Verified path validation logic. LGTM."
+    ]
+  },
+  {
+    "review_id": "REV-203",
+    "pr_id": "PR-102",
+    "reviewer_id": "E005",
+    "timestamp": "2026-06-01T11:00:00Z",
+    "state": "APPROVED",
+    "comments": [
+      "Multi-currency rate conversion handling looks robust."
+    ]
+  },
+  {
+    "review_id": "REV-204",
+    "pr_id": "PR-102",
+    "reviewer_id": "E002",
+    "timestamp": "2026-06-01T14:20:00Z",
+    "state": "CHANGES_REQUESTED",
+    "comments": [
+      "Please add edge case check for negative exchange rates."
+    ]
+  },
+  {
+    "review_id": "REV-205",
+    "pr_id": "PR-103",
+    "reviewer_id": "E005",
+    "timestamp": "2026-06-08T17:00:00Z",
+    "state": "APPROVED",
+    "comments": [
+      "Kafka offset management is correct."
+    ]
+  },
+  {
+    "review_id": "REV-206",
+    "pr_id": "PR-104",
+    "reviewer_id": "E002",
+    "timestamp": "2026-06-15T13:00:00Z",
+    "state": "APPROVED",
+    "comments": [
+      "Notification rate limiting is well implemented."
+    ]
+  },
+  {
+    "review_id": "REV-207",
+    "pr_id": "PR-106",
+    "reviewer_id": "E001",
+    "timestamp": "2026-05-12T10:30:00Z",
+    "state": "APPROVED",
+    "comments": [
+      "Redis TTL setup looks good for idempotency keys."
+    ]
+  },
+  {
+    "review_id": "REV-208",
+    "pr_id": "PR-106",
+    "reviewer_id": "E005",
+    "timestamp": "2026-05-12T11:10:00Z",
+    "state": "APPROVED",
+    "comments": [
+      "Great addition to protect API endpoints."
+    ]
+  },
+  {
+    "review_id": "REV-209",
+    "pr_id": "PR-107",
+    "reviewer_id": "E004",
+    "timestamp": "2026-04-15T11:45:00Z",
+    "state": "APPROVED",
+    "comments": [
+      "WAL archiving script tested in staging. Works as expected for PITR."
+    ]
+  },
+  {
+    "review_id": "REV-210",
+    "pr_id": "PR-108",
+    "reviewer_id": "E004",
+    "timestamp": "2026-05-19T14:00:00Z",
+    "state": "APPROVED",
+    "comments": [
+      "Helm chart templates match production cluster specs."
+    ]
+  },
+  {
+    "review_id": "REV-211",
+    "pr_id": "PR-109",
+    "reviewer_id": "E003",
+    "timestamp": "2026-05-04T14:30:00Z",
+    "state": "APPROVED",
+    "comments": [
+      "Prometheus query threshold logic is accurate."
+    ]
+  },
+  {
+    "review_id": "REV-212",
+    "pr_id": "PR-110",
+    "reviewer_id": "E001",
+    "timestamp": "2026-05-03T13:00:00Z",
+    "state": "APPROVED",
+    "comments": [
+      "Regex for IBAN format is compliant with ISO standards."
+    ]
+  },
+  {
+    "review_id": "REV-213",
+    "pr_id": "PR-110",
+    "reviewer_id": "E002",
+    "timestamp": "2026-05-03T14:15:00Z",
+    "state": "APPROVED",
+    "comments": [
+      "Checked error messages. LGTM."
+    ]
+  },
+  {
+    "review_id": "REV-214",
+    "pr_id": "PR-111",
+    "reviewer_id": "E001",
+    "timestamp": "2026-05-30T13:30:00Z",
+    "state": "APPROVED",
+    "comments": [
+      "Dispute workflow state machine matches functional spec."
+    ]
+  },
+  {
+    "review_id": "REV-215",
+    "pr_id": "PR-112",
+    "reviewer_id": "E001",
+    "timestamp": "2026-06-18T18:15:00Z",
+    "state": "APPROVED",
+    "comments": [
+      "Cursor decoding logic tested with large datasets."
+    ]
+  },
+  {
+    "review_id": "REV-216",
+    "pr_id": "PR-112",
+    "reviewer_id": "E002",
+    "timestamp": "2026-06-18T19:00:00Z",
+    "state": "APPROVED",
+    "comments": [
+      "Clean pagination design."
+    ]
+  }
+]

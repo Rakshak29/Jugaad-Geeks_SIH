@@ -1,0 +1,226 @@
+[
+  {
+    "jira_id": "PAY-101",
+    "reporter_id": "E001",
+    "assignee_id": "E001",
+    "timestamp": "2026-05-01T08:30:00Z",
+    "updated_at": "2026-05-05T17:00:00Z",
+    "issue_type": "Story",
+    "summary": "Implement AcmePay API Gateway v2 routing layer",
+    "description": "Design and implement API router for handling high throughput payment intents.",
+    "status": "Done",
+    "components": [
+      "api-gateway"
+    ]
+  },
+  {
+    "jira_id": "PAY-102",
+    "reporter_id": "E001",
+    "assignee_id": "E002",
+    "timestamp": "2026-05-11T10:00:00Z",
+    "updated_at": "2026-05-13T12:00:00Z",
+    "issue_type": "Task",
+    "summary": "Setup API idempotency storage in Redis",
+    "description": "Configure Redis cluster for storing 24-hour idempotency tokens.",
+    "status": "Done",
+    "components": [
+      "api-gateway"
+    ]
+  },
+  {
+    "jira_id": "PAY-103",
+    "reporter_id": "E001",
+    "assignee_id": "E001",
+    "timestamp": "2026-06-01T08:00:00Z",
+    "updated_at": "2026-06-05T16:00:00Z",
+    "issue_type": "Story",
+    "summary": "Reconciliation engine multi-currency matching logic",
+    "description": "Engine should support automated matching for USD, EUR, and GBP settlements.",
+    "status": "Done",
+    "components": [
+      "reconciliation-engine"
+    ]
+  },
+  {
+    "jira_id": "PAY-104",
+    "reporter_id": "E001",
+    "assignee_id": "E001",
+    "timestamp": "2026-06-07T14:00:00Z",
+    "updated_at": "2026-06-10T11:00:00Z",
+    "issue_type": "Task",
+    "summary": "Bank settlement stream consumer implementation",
+    "description": "Consume Kafka stream events from external banking adapters.",
+    "status": "Done",
+    "components": [
+      "reconciliation-engine"
+    ]
+  },
+  {
+    "jira_id": "PAY-105",
+    "reporter_id": "E002",
+    "assignee_id": "E002",
+    "timestamp": "2024-02-01T09:00:00Z",
+    "updated_at": "2024-02-15T15:00:00Z",
+    "issue_type": "Task",
+    "summary": "[Legacy] Build bank statement parser component",
+    "description": "Parse incoming MT940 file feeds from partner banks.",
+    "status": "Done",
+    "components": [
+      "reconciliation-engine"
+    ]
+  },
+  {
+    "jira_id": "PAY-106",
+    "reporter_id": "E002",
+    "assignee_id": "E002",
+    "timestamp": "2024-03-20T10:00:00Z",
+    "updated_at": "2024-04-02T16:00:00Z",
+    "issue_type": "Task",
+    "summary": "[Legacy] Ledger hash calculation for daily audit",
+    "description": "Create SHA-256 hash digest for end-of-day reconciliation summaries.",
+    "status": "Done",
+    "components": [
+      "reconciliation-engine"
+    ]
+  },
+  {
+    "jira_id": "PAY-107",
+    "reporter_id": "E003",
+    "assignee_id": "E003",
+    "timestamp": "2026-04-05T09:30:00Z",
+    "updated_at": "2026-04-18T18:00:00Z",
+    "issue_type": "Task",
+    "summary": "PostgreSQL automated WAL archiving and PITR procedure",
+    "description": "Configure S3 bucket storage for WAL logs and write restoration script.",
+    "status": "Done",
+    "components": [
+      "database-recovery"
+    ]
+  },
+  {
+    "jira_id": "PAY-108",
+    "reporter_id": "E003",
+    "assignee_id": "E003",
+    "timestamp": "2026-05-05T11:00:00Z",
+    "updated_at": "2026-05-09T14:00:00Z",
+    "issue_type": "Task",
+    "summary": "Database integrity verification script",
+    "description": "Develop automated integrity checker for payment transaction tables.",
+    "status": "Done",
+    "components": [
+      "database-recovery"
+    ]
+  },
+  {
+    "jira_id": "PAY-109",
+    "reporter_id": "E003",
+    "assignee_id": "E003",
+    "timestamp": "2026-05-17T08:30:00Z",
+    "updated_at": "2026-05-20T17:00:00Z",
+    "issue_type": "Story",
+    "summary": "Blue-green deployment pipeline setup in Kubernetes",
+    "description": "Configure Argo Rollouts and Helm charts for blue-green release strategy.",
+    "status": "Done",
+    "components": [
+      "deployment-system"
+    ]
+  },
+  {
+    "jira_id": "PAY-110",
+    "reporter_id": "E004",
+    "assignee_id": "E004",
+    "timestamp": "2026-04-08T10:00:00Z",
+    "updated_at": "2026-04-12T16:00:00Z",
+    "issue_type": "Task",
+    "summary": "GitHub Actions CI/CD staging pipeline upgrade",
+    "description": "Optimize build container caching and automated integration testing.",
+    "status": "Done",
+    "components": [
+      "deployment-system"
+    ]
+  },
+  {
+    "jira_id": "PAY-111",
+    "reporter_id": "E004",
+    "assignee_id": "E004",
+    "timestamp": "2026-05-01T13:00:00Z",
+    "updated_at": "2026-05-05T11:00:00Z",
+    "issue_type": "Bug",
+    "summary": "Automated deployment rollback on error spike",
+    "description": "Deployment pipeline must trigger automatic rollback if 5xx errors breach 2%.",
+    "status": "Done",
+    "components": [
+      "deployment-system"
+    ]
+  },
+  {
+    "jira_id": "PAY-112",
+    "reporter_id": "E004",
+    "assignee_id": "E004",
+    "timestamp": "2026-05-19T09:00:00Z",
+    "updated_at": "2026-05-21T15:00:00Z",
+    "issue_type": "Task",
+    "summary": "PagerDuty escalation matrix configuration",
+    "description": "Setup on-call rotation and automated escalation paths for SEV-1 incidents.",
+    "status": "Done",
+    "components": [
+      "incident-response"
+    ]
+  },
+  {
+    "jira_id": "PAY-113",
+    "reporter_id": "E005",
+    "assignee_id": "E005",
+    "timestamp": "2026-05-01T14:00:00Z",
+    "updated_at": "2026-05-04T10:00:00Z",
+    "issue_type": "Story",
+    "summary": "Merchant payout request payload validation",
+    "description": "Validate international payment routing codes before accepting payouts.",
+    "status": "Done",
+    "components": [
+      "api-gateway"
+    ]
+  },
+  {
+    "jira_id": "PAY-114",
+    "reporter_id": "E005",
+    "assignee_id": "E005",
+    "timestamp": "2026-05-28T11:00:00Z",
+    "updated_at": "2026-06-01T09:00:00Z",
+    "issue_type": "Story",
+    "summary": "Chargeback and dispute reconciliation worker",
+    "description": "Process chargeback dispute files and update payment transaction status.",
+    "status": "Done",
+    "components": [
+      "reconciliation-engine"
+    ]
+  },
+  {
+    "jira_id": "PAY-115",
+    "reporter_id": "E005",
+    "assignee_id": "E005",
+    "timestamp": "2026-06-15T10:00:00Z",
+    "updated_at": "2026-06-19T12:00:00Z",
+    "issue_type": "Task",
+    "summary": "Transaction history query API pagination support",
+    "description": "Implement cursor pagination to prevent API timeouts on heavy merchant queries.",
+    "status": "Done",
+    "components": [
+      "api-gateway"
+    ]
+  },
+  {
+    "jira_id": "PAY-116",
+    "reporter_id": "E004",
+    "assignee_id": "E004",
+    "timestamp": "2023-09-01T10:00:00Z",
+    "updated_at": "2023-09-05T11:00:00Z",
+    "issue_type": "Task",
+    "summary": "[Legacy] Crypto vault KMS configuration review",
+    "description": "Review KMS key rotation settings for legacy encryption service.",
+    "status": "Done",
+    "components": [
+      "crypto-vault"
+    ]
+  }
+]

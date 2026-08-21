@@ -1,0 +1,155 @@
+[
+  {
+    "issue_id": "GH-ISSUE-301",
+    "author_id": "E001",
+    "assignee_id": "E002",
+    "timestamp": "2026-05-01T09:00:00Z",
+    "title": "Investigate idempotency key collisions under high concurrency",
+    "description": "Redis lock timeout might cause intermittent 409 responses.",
+    "status": "CLOSED",
+    "labels": [
+      "bug",
+      "api"
+    ]
+  },
+  {
+    "issue_id": "GH-ISSUE-302",
+    "author_id": "E002",
+    "assignee_id": "E001",
+    "timestamp": "2026-05-15T10:30:00Z",
+    "title": "Support multi-currency transaction matching in reconciliation",
+    "description": "Need to align settlement files with FX rate provider.",
+    "status": "CLOSED",
+    "labels": [
+      "enhancement",
+      "reconciliation"
+    ]
+  },
+  {
+    "issue_id": "GH-ISSUE-303",
+    "author_id": "E003",
+    "assignee_id": "E003",
+    "timestamp": "2026-04-10T14:00:00Z",
+    "title": "Automate database disaster recovery PITR script",
+    "description": "Manual restoration takes > 45 mins. Target is < 15 mins.",
+    "status": "CLOSED",
+    "labels": [
+      "database",
+      "platform"
+    ]
+  },
+  {
+    "issue_id": "GH-ISSUE-304",
+    "author_id": "E004",
+    "assignee_id": "E004",
+    "timestamp": "2026-05-02T11:00:00Z",
+    "title": "Automated deployment rollback on elevated error rate",
+    "description": "Implement automated rollback trigger when canary error rate spikes.",
+    "status": "CLOSED",
+    "labels": [
+      "deployment",
+      "sre"
+    ]
+  },
+  {
+    "issue_id": "GH-ISSUE-305",
+    "author_id": "E005",
+    "assignee_id": "E005",
+    "timestamp": "2026-05-02T16:00:00Z",
+    "title": "Add payload validation for merchant payout endpoint",
+    "description": "Invalid account numbers causing upstream gateway rejections.",
+    "status": "CLOSED",
+    "labels": [
+      "api",
+      "validation"
+    ]
+  },
+  {
+    "issue_id": "GH-ISSUE-306",
+    "author_id": "E001",
+    "assignee_id": "E005",
+    "timestamp": "2026-05-28T09:15:00Z",
+    "title": "Dispute reconciliation record generation",
+    "description": "Disputed transactions need dedicated matching records.",
+    "status": "CLOSED",
+    "labels": [
+      "reconciliation"
+    ]
+  },
+  {
+    "issue_id": "GH-ISSUE-307",
+    "author_id": "E004",
+    "assignee_id": "E003",
+    "timestamp": "2026-05-18T13:00:00Z",
+    "title": "Blue-green deployment capability for AcmePay API",
+    "description": "Enable zero-downtime deployment for core API service.",
+    "status": "CLOSED",
+    "labels": [
+      "deployment",
+      "kubernetes"
+    ]
+  },
+  {
+    "issue_id": "GH-ISSUE-308",
+    "author_id": "E002",
+    "assignee_id": "E002",
+    "timestamp": "2024-03-01T10:00:00Z",
+    "title": "[Legacy] Bank statement parser MT940 support",
+    "description": "Initial parser specification for MT940 bank feeds.",
+    "status": "CLOSED",
+    "labels": [
+      "reconciliation"
+    ]
+  },
+  {
+    "issue_id": "GH-ISSUE-309",
+    "author_id": "E001",
+    "assignee_id": "E001",
+    "timestamp": "2026-06-10T11:00:00Z",
+    "title": "Alerting for reconciliation variance exceeding threshold",
+    "description": "Notify finance and platform team when variance exceeds cutoff.",
+    "status": "CLOSED",
+    "labels": [
+      "reconciliation",
+      "alerting"
+    ]
+  },
+  {
+    "issue_id": "GH-ISSUE-310",
+    "author_id": "E005",
+    "assignee_id": "E005",
+    "timestamp": "2026-06-16T14:30:00Z",
+    "title": "Pagination support for transaction list endpoint",
+    "description": "Large queries timing out due to unpaginated responses.",
+    "status": "CLOSED",
+    "labels": [
+      "api",
+      "performance"
+    ]
+  },
+  {
+    "issue_id": "GH-ISSUE-311",
+    "author_id": "E004",
+    "assignee_id": "E004",
+    "timestamp": "2024-11-01T09:00:00Z",
+    "title": "Audit legacy KMS vault module",
+    "description": "Check if legacy crypto vault service requires maintenance.",
+    "status": "OPEN",
+    "labels": [
+      "crypto",
+      "tech-debt"
+    ]
+  },
+  {
+    "issue_id": "GH-ISSUE-312",
+    "author_id": "E003",
+    "assignee_id": "E003",
+    "timestamp": "2026-06-01T10:00:00Z",
+    "title": "PostgreSQL connection pool tuning during failover",
+    "description": "Avoid connection pool exhaustion during DB master switchover.",
+    "status": "CLOSED",
+    "labels": [
+      "database"
+    ]
+  }
+]

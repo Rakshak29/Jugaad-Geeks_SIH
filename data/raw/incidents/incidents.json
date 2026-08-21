@@ -1,0 +1,185 @@
+[
+  {
+    "incident_id": "INC-401",
+    "reporter_id": "E004",
+    "lead_responder_id": "E003",
+    "participants": [
+      "E003",
+      "E004"
+    ],
+    "timestamp": "2026-05-10T02:15:00Z",
+    "resolved_at": "2026-05-10T03:30:00Z",
+    "title": "PostgreSQL master node storage corruption and table lock",
+    "severity": "SEV-1",
+    "service": "acmepay-db",
+    "summary": "Database disk array failure caused table corruption on transaction primary node.",
+    "root_cause": "Hardware disk failure on primary DB node.",
+    "action_items": [
+      "Executed WAL restore script pitr_restore.go to point-in-time recovery",
+      "Verified transaction table consistency",
+      "Updated DB failover runbook"
+    ]
+  },
+  {
+    "incident_id": "INC-402",
+    "reporter_id": "E001",
+    "lead_responder_id": "E004",
+    "participants": [
+      "E004",
+      "E001"
+    ],
+    "timestamp": "2026-05-22T14:10:00Z",
+    "resolved_at": "2026-05-22T14:45:00Z",
+    "title": "API Gateway 504 Gateway Timeout spike following release",
+    "severity": "SEV-2",
+    "service": "acmepay-api",
+    "summary": "Upstream timeout breach caused 504 errors on payment gateway endpoint.",
+    "root_cause": "Unindexed database query in payment status check handler.",
+    "action_items": [
+      "Rolled back API deployment to previous release tag",
+      "Added index on transaction_id column",
+      "Updated rate limit configuration"
+    ]
+  },
+  {
+    "incident_id": "INC-403",
+    "reporter_id": "E002",
+    "lead_responder_id": "E005",
+    "participants": [
+      "E005",
+      "E004"
+    ],
+    "timestamp": "2026-06-03T19:00:00Z",
+    "resolved_at": "2026-06-03T20:15:00Z",
+    "title": "Merchant payout webhook delivery failure backlog",
+    "severity": "SEV-2",
+    "service": "acmepay-api",
+    "summary": "Webhook queue worker stalled due to connection pool exhaustion.",
+    "root_cause": "Partner API endpoint slow response times without connection timeout.",
+    "action_items": [
+      "Restarted webhook worker pods",
+      "Enforced 5s timeout on external HTTP client",
+      "Flushed dead letter queue"
+    ]
+  },
+  {
+    "incident_id": "INC-404",
+    "reporter_id": "E004",
+    "lead_responder_id": "E004",
+    "participants": [
+      "E004",
+      "E003"
+    ],
+    "timestamp": "2026-06-09T08:30:00Z",
+    "resolved_at": "2026-06-09T09:10:00Z",
+    "title": "Kubernetes ingress controller certificate renewal failure",
+    "severity": "SEV-2",
+    "service": "acmepay-ingress",
+    "summary": "TLS certificate expiration warning triggered automated incident alert.",
+    "root_cause": "Let's Encrypt cert-manager API rate limit.",
+    "action_items": [
+      "Manually renewed wildcard TLS cert",
+      "Configured DNS-01 challenge backup provider"
+    ]
+  },
+  {
+    "incident_id": "INC-405",
+    "reporter_id": "E001",
+    "lead_responder_id": "E005",
+    "participants": [
+      "E005",
+      "E001"
+    ],
+    "timestamp": "2026-06-14T11:20:00Z",
+    "resolved_at": "2026-06-14T12:00:00Z",
+    "title": "Partner bank settlement file format mismatch",
+    "severity": "SEV-3",
+    "service": "acmepay-reconciliation",
+    "summary": "Partner bank introduced unannounced header column in daily settlement CSV.",
+    "root_cause": "Vendor format change without schema notification.",
+    "action_items": [
+      "Patched dispute parser schema",
+      "Added automated header validation check"
+    ]
+  },
+  {
+    "incident_id": "INC-406",
+    "reporter_id": "E001",
+    "lead_responder_id": "E002",
+    "participants": [
+      "E002",
+      "E001"
+    ],
+    "timestamp": "2024-03-12T16:00:00Z",
+    "resolved_at": "2024-03-12T17:30:00Z",
+    "title": "[Legacy] Bank statement parser memory leak during midnight batch processing",
+    "severity": "SEV-2",
+    "service": "acmepay-reconciliation",
+    "summary": "Large MT940 statement file caused OOM kill on parser worker.",
+    "root_cause": "Buffering entire 500MB statement file into memory.",
+    "action_items": [
+      "Implemented streaming line-by-line parser",
+      "Increased worker memory limit"
+    ]
+  },
+  {
+    "incident_id": "INC-407",
+    "reporter_id": "E003",
+    "lead_responder_id": "E004",
+    "participants": [
+      "E004",
+      "E003"
+    ],
+    "timestamp": "2026-06-17T22:00:00Z",
+    "resolved_at": "2026-06-17T22:35:00Z",
+    "title": "Canary deployment traffic shifting stalling at 10%",
+    "severity": "SEV-3",
+    "service": "acmepay-deployments",
+    "summary": "Argo Rollouts controller failed to promote canary release automatically.",
+    "root_cause": "Metric provider query timeout during latency check.",
+    "action_items": [
+      "Manually promoted release",
+      "Adjusted Prometheus query evaluation window"
+    ]
+  },
+  {
+    "incident_id": "INC-408",
+    "reporter_id": "E004",
+    "lead_responder_id": "E003",
+    "participants": [
+      "E003",
+      "E004"
+    ],
+    "timestamp": "2026-06-21T04:00:00Z",
+    "resolved_at": "2026-06-21T04:40:00Z",
+    "title": "PostgreSQL read replica replication lag breach (>60s)",
+    "severity": "SEV-2",
+    "service": "acmepay-db",
+    "summary": "Heavy analytical query on read replica caused replication slot delay.",
+    "root_cause": "Long-running report query blocking WAL apply worker.",
+    "action_items": [
+      "Terminated offending analytical backend query",
+      "Isolated analytics reporting to dedicated read pool"
+    ]
+  },
+  {
+    "incident_id": "INC-409",
+    "reporter_id": "E005",
+    "lead_responder_id": "E005",
+    "participants": [
+      "E005",
+      "E001"
+    ],
+    "timestamp": "2026-06-24T15:30:00Z",
+    "resolved_at": "2026-06-24T16:10:00Z",
+    "title": "High HTTP 429 rate on merchant payment intent API",
+    "severity": "SEV-3",
+    "service": "acmepay-api",
+    "summary": "Legitimate high-volume merchant triggered false positive rate limit.",
+    "root_cause": "Static IP rate limit bucket shared across multi-tenant API key.",
+    "action_items": [
+      "Updated rate limit key from IP to API key identifier",
+      "Flushed Redis rate limit bucket"
+    ]
+  }
+]
