@@ -1,0 +1,12 @@
+# Core Database & ORM
+SQLAlchemy>=2.0.0
+psycopg2-binary>=2.9.0
+
+# Database Migrations
+alembic>=1.13.0
+
+# Environment Configuration
+python-dotenv>=1.0.0
+
+# Testing
+pytest>=8.0.0
