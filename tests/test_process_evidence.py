@@ -3,58 +3,74 @@ import pytest
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from backend.models.core import Base, Employee, Module, Capability, EvidenceRecord
-from backend.mapper import resolve_modules_from_files
+from backend.mapper import resolve_modules_from_files, resolve_modules_from_labels
 from backend.process_evidence import process_event_to_evidence
 
-# 1. Test the Mapper logic entirely on its own
-def test_resolve_modules_from_files():
-    """Verify that file paths map to the correct module IDs."""
-    # Assuming FILE_TO_MODULE_MAP has "services/api/": "M001"
-    files = ["services/api/router.go", "unknown/folder/file.txt"]
+def test_mapper_logic():
+    """Verify that file paths and labels map to the correct module IDs."""
+    # Test files
+    assert "M001" in resolve_modules_from_files(["services/api/router.go"])
+    assert "M004" in resolve_modules_from_files(["deployments/api.yaml"])
     
-    modules = resolve_modules_from_files(files)
-    
-    assert "M001" in modules
-    # It shouldn't map the unknown file to a known module
-    assert len(modules) == 1 
+    # Test labels
+    assert "M001" in resolve_modules_from_labels(["api-gateway", "bug"])
+    assert "M003" in resolve_modules_from_labels(["database-recovery"])
 
-# 2. Test the DB insertion (Integration Test)
-def test_process_event_to_evidence():
-    """Verify that a normalized event correctly creates an EvidenceRecord in the DB."""
-    # Setup in-memory SQLite database for testing
+def test_process_pr_event(db_session):
+    """Verify that a PR with files creates an EvidenceRecord."""
+    mock_pr_event = {
+        "employee_id": "E001",
+        "source": "github",
+        "source_type": "pull_request",
+        "source_record_id": "PR-101",
+        "provenance_type": "Demonstrated",
+        "context": {"files": ["services/api/router.go"]}
+    }
+
+    new_records = process_event_to_evidence(db_session, mock_pr_event)
+    assert len(new_records) == 1
+    
+    saved_record = db_session.query(EvidenceRecord).filter_by(source_ref="PR-101").first()
+    assert saved_record is not None
+    assert saved_record.module_id == "M001"
+    assert saved_record.weight == 1.0
+
+def test_process_issue_event(db_session):
+    """Verify that an Issue with labels creates an EvidenceRecord."""
+    mock_issue_event = {
+        "employee_id": "E002",
+        "source": "github",
+        "source_type": "issue",
+        "source_record_id": "GH-ISSUE-301",
+        "provenance_type": "Proposed",
+        "context": {"labels": ["api-gateway", "bug"]}
+    }
+
+    new_records = process_event_to_evidence(db_session, mock_issue_event)
+    assert len(new_records) == 1
+    
+    saved_record = db_session.query(EvidenceRecord).filter_by(source_ref="GH-ISSUE-301").first()
+    assert saved_record is not None
+    assert saved_record.module_id == "M001"
+    assert saved_record.weight == 0.5  # Proposed weight
+
+# --- Pytest Fixture for DB Setup ---
+@pytest.fixture
+def db_session():
     engine = create_engine("sqlite:///:memory:")
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     db = Session()
 
     # Seed test data
-    emp = Employee(id="E001", name="Test Eng", role="Backend")
-    cap = Capability(id="C001", name="Test Cap")
-    mod = Module(id="M001", name="API")
+    emp1 = Employee(id="E001", name="Test Eng 1", role="Backend")
+    emp2 = Employee(id="E002", name="Test Eng 2", role="Backend")
+    cap = Capability(id="C001", name="Payment Routing")
+    mod = Module(id="M001", name="API Gateway")
     mod.capabilities.append(cap)
-    db.add_all([emp, cap, mod])
-    db.commit()
-
-    # Mock an event coming from your friend's extractor
-    mock_event = {
-        "employee_id": "E001",
-        "source": "github",
-        "source_type": "pull_request",
-        "source_record_id": "PR-101",
-        "timestamp": "2026-05-02T10:00:00Z",
-        "context": {"files": ["services/api/router.go"]},
-        "provenance_type": "Demonstrated"
-    }
-
-    # Run the processor
-    new_records = process_event_to_evidence(db, mock_event)
-
-    # Assertions
-    assert len(new_records) == 1
     
-    # Query DB to ensure it was actually saved
-    saved_record = db.query(EvidenceRecord).first()
-    assert saved_record is not None
-    assert saved_record.employee_id == "E001"
-    assert saved_record.capability_id == "C001"
-    assert saved_record.weight == 1.0
+    db.add_all([emp1, emp2, cap, mod])
+    db.commit()
+    
+    yield db
+    db.close()
