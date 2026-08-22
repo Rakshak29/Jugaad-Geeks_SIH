@@ -1,0 +1,27 @@
+[
+  {
+    "id": "C001",
+    "name": "API Logic",
+    "description": "Designing, implementing, and maintaining backend API logic for application services."
+  },
+  {
+    "id": "C002",
+    "name": "Payment Reconciliation",
+    "description": "Handling payment verification, transaction matching, and reconciliation of payment records."
+  },
+  {
+    "id": "C003",
+    "name": "Database Recovery",
+    "description": "Recovering databases and restoring data availability after failures, corruption, or incidents."
+  },
+  {
+    "id": "C004",
+    "name": "Incident Response",
+    "description": "Investigating, troubleshooting, and resolving production incidents and service disruptions."
+  },
+  {
+    "id": "C005",
+    "name": "Deployment & Rollback",
+    "description": "Deploying software changes safely and rolling back releases when deployment issues occur."
+  }
+]

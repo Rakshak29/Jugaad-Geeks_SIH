@@ -1,0 +1,22 @@
+[
+  {
+    "id": "S001",
+    "name": "Payments Platform",
+    "description": "Core payment processing and settlement services for AcmePay."
+  },
+  {
+    "id": "S002",
+    "name": "Data & Reliability Infrastructure",
+    "description": "Database reliability, recovery, and data integrity systems."
+  },
+  {
+    "id": "S003",
+    "name": "Platform Operations",
+    "description": "Deployment automation and incident response infrastructure."
+  },
+  {
+    "id": "S004",
+    "name": "Security & Cryptography",
+    "description": "Legacy encryption and key management services."
+  }
+]

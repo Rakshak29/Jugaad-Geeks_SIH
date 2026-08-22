@@ -1,0 +1,56 @@
+[
+  {
+    "id": "M001",
+    "name": "API Gateway",
+    "service_id": "S001",
+    "description": "Routing, auth middleware, rate limiting, and webhook validation for payment intent APIs.",
+    "capability_ids": ["C001"],
+    "jira_component": "api-gateway",
+    "path_prefixes": ["services/api/"]
+  },
+  {
+    "id": "M002",
+    "name": "Reconciliation Engine",
+    "service_id": "S001",
+    "description": "Matches, verifies, and reconciles payment transactions across currencies and settlement sources.",
+    "capability_ids": ["C002"],
+    "jira_component": "reconciliation-engine",
+    "path_prefixes": ["services/reconciliation/"]
+  },
+  {
+    "id": "M003",
+    "name": "Database Recovery",
+    "service_id": "S002",
+    "description": "WAL archiving, point-in-time recovery, and integrity verification for production databases.",
+    "capability_ids": ["C003"],
+    "jira_component": "database-recovery",
+    "path_prefixes": ["db/recovery/", "db/config/"]
+  },
+  {
+    "id": "M004",
+    "name": "Deployment System",
+    "service_id": "S003",
+    "description": "CI/CD pipelines, blue-green deployment, canary releases, and automated rollback.",
+    "capability_ids": ["C005"],
+    "jira_component": "deployment-system",
+    "path_prefixes": ["deployments/", ".github/workflows/"]
+  },
+  {
+    "id": "M005",
+    "name": "Incident Response",
+    "service_id": "S003",
+    "description": "On-call routing, escalation, and incident management tooling.",
+    "capability_ids": ["C004"],
+    "jira_component": "incident-response",
+    "path_prefixes": ["config/pagerduty_routing.json"]
+  },
+  {
+    "id": "M006",
+    "name": "Crypto Vault",
+    "service_id": "S004",
+    "description": "Legacy KMS-based key vault wrapper. No actively tracked capability — orphaned/legacy module.",
+    "capability_ids": [],
+    "jira_component": "crypto-vault",
+    "path_prefixes": ["services/crypto/"]
+  }
+]

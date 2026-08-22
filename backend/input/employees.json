@@ -1,0 +1,27 @@
+[
+  {
+    "id": "E001",
+    "name": "Rahul",
+    "role": "Backend Engineer"
+  },
+  {
+    "id": "E002",
+    "name": "Amit",
+    "role": "Backend Engineer"
+  },
+  {
+    "id": "E003",
+    "name": "Sneha",
+    "role": "Platform Engineer"
+  },
+  {
+    "id": "E004",
+    "name": "Karan",
+    "role": "SRE"
+  },
+  {
+    "id": "E005",
+    "name": "Priya",
+    "role": "Backend Engineer"
+  }
+]

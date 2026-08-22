@@ -1,0 +1,202 @@
+[
+  {
+    "id": "EV001",
+    "employee_id": "E001",
+    "module_id": "M001",
+    "type": "Git Commit",
+    "source": "GitHub",
+    "description": "Implemented API authentication middleware and webhook signature validation for payment intent gateway",
+    "score": 0.90,
+    "date": "2026-08-20"
+  },
+  {
+    "id": "EV002",
+    "employee_id": "E001",
+    "module_id": "M003",
+    "type": "Jira Ticket",
+    "source": "Jira",
+    "description": "Performed point-in-time recovery on production PostgreSQL cluster after WAL corruption incident",
+    "score": 0.85,
+    "date": "2026-07-02"
+  },
+  {
+    "id": "EV003",
+    "employee_id": "E001",
+    "module_id": "M003",
+    "type": "Git Commit",
+    "source": "GitHub",
+    "description": "Added integrity verification checks and WAL archiving improvements for database recovery pipeline",
+    "score": 0.70,
+    "date": "2025-06-12"
+  },
+  {
+    "id": "EV004",
+    "employee_id": "E001",
+    "module_id": "M003",
+    "type": "Jira Ticket",
+    "source": "Jira",
+    "description": "Restored data availability for reconciliation database after storage failure, verified checksum integrity",
+    "score": 0.80,
+    "date": "2024-03-01"
+  },
+  {
+    "id": "EV005",
+    "employee_id": "E002",
+    "module_id": "M002",
+    "type": "Git Commit",
+    "source": "GitHub",
+    "description": "Built transaction matching logic for multi-currency payment reconciliation engine",
+    "score": 0.88,
+    "date": "2026-08-15"
+  },
+  {
+    "id": "EV006",
+    "employee_id": "E002",
+    "module_id": "M002",
+    "type": "Jira Ticket",
+    "source": "Jira",
+    "description": "Fixed settlement mismatch bug causing incorrect reconciliation of payment records across sources",
+    "score": 0.75,
+    "date": "2026-05-10"
+  },
+  {
+    "id": "EV007",
+    "employee_id": "E002",
+    "module_id": "M001",
+    "type": "Git Commit",
+    "source": "GitHub",
+    "description": "Added rate limiting rules to API gateway for payment intent endpoints",
+    "score": 0.60,
+    "date": "2025-11-20"
+  },
+  {
+    "id": "EV008",
+    "employee_id": "E003",
+    "module_id": "M004",
+    "type": "Git Commit",
+    "source": "GitHub",
+    "description": "Configured canary release pipeline and automated rollback for blue-green deployment system",
+    "score": 0.92,
+    "date": "2026-08-10"
+  },
+  {
+    "id": "EV009",
+    "employee_id": "E003",
+    "module_id": "M004",
+    "type": "Jira Ticket",
+    "source": "Jira",
+    "description": "Investigated failed deployment and executed rollback to previous stable release",
+    "score": 0.78,
+    "date": "2026-06-01"
+  },
+  {
+    "id": "EV010",
+    "employee_id": "E003",
+    "module_id": "M005",
+    "type": "Jira Ticket",
+    "source": "Jira",
+    "description": "Led incident response for on-call escalation, coordinated troubleshooting of production outage",
+    "score": 0.82,
+    "date": "2026-04-18"
+  },
+  {
+    "id": "EV011",
+    "employee_id": "E004",
+    "module_id": "M005",
+    "type": "Jira Ticket",
+    "source": "Jira",
+    "description": "Resolved production incident causing service disruption, wrote postmortem and escalation update",
+    "score": 0.95,
+    "date": "2026-08-18"
+  },
+  {
+    "id": "EV012",
+    "employee_id": "E004",
+    "module_id": "M005",
+    "type": "Git Commit",
+    "source": "GitHub",
+    "description": "Updated PagerDuty escalation routing configuration for on-call incident response",
+    "score": 0.65,
+    "date": "2026-02-05"
+  },
+  {
+    "id": "EV013",
+    "employee_id": "E004",
+    "module_id": "M004",
+    "type": "Jira Ticket",
+    "source": "Jira",
+    "description": "Performed emergency rollback of a bad deployment that caused downstream service disruption",
+    "score": 0.72,
+    "date": "2024-09-14"
+  },
+  {
+    "id": "EV014",
+    "employee_id": "E005",
+    "module_id": "M002",
+    "type": "Git Commit",
+    "source": "GitHub",
+    "description": "Implemented reconciliation verification job for payment transaction matching across settlement sources",
+    "score": 0.83,
+    "date": "2026-08-05"
+  },
+  {
+    "id": "EV015",
+    "employee_id": "E005",
+    "module_id": "M001",
+    "type": "Git Commit",
+    "source": "GitHub",
+    "description": "Refactored backend API logic and auth middleware for payment intent service",
+    "score": 0.77,
+    "date": "2026-03-22"
+  },
+  {
+    "id": "EV016",
+    "employee_id": "E005",
+    "module_id": "M003",
+    "type": "Jira Ticket",
+    "source": "Jira",
+    "description": "Assisted with point-in-time recovery verification for a corrupted database partition",
+    "score": 0.55,
+    "date": "2023-12-01"
+  },
+  {
+    "id": "EV017",
+    "employee_id": "E001",
+    "module_id": "M006",
+    "type": "Git Commit",
+    "source": "GitHub",
+    "description": "Minor cleanup of legacy KMS key vault wrapper, no functional changes",
+    "score": 0.40,
+    "date": "2026-01-15"
+  },
+  {
+    "id": "EV018",
+    "employee_id": "E002",
+    "module_id": "M002",
+    "type": "Jira Ticket",
+    "source": "Jira",
+    "description": "Handled edge case in currency conversion during transaction reconciliation, added audit logging",
+    "score": 0.70,
+    "date": "2026-01-28"
+  },
+  {
+    "id": "EV019",
+    "employee_id": "E003",
+    "module_id": "M001",
+    "type": "Git Commit",
+    "source": "GitHub",
+    "description": "Added webhook validation retries to API gateway routing logic",
+    "score": 0.58,
+    "date": "2025-08-09"
+  },
+  {
+    "id": "EV020",
+    "employee_id": "E004",
+    "module_id": "M003",
+    "type": "Jira Ticket",
+    "source": "Jira",
+    "description": "Supported database recovery effort during a multi-hour outage, restored WAL archive integrity",
+    "score": 0.68,
+    "date": "2025-10-30"
+  }
+]
