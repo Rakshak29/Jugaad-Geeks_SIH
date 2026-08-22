@@ -1,0 +1,1086 @@
+[
+  {
+    "employee_id": "E001",
+    "skill_id": "C001",
+    "skill_name": "API Logic",
+    "credibility_score": 0.748533,
+    "evidence_band": "MODERATE",
+    "evidence_count": 1,
+    "first_demonstrated": "2026-08-20",
+    "last_demonstrated": "2026-08-20",
+    "timeline": [
+      {
+        "date": "2026-08-20",
+        "evidence_id": "EV001",
+        "contribution": 0.748533
+      }
+    ],
+    "supporting_evidence": [
+      {
+        "evidence_id": "EV001",
+        "source": "GitHub",
+        "evidence_type": "Git Commit",
+        "module_id": "M001",
+        "date": "2026-08-20",
+        "original_score": 0.9,
+        "skill_relevance": 0.8333,
+        "match_type": "structural+textual",
+        "matched_terms": [
+          "api",
+          "gateway",
+          "middleware",
+          "webhook"
+        ],
+        "recency_factor": 0.998084,
+        "evidence_contribution": 0.748533,
+        "warnings": []
+      }
+    ],
+    "calculation_details": {
+      "aggregation_method": "noisy_or",
+      "formula": "score = 1 - product(1 - contribution_i)",
+      "contribution_values": [
+        0.748533
+      ],
+      "band_thresholds": [
+        [
+          "HIGH",
+          0.75
+        ],
+        [
+          "MODERATE",
+          0.45
+        ],
+        [
+          "LOW",
+          0.2
+        ],
+        [
+          "NONE",
+          0.0
+        ]
+      ]
+    }
+  },
+  {
+    "employee_id": "E001",
+    "skill_id": "C003",
+    "skill_name": "Database Recovery",
+    "credibility_score": 0.974309,
+    "evidence_band": "HIGH",
+    "evidence_count": 4,
+    "first_demonstrated": "2024-03-01",
+    "last_demonstrated": "2026-08-22",
+    "timeline": [
+      {
+        "date": "2024-03-01",
+        "evidence_id": "EV004",
+        "contribution": 0.280171
+      },
+      {
+        "date": "2025-06-12",
+        "evidence_id": "EV003",
+        "contribution": 0.383998
+      },
+      {
+        "date": "2026-07-02",
+        "evidence_id": "EV002",
+        "contribution": 0.699025
+      },
+      {
+        "date": "2026-08-22",
+        "evidence_id": "EV099_NEW",
+        "contribution": 0.8075
+      }
+    ],
+    "supporting_evidence": [
+      {
+        "evidence_id": "EV004",
+        "source": "Jira",
+        "evidence_type": "Jira Ticket",
+        "module_id": "M003",
+        "date": "2024-03-01",
+        "original_score": 0.8,
+        "skill_relevance": 0.8333,
+        "match_type": "structural+textual",
+        "matched_terms": [
+          "availability",
+          "data",
+          "database",
+          "integrity"
+        ],
+        "recency_factor": 0.420274,
+        "evidence_contribution": 0.280171,
+        "warnings": []
+      },
+      {
+        "evidence_id": "EV003",
+        "source": "GitHub",
+        "evidence_type": "Git Commit",
+        "module_id": "M003",
+        "date": "2025-06-12",
+        "original_score": 0.7,
+        "skill_relevance": 0.8333,
+        "match_type": "structural+textual",
+        "matched_terms": [
+          "database",
+          "integrity",
+          "recovery",
+          "wal"
+        ],
+        "recency_factor": 0.658308,
+        "evidence_contribution": 0.383998,
+        "warnings": []
+      },
+      {
+        "evidence_id": "EV002",
+        "source": "Jira",
+        "evidence_type": "Jira Ticket",
+        "module_id": "M003",
+        "date": "2026-07-02",
+        "original_score": 0.85,
+        "skill_relevance": 0.8636,
+        "match_type": "structural+textual",
+        "matched_terms": [
+          "corruption",
+          "point-in-time",
+          "postgresql",
+          "recovery",
+          "wal"
+        ],
+        "recency_factor": 0.952272,
+        "evidence_contribution": 0.699025,
+        "warnings": []
+      },
+      {
+        "evidence_id": "EV099_NEW",
+        "source": "GitHub",
+        "evidence_type": "Pull Request",
+        "module_id": "M003",
+        "date": "2026-08-22",
+        "original_score": 0.95,
+        "skill_relevance": 0.85,
+        "match_type": "structural+textual",
+        "matched_terms": [
+          "pitr",
+          "postgresql",
+          "recovery",
+          "wal"
+        ],
+        "recency_factor": 1.0,
+        "evidence_contribution": 0.8075,
+        "warnings": []
+      }
+    ],
+    "calculation_details": {
+      "aggregation_method": "noisy_or",
+      "formula": "score = 1 - product(1 - contribution_i)",
+      "contribution_values": [
+        0.699025,
+        0.383998,
+        0.280171,
+        0.8075
+      ],
+      "band_thresholds": [
+        [
+          "HIGH",
+          0.75
+        ],
+        [
+          "MODERATE",
+          0.45
+        ],
+        [
+          "LOW",
+          0.2
+        ],
+        [
+          "NONE",
+          0.0
+        ]
+      ]
+    }
+  },
+  {
+    "employee_id": "E001",
+    "skill_id": "C004",
+    "skill_name": "Incident Response",
+    "credibility_score": 0.176618,
+    "evidence_band": "NONE",
+    "evidence_count": 1,
+    "first_demonstrated": "2026-07-02",
+    "last_demonstrated": "2026-07-02",
+    "timeline": [
+      {
+        "date": "2026-07-02",
+        "evidence_id": "EV002",
+        "contribution": 0.176618
+      }
+    ],
+    "supporting_evidence": [
+      {
+        "evidence_id": "EV002",
+        "source": "Jira",
+        "evidence_type": "Jira Ticket",
+        "module_id": "M003",
+        "date": "2026-07-02",
+        "original_score": 0.85,
+        "skill_relevance": 0.2182,
+        "match_type": "textual_only",
+        "matched_terms": [
+          "incident",
+          "production"
+        ],
+        "recency_factor": 0.952272,
+        "evidence_contribution": 0.176618,
+        "warnings": []
+      }
+    ],
+    "calculation_details": {
+      "aggregation_method": "noisy_or",
+      "formula": "score = 1 - product(1 - contribution_i)",
+      "contribution_values": [
+        0.176618
+      ],
+      "band_thresholds": [
+        [
+          "HIGH",
+          0.75
+        ],
+        [
+          "MODERATE",
+          0.45
+        ],
+        [
+          "LOW",
+          0.2
+        ],
+        [
+          "NONE",
+          0.0
+        ]
+      ]
+    }
+  },
+  {
+    "employee_id": "E002",
+    "skill_id": "C001",
+    "skill_name": "API Logic",
+    "credibility_score": 0.366664,
+    "evidence_band": "LOW",
+    "evidence_count": 1,
+    "first_demonstrated": "2025-11-20",
+    "last_demonstrated": "2025-11-20",
+    "timeline": [
+      {
+        "date": "2025-11-20",
+        "evidence_id": "EV007",
+        "contribution": 0.366664
+      }
+    ],
+    "supporting_evidence": [
+      {
+        "evidence_id": "EV007",
+        "source": "GitHub",
+        "evidence_type": "Git Commit",
+        "module_id": "M001",
+        "date": "2025-11-20",
+        "original_score": 0.6,
+        "skill_relevance": 0.7955,
+        "match_type": "structural+textual",
+        "matched_terms": [
+          "api",
+          "gateway"
+        ],
+        "recency_factor": 0.768205,
+        "evidence_contribution": 0.366664,
+        "warnings": []
+      }
+    ],
+    "calculation_details": {
+      "aggregation_method": "noisy_or",
+      "formula": "score = 1 - product(1 - contribution_i)",
+      "contribution_values": [
+        0.366664
+      ],
+      "band_thresholds": [
+        [
+          "HIGH",
+          0.75
+        ],
+        [
+          "MODERATE",
+          0.45
+        ],
+        [
+          "LOW",
+          0.2
+        ],
+        [
+          "NONE",
+          0.0
+        ]
+      ]
+    }
+  },
+  {
+    "employee_id": "E002",
+    "skill_id": "C002",
+    "skill_name": "Payment Reconciliation",
+    "credibility_score": 0.941548,
+    "evidence_band": "HIGH",
+    "evidence_count": 3,
+    "first_demonstrated": "2026-01-28",
+    "last_demonstrated": "2026-08-15",
+    "timeline": [
+      {
+        "date": "2026-01-28",
+        "evidence_id": "EV018",
+        "contribution": 0.470078
+      },
+      {
+        "date": "2026-05-10",
+        "evidence_id": "EV006",
+        "contribution": 0.570814
+      },
+      {
+        "date": "2026-08-15",
+        "evidence_id": "EV005",
+        "contribution": 0.742996
+      }
+    ],
+    "supporting_evidence": [
+      {
+        "evidence_id": "EV018",
+        "source": "Jira",
+        "evidence_type": "Jira Ticket",
+        "module_id": "M002",
+        "date": "2026-01-28",
+        "original_score": 0.7,
+        "skill_relevance": 0.8182,
+        "match_type": "structural+textual",
+        "matched_terms": [
+          "currency",
+          "reconciliation",
+          "transaction"
+        ],
+        "recency_factor": 0.820752,
+        "evidence_contribution": 0.470078,
+        "warnings": []
+      },
+      {
+        "evidence_id": "EV006",
+        "source": "Jira",
+        "evidence_type": "Jira Ticket",
+        "module_id": "M002",
+        "date": "2026-05-10",
+        "original_score": 0.75,
+        "skill_relevance": 0.8409,
+        "match_type": "structural+textual",
+        "matched_terms": [
+          "payment",
+          "reconciliation",
+          "records",
+          "settlement"
+        ],
+        "recency_factor": 0.905085,
+        "evidence_contribution": 0.570814,
+        "warnings": []
+      },
+      {
+        "evidence_id": "EV005",
+        "source": "GitHub",
+        "evidence_type": "Git Commit",
+        "module_id": "M002",
+        "date": "2026-08-15",
+        "original_score": 0.88,
+        "skill_relevance": 0.85,
+        "match_type": "structural+textual",
+        "matched_terms": [
+          "matching",
+          "payment",
+          "reconciliation",
+          "transaction"
+        ],
+        "recency_factor": 0.99331,
+        "evidence_contribution": 0.742996,
+        "warnings": []
+      }
+    ],
+    "calculation_details": {
+      "aggregation_method": "noisy_or",
+      "formula": "score = 1 - product(1 - contribution_i)",
+      "contribution_values": [
+        0.742996,
+        0.570814,
+        0.470078
+      ],
+      "band_thresholds": [
+        [
+          "HIGH",
+          0.75
+        ],
+        [
+          "MODERATE",
+          0.45
+        ],
+        [
+          "LOW",
+          0.2
+        ],
+        [
+          "NONE",
+          0.0
+        ]
+      ]
+    }
+  },
+  {
+    "employee_id": "E003",
+    "skill_id": "C001",
+    "skill_name": "API Logic",
+    "credibility_score": 0.353199,
+    "evidence_band": "LOW",
+    "evidence_count": 1,
+    "first_demonstrated": "2025-08-09",
+    "last_demonstrated": "2025-08-09",
+    "timeline": [
+      {
+        "date": "2025-08-09",
+        "evidence_id": "EV019",
+        "contribution": 0.353199
+      }
+    ],
+    "supporting_evidence": [
+      {
+        "evidence_id": "EV019",
+        "source": "GitHub",
+        "evidence_type": "Git Commit",
+        "module_id": "M001",
+        "date": "2025-08-09",
+        "original_score": 0.58,
+        "skill_relevance": 0.875,
+        "match_type": "structural+textual",
+        "matched_terms": [
+          "api",
+          "gateway",
+          "logic",
+          "routing",
+          "webhook"
+        ],
+        "recency_factor": 0.695958,
+        "evidence_contribution": 0.353199,
+        "warnings": []
+      }
+    ],
+    "calculation_details": {
+      "aggregation_method": "noisy_or",
+      "formula": "score = 1 - product(1 - contribution_i)",
+      "contribution_values": [
+        0.353199
+      ],
+      "band_thresholds": [
+        [
+          "HIGH",
+          0.75
+        ],
+        [
+          "MODERATE",
+          0.45
+        ],
+        [
+          "LOW",
+          0.2
+        ],
+        [
+          "NONE",
+          0.0
+        ]
+      ]
+    }
+  },
+  {
+    "employee_id": "E003",
+    "skill_id": "C005",
+    "skill_name": "Deployment & Rollback",
+    "credibility_score": 0.921463,
+    "evidence_band": "HIGH",
+    "evidence_count": 2,
+    "first_demonstrated": "2026-06-01",
+    "last_demonstrated": "2026-08-10",
+    "timeline": [
+      {
+        "date": "2026-06-01",
+        "evidence_id": "EV009",
+        "contribution": 0.59484
+      },
+      {
+        "date": "2026-08-10",
+        "evidence_id": "EV008",
+        "contribution": 0.806158
+      }
+    ],
+    "supporting_evidence": [
+      {
+        "evidence_id": "EV009",
+        "source": "Jira",
+        "evidence_type": "Jira Ticket",
+        "module_id": "M004",
+        "date": "2026-06-01",
+        "original_score": 0.78,
+        "skill_relevance": 0.825,
+        "match_type": "structural+textual",
+        "matched_terms": [
+          "deployment",
+          "release",
+          "rollback"
+        ],
+        "recency_factor": 0.924382,
+        "evidence_contribution": 0.59484,
+        "warnings": []
+      },
+      {
+        "evidence_id": "EV008",
+        "source": "GitHub",
+        "evidence_type": "Git Commit",
+        "module_id": "M004",
+        "date": "2026-08-10",
+        "original_score": 0.92,
+        "skill_relevance": 0.8864,
+        "match_type": "structural+textual",
+        "matched_terms": [
+          "blue-green",
+          "canary",
+          "deployment",
+          "pipeline",
+          "release",
+          "rollback"
+        ],
+        "recency_factor": 0.988559,
+        "evidence_contribution": 0.806158,
+        "warnings": []
+      }
+    ],
+    "calculation_details": {
+      "aggregation_method": "noisy_or",
+      "formula": "score = 1 - product(1 - contribution_i)",
+      "contribution_values": [
+        0.806158,
+        0.59484
+      ],
+      "band_thresholds": [
+        [
+          "HIGH",
+          0.75
+        ],
+        [
+          "MODERATE",
+          0.45
+        ],
+        [
+          "LOW",
+          0.2
+        ],
+        [
+          "NONE",
+          0.0
+        ]
+      ]
+    }
+  },
+  {
+    "employee_id": "E003",
+    "skill_id": "C004",
+    "skill_name": "Incident Response",
+    "credibility_score": 0.660622,
+    "evidence_band": "MODERATE",
+    "evidence_count": 1,
+    "first_demonstrated": "2026-04-18",
+    "last_demonstrated": "2026-04-18",
+    "timeline": [
+      {
+        "date": "2026-04-18",
+        "evidence_id": "EV010",
+        "contribution": 0.660622
+      }
+    ],
+    "supporting_evidence": [
+      {
+        "evidence_id": "EV010",
+        "source": "Jira",
+        "evidence_type": "Jira Ticket",
+        "module_id": "M005",
+        "date": "2026-04-18",
+        "original_score": 0.82,
+        "skill_relevance": 0.9091,
+        "match_type": "structural+textual",
+        "matched_terms": [
+          "escalation",
+          "incident",
+          "on-call",
+          "outage",
+          "production",
+          "response",
+          "troubleshooting"
+        ],
+        "recency_factor": 0.886192,
+        "evidence_contribution": 0.660622,
+        "warnings": []
+      }
+    ],
+    "calculation_details": {
+      "aggregation_method": "noisy_or",
+      "formula": "score = 1 - product(1 - contribution_i)",
+      "contribution_values": [
+        0.660622
+      ],
+      "band_thresholds": [
+        [
+          "HIGH",
+          0.75
+        ],
+        [
+          "MODERATE",
+          0.45
+        ],
+        [
+          "LOW",
+          0.2
+        ],
+        [
+          "NONE",
+          0.0
+        ]
+      ]
+    }
+  },
+  {
+    "employee_id": "E004",
+    "skill_id": "C003",
+    "skill_name": "Database Recovery",
+    "credibility_score": 0.426621,
+    "evidence_band": "LOW",
+    "evidence_count": 1,
+    "first_demonstrated": "2025-10-30",
+    "last_demonstrated": "2025-10-30",
+    "timeline": [
+      {
+        "date": "2025-10-30",
+        "evidence_id": "EV020",
+        "contribution": 0.426621
+      }
+    ],
+    "supporting_evidence": [
+      {
+        "evidence_id": "EV020",
+        "source": "Jira",
+        "evidence_type": "Jira Ticket",
+        "module_id": "M003",
+        "date": "2025-10-30",
+        "original_score": 0.68,
+        "skill_relevance": 0.8333,
+        "match_type": "structural+textual",
+        "matched_terms": [
+          "database",
+          "integrity",
+          "recovery",
+          "wal"
+        ],
+        "recency_factor": 0.75289,
+        "evidence_contribution": 0.426621,
+        "warnings": []
+      }
+    ],
+    "calculation_details": {
+      "aggregation_method": "noisy_or",
+      "formula": "score = 1 - product(1 - contribution_i)",
+      "contribution_values": [
+        0.426621
+      ],
+      "band_thresholds": [
+        [
+          "HIGH",
+          0.75
+        ],
+        [
+          "MODERATE",
+          0.45
+        ],
+        [
+          "LOW",
+          0.2
+        ],
+        [
+          "NONE",
+          0.0
+        ]
+      ]
+    }
+  },
+  {
+    "employee_id": "E004",
+    "skill_id": "C005",
+    "skill_name": "Deployment & Rollback",
+    "credibility_score": 0.290767,
+    "evidence_band": "LOW",
+    "evidence_count": 1,
+    "first_demonstrated": "2024-09-14",
+    "last_demonstrated": "2024-09-14",
+    "timeline": [
+      {
+        "date": "2024-09-14",
+        "evidence_id": "EV013",
+        "contribution": 0.290767
+      }
+    ],
+    "supporting_evidence": [
+      {
+        "evidence_id": "EV013",
+        "source": "Jira",
+        "evidence_type": "Jira Ticket",
+        "module_id": "M004",
+        "date": "2024-09-14",
+        "original_score": 0.72,
+        "skill_relevance": 0.7955,
+        "match_type": "structural+textual",
+        "matched_terms": [
+          "deployment",
+          "rollback"
+        ],
+        "recency_factor": 0.507659,
+        "evidence_contribution": 0.290767,
+        "warnings": []
+      }
+    ],
+    "calculation_details": {
+      "aggregation_method": "noisy_or",
+      "formula": "score = 1 - product(1 - contribution_i)",
+      "contribution_values": [
+        0.290767
+      ],
+      "band_thresholds": [
+        [
+          "HIGH",
+          0.75
+        ],
+        [
+          "MODERATE",
+          0.45
+        ],
+        [
+          "LOW",
+          0.2
+        ],
+        [
+          "NONE",
+          0.0
+        ]
+      ]
+    }
+  },
+  {
+    "employee_id": "E004",
+    "skill_id": "C004",
+    "skill_name": "Incident Response",
+    "credibility_score": 0.916206,
+    "evidence_band": "HIGH",
+    "evidence_count": 3,
+    "first_demonstrated": "2024-09-14",
+    "last_demonstrated": "2026-08-18",
+    "timeline": [
+      {
+        "date": "2024-09-14",
+        "evidence_id": "EV013",
+        "contribution": 0.079755
+      },
+      {
+        "date": "2026-02-05",
+        "evidence_id": "EV012",
+        "contribution": 0.470397
+      },
+      {
+        "date": "2026-08-18",
+        "evidence_id": "EV011",
+        "contribution": 0.828068
+      }
+    ],
+    "supporting_evidence": [
+      {
+        "evidence_id": "EV013",
+        "source": "Jira",
+        "evidence_type": "Jira Ticket",
+        "module_id": "M004",
+        "date": "2024-09-14",
+        "original_score": 0.72,
+        "skill_relevance": 0.2182,
+        "match_type": "textual_only",
+        "matched_terms": [
+          "disruption",
+          "service"
+        ],
+        "recency_factor": 0.507659,
+        "evidence_contribution": 0.079755,
+        "warnings": []
+      },
+      {
+        "evidence_id": "EV012",
+        "source": "GitHub",
+        "evidence_type": "Git Commit",
+        "module_id": "M005",
+        "date": "2026-02-05",
+        "original_score": 0.65,
+        "skill_relevance": 0.875,
+        "match_type": "structural+textual",
+        "matched_terms": [
+          "escalation",
+          "incident",
+          "on-call",
+          "pagerduty",
+          "response"
+        ],
+        "recency_factor": 0.827072,
+        "evidence_contribution": 0.470397,
+        "warnings": []
+      },
+      {
+        "evidence_id": "EV011",
+        "source": "Jira",
+        "evidence_type": "Jira Ticket",
+        "module_id": "M005",
+        "date": "2026-08-18",
+        "original_score": 0.95,
+        "skill_relevance": 0.875,
+        "match_type": "structural+textual",
+        "matched_terms": [
+          "disruption",
+          "escalation",
+          "incident",
+          "postmortem",
+          "production",
+          "service"
+        ],
+        "recency_factor": 0.996172,
+        "evidence_contribution": 0.828068,
+        "warnings": []
+      }
+    ],
+    "calculation_details": {
+      "aggregation_method": "noisy_or",
+      "formula": "score = 1 - product(1 - contribution_i)",
+      "contribution_values": [
+        0.828068,
+        0.470397,
+        0.079755
+      ],
+      "band_thresholds": [
+        [
+          "HIGH",
+          0.75
+        ],
+        [
+          "MODERATE",
+          0.45
+        ],
+        [
+          "LOW",
+          0.2
+        ],
+        [
+          "NONE",
+          0.0
+        ]
+      ]
+    }
+  },
+  {
+    "employee_id": "E005",
+    "skill_id": "C001",
+    "skill_name": "API Logic",
+    "credibility_score": 0.574231,
+    "evidence_band": "MODERATE",
+    "evidence_count": 1,
+    "first_demonstrated": "2026-03-22",
+    "last_demonstrated": "2026-03-22",
+    "timeline": [
+      {
+        "date": "2026-03-22",
+        "evidence_id": "EV015",
+        "contribution": 0.574231
+      }
+    ],
+    "supporting_evidence": [
+      {
+        "evidence_id": "EV015",
+        "source": "GitHub",
+        "evidence_type": "Git Commit",
+        "module_id": "M001",
+        "date": "2026-03-22",
+        "original_score": 0.77,
+        "skill_relevance": 0.8636,
+        "match_type": "structural+textual",
+        "matched_terms": [
+          "api",
+          "auth",
+          "backend",
+          "logic",
+          "middleware"
+        ],
+        "recency_factor": 0.863542,
+        "evidence_contribution": 0.574231,
+        "warnings": []
+      }
+    ],
+    "calculation_details": {
+      "aggregation_method": "noisy_or",
+      "formula": "score = 1 - product(1 - contribution_i)",
+      "contribution_values": [
+        0.574231
+      ],
+      "band_thresholds": [
+        [
+          "HIGH",
+          0.75
+        ],
+        [
+          "MODERATE",
+          0.45
+        ],
+        [
+          "LOW",
+          0.2
+        ],
+        [
+          "NONE",
+          0.0
+        ]
+      ]
+    }
+  },
+  {
+    "employee_id": "E005",
+    "skill_id": "C003",
+    "skill_name": "Database Recovery",
+    "credibility_score": 0.176522,
+    "evidence_band": "NONE",
+    "evidence_count": 1,
+    "first_demonstrated": "2023-12-01",
+    "last_demonstrated": "2023-12-01",
+    "timeline": [
+      {
+        "date": "2023-12-01",
+        "evidence_id": "EV016",
+        "contribution": 0.176522
+      }
+    ],
+    "supporting_evidence": [
+      {
+        "evidence_id": "EV016",
+        "source": "Jira",
+        "evidence_type": "Jira Ticket",
+        "module_id": "M003",
+        "date": "2023-12-01",
+        "original_score": 0.55,
+        "skill_relevance": 0.8333,
+        "match_type": "structural+textual",
+        "matched_terms": [
+          "database",
+          "point-in-time",
+          "recovery"
+        ],
+        "recency_factor": 0.385155,
+        "evidence_contribution": 0.176522,
+        "warnings": []
+      }
+    ],
+    "calculation_details": {
+      "aggregation_method": "noisy_or",
+      "formula": "score = 1 - product(1 - contribution_i)",
+      "contribution_values": [
+        0.176522
+      ],
+      "band_thresholds": [
+        [
+          "HIGH",
+          0.75
+        ],
+        [
+          "MODERATE",
+          0.45
+        ],
+        [
+          "LOW",
+          0.2
+        ],
+        [
+          "NONE",
+          0.0
+        ]
+      ]
+    }
+  },
+  {
+    "employee_id": "E005",
+    "skill_id": "C002",
+    "skill_name": "Payment Reconciliation",
+    "credibility_score": 0.723816,
+    "evidence_band": "MODERATE",
+    "evidence_count": 1,
+    "first_demonstrated": "2026-08-05",
+    "last_demonstrated": "2026-08-05",
+    "timeline": [
+      {
+        "date": "2026-08-05",
+        "evidence_id": "EV014",
+        "contribution": 0.723816
+      }
+    ],
+    "supporting_evidence": [
+      {
+        "evidence_id": "EV014",
+        "source": "GitHub",
+        "evidence_type": "Git Commit",
+        "module_id": "M002",
+        "date": "2026-08-05",
+        "original_score": 0.83,
+        "skill_relevance": 0.8864,
+        "match_type": "structural+textual",
+        "matched_terms": [
+          "matching",
+          "payment",
+          "reconciliation",
+          "settlement",
+          "transaction",
+          "verification"
+        ],
+        "recency_factor": 0.983831,
+        "evidence_contribution": 0.723816,
+        "warnings": []
+      }
+    ],
+    "calculation_details": {
+      "aggregation_method": "noisy_or",
+      "formula": "score = 1 - product(1 - contribution_i)",
+      "contribution_values": [
+        0.723816
+      ],
+      "band_thresholds": [
+        [
+          "HIGH",
+          0.75
+        ],
+        [
+          "MODERATE",
+          0.45
+        ],
+        [
+          "LOW",
+          0.2
+        ],
+        [
+          "NONE",
+          0.0
+        ]
+      ]
+    }
+  }
+]
