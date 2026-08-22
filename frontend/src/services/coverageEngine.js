@@ -1,8 +1,7 @@
-// Evidence Band Logic
 export const calculateEvidenceBand = (strength, recency) => {
   const score = strength * recency;
-  if (score >= 0.8) return 'HIGH';
-  if (score >= 0.5) return 'MODERATE';
+  if (score >= 0.75) return 'HIGH';
+  if (score >= 0.45) return 'MODERATE';
   if (score >= 0.2) return 'LOW';
   return 'NONE';
 };
