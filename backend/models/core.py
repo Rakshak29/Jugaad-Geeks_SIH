@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Text, ForeignKey, Table, DateTime, Float
+from sqlalchemy import Column, String, Text, ForeignKey, Table, DateTime, Float, UniqueConstraint
 from sqlalchemy.orm import relationship
 from backend.database import Base
 
@@ -79,6 +79,9 @@ class Capability(Base):
 class EvidenceRecord(Base):
     """A single piece of evidence linking an employee to a capability."""
     __tablename__ = "evidence_records"
+    __table_args__ = (
+        UniqueConstraint("employee_id", "capability_id", "module_id", "source", "source_ref", name="uq_evidence_record_natural_key"),
+    )
 
     id = Column(String(50), primary_key=True)  # e.g. "EV0001"
     employee_id = Column(String(50), ForeignKey("employees.id"), nullable=False)

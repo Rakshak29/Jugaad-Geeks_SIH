@@ -1,4 +1,4 @@
-# backend/process_evidence.py
+import hashlib
 import uuid
 from datetime import datetime, timezone
 from sqlalchemy.orm import Session
@@ -21,8 +21,19 @@ def process_event_to_evidence(db_session: Session, normalized_event: dict) -> li
     source_ref = normalized_event["source_record_id"] 
     
     context = normalized_event.get("context", {})
-    files = context.get("files", [])
-    labels = context.get("labels", [])
+    files = list(context.get("files", []))
+    if context.get("filepath") and context.get("filepath") not in files:
+        files.append(context.get("filepath"))
+
+    labels = list(context.get("labels", []))
+    if context.get("components"):
+        comps = context.get("components")
+        if isinstance(comps, list):
+            labels.extend(comps)
+        elif isinstance(comps, str):
+            labels.append(comps)
+    if context.get("service"):
+        labels.append(str(context.get("service")))
 
     # 2. Parse the timestamp safely
     raw_time = normalized_event.get("timestamp")
@@ -56,7 +67,20 @@ def process_event_to_evidence(db_session: Session, normalized_event: dict) -> li
         # Loop through capabilities linked via `module_capabilities`
         for capability in module.capabilities:
             
-            record_id = f"EV-{uuid.uuid4().hex[:8]}"
+            # Idempotency check: Skip if matching record already exists
+            existing_record = db_session.query(EvidenceRecord).filter_by(
+                employee_id=employee_id,
+                capability_id=capability.id,
+                module_id=module.id,
+                source=source,
+                source_ref=source_ref
+            ).first()
+
+            if existing_record:
+                continue
+
+            raw_key = f"{employee_id}:{capability.id}:{module.id}:{source}:{source_ref}"
+            record_id = f"EV-{hashlib.sha256(raw_key.encode()).hexdigest()[:8]}"
             
             evidence = EvidenceRecord(
                 id=record_id,
@@ -73,5 +97,6 @@ def process_event_to_evidence(db_session: Session, normalized_event: dict) -> li
             new_records.append(evidence)
 
     # 6. Commit all new evidence records
-    db_session.commit()
+    if new_records:
+        db_session.commit()
     return new_records

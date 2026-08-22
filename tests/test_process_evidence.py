@@ -54,6 +54,27 @@ def test_process_issue_event(db_session):
     assert saved_record.module_id == "M001"
     assert saved_record.weight == 0.5  # Proposed weight
 
+def test_process_evidence_idempotency(db_session):
+    """Verify that processing the same event twice produces 0 new records on second run."""
+    mock_pr_event = {
+        "employee_id": "E001",
+        "source": "github",
+        "source_type": "pull_request",
+        "source_record_id": "PR-101",
+        "provenance_type": "Demonstrated",
+        "context": {"files": ["services/api/router.go"]}
+    }
+
+    first_run = process_event_to_evidence(db_session, mock_pr_event)
+    assert len(first_run) == 1
+
+    second_run = process_event_to_evidence(db_session, mock_pr_event)
+    assert len(second_run) == 0
+
+    count = db_session.query(EvidenceRecord).filter_by(source_ref="PR-101").count()
+    assert count == 1
+
+
 # --- Pytest Fixture for DB Setup ---
 @pytest.fixture
 def db_session():

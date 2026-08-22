@@ -61,7 +61,15 @@ LABEL_TO_MODULE_MAP = {
 
     # --- GENERIC LABELS TO IGNORE ---
     "bug": None, 
-    "enhancement": None
+    "enhancement": None,
+
+    # --- SERVICE NAME ALIASES ---
+    "acmepay-api": "M001",
+    "acmepay-ingress": "M001",
+    "acmepay-reconciliation": "M002",
+    "acmepay-db": "M003",
+    "acmepay-deployments": "M004",
+    "acmepay-incidents": "M005"
 }
 
 def resolve_modules_from_files(file_paths: list[str]) -> set[str]:

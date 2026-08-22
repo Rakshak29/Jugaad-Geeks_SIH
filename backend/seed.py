@@ -74,16 +74,27 @@ def seed_database():
         db.commit()
         counts["services"] = db.query(Service).count()
 
-        # Seed Modules
+        # Seed Modules and Module Capabilities
         modules_data = load_json(DATA_CONFIG_DIR / "modules.json")
         for item in modules_data:
-            if not db.query(Module).filter_by(id=item["id"]).first():
-                db.add(Module(
+            module = db.query(Module).filter_by(id=item["id"]).first()
+            if not module:
+                module = Module(
                     id=item["id"],
                     service_id=item.get("service_id"),
                     name=item["name"],
                     description=item.get("description")
-                ))
+                )
+                db.add(module)
+                db.flush()
+
+            # Associate capabilities linked in modules.json
+            cap_ids = item.get("capability_ids", [])
+            for cap_id in cap_ids:
+                cap = db.query(Capability).filter_by(id=cap_id).first()
+                if cap and cap not in module.capabilities:
+                    module.capabilities.append(cap)
+
         db.commit()
         counts["modules"] = db.query(Module).count()
 
