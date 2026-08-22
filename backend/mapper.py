@@ -25,6 +25,7 @@ FILE_TO_MODULE_MAP = {
 
 # Maps GitHub labels / Jira components to Module IDs
 LABEL_TO_MODULE_MAP = {
+    # Original Configs
     "api-gateway": "M001",
     "reconciliation-engine": "M002",
     "database-recovery": "M003",
@@ -32,9 +33,35 @@ LABEL_TO_MODULE_MAP = {
     "incident-response": "M005",
     "crypto-vault": "M006",
     
-    # You can also add aliases here if GitHub issues use shorter labels!
+    # --- ADDED FROM RAW GITHUB ISSUES ---
+    
+    # M001: API Gateway
     "api": "M001", 
-    "bug": None # Ignore generic labels
+    "validation": "M001",
+    "performance": "M001",
+    
+    # M002: Reconciliation Engine
+    "reconciliation": "M002",
+    
+    # M003: Database Recovery
+    "database": "M003",
+    "platform": "M003",
+    
+    # M004: Deployment System
+    "deployment": "M004",
+    "sre": "M004",
+    "kubernetes": "M004",
+    
+    # M005: Incident Response
+    "alerting": "M005",
+    
+    # M006: Crypto Vault (Legacy)
+    "crypto": "M006",
+    "tech-debt": "M006", # From the KMS vault tech debt issue
+
+    # --- GENERIC LABELS TO IGNORE ---
+    "bug": None, 
+    "enhancement": None
 }
 
 def resolve_modules_from_files(file_paths: list[str]) -> set[str]:
