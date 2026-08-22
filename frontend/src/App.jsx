@@ -101,11 +101,6 @@ function App() {
           <div className="navlinks">
             <span className={`navlink ${activeTab === 'dashboard' ? 'active' : ''}`} onClick={() => setActiveTab('dashboard')}>Dashboard</span>
             <span className={`navlink ${activeTab === 'simulation' ? 'active' : ''}`} onClick={() => setActiveTab('simulation')}>Simulation</span>
-            <span className={`navlink ${activeTab === 'impact' ? 'active' : ''}`} onClick={() => setActiveTab('impact')}>Impact</span>
-            <span className={`navlink ${activeTab === 'optimization' ? 'active' : ''}`} onClick={() => setActiveTab('optimization')}>Optimization</span>
-            <span className={`navlink ${activeTab === 'gaps' ? 'active' : ''}`} onClick={() => setActiveTab('gaps')}>Residual Gaps</span>
-            <span className={`navlink ${activeTab === 'transfer' ? 'active' : ''}`} onClick={() => setActiveTab('transfer')}>Knowledge Transfer</span>
-            <span className={`navlink ${activeTab === 'readiness' ? 'active' : ''}`} onClick={() => setActiveTab('readiness')}>Readiness</span>
           </div>
         </div>
         <div className="navbar-right">
@@ -218,11 +213,6 @@ function App() {
               </div>
             )}
 
-            {activeTab !== 'dashboard' && activeTab !== 'simulation' && (
-              <div className="placeholder">
-                {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} analysis — coming in the next milestone.
-              </div>
-            )}
           </div>
         </div>
 
