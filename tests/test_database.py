@@ -58,8 +58,9 @@ def test_seed_data_insertion_and_counts():
         # Core config record counts
         assert db.query(Employee).count() == 5
         assert db.query(Capability).count() == 5
-        assert db.query(Service).count() == 0
-        assert db.query(Module).count() == 0
+        assert db.query(Service).count() == 4
+        assert db.query(Module).count() == 6
+
 
         # Raw telemetry record counts
         assert db.query(RawGitHubCommit).count() == 35

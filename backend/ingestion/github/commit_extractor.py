@@ -42,10 +42,12 @@ def extract_commit_event(raw_commit: Union[Dict[str, Any], Any]) -> Optional[Dic
     context = {
         "message": message,
         "files": files_changed if isinstance(files_changed, list) else [],
+        "files_changed": files_changed if isinstance(files_changed, list) else [],
         "lines_added": lines_added if isinstance(lines_added, int) else 0,
         "lines_deleted": lines_deleted if isinstance(lines_deleted, int) else 0,
         "branch": branch,
     }
+
 
     return {
         "employee_id": str(author_id),
