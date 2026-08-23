@@ -231,13 +231,71 @@ const DetailsPanel = ({ selectedNode, graphData, onClose, simulationState, setSi
             </table>
             <p className="muted" style={{marginTop:10}}>* Click a capability to see lost evidence analysis.</p>
 
-            {selectedCapability && (
-              <div className="evidence-lost-box">
-                <h4>EVIDENCE ANALYSIS</h4>
-                <p><strong>Lost Evidence:</strong> {selectedNode.label} ({simulationState.capabilityAnalysis.find(c=>c.capability_id===selectedCapability).before})</p>
-                <p><strong>Remaining Evidence:</strong> {simulationState.capabilityAnalysis.find(c=>c.capability_id===selectedCapability).after}</p>
-              </div>
-            )}
+            {selectedCapability && (() => {
+              const capAnalysis = simulationState.capabilityAnalysis.find(c => c.capability_id === selectedCapability);
+              const unavailableId = simulationState.unavailableEmployees[0];
+
+              // Lost: the unavailable employee's own link for this capability
+              const lostLink = graphData.links.find(l => {
+                const src = typeof l.source === 'object' ? l.source.id : l.source;
+                const tgt = typeof l.target === 'object' ? l.target.id : l.target;
+                return src === unavailableId && tgt === selectedCapability && l.type === 'HAS_CAPABILITY';
+              });
+              const lostScore = lostLink ? lostLink.data?.evidence_strength : null;
+
+              // Remaining: all OTHER employees who have a link to this capability
+              const remainingLinks = graphData.links.filter(l => {
+                const src = typeof l.source === 'object' ? l.source.id : l.source;
+                const tgt = typeof l.target === 'object' ? l.target.id : l.target;
+                return src !== unavailableId && tgt === selectedCapability && l.type === 'HAS_CAPABILITY';
+              }).map(l => {
+                const src = typeof l.source === 'object' ? l.source.id : l.source;
+                const emp = graphData.nodes.find(n => n.id === src);
+                const score = l.data?.evidence_strength ?? 0;
+                const band = score >= 0.75 ? 'HIGH' : score >= 0.45 ? 'MODERATE' : score >= 0.20 ? 'LOW' : 'NONE';
+                return { name: emp?.label ?? src, score, band };
+              }).sort((a, b) => b.score - a.score);
+
+              const bandColor = b => b === 'HIGH' ? '#4caf50' : b === 'MODERATE' ? '#ff9800' : b === 'LOW' ? '#2196f3' : '#888';
+
+              return (
+                <div className="evidence-lost-box">
+                  <h4>EVIDENCE ANALYSIS — {graphData.nodes.find(n => n.id === selectedCapability)?.label}</h4>
+
+                  <div style={{marginBottom: 10}}>
+                    <strong style={{color: '#f44336'}}>Lost Evidence</strong>
+                    <div style={{marginTop: 4, paddingLeft: 8, borderLeft: '2px solid #f44336'}}>
+                      <span style={{color: '#eee'}}>{selectedNode.label}</span>
+                      {lostScore !== null && (
+                        <span style={{marginLeft: 8, color: '#aaa', fontSize: 12}}>
+                          score: <strong style={{color: '#eee'}}>{lostScore.toFixed(4)}</strong>
+                          {' '}[<span style={{color: bandColor(capAnalysis.before)}}>{capAnalysis.before}</span>]
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
+                  <div>
+                    <strong style={{color: '#4caf50'}}>Remaining Evidence</strong>
+                    {remainingLinks.length === 0 ? (
+                      <p style={{color: '#888', marginTop: 4, fontSize: 13}}>No remaining coverage.</p>
+                    ) : (
+                      <div style={{marginTop: 4, paddingLeft: 8, borderLeft: '2px solid #4caf50'}}>
+                        {remainingLinks.map((r, i) => (
+                          <div key={i} style={{display: 'flex', justifyContent: 'space-between', padding: '3px 0', fontSize: 13}}>
+                            <span style={{color: '#eee'}}>{r.name}</span>
+                            <span style={{color: '#aaa'}}>
+                              score: <strong style={{color: '#eee'}}>{r.score.toFixed(4)}</strong>
+                              {' '}[<span style={{color: bandColor(r.band)}}>{r.band}</span>]
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              );
+            })()}
           </div>
         )}
 
