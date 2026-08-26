@@ -10,8 +10,9 @@ class JiraRecord:
 
 class JiraAdapter:
 
-    def __init__(self, base_url):
+    def __init__(self, base_url, email=None, api_token=None):
         self.base_url = base_url.rstrip("/")
+        self.auth = (email, api_token) if email and api_token else None
 
         self.headers = {
             "Accept": "application/json"
@@ -24,6 +25,7 @@ class JiraAdapter:
         response = requests.get(
             url,
             headers=self.headers,
+            auth=self.auth,
             timeout=30
         )
 
