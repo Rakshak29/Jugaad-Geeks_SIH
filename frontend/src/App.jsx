@@ -14,13 +14,22 @@ function App() {
   const [simulationState, setSimulationState] = useState(null);
   const [selectedEmployeeFilter, setSelectedEmployeeFilter] = useState('');
   
+  const reloadGraphs = async () => {
+    try {
+      const [tech, know] = await Promise.all([
+        fetchTechnicalGraph(),
+        fetchKnowledgeGraph()
+      ]);
+      setTechGraphData(tech);
+      setKnowledgeGraphData(know);
+      // Keep "All Teammates" as default (do not auto-select first employee)
+    } catch (err) {
+      console.error("Failed loading graph data:", err);
+    }
+  };
+
   useEffect(() => {
-    fetchTechnicalGraph().then(setTechGraphData).catch(console.error);
-    fetchKnowledgeGraph().then(data => {
-      setKnowledgeGraphData(data);
-      const emps = data.nodes.filter(n => n.type === 'EMPLOYEE');
-      if (emps.length > 0) setSelectedEmployeeFilter(emps[0].id);
-    }).catch(console.error);
+    reloadGraphs();
   }, []);
 
   const employees = useMemo(() => {
@@ -51,40 +60,79 @@ function App() {
   }, [knowledgeGraphData, capabilities]);
 
   const getFilteredGraphData = () => {
-    if (!knowledgeGraphData || !selectedEmployeeFilter) return knowledgeGraphData;
+    const activeData = activeTab === 'dashboard' ? knowledgeGraphData : techGraphData;
+    if (!activeData || !activeData.nodes) return null;
 
-    const nodes = [];
-    const links = [];
-    const nodeIds = new Set();
-
-    const empNode = knowledgeGraphData.nodes.find(n => n.id === selectedEmployeeFilter);
-    if (empNode) {
-      nodes.push(empNode);
-      nodeIds.add(empNode.id);
+    // Determine the focus ID (either clicked node or selected dropdown filter)
+    let focusId = null;
+    if (selectedNode) {
+      focusId = selectedNode.id;
+    } else if (selectedEmployeeFilter) {
+      focusId = selectedEmployeeFilter;
     }
 
-    knowledgeGraphData.links.forEach(l => {
+    // Default: Show full graph with all teammates and modules
+    if (!focusId) {
+      return activeData;
+    }
+
+    // Match focus node in current graph dataset
+    const matchedNode = activeData.nodes.find(n => 
+      n.id === focusId || 
+      n.id === `employee:${focusId}` || 
+      n.id === `capability:${focusId}` || 
+      n.id === `component:${focusId}` ||
+      n.data?.capability_id === focusId ||
+      n.data?.employee_id === focusId
+    );
+
+    if (!matchedNode) {
+      return activeData;
+    }
+
+    const actualFocusId = matchedNode.id;
+    const connectedNodeIds = new Set([actualFocusId]);
+    const relevantLinks = [];
+
+    activeData.links.forEach(l => {
       const sourceId = typeof l.source === 'object' ? l.source.id : l.source;
       const targetId = typeof l.target === 'object' ? l.target.id : l.target;
 
-      if (sourceId === selectedEmployeeFilter || targetId === selectedEmployeeFilter) {
-        links.push(l);
-        const connectedId = sourceId === selectedEmployeeFilter ? targetId : sourceId;
-        if (!nodeIds.has(connectedId)) {
-          const n = knowledgeGraphData.nodes.find(n => n.id === connectedId);
-          if (n) {
-            nodes.push(n);
-            nodeIds.add(connectedId);
-          }
-        }
+      if (sourceId === actualFocusId || targetId === actualFocusId) {
+        relevantLinks.push(l);
+        connectedNodeIds.add(sourceId);
+        connectedNodeIds.add(targetId);
       }
     });
 
-    return { ...knowledgeGraphData, nodes, links };
+    const relevantNodes = activeData.nodes.filter(n => connectedNodeIds.has(n.id));
+
+    return {
+      ...activeData,
+      nodes: relevantNodes,
+      links: relevantLinks
+    };
   };
 
   const filteredGraphData = getFilteredGraphData();
-  const selectedEmpObj = employees.find(e => e.id === selectedEmployeeFilter);
+  const selectedEmpObj = employees.find(e => e.id === selectedEmployeeFilter || e.id === `employee:${selectedEmployeeFilter}`);
+
+  const handleCapabilityCardClick = (cap) => {
+    const capNodeId = cap.id.startsWith('capability:') ? cap.id : `capability:${cap.id}`;
+    if (selectedNode && selectedNode.id === capNodeId) {
+      // Toggle off
+      setSelectedNode(null);
+    } else {
+      const nodeObj = knowledgeGraphData?.nodes.find(n => n.id === capNodeId || n.id === cap.id) || {
+        id: capNodeId,
+        type: 'CAPABILITY',
+        label: cap.label || cap.name,
+        data: cap.data || { capability_id: cap.id, name: cap.label }
+      };
+      setSelectedNode(nodeObj);
+      setSelectedEmployeeFilter('');
+    }
+  };
 
   return (
     <div className="app-container">
@@ -116,32 +164,44 @@ function App() {
         <div className="shell-scroll">
           <div className="shell">
             
-            {activeTab === 'setup' && <SetupPanel />}
+            {activeTab === 'setup' && (
+              <SetupPanel 
+                onDataIngested={reloadGraphs} 
+                onGoToDashboard={() => setActiveTab('dashboard')} 
+              />
+            )}
             
             {activeTab === 'dashboard' && (
               <div id="tab-dashboard">
                 <div className="page-title">Payment Service</div>
-                <div className="page-meta mono">Team Size: {employees.length} Members &nbsp;·&nbsp; <span>Active Capabilities: {capabilities.length} &nbsp;·&nbsp; Last Scan: 2026-08-21 09:14 UTC</span></div>
+                <div className="page-meta mono">Team Size: {employees.length} Members &nbsp;·&nbsp; <span>Active Capabilities: {capabilities.length} &nbsp;·&nbsp; Live Telemetry Graph</span></div>
 
                 <div className="cap-grid">
                   {capabilities.map(c => {
                     const coveredBy = capabilityCoverage[c.id] || [];
                     const isMissingSelected = simulationState?.type === 'knowledge' && simulationState.unavailableEmployees.includes(selectedEmployeeFilter) && coveredBy.includes(selectedEmpObj?.label);
                     
-                    let status = "Maintained";
+                    let status = coveredBy.length === 0 ? "Uncovered" : "Maintained";
                     let remaining = coveredBy;
                     if (isMissingSelected) {
                       remaining = coveredBy.filter(n => n !== selectedEmpObj?.label);
                       status = remaining.length === 0 ? "Lost" : "Degraded";
                     }
 
+                    const isCardSelected = selectedNode?.id === c.id || selectedNode?.id === `capability:${c.id}` || selectedNode?.data?.capability_id === c.id;
+
                     return (
-                      <div className="cap-card" key={c.id}>
+                      <div 
+                        className={`cap-card ${isCardSelected ? 'selected' : ''}`} 
+                        key={c.id}
+                        onClick={() => handleCapabilityCardClick(c)}
+                        title="Click to isolate module and view connected contributors"
+                      >
                         <div className="cap-head">
                           <span className="cap-name">{c.label}</span>
                           <span className={`status-pill status-${status.toLowerCase()}`}>{status}</span>
                         </div>
-                        <div className="cap-covered">Covered by: <b>{remaining.length ? remaining.join(", ") : "none remaining"}</b></div>
+                        <div className="cap-covered">Covered by: <b>{remaining.length ? remaining.join(", ") : (coveredBy.length === 0 ? "No telemetry ingested" : "none remaining")}</b></div>
                       </div>
                     );
                   })}
@@ -151,18 +211,25 @@ function App() {
                   <div className="sim-title">
                     <div className="sim-title-left">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M9 2v6l-5 10a2 2 0 0 0 2 3h12a2 2 0 0 0 2-3L15 8V2"/><line x1="9" y1="2" x2="15" y2="2"/><line x1="6" y1="15" x2="18" y2="15"/></svg>
-                      Simulate unavailability
+                      Filter by Teammate / Simulate Unavailability
                     </div>
                     {simulationState && (
                       <button className="reset-sim-btn" onClick={() => setSimulationState(null)}>RESET SIMULATION</button>
                     )}
                   </div>
-                  <div className="sim-desc">Select an engineer to model coverage impact if they are unavailable. Click "Mark Unavailable" in their Intelligence Panel.</div>
+                  <div className="sim-desc">Select a teammate to isolate their capability connections, or click any module above to view its direct contributors.</div>
                   <div className="sim-row">
                     <div className="sim-field">
-                      <div className="sim-label mono">TARGET ENGINEER</div>
-                      <select value={selectedEmployeeFilter} onChange={e => { setSelectedEmployeeFilter(e.target.value); setSimulationState(null); }}>
-                        <option value="">All Employees (Full Graph)</option>
+                      <div className="sim-label mono">TEAMMATE SELECTION</div>
+                      <select 
+                        value={selectedEmployeeFilter} 
+                        onChange={e => { 
+                          setSelectedEmployeeFilter(e.target.value); 
+                          setSelectedNode(null);
+                          setSimulationState(null); 
+                        }}
+                      >
+                        <option value="">All Teammates (Full Graph)</option>
                         {employees.map(e => <option key={e.id} value={e.id}>{e.label}</option>)}
                       </select>
                     </div>
@@ -170,19 +237,53 @@ function App() {
                 </div>
 
                 <div className="graph-section">
-                  <div className="graph-title">Human graph — {selectedEmpObj?.label || 'All'}</div>
-                  <div className="graph-sub">What this engineer is capable of, and what they're currently working on.</div>
+                  <div style={{display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:'10px'}}>
+                    <div>
+                      <div className="graph-title">
+                        Human graph — {selectedNode ? `${selectedNode.label} (${selectedNode.type === 'CAPABILITY' ? 'Capability' : selectedNode.type})` : (selectedEmpObj?.label || 'All Teammates')}
+                      </div>
+                      <div className="graph-sub">
+                        {selectedNode ? `Showing only ${selectedNode.label} and connected contributors.` : (selectedEmpObj ? `Showing only ${selectedEmpObj.label} and verified capability modules.` : "Full team capability network and live telemetry linkages.")}
+                      </div>
+                    </div>
+                    {(selectedNode || selectedEmployeeFilter) && (
+                      <button 
+                        className="clear-filter-btn mono" 
+                        onClick={() => { setSelectedNode(null); setSelectedEmployeeFilter(''); }}
+                        style={{
+                          background:'#1a1a1d',
+                          border:'1px solid #38383e',
+                          color:'#4ade80',
+                          padding:'6px 12px',
+                          borderRadius:'6px',
+                          cursor:'pointer',
+                          fontSize:'11px',
+                          fontWeight:'600',
+                          letterSpacing:'0.3px',
+                          transition:'all 0.15s ease'
+                        }}
+                      >
+                        ✕ Show All Teammates
+                      </button>
+                    )}
+                  </div>
+
                   <div className="legend">
                     <span className="legend-item"><span className="dot" style={{background:'#5b9cf2'}}></span>engineer</span>
                     <span className="legend-item"><span className="dot" style={{background:'#4ade80'}}></span>capability (skill)</span>
-                    <span className="legend-item"><span className="line-sample" style={{borderColor:'#68675f'}}></span>has evidence for</span>
+                    <span className="legend-item"><span className="line-sample" style={{borderColor:'#4ade80'}}></span>has evidence for</span>
                   </div>
                   <div className="graph-canvas-container">
                     {filteredGraphData ? (
                       <GraphCanvas 
                         data={{...filteredGraphData, graphType: 'knowledge'}} 
-                        selectedNodeId={selectedNode?.id} 
-                        onNodeClick={setSelectedNode}
+                        selectedNodeId={selectedNode?.id || selectedEmployeeFilter} 
+                        onNodeClick={(node) => {
+                          setSelectedNode(node);
+                          if (node && node.type === 'EMPLOYEE') {
+                            setSelectedEmployeeFilter(node.id);
+                          }
+                        }}
                         simulationState={simulationState}
                       />
                     ) : (
@@ -197,15 +298,37 @@ function App() {
               <div id="tab-simulation">
                 <div className="page-title">Technical graph</div>
                 <div className="page-meta mono"><span>Project structure — how features decompose into their underlying needs</span></div>
-                <div className="legend">
-                  <span className="legend-item"><span className="dot" style={{background:'#5b9cf2'}}></span>system</span>
-                  <span className="legend-item"><span className="dot" style={{background:'#f2b84b'}}></span>component</span>
-                  <span className="legend-item"><span className="line-sample" style={{borderColor:'#68675f'}}></span>requires</span>
+                
+                <div style={{display:'flex', alignItems:'center', justifyContent:'space-between', margin:'10px 0'}}>
+                  <div className="legend" style={{marginBottom:0}}>
+                    <span className="legend-item"><span className="dot" style={{background:'#5b9cf2'}}></span>system</span>
+                    <span className="legend-item"><span className="dot" style={{background:'#f2b84b'}}></span>component</span>
+                    <span className="legend-item"><span className="line-sample" style={{borderColor:'#68675f'}}></span>requires</span>
+                  </div>
+                  {selectedNode && (
+                    <button 
+                      className="clear-filter-btn mono" 
+                      onClick={() => setSelectedNode(null)}
+                      style={{
+                        background:'#1a1a1d',
+                        border:'1px solid #38383e',
+                        color:'#5b9cf2',
+                        padding:'5px 12px',
+                        borderRadius:'6px',
+                        cursor:'pointer',
+                        fontSize:'11px',
+                        fontWeight:'600'
+                      }}
+                    >
+                      ✕ Show Full System
+                    </button>
+                  )}
                 </div>
+
                 <div className="graph-canvas-container" style={{height: 600}}>
-                  {techGraphData ? (
+                  {filteredGraphData ? (
                     <GraphCanvas 
-                      data={{...techGraphData, graphType: 'technical'}} 
+                      data={{...filteredGraphData, graphType: 'technical'}} 
                       selectedNodeId={selectedNode?.id} 
                       onNodeClick={setSelectedNode}
                       simulationState={simulationState}

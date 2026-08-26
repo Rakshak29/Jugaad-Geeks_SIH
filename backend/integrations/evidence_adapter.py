@@ -5,9 +5,13 @@ import os
 import time
 from pathlib import Path
 from typing import Any, Iterator
+from dotenv import load_dotenv
 
 import httpx
 
+# Load .env from project root
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+load_dotenv(dotenv_path=BASE_DIR / ".env")
 
 API = "https://api.github.com"
 
@@ -38,21 +42,20 @@ class GitHubAdapter:
         if not self.repo:
             raise RuntimeError("GitHub repository is required")
 
-        if not self.token:
-            raise RuntimeError(
-                "GITHUB_TOKEN environment variable is not set"
-            )
-
     def _client(self) -> httpx.Client:
+        headers = {
+            "Accept": "application/vnd.github+json",
+            "X-GitHub-Api-Version": "2022-11-28",
+        }
+        if self.token:
+            headers["Authorization"] = f"Bearer {self.token}"
+
         return httpx.Client(
             base_url=API,
-            headers={
-                "Authorization": f"Bearer {self.token}",
-                "Accept": "application/vnd.github+json",
-                "X-GitHub-Api-Version": "2022-11-28",
-            },
+            headers=headers,
             timeout=30.0,
         )
+
 
     def _get(
         self,
@@ -67,6 +70,12 @@ class GitHubAdapter:
                 url,
                 params=params,
             )
+
+            # Fallback to unauthenticated if token is invalid/expired (401)
+            if response.status_code == 401 and "Authorization" in client.headers:
+                del client.headers["Authorization"]
+                self.token = None
+                continue
 
             # GitHub rate limit
             if (

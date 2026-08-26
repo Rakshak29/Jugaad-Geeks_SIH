@@ -1,4 +1,14 @@
-from github_connector import fetch_github_raw_data
+import sys
+from pathlib import Path
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+try:
+    from backend.integrations.github_connector import fetch_github_raw_data
+except ImportError:
+    from github_connector import fetch_github_raw_data
 
 
 REPOSITORY_URL = "https://github.com/RishiBakshii/mern-ecommerce"

@@ -27,5 +27,13 @@ def get_database_url() -> str:
     return f"postgresql://{user}:{password}@{host}:{port}/{db_name}"
 
 
-
 DATABASE_URL = get_database_url()
+
+# GitHub Integration Configuration
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+GITHUB_REPO = os.getenv("GITHUB_REPO", "Rakshak29/Jugaad-Geeks_SIH")
+
+# Jira Integration Configuration
+JIRA_BASE_URL = os.getenv("JIRA_BASE_URL", "https://acmepay-engineering.atlassian.net")
+JIRA_EMAIL = os.getenv("JIRA_EMAIL")
+JIRA_API_TOKEN = os.getenv("JIRA_API_TOKEN")

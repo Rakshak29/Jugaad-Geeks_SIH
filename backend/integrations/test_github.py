@@ -1,6 +1,18 @@
 import os
+import sys
+from pathlib import Path
+from dotenv import load_dotenv
 
-from github_adapter import GitHubAdapter
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+load_dotenv(dotenv_path=PROJECT_ROOT / ".env")
+
+try:
+    from backend.integrations.github_adapter import GitHubAdapter
+except ImportError:
+    from github_adapter import GitHubAdapter
 
 
 REPOSITORY = "RishiBakshii/mern-ecommerce"

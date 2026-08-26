@@ -85,7 +85,13 @@ body{
 }
 .cap-card{
   background:var(--panel); border:1px solid var(--border); border-radius:8px; padding:16px 18px;
-  transition:border-color .15s;
+  transition:all .18s ease; cursor:pointer;
+}
+.cap-card:hover{
+  border-color:#5b9cf2; transform:translateY(-2px); background:var(--panel-2);
+}
+.cap-card.selected{
+  border-color:#4ade80; box-shadow:0 0 12px rgba(74, 222, 128, 0.25); background:#101c14;
 }
 .cap-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:10px; margin-bottom:10px; }
 .cap-name{ font-size:14px; font-weight:700; }
@@ -96,6 +102,7 @@ body{
 .status-maintained{ background:var(--green-bg); color:var(--green); border-color:var(--green-border); }
 .status-degraded{ background:var(--amber-bg); color:var(--amber); border-color:var(--amber-border); }
 .status-lost{ background:var(--red-bg); color:var(--red); border-color:var(--red-border); }
+.status-uncovered{ background:rgba(255,255,255,0.06); color:var(--text-muted); border-color:rgba(255,255,255,0.12); }
 .cap-covered{ font-size:12px; color:var(--text-muted); }
 .cap-covered b{ color:var(--text-soft); font-weight:400; }
 

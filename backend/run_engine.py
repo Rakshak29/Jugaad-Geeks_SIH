@@ -17,9 +17,8 @@ from backend.models.core import EvidenceRecord, CapabilityScore
 from backend.engine.engine import Engine
 from backend.engine.skills import load_taxonomy
 
-DB_URL = os.environ.get("DATABASE_URL", "sqlite:///fallback.db")
-db_engine = create_engine(DB_URL)
-SessionLocal = sessionmaker(bind=db_engine)
+from backend.config import DATABASE_URL
+from backend.database import SessionLocal, engine as db_engine
 
 def execute_scoring_pipeline():
     db = SessionLocal()

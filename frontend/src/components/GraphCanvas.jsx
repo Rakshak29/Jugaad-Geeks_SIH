@@ -12,11 +12,17 @@ const GraphCanvas = ({ data, onNodeClick, selectedNodeId, simulationState }) => 
   useEffect(() => {
     if (!data || !data.nodes || !data.links) return;
 
-    const width = containerRef.current.clientWidth;
-    const height = containerRef.current.clientHeight;
+    const width = containerRef.current.clientWidth || 800;
+    const height = containerRef.current.clientHeight || 500;
 
     const svg = d3.select(svgRef.current);
     svg.selectAll('*').remove(); 
+
+    svg.on('click', (event) => {
+      if (event.target === svgRef.current || event.target.tagName === 'svg') {
+        if (onNodeClick) onNodeClick(null);
+      }
+    });
 
     const nodes = data.nodes.map(d => {
       const obj = Object.create(d);
@@ -47,29 +53,29 @@ const GraphCanvas = ({ data, onNodeClick, selectedNodeId, simulationState }) => 
     });
 
     const getRadius = (d) => {
-      if (d.tier === 0) return 22;
+      if (d.tier === 0) return 20;
       if (d.tier === 1) return 14;
       return 8;
     };
 
     const getCollideRadius = (d) => {
-      if (d.type === 'EMPLOYEE') return 80; 
-      if (d.type === 'SYSTEM') return 80;
+      if (d.type === 'EMPLOYEE') return 70; 
+      if (d.type === 'SYSTEM') return 70;
       return getRadius(d) + 25;
     };
 
     const simulation = d3.forceSimulation(nodes)
-      .force('link', d3.forceLink(links).id(d => d.id).distance(220).strength(1))
-      .force('charge', d3.forceManyBody().strength(d => d.tier === 0 ? -1200 : -600))
+      .force('link', d3.forceLink(links).id(d => d.id).distance(200).strength(1))
+      .force('charge', d3.forceManyBody().strength(d => d.tier === 0 ? -1000 : -500))
       .force('center', d3.forceCenter(width / 2, height / 2))
       .force('collide', d3.forceCollide(d => getCollideRadius(d)).strength(1))
       .force('x', d3.forceX(width / 2).strength(0.08));
 
-    // Semantic Y positioning for Technical Graph
+    // Semantic Y positioning for graphs
     simulation.force('y', d3.forceY().y(d => {
       if (data.graphType === 'technical') {
-        if (d.type === 'SYSTEM') return height * 0.2;
-        if (d.type === 'COMPONENT') return height * 0.8;
+        if (d.type === 'SYSTEM') return height * 0.25;
+        if (d.type === 'COMPONENT') return height * 0.75;
       } else if (data.graphType === 'knowledge') {
         if (d.type === 'EMPLOYEE') return height * 0.3;
         if (d.type === 'CAPABILITY') return height * 0.7;
@@ -122,23 +128,24 @@ const GraphCanvas = ({ data, onNodeClick, selectedNodeId, simulationState }) => 
       .attr('text-anchor', 'middle')
       .attr('fill', '#eceae4')
       .style('font-size', '11px')
-      .style('font-family', '-apple-system, Arial, sans-serif')
+      .style('font-family', '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif')
       .style('pointer-events', 'none');
 
     simulation.on('tick', () => {
       link.attr('d', d => {
-        // Cubic bezier (S-curve) for beautiful hierarchical connections
         const midY = (d.source.y + d.target.y) / 2;
         return `M${d.source.x},${d.source.y} C${d.source.x},${midY} ${d.target.x},${midY} ${d.target.x},${d.target.y}`;
       });
       node.attr('transform', d => `translate(${d.x},${d.y})`);
     });
 
-    // Let the simulation settle and completely freeze
     simulation.alphaDecay(0.05);
 
     node.on('click', (event, d) => {
-      onNodeClick(data.nodes.find(n => n.id === d.id));
+      event.stopPropagation();
+      if (onNodeClick) {
+        onNodeClick(data.nodes.find(n => n.id === d.id) || d);
+      }
     });
 
     function drag(simulation) {
@@ -165,18 +172,6 @@ const GraphCanvas = ({ data, onNodeClick, selectedNodeId, simulationState }) => 
   useEffect(() => {
     if (!nodeRef.current || !linkRef.current) return;
     
-    // Compute neighbors for fast lookup
-    const neighbors = new Set();
-    if (selectedNodeId) {
-      neighbors.add(selectedNodeId);
-      data.links.forEach(l => {
-        const sourceId = typeof l.source === 'object' ? l.source.id : l.source;
-        const targetId = typeof l.target === 'object' ? l.target.id : l.target;
-        if (sourceId === selectedNodeId) neighbors.add(targetId);
-        if (targetId === selectedNodeId) neighbors.add(sourceId);
-      });
-    }
-
     const getNodeColor = (d) => {
       if (simulationState) {
         if (simulationState.type === 'technical') {
@@ -189,7 +184,7 @@ const GraphCanvas = ({ data, onNodeClick, selectedNodeId, simulationState }) => 
       }
       if (d.type === 'SYSTEM') return '#5b9cf2';
       if (d.type === 'COMPONENT') return '#f2b84b';
-      if (d.type === 'EMPLOYEE') return '#b18af2';
+      if (d.type === 'EMPLOYEE') return '#5b9cf2';
       if (d.type === 'CAPABILITY') return '#4ade80';
       if (d.type === 'EVIDENCE') return '#f27272';
       return '#7a5f96';
@@ -197,38 +192,17 @@ const GraphCanvas = ({ data, onNodeClick, selectedNodeId, simulationState }) => 
 
     nodeRef.current.select('circle')
       .attr('fill', d => getNodeColor(d))
-      .attr('stroke', d => (selectedNodeId && d.id === selectedNodeId) ? '#fff' : '#0a0a0b');
+      .attr('stroke', d => (selectedNodeId && d.id === selectedNodeId) ? '#fff' : '#0a0a0b')
+      .attr('stroke-width', d => (selectedNodeId && d.id === selectedNodeId) ? 3 : 2);
 
-    if (!selectedNodeId) {
-      nodeRef.current.select('circle').attr('opacity', 1);
-      nodeRef.current.selectAll('text').attr('opacity', 1);
-      linkRef.current.attr('opacity', 0.6).attr('stroke', '#68675f').attr('stroke-width', 1.5);
-    } else {
-      nodeRef.current.select('circle').attr('opacity', d => neighbors.has(d.id) ? 1 : 0.18);
-      nodeRef.current.selectAll('text').attr('opacity', d => neighbors.has(d.id) ? 1 : 0.15);
-      
-      linkRef.current
-        .attr('opacity', d => {
-          const sourceId = typeof d.source === 'object' ? d.source.id : d.source;
-          const targetId = typeof d.target === 'object' ? d.target.id : d.target;
-          return (sourceId === selectedNodeId || targetId === selectedNodeId) ? 0.95 : 0.06;
-        })
-        .attr('stroke', d => {
-          const sourceId = typeof d.source === 'object' ? d.source.id : d.source;
-          const targetId = typeof d.target === 'object' ? d.target.id : d.target;
-          return (sourceId === selectedNodeId || targetId === selectedNodeId) ? '#eceae4' : '#68675f';
-        })
-        .attr('stroke-width', d => {
-          const sourceId = typeof d.source === 'object' ? d.source.id : d.source;
-          const targetId = typeof d.target === 'object' ? d.target.id : d.target;
-          return (sourceId === selectedNodeId || targetId === selectedNodeId) ? 2.7 : 1.5;
-        });
-    }
+    nodeRef.current.select('circle').attr('opacity', 1);
+    nodeRef.current.selectAll('text').attr('opacity', 1);
+    linkRef.current.attr('opacity', 0.65).attr('stroke-width', 1.6);
 
   }, [selectedNodeId, simulationState, data]);
 
   return (
-    <div ref={containerRef} style={{ width: '100%', height: '100%', backgroundColor: '#0a0a0b', backgroundImage: 'radial-gradient(#161618 1px, transparent 1px)', backgroundSize: '18px 18px' }}>
+    <div ref={containerRef} style={{ width: '100%', height: '100%', backgroundColor: '#0a0a0b', backgroundImage: 'radial-gradient(#161618 1px, transparent 1px)', backgroundSize: '18px 18px', position: 'relative' }}>
       <svg ref={svgRef} style={{ width: '100%', height: '100%' }}></svg>
     </div>
   );

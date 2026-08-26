@@ -26,4 +26,13 @@ export const fetchSetupCapabilities = async () => {
   const response = await axios.get(`${API_URL}/setup/capabilities`);
   return response.data;
 };
-export const collectSource = async (sourceId) => { const response = await axios.post(`${API_URL}/setup/sources/${sourceId}/collect`); return response.data; };
+
+export const collectSource = async (sourceId, payload = {}) => {
+  const response = await axios.post(`${API_URL}/setup/sources/${sourceId}/collect`, payload);
+  return response.data;
+};
+
+export const resetSetupData = async () => {
+  const response = await axios.post(`${API_URL}/setup/reset`);
+  return response.data;
+};

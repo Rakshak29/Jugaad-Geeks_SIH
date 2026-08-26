@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 
 # Adjust imports to match your project structure
 from backend.mapper import resolve_modules_from_files, resolve_modules_from_labels
-from backend.models.core import Module, EvidenceRecord  
+from backend.models.core import Module, EvidenceRecord, Capability, Employee
 
 def process_event_to_evidence(db_session: Session, normalized_event: dict) -> list:
     """
@@ -17,8 +17,15 @@ def process_event_to_evidence(db_session: Session, normalized_event: dict) -> li
 
     # 1. Extract core data and context
     employee_id = normalized_event["employee_id"]
-    source = normalized_event["source_type"]         
+    source = normalized_event.get("source") or normalized_event.get("source_type", "unknown")         
     source_ref = normalized_event["source_record_id"] 
+
+    # Auto-create employee in database if not present
+    emp = db_session.query(Employee).filter(Employee.id == employee_id).first()
+    if not emp:
+        emp = Employee(id=employee_id, name=employee_id, role="Engineering")
+        db_session.add(emp)
+        db_session.commit() 
     
     context = normalized_event.get("context", {})
     files = list(context.get("files", []))
@@ -52,6 +59,28 @@ def process_event_to_evidence(db_session: Session, normalized_event: dict) -> li
     # 4. Resolve Module IDs using BOTH files and labels
     touched_module_ids = resolve_modules_from_files(files)
     touched_module_ids.update(resolve_modules_from_labels(labels))
+
+    if not touched_module_ids:
+        text_content = f"{context.get('message', '')} {context.get('title', '')} {context.get('summary', '')}".lower()
+        if any(w in text_content for w in ("recon", "reconcil", "settle", "report", "ledger", "payout", "audit")):
+            touched_module_ids.add("M002")
+        elif any(w in text_content for w in ("db", "database", "sql", "recovery", "backup", "postgres")):
+            touched_module_ids.add("M003")
+        elif any(w in text_content for w in ("deploy", "k8s", "docker", "ci", "workflow", "release", "infra", "argo")):
+            touched_module_ids.add("M004")
+        elif any(w in text_content for w in ("incident", "outage", "alert", "pager", "monitor", "grafana", "metric", "latency", "ops")):
+            touched_module_ids.add("M005")
+        elif any(w in text_content for w in ("crypto", "vault", "pci", "fraud", "security", "sanitiz", "kms", "blacklist")):
+            touched_module_ids.add("M006")
+        elif any(w in text_content for w in ("api", "gateway", "pay", "auth", "route", "ingress", "oauth", "token", "receipt", "intent")):
+            touched_module_ids.add("M001")
+        else:
+            # Fallback to M001 so no commit, PR, or ticket is ever dropped
+            default_mod = db_session.query(Module).first()
+            if default_mod:
+                touched_module_ids.add(default_mod.id)
+            else:
+                touched_module_ids.add("M001")
     
     new_records = []
     
@@ -64,8 +93,14 @@ def process_event_to_evidence(db_session: Session, normalized_event: dict) -> li
         if not module:
             continue  # Skip if module doesn't exist in DB
             
+        caps = list(module.capabilities)
+        if not caps:
+            fallback_cap = db_session.query(Capability).first()
+            if fallback_cap:
+                caps = [fallback_cap]
+
         # Loop through capabilities linked via `module_capabilities`
-        for capability in module.capabilities:
+        for capability in caps:
             
             # Idempotency check: Skip if matching record already exists
             existing_record = db_session.query(EvidenceRecord).filter_by(

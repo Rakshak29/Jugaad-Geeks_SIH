@@ -1,6 +1,6 @@
 import pytest
 from sqlalchemy import inspect, text
-from backend.database import engine, init_db, SessionLocal
+from backend.database import engine, init_db, SessionLocal, drop_db
 from backend.models import (
     Employee,
     Capability,
@@ -51,6 +51,8 @@ def test_table_creation_and_migration():
 
 def test_seed_data_insertion_and_counts():
     """Verify that seed script populates data and record counts match JSON files exactly."""
+    drop_db()
+    init_db()
     counts = seed_database()
     db = SessionLocal()
 
