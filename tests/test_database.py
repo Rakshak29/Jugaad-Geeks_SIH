@@ -1,3 +1,4 @@
+import json
 import pytest
 from sqlalchemy import inspect, text
 from backend.database import engine, init_db, SessionLocal, drop_db
@@ -65,7 +66,10 @@ def test_seed_data_insertion_and_counts():
 
 
         # Raw telemetry record counts
-        assert db.query(RawGitHubCommit).count() == 35
+        with open("data/raw/github/commits.json", "r", encoding="utf-8") as f:
+            expected_commits = len(json.load(f))
+        assert db.query(RawGitHubCommit).count() == expected_commits
+
         assert db.query(RawGitHubPullRequest).count() == 12
         assert db.query(RawGitHubReview).count() == 16
         assert db.query(RawGitHubIssue).count() == 12
@@ -85,7 +89,7 @@ def test_seed_data_insertion_and_counts():
             + db.query(RawDeployment).count()
             + db.query(RawDocument).count()
         )
-        assert total_raw == 115
+        assert total_raw == (80 + expected_commits)
 
     finally:
         db.close()

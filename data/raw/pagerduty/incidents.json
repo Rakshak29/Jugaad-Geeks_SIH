@@ -1,0 +1,4335 @@
+{
+  "source_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK/activity",
+  "service_id": "PK9U7OK",
+  "ingested_at": "2026-08-26T22:42:01.519304+00:00",
+  "total_incidents": 15,
+  "incidents": [
+    {
+      "incident_number": 1,
+      "title": "OAuth2 Bearer token signing key vault lock contention",
+      "description": "OAuth2 Bearer token signing key vault lock contention",
+      "created_at": "2026-08-26T19:01:56Z",
+      "updated_at": "2026-08-26T19:01:56Z",
+      "status": "triggered",
+      "incident_key": null,
+      "service": {
+        "id": "PK9U7OK",
+        "name": "AcmePay",
+        "description": null,
+        "created_at": "2026-08-26T18:24:21Z",
+        "updated_at": "2026-08-26T18:24:21Z",
+        "status": "critical",
+        "teams": [],
+        "alert_creation": "create_alerts_and_incidents",
+        "addons": [],
+        "scheduled_actions": [],
+        "support_hours": null,
+        "last_incident_timestamp": "2026-08-26T19:04:42Z",
+        "escalation_policy": {
+          "id": "P5YI4OZ",
+          "type": "escalation_policy_reference",
+          "summary": "AcmePay-ep",
+          "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+          "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+        },
+        "incident_urgency_rule": {
+          "type": "constant",
+          "urgency": "high"
+        },
+        "acknowledgement_timeout": null,
+        "auto_resolve_timeout": null,
+        "integrations": [
+          {
+            "id": "PWMFL7R",
+            "type": "events_api_v2_inbound_integration_reference",
+            "summary": "Events API V2",
+            "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+            "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+          }
+        ],
+        "type": "service",
+        "summary": "AcmePay",
+        "self": "https://api.pagerduty.com/services/PK9U7OK",
+        "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+      },
+      "assignments": [
+        {
+          "at": "2026-08-26T19:01:56Z",
+          "assignee": {
+            "name": "Rakshak Shetty",
+            "email": "rakshak.s@somaiya.edu",
+            "time_zone": "Etc/UTC",
+            "color": "purple",
+            "avatar_url": "https://pd-static-assets.pagerduty.com/users/blank-avatar.png",
+            "billed": true,
+            "role": "owner",
+            "description": null,
+            "invitation_sent": false,
+            "job_title": null,
+            "teams": [],
+            "created_via_sso": false,
+            "contact_methods": [
+              {
+                "id": "PB5YE93",
+                "type": "email_contact_method_reference",
+                "summary": "Default",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/contact_methods/PB5YE93",
+                "html_url": null
+              }
+            ],
+            "notification_rules": [
+              {
+                "id": "PO8H566",
+                "type": "assignment_notification_rule_reference",
+                "summary": "0 minutes: channel PB5YE93",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/notification_rules/PO8H566",
+                "html_url": null
+              },
+              {
+                "id": "PRI55IW",
+                "type": "assignment_notification_rule_reference",
+                "summary": "0 minutes: channel PB5YE93",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/notification_rules/PRI55IW",
+                "html_url": null
+              }
+            ],
+            "coordinated_incidents": [],
+            "locale": "en-US",
+            "id": "PN8AFPT",
+            "type": "user",
+            "summary": "Rakshak Shetty",
+            "self": "https://api.pagerduty.com/users/PN8AFPT",
+            "html_url": "https://acmepay.pagerduty.com/users/PN8AFPT"
+          }
+        }
+      ],
+      "assigned_via": "escalation_policy",
+      "last_status_change_at": "2026-08-26T19:01:56Z",
+      "resolved_at": null,
+      "first_trigger_log_entry": {
+        "id": "RPRO3E43UR7IDEWC9YPJDJGI4U",
+        "type": "trigger_log_entry",
+        "summary": "Triggered through the API.",
+        "self": "https://api.pagerduty.com/log_entries/RPRO3E43UR7IDEWC9YPJDJGI4U",
+        "html_url": "https://acmepay.pagerduty.com/incidents/Q2UNEV91523KSE/log_entries/RPRO3E43UR7IDEWC9YPJDJGI4U",
+        "created_at": "2026-08-26T19:01:56Z",
+        "agent": {
+          "id": "PWMFL7R",
+          "type": "events_api_v2_inbound_integration_reference",
+          "summary": "Events API V2",
+          "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+          "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+        },
+        "channel": {
+          "type": "api",
+          "service_key": "429e00a8ec19420cd043164b249690ca",
+          "description": "OAuth2 Bearer token signing key vault lock contention",
+          "incident_key": "INC-501",
+          "details": {
+            "action_items": [
+              "Rolled back KMS key rotation worker to release v1.4.2",
+              "Added index on kms_key_id column",
+              "Updated token vault timeout configuration to 5s"
+            ],
+            "incident_id": "INC-501",
+            "lead_responder": "E08",
+            "lead_responder_id": "E08",
+            "module": "auth-service",
+            "participants": [
+              "E08",
+              "E02"
+            ],
+            "reporter": "E01",
+            "reporter_id": "E01",
+            "root_cause": "Unindexed key rotation lock check in KMS token vault worker.",
+            "service": "auth-service",
+            "summary": "KMS vault connection timeout caused 500 error spikes on merchant token validation endpoint.",
+            "timestamps": {
+              "created_at": "2023-04-12T14:30:00Z",
+              "resolved_at": "2023-04-12T15:45:00Z"
+            }
+          },
+          "cef_details": {
+            "message": "OAuth2 Bearer token signing key vault lock contention",
+            "priority": null,
+            "version": "1.0",
+            "description": "OAuth2 Bearer token signing key vault lock contention",
+            "severity": "critical",
+            "details": {
+              "action_items": [
+                "Rolled back KMS key rotation worker to release v1.4.2",
+                "Added index on kms_key_id column",
+                "Updated token vault timeout configuration to 5s"
+              ],
+              "incident_id": "INC-501",
+              "lead_responder": "E08",
+              "lead_responder_id": "E08",
+              "module": "auth-service",
+              "participants": [
+                "E08",
+                "E02"
+              ],
+              "reporter": "E01",
+              "reporter_id": "E01",
+              "root_cause": "Unindexed key rotation lock check in KMS token vault worker.",
+              "service": "auth-service",
+              "summary": "KMS vault connection timeout caused 500 error spikes on merchant token validation endpoint.",
+              "timestamps": {
+                "created_at": "2023-04-12T14:30:00Z",
+                "resolved_at": "2023-04-12T15:45:00Z"
+              }
+            },
+            "client": null,
+            "client_url": null,
+            "contexts": null,
+            "creation_time": "2023-04-12T14:30:00Z",
+            "dedup_key": "INC-501",
+            "event_class": null,
+            "reporter_location": null,
+            "service_group": null,
+            "source_component": null,
+            "source_location": null,
+            "source_origin": "auth-service",
+            "mutations": [],
+            "reporter_component": null,
+            "urgency": null
+          },
+          "summary": "OAuth2 Bearer token signing key vault lock contention"
+        },
+        "service": {
+          "id": "PK9U7OK",
+          "name": "AcmePay",
+          "description": null,
+          "created_at": "2026-08-26T18:24:21Z",
+          "updated_at": "2026-08-26T18:24:21Z",
+          "status": "critical",
+          "teams": [],
+          "alert_creation": "create_alerts_and_incidents",
+          "addons": [],
+          "scheduled_actions": [],
+          "support_hours": null,
+          "last_incident_timestamp": "2026-08-26T19:04:42Z",
+          "escalation_policy": {
+            "id": "P5YI4OZ",
+            "type": "escalation_policy_reference",
+            "summary": "AcmePay-ep",
+            "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+            "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+          },
+          "incident_urgency_rule": {
+            "type": "constant",
+            "urgency": "high"
+          },
+          "acknowledgement_timeout": null,
+          "auto_resolve_timeout": null,
+          "integrations": [
+            {
+              "id": "PWMFL7R",
+              "type": "events_api_v2_inbound_integration_reference",
+              "summary": "Events API V2",
+              "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+              "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+            }
+          ],
+          "type": "service",
+          "summary": "AcmePay",
+          "self": "https://api.pagerduty.com/services/PK9U7OK",
+          "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+        },
+        "incident": {
+          "id": "Q2UNEV91523KSE",
+          "type": "incident_reference",
+          "summary": "[#1] OAuth2 Bearer token signing key vault lock contention",
+          "self": "https://api.pagerduty.com/incidents/Q2UNEV91523KSE",
+          "html_url": "https://acmepay.pagerduty.com/incidents/Q2UNEV91523KSE"
+        },
+        "teams": [],
+        "contexts": [],
+        "event_details": {
+          "description": "OAuth2 Bearer token signing key vault lock contention"
+        }
+      },
+      "alert_counts": {
+        "all": 1,
+        "triggered": 1,
+        "resolved": 0
+      },
+      "is_mergeable": true,
+      "incident_type": {
+        "name": "incident_default"
+      },
+      "escalation_policy": {
+        "id": "P5YI4OZ",
+        "type": "escalation_policy_reference",
+        "summary": "AcmePay-ep",
+        "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+        "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+      },
+      "teams": [],
+      "pending_actions": [],
+      "acknowledgements": [],
+      "basic_alert_grouping": null,
+      "alert_grouping": {
+        "grouping_type": "advanced",
+        "started_at": "2026-08-26T19:01:56Z",
+        "ended_at": null,
+        "alert_grouping_active": false
+      },
+      "last_status_change_by": {
+        "id": "PK9U7OK",
+        "type": "service_reference",
+        "summary": "AcmePay",
+        "self": "https://api.pagerduty.com/services/PK9U7OK",
+        "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+      },
+      "priority": null,
+      "incidents_responders": [],
+      "responder_requests": [],
+      "subscriber_requests": [],
+      "urgency": "high",
+      "id": "Q2UNEV91523KSE",
+      "type": "incident",
+      "summary": "[#1] OAuth2 Bearer token signing key vault lock contention",
+      "self": "https://api.pagerduty.com/incidents/Q2UNEV91523KSE",
+      "html_url": "https://acmepay.pagerduty.com/incidents/Q2UNEV91523KSE"
+    },
+    {
+      "incident_number": 2,
+      "title": "Payment intent state machine retry deadlock during acquirer outage",
+      "description": "Payment intent state machine retry deadlock during acquirer outage",
+      "created_at": "2026-08-26T19:04:24Z",
+      "updated_at": "2026-08-26T19:04:24Z",
+      "status": "triggered",
+      "incident_key": null,
+      "service": {
+        "id": "PK9U7OK",
+        "name": "AcmePay",
+        "description": null,
+        "created_at": "2026-08-26T18:24:21Z",
+        "updated_at": "2026-08-26T18:24:21Z",
+        "status": "critical",
+        "teams": [],
+        "alert_creation": "create_alerts_and_incidents",
+        "addons": [],
+        "scheduled_actions": [],
+        "support_hours": null,
+        "last_incident_timestamp": "2026-08-26T19:04:42Z",
+        "escalation_policy": {
+          "id": "P5YI4OZ",
+          "type": "escalation_policy_reference",
+          "summary": "AcmePay-ep",
+          "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+          "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+        },
+        "incident_urgency_rule": {
+          "type": "constant",
+          "urgency": "high"
+        },
+        "acknowledgement_timeout": null,
+        "auto_resolve_timeout": null,
+        "integrations": [
+          {
+            "id": "PWMFL7R",
+            "type": "events_api_v2_inbound_integration_reference",
+            "summary": "Events API V2",
+            "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+            "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+          }
+        ],
+        "type": "service",
+        "summary": "AcmePay",
+        "self": "https://api.pagerduty.com/services/PK9U7OK",
+        "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+      },
+      "assignments": [
+        {
+          "at": "2026-08-26T19:04:24Z",
+          "assignee": {
+            "name": "Rakshak Shetty",
+            "email": "rakshak.s@somaiya.edu",
+            "time_zone": "Etc/UTC",
+            "color": "purple",
+            "avatar_url": "https://pd-static-assets.pagerduty.com/users/blank-avatar.png",
+            "billed": true,
+            "role": "owner",
+            "description": null,
+            "invitation_sent": false,
+            "job_title": null,
+            "teams": [],
+            "created_via_sso": false,
+            "contact_methods": [
+              {
+                "id": "PB5YE93",
+                "type": "email_contact_method_reference",
+                "summary": "Default",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/contact_methods/PB5YE93",
+                "html_url": null
+              }
+            ],
+            "notification_rules": [
+              {
+                "id": "PO8H566",
+                "type": "assignment_notification_rule_reference",
+                "summary": "0 minutes: channel PB5YE93",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/notification_rules/PO8H566",
+                "html_url": null
+              },
+              {
+                "id": "PRI55IW",
+                "type": "assignment_notification_rule_reference",
+                "summary": "0 minutes: channel PB5YE93",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/notification_rules/PRI55IW",
+                "html_url": null
+              }
+            ],
+            "coordinated_incidents": [],
+            "locale": "en-US",
+            "id": "PN8AFPT",
+            "type": "user",
+            "summary": "Rakshak Shetty",
+            "self": "https://api.pagerduty.com/users/PN8AFPT",
+            "html_url": "https://acmepay.pagerduty.com/users/PN8AFPT"
+          }
+        }
+      ],
+      "assigned_via": "escalation_policy",
+      "last_status_change_at": "2026-08-26T19:04:24Z",
+      "resolved_at": null,
+      "first_trigger_log_entry": {
+        "id": "R4AUHXLFJ464H4QFPGWNVVAUM7",
+        "type": "trigger_log_entry",
+        "summary": "Triggered through the API.",
+        "self": "https://api.pagerduty.com/log_entries/R4AUHXLFJ464H4QFPGWNVVAUM7",
+        "html_url": "https://acmepay.pagerduty.com/incidents/Q1RIX732EZZITX/log_entries/R4AUHXLFJ464H4QFPGWNVVAUM7",
+        "created_at": "2026-08-26T19:04:24Z",
+        "agent": {
+          "id": "PWMFL7R",
+          "type": "events_api_v2_inbound_integration_reference",
+          "summary": "Events API V2",
+          "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+          "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+        },
+        "channel": {
+          "type": "api",
+          "service_key": "429e00a8ec19420cd043164b249690ca",
+          "description": "Payment intent state machine retry deadlock during acquirer outage",
+          "incident_key": "INC-502",
+          "details": {
+            "action_items": [
+              "Applied hotfix patch to state_machine.go releasing mutex lock",
+              "Configured exponential backoff jitter on acquirer retries"
+            ],
+            "incident_id": "INC-502",
+            "lead_responder": "E04",
+            "lead_responder_id": "E04",
+            "module": "payment-service",
+            "participants": [
+              "E04",
+              "E01",
+              "E12"
+            ],
+            "reporter": "E03",
+            "reporter_id": "E03",
+            "root_cause": "Mutex deadlock between retry worker and charge status state machine transition.",
+            "service": "payment-service",
+            "summary": "Acquirer timeout triggered concurrent state machine locks on charge authorization retry.",
+            "timestamps": {
+              "created_at": "2023-08-19T09:15:00Z",
+              "resolved_at": "2023-08-19T10:30:00Z"
+            }
+          },
+          "cef_details": {
+            "message": "Payment intent state machine retry deadlock during acquirer outage",
+            "priority": null,
+            "version": "1.0",
+            "description": "Payment intent state machine retry deadlock during acquirer outage",
+            "severity": "critical",
+            "details": {
+              "action_items": [
+                "Applied hotfix patch to state_machine.go releasing mutex lock",
+                "Configured exponential backoff jitter on acquirer retries"
+              ],
+              "incident_id": "INC-502",
+              "lead_responder": "E04",
+              "lead_responder_id": "E04",
+              "module": "payment-service",
+              "participants": [
+                "E04",
+                "E01",
+                "E12"
+              ],
+              "reporter": "E03",
+              "reporter_id": "E03",
+              "root_cause": "Mutex deadlock between retry worker and charge status state machine transition.",
+              "service": "payment-service",
+              "summary": "Acquirer timeout triggered concurrent state machine locks on charge authorization retry.",
+              "timestamps": {
+                "created_at": "2023-08-19T09:15:00Z",
+                "resolved_at": "2023-08-19T10:30:00Z"
+              }
+            },
+            "client": null,
+            "client_url": null,
+            "contexts": null,
+            "creation_time": "2023-08-19T09:15:00Z",
+            "dedup_key": "INC-502",
+            "event_class": null,
+            "reporter_location": null,
+            "service_group": null,
+            "source_component": null,
+            "source_location": null,
+            "source_origin": "payment-service",
+            "mutations": [],
+            "reporter_component": null,
+            "urgency": null
+          },
+          "summary": "Payment intent state machine retry deadlock during acquirer outage"
+        },
+        "service": {
+          "id": "PK9U7OK",
+          "name": "AcmePay",
+          "description": null,
+          "created_at": "2026-08-26T18:24:21Z",
+          "updated_at": "2026-08-26T18:24:21Z",
+          "status": "critical",
+          "teams": [],
+          "alert_creation": "create_alerts_and_incidents",
+          "addons": [],
+          "scheduled_actions": [],
+          "support_hours": null,
+          "last_incident_timestamp": "2026-08-26T19:04:42Z",
+          "escalation_policy": {
+            "id": "P5YI4OZ",
+            "type": "escalation_policy_reference",
+            "summary": "AcmePay-ep",
+            "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+            "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+          },
+          "incident_urgency_rule": {
+            "type": "constant",
+            "urgency": "high"
+          },
+          "acknowledgement_timeout": null,
+          "auto_resolve_timeout": null,
+          "integrations": [
+            {
+              "id": "PWMFL7R",
+              "type": "events_api_v2_inbound_integration_reference",
+              "summary": "Events API V2",
+              "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+              "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+            }
+          ],
+          "type": "service",
+          "summary": "AcmePay",
+          "self": "https://api.pagerduty.com/services/PK9U7OK",
+          "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+        },
+        "incident": {
+          "id": "Q1RIX732EZZITX",
+          "type": "incident_reference",
+          "summary": "[#2] Payment intent state machine retry deadlock during acquirer outage",
+          "self": "https://api.pagerduty.com/incidents/Q1RIX732EZZITX",
+          "html_url": "https://acmepay.pagerduty.com/incidents/Q1RIX732EZZITX"
+        },
+        "teams": [],
+        "contexts": [],
+        "event_details": {
+          "description": "Payment intent state machine retry deadlock during acquirer outage"
+        }
+      },
+      "alert_counts": {
+        "all": 1,
+        "triggered": 1,
+        "resolved": 0
+      },
+      "is_mergeable": true,
+      "incident_type": {
+        "name": "incident_default"
+      },
+      "escalation_policy": {
+        "id": "P5YI4OZ",
+        "type": "escalation_policy_reference",
+        "summary": "AcmePay-ep",
+        "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+        "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+      },
+      "teams": [],
+      "pending_actions": [],
+      "acknowledgements": [],
+      "basic_alert_grouping": null,
+      "alert_grouping": {
+        "grouping_type": "advanced",
+        "started_at": "2026-08-26T19:04:24Z",
+        "ended_at": null,
+        "alert_grouping_active": false
+      },
+      "last_status_change_by": {
+        "id": "PK9U7OK",
+        "type": "service_reference",
+        "summary": "AcmePay",
+        "self": "https://api.pagerduty.com/services/PK9U7OK",
+        "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+      },
+      "priority": null,
+      "incidents_responders": [],
+      "responder_requests": [],
+      "subscriber_requests": [],
+      "urgency": "high",
+      "id": "Q1RIX732EZZITX",
+      "type": "incident",
+      "summary": "[#2] Payment intent state machine retry deadlock during acquirer outage",
+      "self": "https://api.pagerduty.com/incidents/Q1RIX732EZZITX",
+      "html_url": "https://acmepay.pagerduty.com/incidents/Q1RIX732EZZITX"
+    },
+    {
+      "incident_number": 3,
+      "title": "Fraud risk evaluator score calculation latency breach",
+      "description": "Fraud risk evaluator score calculation latency breach",
+      "created_at": "2026-08-26T19:04:25Z",
+      "updated_at": "2026-08-26T19:04:25Z",
+      "status": "triggered",
+      "incident_key": null,
+      "service": {
+        "id": "PK9U7OK",
+        "name": "AcmePay",
+        "description": null,
+        "created_at": "2026-08-26T18:24:21Z",
+        "updated_at": "2026-08-26T18:24:21Z",
+        "status": "critical",
+        "teams": [],
+        "alert_creation": "create_alerts_and_incidents",
+        "addons": [],
+        "scheduled_actions": [],
+        "support_hours": null,
+        "last_incident_timestamp": "2026-08-26T19:04:42Z",
+        "escalation_policy": {
+          "id": "P5YI4OZ",
+          "type": "escalation_policy_reference",
+          "summary": "AcmePay-ep",
+          "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+          "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+        },
+        "incident_urgency_rule": {
+          "type": "constant",
+          "urgency": "high"
+        },
+        "acknowledgement_timeout": null,
+        "auto_resolve_timeout": null,
+        "integrations": [
+          {
+            "id": "PWMFL7R",
+            "type": "events_api_v2_inbound_integration_reference",
+            "summary": "Events API V2",
+            "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+            "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+          }
+        ],
+        "type": "service",
+        "summary": "AcmePay",
+        "self": "https://api.pagerduty.com/services/PK9U7OK",
+        "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+      },
+      "assignments": [
+        {
+          "at": "2026-08-26T19:04:25Z",
+          "assignee": {
+            "name": "Rakshak Shetty",
+            "email": "rakshak.s@somaiya.edu",
+            "time_zone": "Etc/UTC",
+            "color": "purple",
+            "avatar_url": "https://pd-static-assets.pagerduty.com/users/blank-avatar.png",
+            "billed": true,
+            "role": "owner",
+            "description": null,
+            "invitation_sent": false,
+            "job_title": null,
+            "teams": [],
+            "created_via_sso": false,
+            "contact_methods": [
+              {
+                "id": "PB5YE93",
+                "type": "email_contact_method_reference",
+                "summary": "Default",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/contact_methods/PB5YE93",
+                "html_url": null
+              }
+            ],
+            "notification_rules": [
+              {
+                "id": "PO8H566",
+                "type": "assignment_notification_rule_reference",
+                "summary": "0 minutes: channel PB5YE93",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/notification_rules/PO8H566",
+                "html_url": null
+              },
+              {
+                "id": "PRI55IW",
+                "type": "assignment_notification_rule_reference",
+                "summary": "0 minutes: channel PB5YE93",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/notification_rules/PRI55IW",
+                "html_url": null
+              }
+            ],
+            "coordinated_incidents": [],
+            "locale": "en-US",
+            "id": "PN8AFPT",
+            "type": "user",
+            "summary": "Rakshak Shetty",
+            "self": "https://api.pagerduty.com/users/PN8AFPT",
+            "html_url": "https://acmepay.pagerduty.com/users/PN8AFPT"
+          }
+        }
+      ],
+      "assigned_via": "escalation_policy",
+      "last_status_change_at": "2026-08-26T19:04:25Z",
+      "resolved_at": null,
+      "first_trigger_log_entry": {
+        "id": "R9EEIFMZCIBFWJ7JBO69JF2W63",
+        "type": "trigger_log_entry",
+        "summary": "Triggered through the API.",
+        "self": "https://api.pagerduty.com/log_entries/R9EEIFMZCIBFWJ7JBO69JF2W63",
+        "html_url": "https://acmepay.pagerduty.com/incidents/Q3R22F5N7BOUF3/log_entries/R9EEIFMZCIBFWJ7JBO69JF2W63",
+        "created_at": "2026-08-26T19:04:25Z",
+        "agent": {
+          "id": "PWMFL7R",
+          "type": "events_api_v2_inbound_integration_reference",
+          "summary": "Events API V2",
+          "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+          "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+        },
+        "channel": {
+          "type": "api",
+          "service_key": "429e00a8ec19420cd043164b249690ca",
+          "description": "Fraud risk evaluator score calculation latency breach",
+          "incident_key": "INC-503",
+          "details": {
+            "action_items": [
+              "Cached card token velocity scores in Redis key store",
+              "Optimized subnet matching algorithm in risk_evaluator.py"
+            ],
+            "incident_id": "INC-503",
+            "lead_responder": "E14",
+            "lead_responder_id": "E14",
+            "module": "fraud-service",
+            "participants": [
+              "E14",
+              "E04"
+            ],
+            "reporter": "E07",
+            "reporter_id": "E07",
+            "root_cause": "Uncached IP subnet blacklist lookups on high-volume card token requests.",
+            "service": "fraud-service",
+            "summary": "Sliding window velocity checker stalled transaction authorization requests past 500ms timeout.",
+            "timestamps": {
+              "created_at": "2023-11-04T18:20:00Z",
+              "resolved_at": "2023-11-04T19:10:00Z"
+            }
+          },
+          "cef_details": {
+            "message": "Fraud risk evaluator score calculation latency breach",
+            "priority": null,
+            "version": "1.0",
+            "description": "Fraud risk evaluator score calculation latency breach",
+            "severity": "error",
+            "details": {
+              "action_items": [
+                "Cached card token velocity scores in Redis key store",
+                "Optimized subnet matching algorithm in risk_evaluator.py"
+              ],
+              "incident_id": "INC-503",
+              "lead_responder": "E14",
+              "lead_responder_id": "E14",
+              "module": "fraud-service",
+              "participants": [
+                "E14",
+                "E04"
+              ],
+              "reporter": "E07",
+              "reporter_id": "E07",
+              "root_cause": "Uncached IP subnet blacklist lookups on high-volume card token requests.",
+              "service": "fraud-service",
+              "summary": "Sliding window velocity checker stalled transaction authorization requests past 500ms timeout.",
+              "timestamps": {
+                "created_at": "2023-11-04T18:20:00Z",
+                "resolved_at": "2023-11-04T19:10:00Z"
+              }
+            },
+            "client": null,
+            "client_url": null,
+            "contexts": null,
+            "creation_time": "2023-11-04T18:20:00Z",
+            "dedup_key": "INC-503",
+            "event_class": null,
+            "reporter_location": null,
+            "service_group": null,
+            "source_component": null,
+            "source_location": null,
+            "source_origin": "fraud-service",
+            "mutations": [],
+            "reporter_component": null,
+            "urgency": null
+          },
+          "summary": "Fraud risk evaluator score calculation latency breach"
+        },
+        "service": {
+          "id": "PK9U7OK",
+          "name": "AcmePay",
+          "description": null,
+          "created_at": "2026-08-26T18:24:21Z",
+          "updated_at": "2026-08-26T18:24:21Z",
+          "status": "critical",
+          "teams": [],
+          "alert_creation": "create_alerts_and_incidents",
+          "addons": [],
+          "scheduled_actions": [],
+          "support_hours": null,
+          "last_incident_timestamp": "2026-08-26T19:04:42Z",
+          "escalation_policy": {
+            "id": "P5YI4OZ",
+            "type": "escalation_policy_reference",
+            "summary": "AcmePay-ep",
+            "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+            "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+          },
+          "incident_urgency_rule": {
+            "type": "constant",
+            "urgency": "high"
+          },
+          "acknowledgement_timeout": null,
+          "auto_resolve_timeout": null,
+          "integrations": [
+            {
+              "id": "PWMFL7R",
+              "type": "events_api_v2_inbound_integration_reference",
+              "summary": "Events API V2",
+              "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+              "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+            }
+          ],
+          "type": "service",
+          "summary": "AcmePay",
+          "self": "https://api.pagerduty.com/services/PK9U7OK",
+          "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+        },
+        "incident": {
+          "id": "Q3R22F5N7BOUF3",
+          "type": "incident_reference",
+          "summary": "[#3] Fraud risk evaluator score calculation latency breach",
+          "self": "https://api.pagerduty.com/incidents/Q3R22F5N7BOUF3",
+          "html_url": "https://acmepay.pagerduty.com/incidents/Q3R22F5N7BOUF3"
+        },
+        "teams": [],
+        "contexts": [],
+        "event_details": {
+          "description": "Fraud risk evaluator score calculation latency breach"
+        }
+      },
+      "alert_counts": {
+        "all": 1,
+        "triggered": 1,
+        "resolved": 0
+      },
+      "is_mergeable": true,
+      "incident_type": {
+        "name": "incident_default"
+      },
+      "escalation_policy": {
+        "id": "P5YI4OZ",
+        "type": "escalation_policy_reference",
+        "summary": "AcmePay-ep",
+        "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+        "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+      },
+      "teams": [],
+      "pending_actions": [],
+      "acknowledgements": [],
+      "basic_alert_grouping": null,
+      "alert_grouping": {
+        "grouping_type": "advanced",
+        "started_at": "2026-08-26T19:04:25Z",
+        "ended_at": null,
+        "alert_grouping_active": false
+      },
+      "last_status_change_by": {
+        "id": "PK9U7OK",
+        "type": "service_reference",
+        "summary": "AcmePay",
+        "self": "https://api.pagerduty.com/services/PK9U7OK",
+        "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+      },
+      "priority": null,
+      "incidents_responders": [],
+      "responder_requests": [],
+      "subscriber_requests": [],
+      "urgency": "high",
+      "id": "Q3R22F5N7BOUF3",
+      "type": "incident",
+      "summary": "[#3] Fraud risk evaluator score calculation latency breach",
+      "self": "https://api.pagerduty.com/incidents/Q3R22F5N7BOUF3",
+      "html_url": "https://acmepay.pagerduty.com/incidents/Q3R22F5N7BOUF3"
+    },
+    {
+      "incident_number": 4,
+      "title": "Double-entry ledger journal debit/credit lock contention during midnight batch",
+      "description": "Double-entry ledger journal debit/credit lock contention during midnight batch",
+      "created_at": "2026-08-26T19:04:26Z",
+      "updated_at": "2026-08-26T19:04:26Z",
+      "status": "triggered",
+      "incident_key": null,
+      "service": {
+        "id": "PK9U7OK",
+        "name": "AcmePay",
+        "description": null,
+        "created_at": "2026-08-26T18:24:21Z",
+        "updated_at": "2026-08-26T18:24:21Z",
+        "status": "critical",
+        "teams": [],
+        "alert_creation": "create_alerts_and_incidents",
+        "addons": [],
+        "scheduled_actions": [],
+        "support_hours": null,
+        "last_incident_timestamp": "2026-08-26T19:04:42Z",
+        "escalation_policy": {
+          "id": "P5YI4OZ",
+          "type": "escalation_policy_reference",
+          "summary": "AcmePay-ep",
+          "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+          "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+        },
+        "incident_urgency_rule": {
+          "type": "constant",
+          "urgency": "high"
+        },
+        "acknowledgement_timeout": null,
+        "auto_resolve_timeout": null,
+        "integrations": [
+          {
+            "id": "PWMFL7R",
+            "type": "events_api_v2_inbound_integration_reference",
+            "summary": "Events API V2",
+            "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+            "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+          }
+        ],
+        "type": "service",
+        "summary": "AcmePay",
+        "self": "https://api.pagerduty.com/services/PK9U7OK",
+        "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+      },
+      "assignments": [
+        {
+          "at": "2026-08-26T19:04:26Z",
+          "assignee": {
+            "name": "Rakshak Shetty",
+            "email": "rakshak.s@somaiya.edu",
+            "time_zone": "Etc/UTC",
+            "color": "purple",
+            "avatar_url": "https://pd-static-assets.pagerduty.com/users/blank-avatar.png",
+            "billed": true,
+            "role": "owner",
+            "description": null,
+            "invitation_sent": false,
+            "job_title": null,
+            "teams": [],
+            "created_via_sso": false,
+            "contact_methods": [
+              {
+                "id": "PB5YE93",
+                "type": "email_contact_method_reference",
+                "summary": "Default",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/contact_methods/PB5YE93",
+                "html_url": null
+              }
+            ],
+            "notification_rules": [
+              {
+                "id": "PO8H566",
+                "type": "assignment_notification_rule_reference",
+                "summary": "0 minutes: channel PB5YE93",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/notification_rules/PO8H566",
+                "html_url": null
+              },
+              {
+                "id": "PRI55IW",
+                "type": "assignment_notification_rule_reference",
+                "summary": "0 minutes: channel PB5YE93",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/notification_rules/PRI55IW",
+                "html_url": null
+              }
+            ],
+            "coordinated_incidents": [],
+            "locale": "en-US",
+            "id": "PN8AFPT",
+            "type": "user",
+            "summary": "Rakshak Shetty",
+            "self": "https://api.pagerduty.com/users/PN8AFPT",
+            "html_url": "https://acmepay.pagerduty.com/users/PN8AFPT"
+          }
+        }
+      ],
+      "assigned_via": "escalation_policy",
+      "last_status_change_at": "2026-08-26T19:04:26Z",
+      "resolved_at": null,
+      "first_trigger_log_entry": {
+        "id": "R5BHLPVTSSNI1AJQIYNWREYWBC",
+        "type": "trigger_log_entry",
+        "summary": "Triggered through the API.",
+        "self": "https://api.pagerduty.com/log_entries/R5BHLPVTSSNI1AJQIYNWREYWBC",
+        "html_url": "https://acmepay.pagerduty.com/incidents/Q2TZYWH3YIKQQJ/log_entries/R5BHLPVTSSNI1AJQIYNWREYWBC",
+        "created_at": "2026-08-26T19:04:26Z",
+        "agent": {
+          "id": "PWMFL7R",
+          "type": "events_api_v2_inbound_integration_reference",
+          "summary": "Events API V2",
+          "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+          "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+        },
+        "channel": {
+          "type": "api",
+          "service_key": "429e00a8ec19420cd043164b249690ca",
+          "description": "Double-entry ledger journal debit/credit lock contention during midnight batch",
+          "incident_key": "INC-504",
+          "details": {
+            "action_items": [
+              "Sorted journal account IDs before executing debit/credit lock acquisition",
+              "Ran VerifyJournalBalance() sanity check"
+            ],
+            "incident_id": "INC-504",
+            "lead_responder": "E10",
+            "lead_responder_id": "E10",
+            "module": "ledger-service",
+            "participants": [
+              "E10",
+              "E16"
+            ],
+            "reporter": "E05",
+            "reporter_id": "E05",
+            "root_cause": "Non-sequential account ID locking in double-entry balance verifier worker.",
+            "service": "ledger-service",
+            "summary": "Concurrent merchant debit and credit entries caused journal account row locks.",
+            "timestamps": {
+              "created_at": "2024-02-15T01:40:00Z",
+              "resolved_at": "2024-02-15T02:55:00Z"
+            }
+          },
+          "cef_details": {
+            "message": "Double-entry ledger journal debit/credit lock contention during midnight batch",
+            "priority": null,
+            "version": "1.0",
+            "description": "Double-entry ledger journal debit/credit lock contention during midnight batch",
+            "severity": "critical",
+            "details": {
+              "action_items": [
+                "Sorted journal account IDs before executing debit/credit lock acquisition",
+                "Ran VerifyJournalBalance() sanity check"
+              ],
+              "incident_id": "INC-504",
+              "lead_responder": "E10",
+              "lead_responder_id": "E10",
+              "module": "ledger-service",
+              "participants": [
+                "E10",
+                "E16"
+              ],
+              "reporter": "E05",
+              "reporter_id": "E05",
+              "root_cause": "Non-sequential account ID locking in double-entry balance verifier worker.",
+              "service": "ledger-service",
+              "summary": "Concurrent merchant debit and credit entries caused journal account row locks.",
+              "timestamps": {
+                "created_at": "2024-02-15T01:40:00Z",
+                "resolved_at": "2024-02-15T02:55:00Z"
+              }
+            },
+            "client": null,
+            "client_url": null,
+            "contexts": null,
+            "creation_time": "2024-02-15T01:40:00Z",
+            "dedup_key": "INC-504",
+            "event_class": null,
+            "reporter_location": null,
+            "service_group": null,
+            "source_component": null,
+            "source_location": null,
+            "source_origin": "ledger-service",
+            "mutations": [],
+            "reporter_component": null,
+            "urgency": null
+          },
+          "summary": "Double-entry ledger journal debit/credit lock contention during midnight batch"
+        },
+        "service": {
+          "id": "PK9U7OK",
+          "name": "AcmePay",
+          "description": null,
+          "created_at": "2026-08-26T18:24:21Z",
+          "updated_at": "2026-08-26T18:24:21Z",
+          "status": "critical",
+          "teams": [],
+          "alert_creation": "create_alerts_and_incidents",
+          "addons": [],
+          "scheduled_actions": [],
+          "support_hours": null,
+          "last_incident_timestamp": "2026-08-26T19:04:42Z",
+          "escalation_policy": {
+            "id": "P5YI4OZ",
+            "type": "escalation_policy_reference",
+            "summary": "AcmePay-ep",
+            "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+            "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+          },
+          "incident_urgency_rule": {
+            "type": "constant",
+            "urgency": "high"
+          },
+          "acknowledgement_timeout": null,
+          "auto_resolve_timeout": null,
+          "integrations": [
+            {
+              "id": "PWMFL7R",
+              "type": "events_api_v2_inbound_integration_reference",
+              "summary": "Events API V2",
+              "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+              "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+            }
+          ],
+          "type": "service",
+          "summary": "AcmePay",
+          "self": "https://api.pagerduty.com/services/PK9U7OK",
+          "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+        },
+        "incident": {
+          "id": "Q2TZYWH3YIKQQJ",
+          "type": "incident_reference",
+          "summary": "[#4] Double-entry ledger journal debit/credit lock contention during midnight batch",
+          "self": "https://api.pagerduty.com/incidents/Q2TZYWH3YIKQQJ",
+          "html_url": "https://acmepay.pagerduty.com/incidents/Q2TZYWH3YIKQQJ"
+        },
+        "teams": [],
+        "contexts": [],
+        "event_details": {
+          "description": "Double-entry ledger journal debit/credit lock contention during midnight batch"
+        }
+      },
+      "alert_counts": {
+        "all": 1,
+        "triggered": 1,
+        "resolved": 0
+      },
+      "is_mergeable": true,
+      "incident_type": {
+        "name": "incident_default"
+      },
+      "escalation_policy": {
+        "id": "P5YI4OZ",
+        "type": "escalation_policy_reference",
+        "summary": "AcmePay-ep",
+        "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+        "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+      },
+      "teams": [],
+      "pending_actions": [],
+      "acknowledgements": [],
+      "basic_alert_grouping": null,
+      "alert_grouping": {
+        "grouping_type": "advanced",
+        "started_at": "2026-08-26T19:04:26Z",
+        "ended_at": null,
+        "alert_grouping_active": false
+      },
+      "last_status_change_by": {
+        "id": "PK9U7OK",
+        "type": "service_reference",
+        "summary": "AcmePay",
+        "self": "https://api.pagerduty.com/services/PK9U7OK",
+        "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+      },
+      "priority": null,
+      "incidents_responders": [],
+      "responder_requests": [],
+      "subscriber_requests": [],
+      "urgency": "high",
+      "id": "Q2TZYWH3YIKQQJ",
+      "type": "incident",
+      "summary": "[#4] Double-entry ledger journal debit/credit lock contention during midnight batch",
+      "self": "https://api.pagerduty.com/incidents/Q2TZYWH3YIKQQJ",
+      "html_url": "https://acmepay.pagerduty.com/incidents/Q2TZYWH3YIKQQJ"
+    },
+    {
+      "incident_number": 5,
+      "title": "API Gateway 504 Gateway Timeout on v2 payment intent proxy",
+      "description": "API Gateway 504 Gateway Timeout on v2 payment intent proxy",
+      "created_at": "2026-08-26T19:04:28Z",
+      "updated_at": "2026-08-26T19:04:28Z",
+      "status": "triggered",
+      "incident_key": null,
+      "service": {
+        "id": "PK9U7OK",
+        "name": "AcmePay",
+        "description": null,
+        "created_at": "2026-08-26T18:24:21Z",
+        "updated_at": "2026-08-26T18:24:21Z",
+        "status": "critical",
+        "teams": [],
+        "alert_creation": "create_alerts_and_incidents",
+        "addons": [],
+        "scheduled_actions": [],
+        "support_hours": null,
+        "last_incident_timestamp": "2026-08-26T19:04:42Z",
+        "escalation_policy": {
+          "id": "P5YI4OZ",
+          "type": "escalation_policy_reference",
+          "summary": "AcmePay-ep",
+          "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+          "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+        },
+        "incident_urgency_rule": {
+          "type": "constant",
+          "urgency": "high"
+        },
+        "acknowledgement_timeout": null,
+        "auto_resolve_timeout": null,
+        "integrations": [
+          {
+            "id": "PWMFL7R",
+            "type": "events_api_v2_inbound_integration_reference",
+            "summary": "Events API V2",
+            "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+            "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+          }
+        ],
+        "type": "service",
+        "summary": "AcmePay",
+        "self": "https://api.pagerduty.com/services/PK9U7OK",
+        "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+      },
+      "assignments": [
+        {
+          "at": "2026-08-26T19:04:28Z",
+          "assignee": {
+            "name": "Rakshak Shetty",
+            "email": "rakshak.s@somaiya.edu",
+            "time_zone": "Etc/UTC",
+            "color": "purple",
+            "avatar_url": "https://pd-static-assets.pagerduty.com/users/blank-avatar.png",
+            "billed": true,
+            "role": "owner",
+            "description": null,
+            "invitation_sent": false,
+            "job_title": null,
+            "teams": [],
+            "created_via_sso": false,
+            "contact_methods": [
+              {
+                "id": "PB5YE93",
+                "type": "email_contact_method_reference",
+                "summary": "Default",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/contact_methods/PB5YE93",
+                "html_url": null
+              }
+            ],
+            "notification_rules": [
+              {
+                "id": "PO8H566",
+                "type": "assignment_notification_rule_reference",
+                "summary": "0 minutes: channel PB5YE93",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/notification_rules/PO8H566",
+                "html_url": null
+              },
+              {
+                "id": "PRI55IW",
+                "type": "assignment_notification_rule_reference",
+                "summary": "0 minutes: channel PB5YE93",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/notification_rules/PRI55IW",
+                "html_url": null
+              }
+            ],
+            "coordinated_incidents": [],
+            "locale": "en-US",
+            "id": "PN8AFPT",
+            "type": "user",
+            "summary": "Rakshak Shetty",
+            "self": "https://api.pagerduty.com/users/PN8AFPT",
+            "html_url": "https://acmepay.pagerduty.com/users/PN8AFPT"
+          }
+        }
+      ],
+      "assigned_via": "escalation_policy",
+      "last_status_change_at": "2026-08-26T19:04:28Z",
+      "resolved_at": null,
+      "first_trigger_log_entry": {
+        "id": "RQ435Y1RFSMWHM7UTKWJUWSU5W",
+        "type": "trigger_log_entry",
+        "summary": "Triggered through the API.",
+        "self": "https://api.pagerduty.com/log_entries/RQ435Y1RFSMWHM7UTKWJUWSU5W",
+        "html_url": "https://acmepay.pagerduty.com/incidents/Q1NI6WIH5VV0SB/log_entries/RQ435Y1RFSMWHM7UTKWJUWSU5W",
+        "created_at": "2026-08-26T19:04:28Z",
+        "agent": {
+          "id": "PWMFL7R",
+          "type": "events_api_v2_inbound_integration_reference",
+          "summary": "Events API V2",
+          "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+          "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+        },
+        "channel": {
+          "type": "api",
+          "service_key": "429e00a8ec19420cd043164b249690ca",
+          "description": "API Gateway 504 Gateway Timeout on v2 payment intent proxy",
+          "incident_key": "INC-505",
+          "details": {
+            "action_items": [
+              "Increased gateway proxy connection pool capacity to 500",
+              "Reconfigured token bucket burst rate limiter parameters"
+            ],
+            "incident_id": "INC-505",
+            "lead_responder": "E01",
+            "lead_responder_id": "E01",
+            "module": "api-gateway",
+            "participants": [
+              "E01",
+              "E11",
+              "E15"
+            ],
+            "reporter": "E02",
+            "reporter_id": "E02",
+            "root_cause": "Token bucket rate limiter bucket capacity misconfiguration.",
+            "service": "api-gateway",
+            "summary": "Ingress reverse proxy connection pool exhaustion under sudden traffic surge.",
+            "timestamps": {
+              "created_at": "2024-05-20T11:05:00Z",
+              "resolved_at": "2024-05-20T11:50:00Z"
+            }
+          },
+          "cef_details": {
+            "message": "API Gateway 504 Gateway Timeout on v2 payment intent proxy",
+            "priority": null,
+            "version": "1.0",
+            "description": "API Gateway 504 Gateway Timeout on v2 payment intent proxy",
+            "severity": "error",
+            "details": {
+              "action_items": [
+                "Increased gateway proxy connection pool capacity to 500",
+                "Reconfigured token bucket burst rate limiter parameters"
+              ],
+              "incident_id": "INC-505",
+              "lead_responder": "E01",
+              "lead_responder_id": "E01",
+              "module": "api-gateway",
+              "participants": [
+                "E01",
+                "E11",
+                "E15"
+              ],
+              "reporter": "E02",
+              "reporter_id": "E02",
+              "root_cause": "Token bucket rate limiter bucket capacity misconfiguration.",
+              "service": "api-gateway",
+              "summary": "Ingress reverse proxy connection pool exhaustion under sudden traffic surge.",
+              "timestamps": {
+                "created_at": "2024-05-20T11:05:00Z",
+                "resolved_at": "2024-05-20T11:50:00Z"
+              }
+            },
+            "client": null,
+            "client_url": null,
+            "contexts": null,
+            "creation_time": "2024-05-20T11:05:00Z",
+            "dedup_key": "INC-505",
+            "event_class": null,
+            "reporter_location": null,
+            "service_group": null,
+            "source_component": null,
+            "source_location": null,
+            "source_origin": "api-gateway",
+            "mutations": [],
+            "reporter_component": null,
+            "urgency": null
+          },
+          "summary": "API Gateway 504 Gateway Timeout on v2 payment intent proxy"
+        },
+        "service": {
+          "id": "PK9U7OK",
+          "name": "AcmePay",
+          "description": null,
+          "created_at": "2026-08-26T18:24:21Z",
+          "updated_at": "2026-08-26T18:24:21Z",
+          "status": "critical",
+          "teams": [],
+          "alert_creation": "create_alerts_and_incidents",
+          "addons": [],
+          "scheduled_actions": [],
+          "support_hours": null,
+          "last_incident_timestamp": "2026-08-26T19:04:42Z",
+          "escalation_policy": {
+            "id": "P5YI4OZ",
+            "type": "escalation_policy_reference",
+            "summary": "AcmePay-ep",
+            "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+            "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+          },
+          "incident_urgency_rule": {
+            "type": "constant",
+            "urgency": "high"
+          },
+          "acknowledgement_timeout": null,
+          "auto_resolve_timeout": null,
+          "integrations": [
+            {
+              "id": "PWMFL7R",
+              "type": "events_api_v2_inbound_integration_reference",
+              "summary": "Events API V2",
+              "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+              "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+            }
+          ],
+          "type": "service",
+          "summary": "AcmePay",
+          "self": "https://api.pagerduty.com/services/PK9U7OK",
+          "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+        },
+        "incident": {
+          "id": "Q1NI6WIH5VV0SB",
+          "type": "incident_reference",
+          "summary": "[#5] API Gateway 504 Gateway Timeout on v2 payment intent proxy",
+          "self": "https://api.pagerduty.com/incidents/Q1NI6WIH5VV0SB",
+          "html_url": "https://acmepay.pagerduty.com/incidents/Q1NI6WIH5VV0SB"
+        },
+        "teams": [],
+        "contexts": [],
+        "event_details": {
+          "description": "API Gateway 504 Gateway Timeout on v2 payment intent proxy"
+        }
+      },
+      "alert_counts": {
+        "all": 1,
+        "triggered": 1,
+        "resolved": 0
+      },
+      "is_mergeable": true,
+      "incident_type": {
+        "name": "incident_default"
+      },
+      "escalation_policy": {
+        "id": "P5YI4OZ",
+        "type": "escalation_policy_reference",
+        "summary": "AcmePay-ep",
+        "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+        "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+      },
+      "teams": [],
+      "pending_actions": [],
+      "acknowledgements": [],
+      "basic_alert_grouping": null,
+      "alert_grouping": {
+        "grouping_type": "advanced",
+        "started_at": "2026-08-26T19:04:28Z",
+        "ended_at": null,
+        "alert_grouping_active": false
+      },
+      "last_status_change_by": {
+        "id": "PK9U7OK",
+        "type": "service_reference",
+        "summary": "AcmePay",
+        "self": "https://api.pagerduty.com/services/PK9U7OK",
+        "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+      },
+      "priority": null,
+      "incidents_responders": [],
+      "responder_requests": [],
+      "subscriber_requests": [],
+      "urgency": "high",
+      "id": "Q1NI6WIH5VV0SB",
+      "type": "incident",
+      "summary": "[#5] API Gateway 504 Gateway Timeout on v2 payment intent proxy",
+      "self": "https://api.pagerduty.com/incidents/Q1NI6WIH5VV0SB",
+      "html_url": "https://acmepay.pagerduty.com/incidents/Q1NI6WIH5VV0SB"
+    },
+    {
+      "incident_number": 6,
+      "title": "Partner bank ACH clearing file header formatting error",
+      "description": "Partner bank ACH clearing file header formatting error",
+      "created_at": "2026-08-26T19:04:29Z",
+      "updated_at": "2026-08-26T19:04:29Z",
+      "status": "triggered",
+      "incident_key": null,
+      "service": {
+        "id": "PK9U7OK",
+        "name": "AcmePay",
+        "description": null,
+        "created_at": "2026-08-26T18:24:21Z",
+        "updated_at": "2026-08-26T18:24:21Z",
+        "status": "critical",
+        "teams": [],
+        "alert_creation": "create_alerts_and_incidents",
+        "addons": [],
+        "scheduled_actions": [],
+        "support_hours": null,
+        "last_incident_timestamp": "2026-08-26T19:04:42Z",
+        "escalation_policy": {
+          "id": "P5YI4OZ",
+          "type": "escalation_policy_reference",
+          "summary": "AcmePay-ep",
+          "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+          "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+        },
+        "incident_urgency_rule": {
+          "type": "constant",
+          "urgency": "high"
+        },
+        "acknowledgement_timeout": null,
+        "auto_resolve_timeout": null,
+        "integrations": [
+          {
+            "id": "PWMFL7R",
+            "type": "events_api_v2_inbound_integration_reference",
+            "summary": "Events API V2",
+            "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+            "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+          }
+        ],
+        "type": "service",
+        "summary": "AcmePay",
+        "self": "https://api.pagerduty.com/services/PK9U7OK",
+        "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+      },
+      "assignments": [
+        {
+          "at": "2026-08-26T19:04:29Z",
+          "assignee": {
+            "name": "Rakshak Shetty",
+            "email": "rakshak.s@somaiya.edu",
+            "time_zone": "Etc/UTC",
+            "color": "purple",
+            "avatar_url": "https://pd-static-assets.pagerduty.com/users/blank-avatar.png",
+            "billed": true,
+            "role": "owner",
+            "description": null,
+            "invitation_sent": false,
+            "job_title": null,
+            "teams": [],
+            "created_via_sso": false,
+            "contact_methods": [
+              {
+                "id": "PB5YE93",
+                "type": "email_contact_method_reference",
+                "summary": "Default",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/contact_methods/PB5YE93",
+                "html_url": null
+              }
+            ],
+            "notification_rules": [
+              {
+                "id": "PO8H566",
+                "type": "assignment_notification_rule_reference",
+                "summary": "0 minutes: channel PB5YE93",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/notification_rules/PO8H566",
+                "html_url": null
+              },
+              {
+                "id": "PRI55IW",
+                "type": "assignment_notification_rule_reference",
+                "summary": "0 minutes: channel PB5YE93",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/notification_rules/PRI55IW",
+                "html_url": null
+              }
+            ],
+            "coordinated_incidents": [],
+            "locale": "en-US",
+            "id": "PN8AFPT",
+            "type": "user",
+            "summary": "Rakshak Shetty",
+            "self": "https://api.pagerduty.com/users/PN8AFPT",
+            "html_url": "https://acmepay.pagerduty.com/users/PN8AFPT"
+          }
+        }
+      ],
+      "assigned_via": "escalation_policy",
+      "last_status_change_at": "2026-08-26T19:04:29Z",
+      "resolved_at": null,
+      "first_trigger_log_entry": {
+        "id": "RQQ7YTI8C90YRJ8ZL8XB5K2LFO",
+        "type": "trigger_log_entry",
+        "summary": "Triggered through the API.",
+        "self": "https://api.pagerduty.com/log_entries/RQQ7YTI8C90YRJ8ZL8XB5K2LFO",
+        "html_url": "https://acmepay.pagerduty.com/incidents/Q0QSCOXAWD3J1U/log_entries/RQQ7YTI8C90YRJ8ZL8XB5K2LFO",
+        "created_at": "2026-08-26T19:04:29Z",
+        "agent": {
+          "id": "PWMFL7R",
+          "type": "events_api_v2_inbound_integration_reference",
+          "summary": "Events API V2",
+          "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+          "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+        },
+        "channel": {
+          "type": "api",
+          "service_key": "429e00a8ec19420cd043164b249690ca",
+          "description": "Partner bank ACH clearing file header formatting error",
+          "incident_key": "INC-506",
+          "details": {
+            "action_items": [
+              "Updated ach_clearing.go batch file generator format",
+              "Added automated pre-submission ACH header validator"
+            ],
+            "incident_id": "INC-506",
+            "lead_responder": "E04",
+            "lead_responder_id": "E04",
+            "module": "settlement-service",
+            "participants": [
+              "E04",
+              "E05",
+              "E16"
+            ],
+            "reporter": "E19",
+            "reporter_id": "E19",
+            "root_cause": "Unannounced ACH file format specification change by partner bank.",
+            "service": "settlement-service",
+            "summary": "Partner clearing bank rejected daily batch payout file due to missing header column.",
+            "timestamps": {
+              "created_at": "2024-09-10T16:30:00Z",
+              "resolved_at": "2024-09-10T17:40:00Z"
+            }
+          },
+          "cef_details": {
+            "message": "Partner bank ACH clearing file header formatting error",
+            "priority": null,
+            "version": "1.0",
+            "description": "Partner bank ACH clearing file header formatting error",
+            "severity": "error",
+            "details": {
+              "action_items": [
+                "Updated ach_clearing.go batch file generator format",
+                "Added automated pre-submission ACH header validator"
+              ],
+              "incident_id": "INC-506",
+              "lead_responder": "E04",
+              "lead_responder_id": "E04",
+              "module": "settlement-service",
+              "participants": [
+                "E04",
+                "E05",
+                "E16"
+              ],
+              "reporter": "E19",
+              "reporter_id": "E19",
+              "root_cause": "Unannounced ACH file format specification change by partner bank.",
+              "service": "settlement-service",
+              "summary": "Partner clearing bank rejected daily batch payout file due to missing header column.",
+              "timestamps": {
+                "created_at": "2024-09-10T16:30:00Z",
+                "resolved_at": "2024-09-10T17:40:00Z"
+              }
+            },
+            "client": null,
+            "client_url": null,
+            "contexts": null,
+            "creation_time": "2024-09-10T16:30:00Z",
+            "dedup_key": "INC-506",
+            "event_class": null,
+            "reporter_location": null,
+            "service_group": null,
+            "source_component": null,
+            "source_location": null,
+            "source_origin": "settlement-service",
+            "mutations": [],
+            "reporter_component": null,
+            "urgency": null
+          },
+          "summary": "Partner bank ACH clearing file header formatting error"
+        },
+        "service": {
+          "id": "PK9U7OK",
+          "name": "AcmePay",
+          "description": null,
+          "created_at": "2026-08-26T18:24:21Z",
+          "updated_at": "2026-08-26T18:24:21Z",
+          "status": "critical",
+          "teams": [],
+          "alert_creation": "create_alerts_and_incidents",
+          "addons": [],
+          "scheduled_actions": [],
+          "support_hours": null,
+          "last_incident_timestamp": "2026-08-26T19:04:42Z",
+          "escalation_policy": {
+            "id": "P5YI4OZ",
+            "type": "escalation_policy_reference",
+            "summary": "AcmePay-ep",
+            "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+            "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+          },
+          "incident_urgency_rule": {
+            "type": "constant",
+            "urgency": "high"
+          },
+          "acknowledgement_timeout": null,
+          "auto_resolve_timeout": null,
+          "integrations": [
+            {
+              "id": "PWMFL7R",
+              "type": "events_api_v2_inbound_integration_reference",
+              "summary": "Events API V2",
+              "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+              "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+            }
+          ],
+          "type": "service",
+          "summary": "AcmePay",
+          "self": "https://api.pagerduty.com/services/PK9U7OK",
+          "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+        },
+        "incident": {
+          "id": "Q0QSCOXAWD3J1U",
+          "type": "incident_reference",
+          "summary": "[#6] Partner bank ACH clearing file header formatting error",
+          "self": "https://api.pagerduty.com/incidents/Q0QSCOXAWD3J1U",
+          "html_url": "https://acmepay.pagerduty.com/incidents/Q0QSCOXAWD3J1U"
+        },
+        "teams": [],
+        "contexts": [],
+        "event_details": {
+          "description": "Partner bank ACH clearing file header formatting error"
+        }
+      },
+      "alert_counts": {
+        "all": 1,
+        "triggered": 1,
+        "resolved": 0
+      },
+      "is_mergeable": true,
+      "incident_type": {
+        "name": "incident_default"
+      },
+      "escalation_policy": {
+        "id": "P5YI4OZ",
+        "type": "escalation_policy_reference",
+        "summary": "AcmePay-ep",
+        "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+        "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+      },
+      "teams": [],
+      "pending_actions": [],
+      "acknowledgements": [],
+      "basic_alert_grouping": null,
+      "alert_grouping": {
+        "grouping_type": "advanced",
+        "started_at": "2026-08-26T19:04:29Z",
+        "ended_at": null,
+        "alert_grouping_active": false
+      },
+      "last_status_change_by": {
+        "id": "PK9U7OK",
+        "type": "service_reference",
+        "summary": "AcmePay",
+        "self": "https://api.pagerduty.com/services/PK9U7OK",
+        "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+      },
+      "priority": null,
+      "incidents_responders": [],
+      "responder_requests": [],
+      "subscriber_requests": [],
+      "urgency": "high",
+      "id": "Q0QSCOXAWD3J1U",
+      "type": "incident",
+      "summary": "[#6] Partner bank ACH clearing file header formatting error",
+      "self": "https://api.pagerduty.com/incidents/Q0QSCOXAWD3J1U",
+      "html_url": "https://acmepay.pagerduty.com/incidents/Q0QSCOXAWD3J1U"
+    },
+    {
+      "incident_number": 7,
+      "title": "Kubernetes ArgoRollout canary traffic shifting stalled at 10% step",
+      "description": "Kubernetes ArgoRollout canary traffic shifting stalled at 10% step",
+      "created_at": "2026-08-26T19:04:30Z",
+      "updated_at": "2026-08-26T19:04:30Z",
+      "status": "triggered",
+      "incident_key": null,
+      "service": {
+        "id": "PK9U7OK",
+        "name": "AcmePay",
+        "description": null,
+        "created_at": "2026-08-26T18:24:21Z",
+        "updated_at": "2026-08-26T18:24:21Z",
+        "status": "critical",
+        "teams": [],
+        "alert_creation": "create_alerts_and_incidents",
+        "addons": [],
+        "scheduled_actions": [],
+        "support_hours": null,
+        "last_incident_timestamp": "2026-08-26T19:04:42Z",
+        "escalation_policy": {
+          "id": "P5YI4OZ",
+          "type": "escalation_policy_reference",
+          "summary": "AcmePay-ep",
+          "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+          "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+        },
+        "incident_urgency_rule": {
+          "type": "constant",
+          "urgency": "high"
+        },
+        "acknowledgement_timeout": null,
+        "auto_resolve_timeout": null,
+        "integrations": [
+          {
+            "id": "PWMFL7R",
+            "type": "events_api_v2_inbound_integration_reference",
+            "summary": "Events API V2",
+            "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+            "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+          }
+        ],
+        "type": "service",
+        "summary": "AcmePay",
+        "self": "https://api.pagerduty.com/services/PK9U7OK",
+        "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+      },
+      "assignments": [
+        {
+          "at": "2026-08-26T19:04:30Z",
+          "assignee": {
+            "name": "Rakshak Shetty",
+            "email": "rakshak.s@somaiya.edu",
+            "time_zone": "Etc/UTC",
+            "color": "purple",
+            "avatar_url": "https://pd-static-assets.pagerduty.com/users/blank-avatar.png",
+            "billed": true,
+            "role": "owner",
+            "description": null,
+            "invitation_sent": false,
+            "job_title": null,
+            "teams": [],
+            "created_via_sso": false,
+            "contact_methods": [
+              {
+                "id": "PB5YE93",
+                "type": "email_contact_method_reference",
+                "summary": "Default",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/contact_methods/PB5YE93",
+                "html_url": null
+              }
+            ],
+            "notification_rules": [
+              {
+                "id": "PO8H566",
+                "type": "assignment_notification_rule_reference",
+                "summary": "0 minutes: channel PB5YE93",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/notification_rules/PO8H566",
+                "html_url": null
+              },
+              {
+                "id": "PRI55IW",
+                "type": "assignment_notification_rule_reference",
+                "summary": "0 minutes: channel PB5YE93",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/notification_rules/PRI55IW",
+                "html_url": null
+              }
+            ],
+            "coordinated_incidents": [],
+            "locale": "en-US",
+            "id": "PN8AFPT",
+            "type": "user",
+            "summary": "Rakshak Shetty",
+            "self": "https://api.pagerduty.com/users/PN8AFPT",
+            "html_url": "https://acmepay.pagerduty.com/users/PN8AFPT"
+          }
+        }
+      ],
+      "assigned_via": "escalation_policy",
+      "last_status_change_at": "2026-08-26T19:04:30Z",
+      "resolved_at": null,
+      "first_trigger_log_entry": {
+        "id": "R3176QS6OBIJWR4FTPFN00LTWZ",
+        "type": "trigger_log_entry",
+        "summary": "Triggered through the API.",
+        "self": "https://api.pagerduty.com/log_entries/R3176QS6OBIJWR4FTPFN00LTWZ",
+        "html_url": "https://acmepay.pagerduty.com/incidents/Q226Q5ANZBSB4T/log_entries/R3176QS6OBIJWR4FTPFN00LTWZ",
+        "created_at": "2026-08-26T19:04:30Z",
+        "agent": {
+          "id": "PWMFL7R",
+          "type": "events_api_v2_inbound_integration_reference",
+          "summary": "Events API V2",
+          "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+          "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+        },
+        "channel": {
+          "type": "api",
+          "service_key": "429e00a8ec19420cd043164b249690ca",
+          "description": "Kubernetes ArgoRollout canary traffic shifting stalled at 10% step",
+          "incident_key": "INC-507",
+          "details": {
+            "action_items": [
+              "Manually promoted release to 100% production step",
+              "Adjusted canary metric query evaluation window"
+            ],
+            "incident_id": "INC-507",
+            "lead_responder": "E03",
+            "lead_responder_id": "E03",
+            "module": "deployment-service",
+            "participants": [
+              "E03",
+              "E06",
+              "E11"
+            ],
+            "reporter": "E06",
+            "reporter_id": "E06",
+            "root_cause": "Prometheus metric query timeout during 10% canary step evaluation.",
+            "service": "deployment-service",
+            "summary": "ArgoRollout controller failed to promote canary release automatically after metric evaluation.",
+            "timestamps": {
+              "created_at": "2024-11-18T08:00:00Z",
+              "resolved_at": "2024-11-18T08:45:00Z"
+            }
+          },
+          "cef_details": {
+            "message": "Kubernetes ArgoRollout canary traffic shifting stalled at 10% step",
+            "priority": null,
+            "version": "1.0",
+            "description": "Kubernetes ArgoRollout canary traffic shifting stalled at 10% step",
+            "severity": "error",
+            "details": {
+              "action_items": [
+                "Manually promoted release to 100% production step",
+                "Adjusted canary metric query evaluation window"
+              ],
+              "incident_id": "INC-507",
+              "lead_responder": "E03",
+              "lead_responder_id": "E03",
+              "module": "deployment-service",
+              "participants": [
+                "E03",
+                "E06",
+                "E11"
+              ],
+              "reporter": "E06",
+              "reporter_id": "E06",
+              "root_cause": "Prometheus metric query timeout during 10% canary step evaluation.",
+              "service": "deployment-service",
+              "summary": "ArgoRollout controller failed to promote canary release automatically after metric evaluation.",
+              "timestamps": {
+                "created_at": "2024-11-18T08:00:00Z",
+                "resolved_at": "2024-11-18T08:45:00Z"
+              }
+            },
+            "client": null,
+            "client_url": null,
+            "contexts": null,
+            "creation_time": "2024-11-18T08:00:00Z",
+            "dedup_key": "INC-507",
+            "event_class": null,
+            "reporter_location": null,
+            "service_group": null,
+            "source_component": null,
+            "source_location": null,
+            "source_origin": "deployment-service",
+            "mutations": [],
+            "reporter_component": null,
+            "urgency": null
+          },
+          "summary": "Kubernetes ArgoRollout canary traffic shifting stalled at 10% step"
+        },
+        "service": {
+          "id": "PK9U7OK",
+          "name": "AcmePay",
+          "description": null,
+          "created_at": "2026-08-26T18:24:21Z",
+          "updated_at": "2026-08-26T18:24:21Z",
+          "status": "critical",
+          "teams": [],
+          "alert_creation": "create_alerts_and_incidents",
+          "addons": [],
+          "scheduled_actions": [],
+          "support_hours": null,
+          "last_incident_timestamp": "2026-08-26T19:04:42Z",
+          "escalation_policy": {
+            "id": "P5YI4OZ",
+            "type": "escalation_policy_reference",
+            "summary": "AcmePay-ep",
+            "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+            "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+          },
+          "incident_urgency_rule": {
+            "type": "constant",
+            "urgency": "high"
+          },
+          "acknowledgement_timeout": null,
+          "auto_resolve_timeout": null,
+          "integrations": [
+            {
+              "id": "PWMFL7R",
+              "type": "events_api_v2_inbound_integration_reference",
+              "summary": "Events API V2",
+              "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+              "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+            }
+          ],
+          "type": "service",
+          "summary": "AcmePay",
+          "self": "https://api.pagerduty.com/services/PK9U7OK",
+          "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+        },
+        "incident": {
+          "id": "Q226Q5ANZBSB4T",
+          "type": "incident_reference",
+          "summary": "[#7] Kubernetes ArgoRollout canary traffic shifting stalled at 10% step",
+          "self": "https://api.pagerduty.com/incidents/Q226Q5ANZBSB4T",
+          "html_url": "https://acmepay.pagerduty.com/incidents/Q226Q5ANZBSB4T"
+        },
+        "teams": [],
+        "contexts": [],
+        "event_details": {
+          "description": "Kubernetes ArgoRollout canary traffic shifting stalled at 10% step"
+        }
+      },
+      "alert_counts": {
+        "all": 1,
+        "triggered": 1,
+        "resolved": 0
+      },
+      "is_mergeable": true,
+      "incident_type": {
+        "name": "incident_default"
+      },
+      "escalation_policy": {
+        "id": "P5YI4OZ",
+        "type": "escalation_policy_reference",
+        "summary": "AcmePay-ep",
+        "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+        "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+      },
+      "teams": [],
+      "pending_actions": [],
+      "acknowledgements": [],
+      "basic_alert_grouping": null,
+      "alert_grouping": {
+        "grouping_type": "advanced",
+        "started_at": "2026-08-26T19:04:30Z",
+        "ended_at": null,
+        "alert_grouping_active": false
+      },
+      "last_status_change_by": {
+        "id": "PK9U7OK",
+        "type": "service_reference",
+        "summary": "AcmePay",
+        "self": "https://api.pagerduty.com/services/PK9U7OK",
+        "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+      },
+      "priority": null,
+      "incidents_responders": [],
+      "responder_requests": [],
+      "subscriber_requests": [],
+      "urgency": "high",
+      "id": "Q226Q5ANZBSB4T",
+      "type": "incident",
+      "summary": "[#7] Kubernetes ArgoRollout canary traffic shifting stalled at 10% step",
+      "self": "https://api.pagerduty.com/incidents/Q226Q5ANZBSB4T",
+      "html_url": "https://acmepay.pagerduty.com/incidents/Q226Q5ANZBSB4T"
+    },
+    {
+      "incident_number": 8,
+      "title": "Merchant KYC tax ID validation worker queue backpressure",
+      "description": "Merchant KYC tax ID validation worker queue backpressure",
+      "created_at": "2026-08-26T19:04:32Z",
+      "updated_at": "2026-08-26T19:04:32Z",
+      "status": "triggered",
+      "incident_key": null,
+      "service": {
+        "id": "PK9U7OK",
+        "name": "AcmePay",
+        "description": null,
+        "created_at": "2026-08-26T18:24:21Z",
+        "updated_at": "2026-08-26T18:24:21Z",
+        "status": "critical",
+        "teams": [],
+        "alert_creation": "create_alerts_and_incidents",
+        "addons": [],
+        "scheduled_actions": [],
+        "support_hours": null,
+        "last_incident_timestamp": "2026-08-26T19:04:42Z",
+        "escalation_policy": {
+          "id": "P5YI4OZ",
+          "type": "escalation_policy_reference",
+          "summary": "AcmePay-ep",
+          "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+          "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+        },
+        "incident_urgency_rule": {
+          "type": "constant",
+          "urgency": "high"
+        },
+        "acknowledgement_timeout": null,
+        "auto_resolve_timeout": null,
+        "integrations": [
+          {
+            "id": "PWMFL7R",
+            "type": "events_api_v2_inbound_integration_reference",
+            "summary": "Events API V2",
+            "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+            "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+          }
+        ],
+        "type": "service",
+        "summary": "AcmePay",
+        "self": "https://api.pagerduty.com/services/PK9U7OK",
+        "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+      },
+      "assignments": [
+        {
+          "at": "2026-08-26T19:04:32Z",
+          "assignee": {
+            "name": "Rakshak Shetty",
+            "email": "rakshak.s@somaiya.edu",
+            "time_zone": "Etc/UTC",
+            "color": "purple",
+            "avatar_url": "https://pd-static-assets.pagerduty.com/users/blank-avatar.png",
+            "billed": true,
+            "role": "owner",
+            "description": null,
+            "invitation_sent": false,
+            "job_title": null,
+            "teams": [],
+            "created_via_sso": false,
+            "contact_methods": [
+              {
+                "id": "PB5YE93",
+                "type": "email_contact_method_reference",
+                "summary": "Default",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/contact_methods/PB5YE93",
+                "html_url": null
+              }
+            ],
+            "notification_rules": [
+              {
+                "id": "PO8H566",
+                "type": "assignment_notification_rule_reference",
+                "summary": "0 minutes: channel PB5YE93",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/notification_rules/PO8H566",
+                "html_url": null
+              },
+              {
+                "id": "PRI55IW",
+                "type": "assignment_notification_rule_reference",
+                "summary": "0 minutes: channel PB5YE93",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/notification_rules/PRI55IW",
+                "html_url": null
+              }
+            ],
+            "coordinated_incidents": [],
+            "locale": "en-US",
+            "id": "PN8AFPT",
+            "type": "user",
+            "summary": "Rakshak Shetty",
+            "self": "https://api.pagerduty.com/users/PN8AFPT",
+            "html_url": "https://acmepay.pagerduty.com/users/PN8AFPT"
+          }
+        }
+      ],
+      "assigned_via": "escalation_policy",
+      "last_status_change_at": "2026-08-26T19:04:32Z",
+      "resolved_at": null,
+      "first_trigger_log_entry": {
+        "id": "R8DK17WIXVTVK303OIHSDXHGUI",
+        "type": "trigger_log_entry",
+        "summary": "Triggered through the API.",
+        "self": "https://api.pagerduty.com/log_entries/R8DK17WIXVTVK303OIHSDXHGUI",
+        "html_url": "https://acmepay.pagerduty.com/incidents/Q1Q6WHD22KOLTQ/log_entries/R8DK17WIXVTVK303OIHSDXHGUI",
+        "created_at": "2026-08-26T19:04:32Z",
+        "agent": {
+          "id": "PWMFL7R",
+          "type": "events_api_v2_inbound_integration_reference",
+          "summary": "Events API V2",
+          "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+          "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+        },
+        "channel": {
+          "type": "api",
+          "service_key": "429e00a8ec19420cd043164b249690ca",
+          "description": "Merchant KYC tax ID validation worker queue backpressure",
+          "incident_key": "INC-508",
+          "details": {
+            "action_items": [
+              "Flushed stalled KYC verification queue",
+              "Implemented async exponential backoff for tax ID verifier worker"
+            ],
+            "incident_id": "INC-508",
+            "lead_responder": "E02",
+            "lead_responder_id": "E02",
+            "module": "user-service",
+            "participants": [
+              "E02",
+              "E07",
+              "E20"
+            ],
+            "reporter": "E17",
+            "reporter_id": "E17",
+            "root_cause": "Missing asynchronous retry queue for tax ID verification worker.",
+            "service": "user-service",
+            "summary": "KYC document validation requests stalled due to third-party verification API throttle.",
+            "timestamps": {
+              "created_at": "2025-01-22T13:20:00Z",
+              "resolved_at": "2025-01-22T14:05:00Z"
+            }
+          },
+          "cef_details": {
+            "message": "Merchant KYC tax ID validation worker queue backpressure",
+            "priority": null,
+            "version": "1.0",
+            "description": "Merchant KYC tax ID validation worker queue backpressure",
+            "severity": "warning",
+            "details": {
+              "action_items": [
+                "Flushed stalled KYC verification queue",
+                "Implemented async exponential backoff for tax ID verifier worker"
+              ],
+              "incident_id": "INC-508",
+              "lead_responder": "E02",
+              "lead_responder_id": "E02",
+              "module": "user-service",
+              "participants": [
+                "E02",
+                "E07",
+                "E20"
+              ],
+              "reporter": "E17",
+              "reporter_id": "E17",
+              "root_cause": "Missing asynchronous retry queue for tax ID verification worker.",
+              "service": "user-service",
+              "summary": "KYC document validation requests stalled due to third-party verification API throttle.",
+              "timestamps": {
+                "created_at": "2025-01-22T13:20:00Z",
+                "resolved_at": "2025-01-22T14:05:00Z"
+              }
+            },
+            "client": null,
+            "client_url": null,
+            "contexts": null,
+            "creation_time": "2025-01-22T13:20:00Z",
+            "dedup_key": "INC-508",
+            "event_class": null,
+            "reporter_location": null,
+            "service_group": null,
+            "source_component": null,
+            "source_location": null,
+            "source_origin": "user-service",
+            "mutations": [],
+            "reporter_component": null,
+            "urgency": null
+          },
+          "summary": "Merchant KYC tax ID validation worker queue backpressure"
+        },
+        "service": {
+          "id": "PK9U7OK",
+          "name": "AcmePay",
+          "description": null,
+          "created_at": "2026-08-26T18:24:21Z",
+          "updated_at": "2026-08-26T18:24:21Z",
+          "status": "critical",
+          "teams": [],
+          "alert_creation": "create_alerts_and_incidents",
+          "addons": [],
+          "scheduled_actions": [],
+          "support_hours": null,
+          "last_incident_timestamp": "2026-08-26T19:04:42Z",
+          "escalation_policy": {
+            "id": "P5YI4OZ",
+            "type": "escalation_policy_reference",
+            "summary": "AcmePay-ep",
+            "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+            "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+          },
+          "incident_urgency_rule": {
+            "type": "constant",
+            "urgency": "high"
+          },
+          "acknowledgement_timeout": null,
+          "auto_resolve_timeout": null,
+          "integrations": [
+            {
+              "id": "PWMFL7R",
+              "type": "events_api_v2_inbound_integration_reference",
+              "summary": "Events API V2",
+              "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+              "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+            }
+          ],
+          "type": "service",
+          "summary": "AcmePay",
+          "self": "https://api.pagerduty.com/services/PK9U7OK",
+          "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+        },
+        "incident": {
+          "id": "Q1Q6WHD22KOLTQ",
+          "type": "incident_reference",
+          "summary": "[#8] Merchant KYC tax ID validation worker queue backpressure",
+          "self": "https://api.pagerduty.com/incidents/Q1Q6WHD22KOLTQ",
+          "html_url": "https://acmepay.pagerduty.com/incidents/Q1Q6WHD22KOLTQ"
+        },
+        "teams": [],
+        "contexts": [],
+        "event_details": {
+          "description": "Merchant KYC tax ID validation worker queue backpressure"
+        }
+      },
+      "alert_counts": {
+        "all": 1,
+        "triggered": 1,
+        "resolved": 0
+      },
+      "is_mergeable": true,
+      "incident_type": {
+        "name": "incident_default"
+      },
+      "escalation_policy": {
+        "id": "P5YI4OZ",
+        "type": "escalation_policy_reference",
+        "summary": "AcmePay-ep",
+        "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+        "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+      },
+      "teams": [],
+      "pending_actions": [],
+      "acknowledgements": [],
+      "basic_alert_grouping": null,
+      "alert_grouping": {
+        "grouping_type": "advanced",
+        "started_at": "2026-08-26T19:04:32Z",
+        "ended_at": null,
+        "alert_grouping_active": false
+      },
+      "last_status_change_by": {
+        "id": "PK9U7OK",
+        "type": "service_reference",
+        "summary": "AcmePay",
+        "self": "https://api.pagerduty.com/services/PK9U7OK",
+        "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+      },
+      "priority": null,
+      "incidents_responders": [],
+      "responder_requests": [],
+      "subscriber_requests": [],
+      "urgency": "high",
+      "id": "Q1Q6WHD22KOLTQ",
+      "type": "incident",
+      "summary": "[#8] Merchant KYC tax ID validation worker queue backpressure",
+      "self": "https://api.pagerduty.com/incidents/Q1Q6WHD22KOLTQ",
+      "html_url": "https://acmepay.pagerduty.com/incidents/Q1Q6WHD22KOLTQ"
+    },
+    {
+      "incident_number": 9,
+      "title": "Outbound merchant webhook dispatcher delivery queue stall",
+      "description": "Outbound merchant webhook dispatcher delivery queue stall",
+      "created_at": "2026-08-26T19:04:33Z",
+      "updated_at": "2026-08-26T19:04:33Z",
+      "status": "triggered",
+      "incident_key": null,
+      "service": {
+        "id": "PK9U7OK",
+        "name": "AcmePay",
+        "description": null,
+        "created_at": "2026-08-26T18:24:21Z",
+        "updated_at": "2026-08-26T18:24:21Z",
+        "status": "critical",
+        "teams": [],
+        "alert_creation": "create_alerts_and_incidents",
+        "addons": [],
+        "scheduled_actions": [],
+        "support_hours": null,
+        "last_incident_timestamp": "2026-08-26T19:04:42Z",
+        "escalation_policy": {
+          "id": "P5YI4OZ",
+          "type": "escalation_policy_reference",
+          "summary": "AcmePay-ep",
+          "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+          "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+        },
+        "incident_urgency_rule": {
+          "type": "constant",
+          "urgency": "high"
+        },
+        "acknowledgement_timeout": null,
+        "auto_resolve_timeout": null,
+        "integrations": [
+          {
+            "id": "PWMFL7R",
+            "type": "events_api_v2_inbound_integration_reference",
+            "summary": "Events API V2",
+            "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+            "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+          }
+        ],
+        "type": "service",
+        "summary": "AcmePay",
+        "self": "https://api.pagerduty.com/services/PK9U7OK",
+        "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+      },
+      "assignments": [
+        {
+          "at": "2026-08-26T19:04:33Z",
+          "assignee": {
+            "name": "Rakshak Shetty",
+            "email": "rakshak.s@somaiya.edu",
+            "time_zone": "Etc/UTC",
+            "color": "purple",
+            "avatar_url": "https://pd-static-assets.pagerduty.com/users/blank-avatar.png",
+            "billed": true,
+            "role": "owner",
+            "description": null,
+            "invitation_sent": false,
+            "job_title": null,
+            "teams": [],
+            "created_via_sso": false,
+            "contact_methods": [
+              {
+                "id": "PB5YE93",
+                "type": "email_contact_method_reference",
+                "summary": "Default",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/contact_methods/PB5YE93",
+                "html_url": null
+              }
+            ],
+            "notification_rules": [
+              {
+                "id": "PO8H566",
+                "type": "assignment_notification_rule_reference",
+                "summary": "0 minutes: channel PB5YE93",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/notification_rules/PO8H566",
+                "html_url": null
+              },
+              {
+                "id": "PRI55IW",
+                "type": "assignment_notification_rule_reference",
+                "summary": "0 minutes: channel PB5YE93",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/notification_rules/PRI55IW",
+                "html_url": null
+              }
+            ],
+            "coordinated_incidents": [],
+            "locale": "en-US",
+            "id": "PN8AFPT",
+            "type": "user",
+            "summary": "Rakshak Shetty",
+            "self": "https://api.pagerduty.com/users/PN8AFPT",
+            "html_url": "https://acmepay.pagerduty.com/users/PN8AFPT"
+          }
+        }
+      ],
+      "assigned_via": "escalation_policy",
+      "last_status_change_at": "2026-08-26T19:04:33Z",
+      "resolved_at": null,
+      "first_trigger_log_entry": {
+        "id": "RRQTJT2WKNYTHNWV3M8HFDT1DF",
+        "type": "trigger_log_entry",
+        "summary": "Triggered through the API.",
+        "self": "https://api.pagerduty.com/log_entries/RRQTJT2WKNYTHNWV3M8HFDT1DF",
+        "html_url": "https://acmepay.pagerduty.com/incidents/Q1YZ7F404LZQ6U/log_entries/RRQTJT2WKNYTHNWV3M8HFDT1DF",
+        "created_at": "2026-08-26T19:04:33Z",
+        "agent": {
+          "id": "PWMFL7R",
+          "type": "events_api_v2_inbound_integration_reference",
+          "summary": "Events API V2",
+          "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+          "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+        },
+        "channel": {
+          "type": "api",
+          "service_key": "429e00a8ec19420cd043164b249690ca",
+          "description": "Outbound merchant webhook dispatcher delivery queue stall",
+          "incident_key": "INC-509",
+          "details": {
+            "action_items": [
+              "Enforced 5s timeout on outbound HTTP webhook client",
+              "Flushed webhook dead-letter queue worker"
+            ],
+            "incident_id": "INC-509",
+            "lead_responder": "E07",
+            "lead_responder_id": "E07",
+            "module": "notification-service",
+            "participants": [
+              "E07",
+              "E12"
+            ],
+            "reporter": "E12",
+            "reporter_id": "E12",
+            "root_cause": "Uncapped connection timeout on unresponsive merchant webhook endpoint.",
+            "service": "notification-service",
+            "summary": "Merchant payment webhook event notifications delayed by 45 minutes.",
+            "timestamps": {
+              "created_at": "2025-04-14T20:10:00Z",
+              "resolved_at": "2025-04-14T21:00:00Z"
+            }
+          },
+          "cef_details": {
+            "message": "Outbound merchant webhook dispatcher delivery queue stall",
+            "priority": null,
+            "version": "1.0",
+            "description": "Outbound merchant webhook dispatcher delivery queue stall",
+            "severity": "error",
+            "details": {
+              "action_items": [
+                "Enforced 5s timeout on outbound HTTP webhook client",
+                "Flushed webhook dead-letter queue worker"
+              ],
+              "incident_id": "INC-509",
+              "lead_responder": "E07",
+              "lead_responder_id": "E07",
+              "module": "notification-service",
+              "participants": [
+                "E07",
+                "E12"
+              ],
+              "reporter": "E12",
+              "reporter_id": "E12",
+              "root_cause": "Uncapped connection timeout on unresponsive merchant webhook endpoint.",
+              "service": "notification-service",
+              "summary": "Merchant payment webhook event notifications delayed by 45 minutes.",
+              "timestamps": {
+                "created_at": "2025-04-14T20:10:00Z",
+                "resolved_at": "2025-04-14T21:00:00Z"
+              }
+            },
+            "client": null,
+            "client_url": null,
+            "contexts": null,
+            "creation_time": "2025-04-14T20:10:00Z",
+            "dedup_key": "INC-509",
+            "event_class": null,
+            "reporter_location": null,
+            "service_group": null,
+            "source_component": null,
+            "source_location": null,
+            "source_origin": "notification-service",
+            "mutations": [],
+            "reporter_component": null,
+            "urgency": null
+          },
+          "summary": "Outbound merchant webhook dispatcher delivery queue stall"
+        },
+        "service": {
+          "id": "PK9U7OK",
+          "name": "AcmePay",
+          "description": null,
+          "created_at": "2026-08-26T18:24:21Z",
+          "updated_at": "2026-08-26T18:24:21Z",
+          "status": "critical",
+          "teams": [],
+          "alert_creation": "create_alerts_and_incidents",
+          "addons": [],
+          "scheduled_actions": [],
+          "support_hours": null,
+          "last_incident_timestamp": "2026-08-26T19:04:42Z",
+          "escalation_policy": {
+            "id": "P5YI4OZ",
+            "type": "escalation_policy_reference",
+            "summary": "AcmePay-ep",
+            "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+            "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+          },
+          "incident_urgency_rule": {
+            "type": "constant",
+            "urgency": "high"
+          },
+          "acknowledgement_timeout": null,
+          "auto_resolve_timeout": null,
+          "integrations": [
+            {
+              "id": "PWMFL7R",
+              "type": "events_api_v2_inbound_integration_reference",
+              "summary": "Events API V2",
+              "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+              "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+            }
+          ],
+          "type": "service",
+          "summary": "AcmePay",
+          "self": "https://api.pagerduty.com/services/PK9U7OK",
+          "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+        },
+        "incident": {
+          "id": "Q1YZ7F404LZQ6U",
+          "type": "incident_reference",
+          "summary": "[#9] Outbound merchant webhook dispatcher delivery queue stall",
+          "self": "https://api.pagerduty.com/incidents/Q1YZ7F404LZQ6U",
+          "html_url": "https://acmepay.pagerduty.com/incidents/Q1YZ7F404LZQ6U"
+        },
+        "teams": [],
+        "contexts": [],
+        "event_details": {
+          "description": "Outbound merchant webhook dispatcher delivery queue stall"
+        }
+      },
+      "alert_counts": {
+        "all": 1,
+        "triggered": 1,
+        "resolved": 0
+      },
+      "is_mergeable": true,
+      "incident_type": {
+        "name": "incident_default"
+      },
+      "escalation_policy": {
+        "id": "P5YI4OZ",
+        "type": "escalation_policy_reference",
+        "summary": "AcmePay-ep",
+        "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+        "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+      },
+      "teams": [],
+      "pending_actions": [],
+      "acknowledgements": [],
+      "basic_alert_grouping": null,
+      "alert_grouping": {
+        "grouping_type": "advanced",
+        "started_at": "2026-08-26T19:04:33Z",
+        "ended_at": null,
+        "alert_grouping_active": false
+      },
+      "last_status_change_by": {
+        "id": "PK9U7OK",
+        "type": "service_reference",
+        "summary": "AcmePay",
+        "self": "https://api.pagerduty.com/services/PK9U7OK",
+        "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+      },
+      "priority": null,
+      "incidents_responders": [],
+      "responder_requests": [],
+      "subscriber_requests": [],
+      "urgency": "high",
+      "id": "Q1YZ7F404LZQ6U",
+      "type": "incident",
+      "summary": "[#9] Outbound merchant webhook dispatcher delivery queue stall",
+      "self": "https://api.pagerduty.com/incidents/Q1YZ7F404LZQ6U",
+      "html_url": "https://acmepay.pagerduty.com/incidents/Q1YZ7F404LZQ6U"
+    },
+    {
+      "incident_number": 10,
+      "title": "Merchant clearing account balance mismatch during month-end reconciliation",
+      "description": "Merchant clearing account balance mismatch during month-end reconciliation",
+      "created_at": "2026-08-26T19:04:34Z",
+      "updated_at": "2026-08-26T19:04:34Z",
+      "status": "triggered",
+      "incident_key": null,
+      "service": {
+        "id": "PK9U7OK",
+        "name": "AcmePay",
+        "description": null,
+        "created_at": "2026-08-26T18:24:21Z",
+        "updated_at": "2026-08-26T18:24:21Z",
+        "status": "critical",
+        "teams": [],
+        "alert_creation": "create_alerts_and_incidents",
+        "addons": [],
+        "scheduled_actions": [],
+        "support_hours": null,
+        "last_incident_timestamp": "2026-08-26T19:04:42Z",
+        "escalation_policy": {
+          "id": "P5YI4OZ",
+          "type": "escalation_policy_reference",
+          "summary": "AcmePay-ep",
+          "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+          "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+        },
+        "incident_urgency_rule": {
+          "type": "constant",
+          "urgency": "high"
+        },
+        "acknowledgement_timeout": null,
+        "auto_resolve_timeout": null,
+        "integrations": [
+          {
+            "id": "PWMFL7R",
+            "type": "events_api_v2_inbound_integration_reference",
+            "summary": "Events API V2",
+            "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+            "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+          }
+        ],
+        "type": "service",
+        "summary": "AcmePay",
+        "self": "https://api.pagerduty.com/services/PK9U7OK",
+        "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+      },
+      "assignments": [
+        {
+          "at": "2026-08-26T19:04:34Z",
+          "assignee": {
+            "name": "Rakshak Shetty",
+            "email": "rakshak.s@somaiya.edu",
+            "time_zone": "Etc/UTC",
+            "color": "purple",
+            "avatar_url": "https://pd-static-assets.pagerduty.com/users/blank-avatar.png",
+            "billed": true,
+            "role": "owner",
+            "description": null,
+            "invitation_sent": false,
+            "job_title": null,
+            "teams": [],
+            "created_via_sso": false,
+            "contact_methods": [
+              {
+                "id": "PB5YE93",
+                "type": "email_contact_method_reference",
+                "summary": "Default",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/contact_methods/PB5YE93",
+                "html_url": null
+              }
+            ],
+            "notification_rules": [
+              {
+                "id": "PO8H566",
+                "type": "assignment_notification_rule_reference",
+                "summary": "0 minutes: channel PB5YE93",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/notification_rules/PO8H566",
+                "html_url": null
+              },
+              {
+                "id": "PRI55IW",
+                "type": "assignment_notification_rule_reference",
+                "summary": "0 minutes: channel PB5YE93",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/notification_rules/PRI55IW",
+                "html_url": null
+              }
+            ],
+            "coordinated_incidents": [],
+            "locale": "en-US",
+            "id": "PN8AFPT",
+            "type": "user",
+            "summary": "Rakshak Shetty",
+            "self": "https://api.pagerduty.com/users/PN8AFPT",
+            "html_url": "https://acmepay.pagerduty.com/users/PN8AFPT"
+          }
+        }
+      ],
+      "assigned_via": "escalation_policy",
+      "last_status_change_at": "2026-08-26T19:04:34Z",
+      "resolved_at": null,
+      "first_trigger_log_entry": {
+        "id": "R4UNSONTEFFTQA5W3B6CNLWAAU",
+        "type": "trigger_log_entry",
+        "summary": "Triggered through the API.",
+        "self": "https://api.pagerduty.com/log_entries/R4UNSONTEFFTQA5W3B6CNLWAAU",
+        "html_url": "https://acmepay.pagerduty.com/incidents/Q3PTFYW4DS9DKM/log_entries/R4UNSONTEFFTQA5W3B6CNLWAAU",
+        "created_at": "2026-08-26T19:04:34Z",
+        "agent": {
+          "id": "PWMFL7R",
+          "type": "events_api_v2_inbound_integration_reference",
+          "summary": "Events API V2",
+          "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+          "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+        },
+        "channel": {
+          "type": "api",
+          "service_key": "429e00a8ec19420cd043164b249690ca",
+          "description": "Merchant clearing account balance mismatch during month-end reconciliation",
+          "incident_key": "INC-510",
+          "details": {
+            "action_items": [
+              "Executed manual balance reconciliation script",
+              "Applied atomic transaction block around balance_verifier.go"
+            ],
+            "incident_id": "INC-510",
+            "lead_responder": "E10",
+            "lead_responder_id": "E10",
+            "module": "ledger-service",
+            "participants": [
+              "E10",
+              "E05",
+              "E19"
+            ],
+            "reporter": "E09",
+            "reporter_id": "E09",
+            "root_cause": "Race condition in asynchronous settlement fee debit posting worker.",
+            "service": "ledger-service",
+            "summary": "Ledger balance verification reported $12,450 debit/credit mismatch on high-volume merchant.",
+            "timestamps": {
+              "created_at": "2025-07-09T03:15:00Z",
+              "resolved_at": "2025-07-09T04:30:00Z"
+            }
+          },
+          "cef_details": {
+            "message": "Merchant clearing account balance mismatch during month-end reconciliation",
+            "priority": null,
+            "version": "1.0",
+            "description": "Merchant clearing account balance mismatch during month-end reconciliation",
+            "severity": "critical",
+            "details": {
+              "action_items": [
+                "Executed manual balance reconciliation script",
+                "Applied atomic transaction block around balance_verifier.go"
+              ],
+              "incident_id": "INC-510",
+              "lead_responder": "E10",
+              "lead_responder_id": "E10",
+              "module": "ledger-service",
+              "participants": [
+                "E10",
+                "E05",
+                "E19"
+              ],
+              "reporter": "E09",
+              "reporter_id": "E09",
+              "root_cause": "Race condition in asynchronous settlement fee debit posting worker.",
+              "service": "ledger-service",
+              "summary": "Ledger balance verification reported $12,450 debit/credit mismatch on high-volume merchant.",
+              "timestamps": {
+                "created_at": "2025-07-09T03:15:00Z",
+                "resolved_at": "2025-07-09T04:30:00Z"
+              }
+            },
+            "client": null,
+            "client_url": null,
+            "contexts": null,
+            "creation_time": "2025-07-09T03:15:00Z",
+            "dedup_key": "INC-510",
+            "event_class": null,
+            "reporter_location": null,
+            "service_group": null,
+            "source_component": null,
+            "source_location": null,
+            "source_origin": "ledger-service",
+            "mutations": [],
+            "reporter_component": null,
+            "urgency": null
+          },
+          "summary": "Merchant clearing account balance mismatch during month-end reconciliation"
+        },
+        "service": {
+          "id": "PK9U7OK",
+          "name": "AcmePay",
+          "description": null,
+          "created_at": "2026-08-26T18:24:21Z",
+          "updated_at": "2026-08-26T18:24:21Z",
+          "status": "critical",
+          "teams": [],
+          "alert_creation": "create_alerts_and_incidents",
+          "addons": [],
+          "scheduled_actions": [],
+          "support_hours": null,
+          "last_incident_timestamp": "2026-08-26T19:04:42Z",
+          "escalation_policy": {
+            "id": "P5YI4OZ",
+            "type": "escalation_policy_reference",
+            "summary": "AcmePay-ep",
+            "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+            "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+          },
+          "incident_urgency_rule": {
+            "type": "constant",
+            "urgency": "high"
+          },
+          "acknowledgement_timeout": null,
+          "auto_resolve_timeout": null,
+          "integrations": [
+            {
+              "id": "PWMFL7R",
+              "type": "events_api_v2_inbound_integration_reference",
+              "summary": "Events API V2",
+              "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+              "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+            }
+          ],
+          "type": "service",
+          "summary": "AcmePay",
+          "self": "https://api.pagerduty.com/services/PK9U7OK",
+          "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+        },
+        "incident": {
+          "id": "Q3PTFYW4DS9DKM",
+          "type": "incident_reference",
+          "summary": "[#10] Merchant clearing account balance mismatch during month-end reconciliation",
+          "self": "https://api.pagerduty.com/incidents/Q3PTFYW4DS9DKM",
+          "html_url": "https://acmepay.pagerduty.com/incidents/Q3PTFYW4DS9DKM"
+        },
+        "teams": [],
+        "contexts": [],
+        "event_details": {
+          "description": "Merchant clearing account balance mismatch during month-end reconciliation"
+        }
+      },
+      "alert_counts": {
+        "all": 1,
+        "triggered": 1,
+        "resolved": 0
+      },
+      "is_mergeable": true,
+      "incident_type": {
+        "name": "incident_default"
+      },
+      "escalation_policy": {
+        "id": "P5YI4OZ",
+        "type": "escalation_policy_reference",
+        "summary": "AcmePay-ep",
+        "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+        "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+      },
+      "teams": [],
+      "pending_actions": [],
+      "acknowledgements": [],
+      "basic_alert_grouping": null,
+      "alert_grouping": {
+        "grouping_type": "advanced",
+        "started_at": "2026-08-26T19:04:34Z",
+        "ended_at": null,
+        "alert_grouping_active": false
+      },
+      "last_status_change_by": {
+        "id": "PK9U7OK",
+        "type": "service_reference",
+        "summary": "AcmePay",
+        "self": "https://api.pagerduty.com/services/PK9U7OK",
+        "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+      },
+      "priority": null,
+      "incidents_responders": [],
+      "responder_requests": [],
+      "subscriber_requests": [],
+      "urgency": "high",
+      "id": "Q3PTFYW4DS9DKM",
+      "type": "incident",
+      "summary": "[#10] Merchant clearing account balance mismatch during month-end reconciliation",
+      "self": "https://api.pagerduty.com/incidents/Q3PTFYW4DS9DKM",
+      "html_url": "https://acmepay.pagerduty.com/incidents/Q3PTFYW4DS9DKM"
+    },
+    {
+      "incident_number": 11,
+      "title": "API Gateway OpenAPI schema validation memory leak",
+      "description": "API Gateway OpenAPI schema validation memory leak",
+      "created_at": "2026-08-26T19:04:36Z",
+      "updated_at": "2026-08-26T19:04:36Z",
+      "status": "triggered",
+      "incident_key": null,
+      "service": {
+        "id": "PK9U7OK",
+        "name": "AcmePay",
+        "description": null,
+        "created_at": "2026-08-26T18:24:21Z",
+        "updated_at": "2026-08-26T18:24:21Z",
+        "status": "critical",
+        "teams": [],
+        "alert_creation": "create_alerts_and_incidents",
+        "addons": [],
+        "scheduled_actions": [],
+        "support_hours": null,
+        "last_incident_timestamp": "2026-08-26T19:04:42Z",
+        "escalation_policy": {
+          "id": "P5YI4OZ",
+          "type": "escalation_policy_reference",
+          "summary": "AcmePay-ep",
+          "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+          "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+        },
+        "incident_urgency_rule": {
+          "type": "constant",
+          "urgency": "high"
+        },
+        "acknowledgement_timeout": null,
+        "auto_resolve_timeout": null,
+        "integrations": [
+          {
+            "id": "PWMFL7R",
+            "type": "events_api_v2_inbound_integration_reference",
+            "summary": "Events API V2",
+            "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+            "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+          }
+        ],
+        "type": "service",
+        "summary": "AcmePay",
+        "self": "https://api.pagerduty.com/services/PK9U7OK",
+        "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+      },
+      "assignments": [
+        {
+          "at": "2026-08-26T19:04:36Z",
+          "assignee": {
+            "name": "Rakshak Shetty",
+            "email": "rakshak.s@somaiya.edu",
+            "time_zone": "Etc/UTC",
+            "color": "purple",
+            "avatar_url": "https://pd-static-assets.pagerduty.com/users/blank-avatar.png",
+            "billed": true,
+            "role": "owner",
+            "description": null,
+            "invitation_sent": false,
+            "job_title": null,
+            "teams": [],
+            "created_via_sso": false,
+            "contact_methods": [
+              {
+                "id": "PB5YE93",
+                "type": "email_contact_method_reference",
+                "summary": "Default",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/contact_methods/PB5YE93",
+                "html_url": null
+              }
+            ],
+            "notification_rules": [
+              {
+                "id": "PO8H566",
+                "type": "assignment_notification_rule_reference",
+                "summary": "0 minutes: channel PB5YE93",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/notification_rules/PO8H566",
+                "html_url": null
+              },
+              {
+                "id": "PRI55IW",
+                "type": "assignment_notification_rule_reference",
+                "summary": "0 minutes: channel PB5YE93",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/notification_rules/PRI55IW",
+                "html_url": null
+              }
+            ],
+            "coordinated_incidents": [],
+            "locale": "en-US",
+            "id": "PN8AFPT",
+            "type": "user",
+            "summary": "Rakshak Shetty",
+            "self": "https://api.pagerduty.com/users/PN8AFPT",
+            "html_url": "https://acmepay.pagerduty.com/users/PN8AFPT"
+          }
+        }
+      ],
+      "assigned_via": "escalation_policy",
+      "last_status_change_at": "2026-08-26T19:04:36Z",
+      "resolved_at": null,
+      "first_trigger_log_entry": {
+        "id": "R2VVANVNVMAJFM27LLJRKIC623",
+        "type": "trigger_log_entry",
+        "summary": "Triggered through the API.",
+        "self": "https://api.pagerduty.com/log_entries/R2VVANVNVMAJFM27LLJRKIC623",
+        "html_url": "https://acmepay.pagerduty.com/incidents/Q3A0QV9XNLIEPZ/log_entries/R2VVANVNVMAJFM27LLJRKIC623",
+        "created_at": "2026-08-26T19:04:36Z",
+        "agent": {
+          "id": "PWMFL7R",
+          "type": "events_api_v2_inbound_integration_reference",
+          "summary": "Events API V2",
+          "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+          "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+        },
+        "channel": {
+          "type": "api",
+          "service_key": "429e00a8ec19420cd043164b249690ca",
+          "description": "API Gateway OpenAPI schema validation memory leak",
+          "incident_key": "INC-511",
+          "details": {
+            "action_items": [
+              "Cached compiled OpenAPI 3.0 schema in gateway proxy memory",
+              "Increased pod memory limit"
+            ],
+            "incident_id": "INC-511",
+            "lead_responder": "E06",
+            "lead_responder_id": "E06",
+            "module": "api-gateway",
+            "participants": [
+              "E06",
+              "E01",
+              "E13"
+            ],
+            "reporter": "E15",
+            "reporter_id": "E15",
+            "root_cause": "Repeated JSON schema compilation on every HTTP request in ingress_proxy.go.",
+            "service": "api-gateway",
+            "summary": "Gateway proxy worker pods restarted due to OOM kill during JSON payload validation.",
+            "timestamps": {
+              "created_at": "2025-10-03T15:45:00Z",
+              "resolved_at": "2025-10-03T16:25:00Z"
+            }
+          },
+          "cef_details": {
+            "message": "API Gateway OpenAPI schema validation memory leak",
+            "priority": null,
+            "version": "1.0",
+            "description": "API Gateway OpenAPI schema validation memory leak",
+            "severity": "error",
+            "details": {
+              "action_items": [
+                "Cached compiled OpenAPI 3.0 schema in gateway proxy memory",
+                "Increased pod memory limit"
+              ],
+              "incident_id": "INC-511",
+              "lead_responder": "E06",
+              "lead_responder_id": "E06",
+              "module": "api-gateway",
+              "participants": [
+                "E06",
+                "E01",
+                "E13"
+              ],
+              "reporter": "E15",
+              "reporter_id": "E15",
+              "root_cause": "Repeated JSON schema compilation on every HTTP request in ingress_proxy.go.",
+              "service": "api-gateway",
+              "summary": "Gateway proxy worker pods restarted due to OOM kill during JSON payload validation.",
+              "timestamps": {
+                "created_at": "2025-10-03T15:45:00Z",
+                "resolved_at": "2025-10-03T16:25:00Z"
+              }
+            },
+            "client": null,
+            "client_url": null,
+            "contexts": null,
+            "creation_time": "2025-10-03T15:45:00Z",
+            "dedup_key": "INC-511",
+            "event_class": null,
+            "reporter_location": null,
+            "service_group": null,
+            "source_component": null,
+            "source_location": null,
+            "source_origin": "api-gateway",
+            "mutations": [],
+            "reporter_component": null,
+            "urgency": null
+          },
+          "summary": "API Gateway OpenAPI schema validation memory leak"
+        },
+        "service": {
+          "id": "PK9U7OK",
+          "name": "AcmePay",
+          "description": null,
+          "created_at": "2026-08-26T18:24:21Z",
+          "updated_at": "2026-08-26T18:24:21Z",
+          "status": "critical",
+          "teams": [],
+          "alert_creation": "create_alerts_and_incidents",
+          "addons": [],
+          "scheduled_actions": [],
+          "support_hours": null,
+          "last_incident_timestamp": "2026-08-26T19:04:42Z",
+          "escalation_policy": {
+            "id": "P5YI4OZ",
+            "type": "escalation_policy_reference",
+            "summary": "AcmePay-ep",
+            "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+            "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+          },
+          "incident_urgency_rule": {
+            "type": "constant",
+            "urgency": "high"
+          },
+          "acknowledgement_timeout": null,
+          "auto_resolve_timeout": null,
+          "integrations": [
+            {
+              "id": "PWMFL7R",
+              "type": "events_api_v2_inbound_integration_reference",
+              "summary": "Events API V2",
+              "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+              "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+            }
+          ],
+          "type": "service",
+          "summary": "AcmePay",
+          "self": "https://api.pagerduty.com/services/PK9U7OK",
+          "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+        },
+        "incident": {
+          "id": "Q3A0QV9XNLIEPZ",
+          "type": "incident_reference",
+          "summary": "[#11] API Gateway OpenAPI schema validation memory leak",
+          "self": "https://api.pagerduty.com/incidents/Q3A0QV9XNLIEPZ",
+          "html_url": "https://acmepay.pagerduty.com/incidents/Q3A0QV9XNLIEPZ"
+        },
+        "teams": [],
+        "contexts": [],
+        "event_details": {
+          "description": "API Gateway OpenAPI schema validation memory leak"
+        }
+      },
+      "alert_counts": {
+        "all": 1,
+        "triggered": 1,
+        "resolved": 0
+      },
+      "is_mergeable": true,
+      "incident_type": {
+        "name": "incident_default"
+      },
+      "escalation_policy": {
+        "id": "P5YI4OZ",
+        "type": "escalation_policy_reference",
+        "summary": "AcmePay-ep",
+        "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+        "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+      },
+      "teams": [],
+      "pending_actions": [],
+      "acknowledgements": [],
+      "basic_alert_grouping": null,
+      "alert_grouping": {
+        "grouping_type": "advanced",
+        "started_at": "2026-08-26T19:04:36Z",
+        "ended_at": null,
+        "alert_grouping_active": false
+      },
+      "last_status_change_by": {
+        "id": "PK9U7OK",
+        "type": "service_reference",
+        "summary": "AcmePay",
+        "self": "https://api.pagerduty.com/services/PK9U7OK",
+        "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+      },
+      "priority": null,
+      "incidents_responders": [],
+      "responder_requests": [],
+      "subscriber_requests": [],
+      "urgency": "high",
+      "id": "Q3A0QV9XNLIEPZ",
+      "type": "incident",
+      "summary": "[#11] API Gateway OpenAPI schema validation memory leak",
+      "self": "https://api.pagerduty.com/incidents/Q3A0QV9XNLIEPZ",
+      "html_url": "https://acmepay.pagerduty.com/incidents/Q3A0QV9XNLIEPZ"
+    },
+    {
+      "incident_number": 12,
+      "title": "Prometheus latency alert manager rule evaluation failure",
+      "description": "Prometheus latency alert manager rule evaluation failure",
+      "created_at": "2026-08-26T19:04:37Z",
+      "updated_at": "2026-08-26T19:04:37Z",
+      "status": "triggered",
+      "incident_key": null,
+      "service": {
+        "id": "PK9U7OK",
+        "name": "AcmePay",
+        "description": null,
+        "created_at": "2026-08-26T18:24:21Z",
+        "updated_at": "2026-08-26T18:24:21Z",
+        "status": "critical",
+        "teams": [],
+        "alert_creation": "create_alerts_and_incidents",
+        "addons": [],
+        "scheduled_actions": [],
+        "support_hours": null,
+        "last_incident_timestamp": "2026-08-26T19:04:42Z",
+        "escalation_policy": {
+          "id": "P5YI4OZ",
+          "type": "escalation_policy_reference",
+          "summary": "AcmePay-ep",
+          "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+          "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+        },
+        "incident_urgency_rule": {
+          "type": "constant",
+          "urgency": "high"
+        },
+        "acknowledgement_timeout": null,
+        "auto_resolve_timeout": null,
+        "integrations": [
+          {
+            "id": "PWMFL7R",
+            "type": "events_api_v2_inbound_integration_reference",
+            "summary": "Events API V2",
+            "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+            "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+          }
+        ],
+        "type": "service",
+        "summary": "AcmePay",
+        "self": "https://api.pagerduty.com/services/PK9U7OK",
+        "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+      },
+      "assignments": [
+        {
+          "at": "2026-08-26T19:04:37Z",
+          "assignee": {
+            "name": "Rakshak Shetty",
+            "email": "rakshak.s@somaiya.edu",
+            "time_zone": "Etc/UTC",
+            "color": "purple",
+            "avatar_url": "https://pd-static-assets.pagerduty.com/users/blank-avatar.png",
+            "billed": true,
+            "role": "owner",
+            "description": null,
+            "invitation_sent": false,
+            "job_title": null,
+            "teams": [],
+            "created_via_sso": false,
+            "contact_methods": [
+              {
+                "id": "PB5YE93",
+                "type": "email_contact_method_reference",
+                "summary": "Default",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/contact_methods/PB5YE93",
+                "html_url": null
+              }
+            ],
+            "notification_rules": [
+              {
+                "id": "PO8H566",
+                "type": "assignment_notification_rule_reference",
+                "summary": "0 minutes: channel PB5YE93",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/notification_rules/PO8H566",
+                "html_url": null
+              },
+              {
+                "id": "PRI55IW",
+                "type": "assignment_notification_rule_reference",
+                "summary": "0 minutes: channel PB5YE93",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/notification_rules/PRI55IW",
+                "html_url": null
+              }
+            ],
+            "coordinated_incidents": [],
+            "locale": "en-US",
+            "id": "PN8AFPT",
+            "type": "user",
+            "summary": "Rakshak Shetty",
+            "self": "https://api.pagerduty.com/users/PN8AFPT",
+            "html_url": "https://acmepay.pagerduty.com/users/PN8AFPT"
+          }
+        }
+      ],
+      "assigned_via": "escalation_policy",
+      "last_status_change_at": "2026-08-26T19:04:37Z",
+      "resolved_at": null,
+      "first_trigger_log_entry": {
+        "id": "RPEK7NS3HLDHFWCRYAABF2VVLU",
+        "type": "trigger_log_entry",
+        "summary": "Triggered through the API.",
+        "self": "https://api.pagerduty.com/log_entries/RPEK7NS3HLDHFWCRYAABF2VVLU",
+        "html_url": "https://acmepay.pagerduty.com/incidents/Q0BR6INWL2DY4T/log_entries/RPEK7NS3HLDHFWCRYAABF2VVLU",
+        "created_at": "2026-08-26T19:04:37Z",
+        "agent": {
+          "id": "PWMFL7R",
+          "type": "events_api_v2_inbound_integration_reference",
+          "summary": "Events API V2",
+          "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+          "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+        },
+        "channel": {
+          "type": "api",
+          "service_key": "429e00a8ec19420cd043164b249690ca",
+          "description": "Prometheus latency alert manager rule evaluation failure",
+          "incident_key": "INC-512",
+          "details": {
+            "action_items": [
+              "Patched Prometheus alert rule syntax",
+              "Triggered test alert to verify PagerDuty escalation route"
+            ],
+            "incident_id": "INC-512",
+            "lead_responder": "E03",
+            "lead_responder_id": "E03",
+            "module": "monitoring-service",
+            "participants": [
+              "E03",
+              "E06",
+              "E18"
+            ],
+            "reporter": "E18",
+            "reporter_id": "E18",
+            "root_cause": "Syntax error in Prometheus payment_alerts.yml rule expression.",
+            "service": "monitoring-service",
+            "summary": "P99 payment gateway latency alert failed to trigger PagerDuty on-call page.",
+            "timestamps": {
+              "created_at": "2025-12-11T22:00:00Z",
+              "resolved_at": "2025-12-11T22:40:00Z"
+            }
+          },
+          "cef_details": {
+            "message": "Prometheus latency alert manager rule evaluation failure",
+            "priority": null,
+            "version": "1.0",
+            "description": "Prometheus latency alert manager rule evaluation failure",
+            "severity": "error",
+            "details": {
+              "action_items": [
+                "Patched Prometheus alert rule syntax",
+                "Triggered test alert to verify PagerDuty escalation route"
+              ],
+              "incident_id": "INC-512",
+              "lead_responder": "E03",
+              "lead_responder_id": "E03",
+              "module": "monitoring-service",
+              "participants": [
+                "E03",
+                "E06",
+                "E18"
+              ],
+              "reporter": "E18",
+              "reporter_id": "E18",
+              "root_cause": "Syntax error in Prometheus payment_alerts.yml rule expression.",
+              "service": "monitoring-service",
+              "summary": "P99 payment gateway latency alert failed to trigger PagerDuty on-call page.",
+              "timestamps": {
+                "created_at": "2025-12-11T22:00:00Z",
+                "resolved_at": "2025-12-11T22:40:00Z"
+              }
+            },
+            "client": null,
+            "client_url": null,
+            "contexts": null,
+            "creation_time": "2025-12-11T22:00:00Z",
+            "dedup_key": "INC-512",
+            "event_class": null,
+            "reporter_location": null,
+            "service_group": null,
+            "source_component": null,
+            "source_location": null,
+            "source_origin": "monitoring-service",
+            "mutations": [],
+            "reporter_component": null,
+            "urgency": null
+          },
+          "summary": "Prometheus latency alert manager rule evaluation failure"
+        },
+        "service": {
+          "id": "PK9U7OK",
+          "name": "AcmePay",
+          "description": null,
+          "created_at": "2026-08-26T18:24:21Z",
+          "updated_at": "2026-08-26T18:24:21Z",
+          "status": "critical",
+          "teams": [],
+          "alert_creation": "create_alerts_and_incidents",
+          "addons": [],
+          "scheduled_actions": [],
+          "support_hours": null,
+          "last_incident_timestamp": "2026-08-26T19:04:42Z",
+          "escalation_policy": {
+            "id": "P5YI4OZ",
+            "type": "escalation_policy_reference",
+            "summary": "AcmePay-ep",
+            "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+            "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+          },
+          "incident_urgency_rule": {
+            "type": "constant",
+            "urgency": "high"
+          },
+          "acknowledgement_timeout": null,
+          "auto_resolve_timeout": null,
+          "integrations": [
+            {
+              "id": "PWMFL7R",
+              "type": "events_api_v2_inbound_integration_reference",
+              "summary": "Events API V2",
+              "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+              "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+            }
+          ],
+          "type": "service",
+          "summary": "AcmePay",
+          "self": "https://api.pagerduty.com/services/PK9U7OK",
+          "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+        },
+        "incident": {
+          "id": "Q0BR6INWL2DY4T",
+          "type": "incident_reference",
+          "summary": "[#12] Prometheus latency alert manager rule evaluation failure",
+          "self": "https://api.pagerduty.com/incidents/Q0BR6INWL2DY4T",
+          "html_url": "https://acmepay.pagerduty.com/incidents/Q0BR6INWL2DY4T"
+        },
+        "teams": [],
+        "contexts": [],
+        "event_details": {
+          "description": "Prometheus latency alert manager rule evaluation failure"
+        }
+      },
+      "alert_counts": {
+        "all": 1,
+        "triggered": 1,
+        "resolved": 0
+      },
+      "is_mergeable": true,
+      "incident_type": {
+        "name": "incident_default"
+      },
+      "escalation_policy": {
+        "id": "P5YI4OZ",
+        "type": "escalation_policy_reference",
+        "summary": "AcmePay-ep",
+        "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+        "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+      },
+      "teams": [],
+      "pending_actions": [],
+      "acknowledgements": [],
+      "basic_alert_grouping": null,
+      "alert_grouping": {
+        "grouping_type": "advanced",
+        "started_at": "2026-08-26T19:04:37Z",
+        "ended_at": null,
+        "alert_grouping_active": false
+      },
+      "last_status_change_by": {
+        "id": "PK9U7OK",
+        "type": "service_reference",
+        "summary": "AcmePay",
+        "self": "https://api.pagerduty.com/services/PK9U7OK",
+        "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+      },
+      "priority": null,
+      "incidents_responders": [],
+      "responder_requests": [],
+      "subscriber_requests": [],
+      "urgency": "high",
+      "id": "Q0BR6INWL2DY4T",
+      "type": "incident",
+      "summary": "[#12] Prometheus latency alert manager rule evaluation failure",
+      "self": "https://api.pagerduty.com/incidents/Q0BR6INWL2DY4T",
+      "html_url": "https://acmepay.pagerduty.com/incidents/Q0BR6INWL2DY4T"
+    },
+    {
+      "incident_number": 13,
+      "title": "Merchant settlement report CSV exporter buffer overflow",
+      "description": "Merchant settlement report CSV exporter buffer overflow",
+      "created_at": "2026-08-26T19:04:39Z",
+      "updated_at": "2026-08-26T19:04:39Z",
+      "status": "triggered",
+      "incident_key": null,
+      "service": {
+        "id": "PK9U7OK",
+        "name": "AcmePay",
+        "description": null,
+        "created_at": "2026-08-26T18:24:21Z",
+        "updated_at": "2026-08-26T18:24:21Z",
+        "status": "critical",
+        "teams": [],
+        "alert_creation": "create_alerts_and_incidents",
+        "addons": [],
+        "scheduled_actions": [],
+        "support_hours": null,
+        "last_incident_timestamp": "2026-08-26T19:04:42Z",
+        "escalation_policy": {
+          "id": "P5YI4OZ",
+          "type": "escalation_policy_reference",
+          "summary": "AcmePay-ep",
+          "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+          "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+        },
+        "incident_urgency_rule": {
+          "type": "constant",
+          "urgency": "high"
+        },
+        "acknowledgement_timeout": null,
+        "auto_resolve_timeout": null,
+        "integrations": [
+          {
+            "id": "PWMFL7R",
+            "type": "events_api_v2_inbound_integration_reference",
+            "summary": "Events API V2",
+            "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+            "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+          }
+        ],
+        "type": "service",
+        "summary": "AcmePay",
+        "self": "https://api.pagerduty.com/services/PK9U7OK",
+        "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+      },
+      "assignments": [
+        {
+          "at": "2026-08-26T19:04:39Z",
+          "assignee": {
+            "name": "Rakshak Shetty",
+            "email": "rakshak.s@somaiya.edu",
+            "time_zone": "Etc/UTC",
+            "color": "purple",
+            "avatar_url": "https://pd-static-assets.pagerduty.com/users/blank-avatar.png",
+            "billed": true,
+            "role": "owner",
+            "description": null,
+            "invitation_sent": false,
+            "job_title": null,
+            "teams": [],
+            "created_via_sso": false,
+            "contact_methods": [
+              {
+                "id": "PB5YE93",
+                "type": "email_contact_method_reference",
+                "summary": "Default",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/contact_methods/PB5YE93",
+                "html_url": null
+              }
+            ],
+            "notification_rules": [
+              {
+                "id": "PO8H566",
+                "type": "assignment_notification_rule_reference",
+                "summary": "0 minutes: channel PB5YE93",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/notification_rules/PO8H566",
+                "html_url": null
+              },
+              {
+                "id": "PRI55IW",
+                "type": "assignment_notification_rule_reference",
+                "summary": "0 minutes: channel PB5YE93",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/notification_rules/PRI55IW",
+                "html_url": null
+              }
+            ],
+            "coordinated_incidents": [],
+            "locale": "en-US",
+            "id": "PN8AFPT",
+            "type": "user",
+            "summary": "Rakshak Shetty",
+            "self": "https://api.pagerduty.com/users/PN8AFPT",
+            "html_url": "https://acmepay.pagerduty.com/users/PN8AFPT"
+          }
+        }
+      ],
+      "assigned_via": "escalation_policy",
+      "last_status_change_at": "2026-08-26T19:04:39Z",
+      "resolved_at": null,
+      "first_trigger_log_entry": {
+        "id": "R758SWQF228HFFQF3V9C080O6L",
+        "type": "trigger_log_entry",
+        "summary": "Triggered through the API.",
+        "self": "https://api.pagerduty.com/log_entries/R758SWQF228HFFQF3V9C080O6L",
+        "html_url": "https://acmepay.pagerduty.com/incidents/Q19QZW0WICCSEA/log_entries/R758SWQF228HFFQF3V9C080O6L",
+        "created_at": "2026-08-26T19:04:39Z",
+        "agent": {
+          "id": "PWMFL7R",
+          "type": "events_api_v2_inbound_integration_reference",
+          "summary": "Events API V2",
+          "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+          "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+        },
+        "channel": {
+          "type": "api",
+          "service_key": "429e00a8ec19420cd043164b249690ca",
+          "description": "Merchant settlement report CSV exporter buffer overflow",
+          "incident_key": "INC-513",
+          "details": {
+            "action_items": [
+              "Implemented streaming line-by-line CSV exporter in audit_exporter.py",
+              "Added row pagination limiter"
+            ],
+            "incident_id": "INC-513",
+            "lead_responder": "E05",
+            "lead_responder_id": "E05",
+            "module": "reporting-service",
+            "participants": [
+              "E05",
+              "E09",
+              "E19"
+            ],
+            "reporter": "E19",
+            "reporter_id": "E19",
+            "root_cause": "Buffering 1,000,000 transaction rows into memory before CSV stream output.",
+            "service": "reporting-service",
+            "summary": "Large monthly CSV audit log export failed for high-volume enterprise merchant.",
+            "timestamps": {
+              "created_at": "2026-02-17T17:10:00Z",
+              "resolved_at": "2026-02-17T18:00:00Z"
+            }
+          },
+          "cef_details": {
+            "message": "Merchant settlement report CSV exporter buffer overflow",
+            "priority": null,
+            "version": "1.0",
+            "description": "Merchant settlement report CSV exporter buffer overflow",
+            "severity": "warning",
+            "details": {
+              "action_items": [
+                "Implemented streaming line-by-line CSV exporter in audit_exporter.py",
+                "Added row pagination limiter"
+              ],
+              "incident_id": "INC-513",
+              "lead_responder": "E05",
+              "lead_responder_id": "E05",
+              "module": "reporting-service",
+              "participants": [
+                "E05",
+                "E09",
+                "E19"
+              ],
+              "reporter": "E19",
+              "reporter_id": "E19",
+              "root_cause": "Buffering 1,000,000 transaction rows into memory before CSV stream output.",
+              "service": "reporting-service",
+              "summary": "Large monthly CSV audit log export failed for high-volume enterprise merchant.",
+              "timestamps": {
+                "created_at": "2026-02-17T17:10:00Z",
+                "resolved_at": "2026-02-17T18:00:00Z"
+              }
+            },
+            "client": null,
+            "client_url": null,
+            "contexts": null,
+            "creation_time": "2026-02-17T17:10:00Z",
+            "dedup_key": "INC-513",
+            "event_class": null,
+            "reporter_location": null,
+            "service_group": null,
+            "source_component": null,
+            "source_location": null,
+            "source_origin": "reporting-service",
+            "mutations": [],
+            "reporter_component": null,
+            "urgency": null
+          },
+          "summary": "Merchant settlement report CSV exporter buffer overflow"
+        },
+        "service": {
+          "id": "PK9U7OK",
+          "name": "AcmePay",
+          "description": null,
+          "created_at": "2026-08-26T18:24:21Z",
+          "updated_at": "2026-08-26T18:24:21Z",
+          "status": "critical",
+          "teams": [],
+          "alert_creation": "create_alerts_and_incidents",
+          "addons": [],
+          "scheduled_actions": [],
+          "support_hours": null,
+          "last_incident_timestamp": "2026-08-26T19:04:42Z",
+          "escalation_policy": {
+            "id": "P5YI4OZ",
+            "type": "escalation_policy_reference",
+            "summary": "AcmePay-ep",
+            "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+            "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+          },
+          "incident_urgency_rule": {
+            "type": "constant",
+            "urgency": "high"
+          },
+          "acknowledgement_timeout": null,
+          "auto_resolve_timeout": null,
+          "integrations": [
+            {
+              "id": "PWMFL7R",
+              "type": "events_api_v2_inbound_integration_reference",
+              "summary": "Events API V2",
+              "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+              "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+            }
+          ],
+          "type": "service",
+          "summary": "AcmePay",
+          "self": "https://api.pagerduty.com/services/PK9U7OK",
+          "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+        },
+        "incident": {
+          "id": "Q19QZW0WICCSEA",
+          "type": "incident_reference",
+          "summary": "[#13] Merchant settlement report CSV exporter buffer overflow",
+          "self": "https://api.pagerduty.com/incidents/Q19QZW0WICCSEA",
+          "html_url": "https://acmepay.pagerduty.com/incidents/Q19QZW0WICCSEA"
+        },
+        "teams": [],
+        "contexts": [],
+        "event_details": {
+          "description": "Merchant settlement report CSV exporter buffer overflow"
+        }
+      },
+      "alert_counts": {
+        "all": 1,
+        "triggered": 1,
+        "resolved": 0
+      },
+      "is_mergeable": true,
+      "incident_type": {
+        "name": "incident_default"
+      },
+      "escalation_policy": {
+        "id": "P5YI4OZ",
+        "type": "escalation_policy_reference",
+        "summary": "AcmePay-ep",
+        "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+        "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+      },
+      "teams": [],
+      "pending_actions": [],
+      "acknowledgements": [],
+      "basic_alert_grouping": null,
+      "alert_grouping": {
+        "grouping_type": "advanced",
+        "started_at": "2026-08-26T19:04:39Z",
+        "ended_at": null,
+        "alert_grouping_active": false
+      },
+      "last_status_change_by": {
+        "id": "PK9U7OK",
+        "type": "service_reference",
+        "summary": "AcmePay",
+        "self": "https://api.pagerduty.com/services/PK9U7OK",
+        "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+      },
+      "priority": null,
+      "incidents_responders": [],
+      "responder_requests": [],
+      "subscriber_requests": [],
+      "urgency": "high",
+      "id": "Q19QZW0WICCSEA",
+      "type": "incident",
+      "summary": "[#13] Merchant settlement report CSV exporter buffer overflow",
+      "self": "https://api.pagerduty.com/incidents/Q19QZW0WICCSEA",
+      "html_url": "https://acmepay.pagerduty.com/incidents/Q19QZW0WICCSEA"
+    },
+    {
+      "incident_number": 14,
+      "title": "PCI-DSS Primary Account Number (PAN) sanitizer regex bypass warning",
+      "description": "PCI-DSS Primary Account Number (PAN) sanitizer regex bypass warning",
+      "created_at": "2026-08-26T19:04:40Z",
+      "updated_at": "2026-08-26T19:04:40Z",
+      "status": "triggered",
+      "incident_key": null,
+      "service": {
+        "id": "PK9U7OK",
+        "name": "AcmePay",
+        "description": null,
+        "created_at": "2026-08-26T18:24:21Z",
+        "updated_at": "2026-08-26T18:24:21Z",
+        "status": "critical",
+        "teams": [],
+        "alert_creation": "create_alerts_and_incidents",
+        "addons": [],
+        "scheduled_actions": [],
+        "support_hours": null,
+        "last_incident_timestamp": "2026-08-26T19:04:42Z",
+        "escalation_policy": {
+          "id": "P5YI4OZ",
+          "type": "escalation_policy_reference",
+          "summary": "AcmePay-ep",
+          "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+          "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+        },
+        "incident_urgency_rule": {
+          "type": "constant",
+          "urgency": "high"
+        },
+        "acknowledgement_timeout": null,
+        "auto_resolve_timeout": null,
+        "integrations": [
+          {
+            "id": "PWMFL7R",
+            "type": "events_api_v2_inbound_integration_reference",
+            "summary": "Events API V2",
+            "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+            "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+          }
+        ],
+        "type": "service",
+        "summary": "AcmePay",
+        "self": "https://api.pagerduty.com/services/PK9U7OK",
+        "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+      },
+      "assignments": [
+        {
+          "at": "2026-08-26T19:04:40Z",
+          "assignee": {
+            "name": "Rakshak Shetty",
+            "email": "rakshak.s@somaiya.edu",
+            "time_zone": "Etc/UTC",
+            "color": "purple",
+            "avatar_url": "https://pd-static-assets.pagerduty.com/users/blank-avatar.png",
+            "billed": true,
+            "role": "owner",
+            "description": null,
+            "invitation_sent": false,
+            "job_title": null,
+            "teams": [],
+            "created_via_sso": false,
+            "contact_methods": [
+              {
+                "id": "PB5YE93",
+                "type": "email_contact_method_reference",
+                "summary": "Default",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/contact_methods/PB5YE93",
+                "html_url": null
+              }
+            ],
+            "notification_rules": [
+              {
+                "id": "PO8H566",
+                "type": "assignment_notification_rule_reference",
+                "summary": "0 minutes: channel PB5YE93",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/notification_rules/PO8H566",
+                "html_url": null
+              },
+              {
+                "id": "PRI55IW",
+                "type": "assignment_notification_rule_reference",
+                "summary": "0 minutes: channel PB5YE93",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/notification_rules/PRI55IW",
+                "html_url": null
+              }
+            ],
+            "coordinated_incidents": [],
+            "locale": "en-US",
+            "id": "PN8AFPT",
+            "type": "user",
+            "summary": "Rakshak Shetty",
+            "self": "https://api.pagerduty.com/users/PN8AFPT",
+            "html_url": "https://acmepay.pagerduty.com/users/PN8AFPT"
+          }
+        }
+      ],
+      "assigned_via": "escalation_policy",
+      "last_status_change_at": "2026-08-26T19:04:40Z",
+      "resolved_at": null,
+      "first_trigger_log_entry": {
+        "id": "R9WJJ89Q3FAAAS1PRPIF05H782",
+        "type": "trigger_log_entry",
+        "summary": "Triggered through the API.",
+        "self": "https://api.pagerduty.com/log_entries/R9WJJ89Q3FAAAS1PRPIF05H782",
+        "html_url": "https://acmepay.pagerduty.com/incidents/Q03Z7W2NSPN2GS/log_entries/R9WJJ89Q3FAAAS1PRPIF05H782",
+        "created_at": "2026-08-26T19:04:40Z",
+        "agent": {
+          "id": "PWMFL7R",
+          "type": "events_api_v2_inbound_integration_reference",
+          "summary": "Events API V2",
+          "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+          "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+        },
+        "channel": {
+          "type": "api",
+          "service_key": "429e00a8ec19420cd043164b249690ca",
+          "description": "PCI-DSS Primary Account Number (PAN) sanitizer regex bypass warning",
+          "incident_key": "INC-514",
+          "details": {
+            "action_items": [
+              "Updated PCI PAN masking regex in pci_sanitizer.go",
+              "Purged unmasked log entries from compliance archive"
+            ],
+            "incident_id": "INC-514",
+            "lead_responder": "E09",
+            "lead_responder_id": "E09",
+            "module": "compliance-service",
+            "participants": [
+              "E09",
+              "E02"
+            ],
+            "reporter": "E02",
+            "reporter_id": "E02",
+            "root_cause": "Regex pattern in pci_sanitizer.go failed to match hyphenated card format.",
+            "service": "compliance-service",
+            "summary": "Automated security scanner flagged unmasked 16-digit card number in audit log stdout.",
+            "timestamps": {
+              "created_at": "2026-05-08T10:30:00Z",
+              "resolved_at": "2026-05-08T11:45:00Z"
+            }
+          },
+          "cef_details": {
+            "message": "PCI-DSS Primary Account Number (PAN) sanitizer regex bypass warning",
+            "priority": null,
+            "version": "1.0",
+            "description": "PCI-DSS Primary Account Number (PAN) sanitizer regex bypass warning",
+            "severity": "critical",
+            "details": {
+              "action_items": [
+                "Updated PCI PAN masking regex in pci_sanitizer.go",
+                "Purged unmasked log entries from compliance archive"
+              ],
+              "incident_id": "INC-514",
+              "lead_responder": "E09",
+              "lead_responder_id": "E09",
+              "module": "compliance-service",
+              "participants": [
+                "E09",
+                "E02"
+              ],
+              "reporter": "E02",
+              "reporter_id": "E02",
+              "root_cause": "Regex pattern in pci_sanitizer.go failed to match hyphenated card format.",
+              "service": "compliance-service",
+              "summary": "Automated security scanner flagged unmasked 16-digit card number in audit log stdout.",
+              "timestamps": {
+                "created_at": "2026-05-08T10:30:00Z",
+                "resolved_at": "2026-05-08T11:45:00Z"
+              }
+            },
+            "client": null,
+            "client_url": null,
+            "contexts": null,
+            "creation_time": "2026-05-08T10:30:00Z",
+            "dedup_key": "INC-514",
+            "event_class": null,
+            "reporter_location": null,
+            "service_group": null,
+            "source_component": null,
+            "source_location": null,
+            "source_origin": "compliance-service",
+            "mutations": [],
+            "reporter_component": null,
+            "urgency": null
+          },
+          "summary": "PCI-DSS Primary Account Number (PAN) sanitizer regex bypass warning"
+        },
+        "service": {
+          "id": "PK9U7OK",
+          "name": "AcmePay",
+          "description": null,
+          "created_at": "2026-08-26T18:24:21Z",
+          "updated_at": "2026-08-26T18:24:21Z",
+          "status": "critical",
+          "teams": [],
+          "alert_creation": "create_alerts_and_incidents",
+          "addons": [],
+          "scheduled_actions": [],
+          "support_hours": null,
+          "last_incident_timestamp": "2026-08-26T19:04:42Z",
+          "escalation_policy": {
+            "id": "P5YI4OZ",
+            "type": "escalation_policy_reference",
+            "summary": "AcmePay-ep",
+            "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+            "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+          },
+          "incident_urgency_rule": {
+            "type": "constant",
+            "urgency": "high"
+          },
+          "acknowledgement_timeout": null,
+          "auto_resolve_timeout": null,
+          "integrations": [
+            {
+              "id": "PWMFL7R",
+              "type": "events_api_v2_inbound_integration_reference",
+              "summary": "Events API V2",
+              "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+              "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+            }
+          ],
+          "type": "service",
+          "summary": "AcmePay",
+          "self": "https://api.pagerduty.com/services/PK9U7OK",
+          "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+        },
+        "incident": {
+          "id": "Q03Z7W2NSPN2GS",
+          "type": "incident_reference",
+          "summary": "[#14] PCI-DSS Primary Account Number (PAN) sanitizer regex bypass warning",
+          "self": "https://api.pagerduty.com/incidents/Q03Z7W2NSPN2GS",
+          "html_url": "https://acmepay.pagerduty.com/incidents/Q03Z7W2NSPN2GS"
+        },
+        "teams": [],
+        "contexts": [],
+        "event_details": {
+          "description": "PCI-DSS Primary Account Number (PAN) sanitizer regex bypass warning"
+        }
+      },
+      "alert_counts": {
+        "all": 1,
+        "triggered": 1,
+        "resolved": 0
+      },
+      "is_mergeable": true,
+      "incident_type": {
+        "name": "incident_default"
+      },
+      "escalation_policy": {
+        "id": "P5YI4OZ",
+        "type": "escalation_policy_reference",
+        "summary": "AcmePay-ep",
+        "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+        "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+      },
+      "teams": [],
+      "pending_actions": [],
+      "acknowledgements": [],
+      "basic_alert_grouping": null,
+      "alert_grouping": {
+        "grouping_type": "advanced",
+        "started_at": "2026-08-26T19:04:40Z",
+        "ended_at": null,
+        "alert_grouping_active": false
+      },
+      "last_status_change_by": {
+        "id": "PK9U7OK",
+        "type": "service_reference",
+        "summary": "AcmePay",
+        "self": "https://api.pagerduty.com/services/PK9U7OK",
+        "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+      },
+      "priority": null,
+      "incidents_responders": [],
+      "responder_requests": [],
+      "subscriber_requests": [],
+      "urgency": "high",
+      "id": "Q03Z7W2NSPN2GS",
+      "type": "incident",
+      "summary": "[#14] PCI-DSS Primary Account Number (PAN) sanitizer regex bypass warning",
+      "self": "https://api.pagerduty.com/incidents/Q03Z7W2NSPN2GS",
+      "html_url": "https://acmepay.pagerduty.com/incidents/Q03Z7W2NSPN2GS"
+    },
+    {
+      "incident_number": 15,
+      "title": "Acquirer authorization retry exponential backoff queue stall",
+      "description": "Acquirer authorization retry exponential backoff queue stall",
+      "created_at": "2026-08-26T19:04:42Z",
+      "updated_at": "2026-08-26T19:04:42Z",
+      "status": "triggered",
+      "incident_key": null,
+      "service": {
+        "id": "PK9U7OK",
+        "name": "AcmePay",
+        "description": null,
+        "created_at": "2026-08-26T18:24:21Z",
+        "updated_at": "2026-08-26T18:24:21Z",
+        "status": "critical",
+        "teams": [],
+        "alert_creation": "create_alerts_and_incidents",
+        "addons": [],
+        "scheduled_actions": [],
+        "support_hours": null,
+        "last_incident_timestamp": "2026-08-26T19:04:42Z",
+        "escalation_policy": {
+          "id": "P5YI4OZ",
+          "type": "escalation_policy_reference",
+          "summary": "AcmePay-ep",
+          "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+          "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+        },
+        "incident_urgency_rule": {
+          "type": "constant",
+          "urgency": "high"
+        },
+        "acknowledgement_timeout": null,
+        "auto_resolve_timeout": null,
+        "integrations": [
+          {
+            "id": "PWMFL7R",
+            "type": "events_api_v2_inbound_integration_reference",
+            "summary": "Events API V2",
+            "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+            "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+          }
+        ],
+        "type": "service",
+        "summary": "AcmePay",
+        "self": "https://api.pagerduty.com/services/PK9U7OK",
+        "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+      },
+      "assignments": [
+        {
+          "at": "2026-08-26T19:04:42Z",
+          "assignee": {
+            "name": "Rakshak Shetty",
+            "email": "rakshak.s@somaiya.edu",
+            "time_zone": "Etc/UTC",
+            "color": "purple",
+            "avatar_url": "https://pd-static-assets.pagerduty.com/users/blank-avatar.png",
+            "billed": true,
+            "role": "owner",
+            "description": null,
+            "invitation_sent": false,
+            "job_title": null,
+            "teams": [],
+            "created_via_sso": false,
+            "contact_methods": [
+              {
+                "id": "PB5YE93",
+                "type": "email_contact_method_reference",
+                "summary": "Default",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/contact_methods/PB5YE93",
+                "html_url": null
+              }
+            ],
+            "notification_rules": [
+              {
+                "id": "PO8H566",
+                "type": "assignment_notification_rule_reference",
+                "summary": "0 minutes: channel PB5YE93",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/notification_rules/PO8H566",
+                "html_url": null
+              },
+              {
+                "id": "PRI55IW",
+                "type": "assignment_notification_rule_reference",
+                "summary": "0 minutes: channel PB5YE93",
+                "self": "https://api.pagerduty.com/users/PN8AFPT/notification_rules/PRI55IW",
+                "html_url": null
+              }
+            ],
+            "coordinated_incidents": [],
+            "locale": "en-US",
+            "id": "PN8AFPT",
+            "type": "user",
+            "summary": "Rakshak Shetty",
+            "self": "https://api.pagerduty.com/users/PN8AFPT",
+            "html_url": "https://acmepay.pagerduty.com/users/PN8AFPT"
+          }
+        }
+      ],
+      "assigned_via": "escalation_policy",
+      "last_status_change_at": "2026-08-26T19:04:42Z",
+      "resolved_at": null,
+      "first_trigger_log_entry": {
+        "id": "R44PS3KZM8JK0ZGSE83SB8YD83",
+        "type": "trigger_log_entry",
+        "summary": "Triggered through the API.",
+        "self": "https://api.pagerduty.com/log_entries/R44PS3KZM8JK0ZGSE83SB8YD83",
+        "html_url": "https://acmepay.pagerduty.com/incidents/Q03CKBG5ZFW8MV/log_entries/R44PS3KZM8JK0ZGSE83SB8YD83",
+        "created_at": "2026-08-26T19:04:42Z",
+        "agent": {
+          "id": "PWMFL7R",
+          "type": "events_api_v2_inbound_integration_reference",
+          "summary": "Events API V2",
+          "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+          "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+        },
+        "channel": {
+          "type": "api",
+          "service_key": "429e00a8ec19420cd043164b249690ca",
+          "description": "Acquirer authorization retry exponential backoff queue stall",
+          "incident_key": "INC-515",
+          "details": {
+            "action_items": [
+              "Updated retry_engine.go error code classification mapping",
+              "Flushed payment intent retry queue"
+            ],
+            "incident_id": "INC-515",
+            "lead_responder": "E01",
+            "lead_responder_id": "E01",
+            "module": "payment-service",
+            "participants": [
+              "E01",
+              "E04",
+              "E13"
+            ],
+            "reporter": "E12",
+            "reporter_id": "E12",
+            "root_cause": "Acquirer error code 503 treated as non-retryable terminal status.",
+            "service": "payment-service",
+            "summary": "PaymentIntent retries stalled during acquirer network maintenance window.",
+            "timestamps": {
+              "created_at": "2026-08-11T14:15:00Z",
+              "resolved_at": "2026-08-11T15:00:00Z"
+            }
+          },
+          "cef_details": {
+            "message": "Acquirer authorization retry exponential backoff queue stall",
+            "priority": null,
+            "version": "1.0",
+            "description": "Acquirer authorization retry exponential backoff queue stall",
+            "severity": "error",
+            "details": {
+              "action_items": [
+                "Updated retry_engine.go error code classification mapping",
+                "Flushed payment intent retry queue"
+              ],
+              "incident_id": "INC-515",
+              "lead_responder": "E01",
+              "lead_responder_id": "E01",
+              "module": "payment-service",
+              "participants": [
+                "E01",
+                "E04",
+                "E13"
+              ],
+              "reporter": "E12",
+              "reporter_id": "E12",
+              "root_cause": "Acquirer error code 503 treated as non-retryable terminal status.",
+              "service": "payment-service",
+              "summary": "PaymentIntent retries stalled during acquirer network maintenance window.",
+              "timestamps": {
+                "created_at": "2026-08-11T14:15:00Z",
+                "resolved_at": "2026-08-11T15:00:00Z"
+              }
+            },
+            "client": null,
+            "client_url": null,
+            "contexts": null,
+            "creation_time": "2026-08-11T14:15:00Z",
+            "dedup_key": "INC-515",
+            "event_class": null,
+            "reporter_location": null,
+            "service_group": null,
+            "source_component": null,
+            "source_location": null,
+            "source_origin": "payment-service",
+            "mutations": [],
+            "reporter_component": null,
+            "urgency": null
+          },
+          "summary": "Acquirer authorization retry exponential backoff queue stall"
+        },
+        "service": {
+          "id": "PK9U7OK",
+          "name": "AcmePay",
+          "description": null,
+          "created_at": "2026-08-26T18:24:21Z",
+          "updated_at": "2026-08-26T18:24:21Z",
+          "status": "critical",
+          "teams": [],
+          "alert_creation": "create_alerts_and_incidents",
+          "addons": [],
+          "scheduled_actions": [],
+          "support_hours": null,
+          "last_incident_timestamp": "2026-08-26T19:04:42Z",
+          "escalation_policy": {
+            "id": "P5YI4OZ",
+            "type": "escalation_policy_reference",
+            "summary": "AcmePay-ep",
+            "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+            "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+          },
+          "incident_urgency_rule": {
+            "type": "constant",
+            "urgency": "high"
+          },
+          "acknowledgement_timeout": null,
+          "auto_resolve_timeout": null,
+          "integrations": [
+            {
+              "id": "PWMFL7R",
+              "type": "events_api_v2_inbound_integration_reference",
+              "summary": "Events API V2",
+              "self": "https://api.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R",
+              "html_url": "https://acmepay.pagerduty.com/services/PK9U7OK/integrations/PWMFL7R"
+            }
+          ],
+          "type": "service",
+          "summary": "AcmePay",
+          "self": "https://api.pagerduty.com/services/PK9U7OK",
+          "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+        },
+        "incident": {
+          "id": "Q03CKBG5ZFW8MV",
+          "type": "incident_reference",
+          "summary": "[#15] Acquirer authorization retry exponential backoff queue stall",
+          "self": "https://api.pagerduty.com/incidents/Q03CKBG5ZFW8MV",
+          "html_url": "https://acmepay.pagerduty.com/incidents/Q03CKBG5ZFW8MV"
+        },
+        "teams": [],
+        "contexts": [],
+        "event_details": {
+          "description": "Acquirer authorization retry exponential backoff queue stall"
+        }
+      },
+      "alert_counts": {
+        "all": 1,
+        "triggered": 1,
+        "resolved": 0
+      },
+      "is_mergeable": true,
+      "incident_type": {
+        "name": "incident_default"
+      },
+      "escalation_policy": {
+        "id": "P5YI4OZ",
+        "type": "escalation_policy_reference",
+        "summary": "AcmePay-ep",
+        "self": "https://api.pagerduty.com/escalation_policies/P5YI4OZ",
+        "html_url": "https://acmepay.pagerduty.com/escalation_policies/P5YI4OZ"
+      },
+      "teams": [],
+      "pending_actions": [],
+      "acknowledgements": [],
+      "basic_alert_grouping": null,
+      "alert_grouping": {
+        "grouping_type": "advanced",
+        "started_at": "2026-08-26T19:04:42Z",
+        "ended_at": null,
+        "alert_grouping_active": false
+      },
+      "last_status_change_by": {
+        "id": "PK9U7OK",
+        "type": "service_reference",
+        "summary": "AcmePay",
+        "self": "https://api.pagerduty.com/services/PK9U7OK",
+        "html_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK"
+      },
+      "priority": null,
+      "incidents_responders": [],
+      "responder_requests": [],
+      "subscriber_requests": [],
+      "urgency": "high",
+      "id": "Q03CKBG5ZFW8MV",
+      "type": "incident",
+      "summary": "[#15] Acquirer authorization retry exponential backoff queue stall",
+      "self": "https://api.pagerduty.com/incidents/Q03CKBG5ZFW8MV",
+      "html_url": "https://acmepay.pagerduty.com/incidents/Q03CKBG5ZFW8MV"
+    }
+  ]
+}

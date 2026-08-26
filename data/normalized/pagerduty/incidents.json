@@ -1,0 +1,423 @@
+[
+  {
+    "employee_id": "E08",
+    "employee_name": "Vikram Malhotra",
+    "source": "pagerduty",
+    "source_type": "incident",
+    "source_record_id": "Q2UNEV91523KSE",
+    "action": "lead_incident_response",
+    "timestamp": "2023-04-12T14:30:00Z",
+    "provenance_type": "Demonstrated",
+    "context": {
+      "title": "OAuth2 Bearer token signing key vault lock contention",
+      "severity": "SEV-1",
+      "service": "AcmePay",
+      "summary": "KMS vault connection timeout caused 500 error spikes on merchant token validation endpoint.",
+      "status": "triggered",
+      "service_id": "PK9U7OK",
+      "source_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK/activity",
+      "lead_responder_id": "E08",
+      "lead_responder_name": "Vikram Malhotra",
+      "reporter_id": "E01",
+      "reporter_name": "Rakshak Shetty",
+      "root_cause": "Unindexed key rotation lock check in KMS token vault worker.",
+      "action_items": [
+        "Rolled back KMS key rotation worker to release v1.4.2",
+        "Added index on kms_key_id column",
+        "Updated token vault timeout configuration to 5s"
+      ]
+    }
+  },
+  {
+    "employee_id": "E04",
+    "employee_name": "Krish Trivedi",
+    "source": "pagerduty",
+    "source_type": "incident",
+    "source_record_id": "Q1RIX732EZZITX",
+    "action": "lead_incident_response",
+    "timestamp": "2023-08-19T09:15:00Z",
+    "provenance_type": "Demonstrated",
+    "context": {
+      "title": "Payment intent state machine retry deadlock during acquirer outage",
+      "severity": "SEV-1",
+      "service": "AcmePay",
+      "summary": "Acquirer timeout triggered concurrent state machine locks on charge authorization retry.",
+      "status": "triggered",
+      "service_id": "PK9U7OK",
+      "source_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK/activity",
+      "lead_responder_id": "E04",
+      "lead_responder_name": "Krish Trivedi",
+      "reporter_id": "E03",
+      "reporter_name": "Kshitij Naidu",
+      "root_cause": "Mutex deadlock between retry worker and charge status state machine transition.",
+      "action_items": [
+        "Applied hotfix patch to state_machine.go releasing mutex lock",
+        "Configured exponential backoff jitter on acquirer retries"
+      ]
+    }
+  },
+  {
+    "employee_id": "E14",
+    "employee_name": "Aditya Verma",
+    "source": "pagerduty",
+    "source_type": "incident",
+    "source_record_id": "Q3R22F5N7BOUF3",
+    "action": "lead_incident_response",
+    "timestamp": "2023-11-04T18:20:00Z",
+    "provenance_type": "Demonstrated",
+    "context": {
+      "title": "Fraud risk evaluator score calculation latency breach",
+      "severity": "SEV-1",
+      "service": "AcmePay",
+      "summary": "Sliding window velocity checker stalled transaction authorization requests past 500ms timeout.",
+      "status": "triggered",
+      "service_id": "PK9U7OK",
+      "source_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK/activity",
+      "lead_responder_id": "E14",
+      "lead_responder_name": "Aditya Verma",
+      "reporter_id": "E07",
+      "reporter_name": "Ananya Sharma",
+      "root_cause": "Uncached IP subnet blacklist lookups on high-volume card token requests.",
+      "action_items": [
+        "Cached card token velocity scores in Redis key store",
+        "Optimized subnet matching algorithm in risk_evaluator.py"
+      ]
+    }
+  },
+  {
+    "employee_id": "E10",
+    "employee_name": "Rohan Gupta",
+    "source": "pagerduty",
+    "source_type": "incident",
+    "source_record_id": "Q2TZYWH3YIKQQJ",
+    "action": "lead_incident_response",
+    "timestamp": "2024-02-15T01:40:00Z",
+    "provenance_type": "Demonstrated",
+    "context": {
+      "title": "Double-entry ledger journal debit/credit lock contention during midnight batch",
+      "severity": "SEV-1",
+      "service": "AcmePay",
+      "summary": "Concurrent merchant debit and credit entries caused journal account row locks.",
+      "status": "triggered",
+      "service_id": "PK9U7OK",
+      "source_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK/activity",
+      "lead_responder_id": "E10",
+      "lead_responder_name": "Rohan Gupta",
+      "reporter_id": "E05",
+      "reporter_name": "Naman Nahar",
+      "root_cause": "Non-sequential account ID locking in double-entry balance verifier worker.",
+      "action_items": [
+        "Sorted journal account IDs before executing debit/credit lock acquisition",
+        "Ran VerifyJournalBalance() sanity check"
+      ]
+    }
+  },
+  {
+    "employee_id": "E01",
+    "employee_name": "Rakshak Shetty",
+    "source": "pagerduty",
+    "source_type": "incident",
+    "source_record_id": "Q1NI6WIH5VV0SB",
+    "action": "lead_incident_response",
+    "timestamp": "2024-05-20T11:05:00Z",
+    "provenance_type": "Demonstrated",
+    "context": {
+      "title": "API Gateway 504 Gateway Timeout on v2 payment intent proxy",
+      "severity": "SEV-1",
+      "service": "AcmePay",
+      "summary": "Ingress reverse proxy connection pool exhaustion under sudden traffic surge.",
+      "status": "triggered",
+      "service_id": "PK9U7OK",
+      "source_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK/activity",
+      "lead_responder_id": "E01",
+      "lead_responder_name": "Rakshak Shetty",
+      "reporter_id": "E02",
+      "reporter_name": "Keyuri Sheth",
+      "root_cause": "Token bucket rate limiter bucket capacity misconfiguration.",
+      "action_items": [
+        "Increased gateway proxy connection pool capacity to 500",
+        "Reconfigured token bucket burst rate limiter parameters"
+      ]
+    }
+  },
+  {
+    "employee_id": "E04",
+    "employee_name": "Krish Trivedi",
+    "source": "pagerduty",
+    "source_type": "incident",
+    "source_record_id": "Q0QSCOXAWD3J1U",
+    "action": "lead_incident_response",
+    "timestamp": "2024-09-10T16:30:00Z",
+    "provenance_type": "Demonstrated",
+    "context": {
+      "title": "Partner bank ACH clearing file header formatting error",
+      "severity": "SEV-1",
+      "service": "AcmePay",
+      "summary": "Partner clearing bank rejected daily batch payout file due to missing header column.",
+      "status": "triggered",
+      "service_id": "PK9U7OK",
+      "source_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK/activity",
+      "lead_responder_id": "E04",
+      "lead_responder_name": "Krish Trivedi",
+      "reporter_id": "E19",
+      "reporter_name": "Ritu Sengupta",
+      "root_cause": "Unannounced ACH file format specification change by partner bank.",
+      "action_items": [
+        "Updated ach_clearing.go batch file generator format",
+        "Added automated pre-submission ACH header validator"
+      ]
+    }
+  },
+  {
+    "employee_id": "E03",
+    "employee_name": "Kshitij Naidu",
+    "source": "pagerduty",
+    "source_type": "incident",
+    "source_record_id": "Q226Q5ANZBSB4T",
+    "action": "lead_incident_response",
+    "timestamp": "2024-11-18T08:00:00Z",
+    "provenance_type": "Demonstrated",
+    "context": {
+      "title": "Kubernetes ArgoRollout canary traffic shifting stalled at 10% step",
+      "severity": "SEV-1",
+      "service": "AcmePay",
+      "summary": "ArgoRollout controller failed to promote canary release automatically after metric evaluation.",
+      "status": "triggered",
+      "service_id": "PK9U7OK",
+      "source_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK/activity",
+      "lead_responder_id": "E03",
+      "lead_responder_name": "Kshitij Naidu",
+      "reporter_id": "E06",
+      "reporter_name": "Parth More",
+      "root_cause": "Prometheus metric query timeout during 10% canary step evaluation.",
+      "action_items": [
+        "Manually promoted release to 100% production step",
+        "Adjusted canary metric query evaluation window"
+      ]
+    }
+  },
+  {
+    "employee_id": "E02",
+    "employee_name": "Keyuri Sheth",
+    "source": "pagerduty",
+    "source_type": "incident",
+    "source_record_id": "Q1Q6WHD22KOLTQ",
+    "action": "lead_incident_response",
+    "timestamp": "2025-01-22T13:20:00Z",
+    "provenance_type": "Demonstrated",
+    "context": {
+      "title": "Merchant KYC tax ID validation worker queue backpressure",
+      "severity": "SEV-1",
+      "service": "AcmePay",
+      "summary": "KYC document validation requests stalled due to third-party verification API throttle.",
+      "status": "triggered",
+      "service_id": "PK9U7OK",
+      "source_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK/activity",
+      "lead_responder_id": "E02",
+      "lead_responder_name": "Keyuri Sheth",
+      "reporter_id": "E17",
+      "reporter_name": "Pooja Bhatia",
+      "root_cause": "Missing asynchronous retry queue for tax ID verification worker.",
+      "action_items": [
+        "Flushed stalled KYC verification queue",
+        "Implemented async exponential backoff for tax ID verifier worker"
+      ]
+    }
+  },
+  {
+    "employee_id": "E07",
+    "employee_name": "Ananya Sharma",
+    "source": "pagerduty",
+    "source_type": "incident",
+    "source_record_id": "Q1YZ7F404LZQ6U",
+    "action": "lead_incident_response",
+    "timestamp": "2025-04-14T20:10:00Z",
+    "provenance_type": "Demonstrated",
+    "context": {
+      "title": "Outbound merchant webhook dispatcher delivery queue stall",
+      "severity": "SEV-1",
+      "service": "AcmePay",
+      "summary": "Merchant payment webhook event notifications delayed by 45 minutes.",
+      "status": "triggered",
+      "service_id": "PK9U7OK",
+      "source_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK/activity",
+      "lead_responder_id": "E07",
+      "lead_responder_name": "Ananya Sharma",
+      "reporter_id": "E12",
+      "reporter_name": "Siddharth Joshi",
+      "root_cause": "Uncapped connection timeout on unresponsive merchant webhook endpoint.",
+      "action_items": [
+        "Enforced 5s timeout on outbound HTTP webhook client",
+        "Flushed webhook dead-letter queue worker"
+      ]
+    }
+  },
+  {
+    "employee_id": "E10",
+    "employee_name": "Rohan Gupta",
+    "source": "pagerduty",
+    "source_type": "incident",
+    "source_record_id": "Q3PTFYW4DS9DKM",
+    "action": "lead_incident_response",
+    "timestamp": "2025-07-09T03:15:00Z",
+    "provenance_type": "Demonstrated",
+    "context": {
+      "title": "Merchant clearing account balance mismatch during month-end reconciliation",
+      "severity": "SEV-1",
+      "service": "AcmePay",
+      "summary": "Ledger balance verification reported $12,450 debit/credit mismatch on high-volume merchant.",
+      "status": "triggered",
+      "service_id": "PK9U7OK",
+      "source_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK/activity",
+      "lead_responder_id": "E10",
+      "lead_responder_name": "Rohan Gupta",
+      "reporter_id": "E09",
+      "reporter_name": "Deepa Raman",
+      "root_cause": "Race condition in asynchronous settlement fee debit posting worker.",
+      "action_items": [
+        "Executed manual balance reconciliation script",
+        "Applied atomic transaction block around balance_verifier.go"
+      ]
+    }
+  },
+  {
+    "employee_id": "E06",
+    "employee_name": "Parth More",
+    "source": "pagerduty",
+    "source_type": "incident",
+    "source_record_id": "Q3A0QV9XNLIEPZ",
+    "action": "lead_incident_response",
+    "timestamp": "2025-10-03T15:45:00Z",
+    "provenance_type": "Demonstrated",
+    "context": {
+      "title": "API Gateway OpenAPI schema validation memory leak",
+      "severity": "SEV-1",
+      "service": "AcmePay",
+      "summary": "Gateway proxy worker pods restarted due to OOM kill during JSON payload validation.",
+      "status": "triggered",
+      "service_id": "PK9U7OK",
+      "source_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK/activity",
+      "lead_responder_id": "E06",
+      "lead_responder_name": "Parth More",
+      "reporter_id": "E15",
+      "reporter_name": "Neha Kapoor",
+      "root_cause": "Repeated JSON schema compilation on every HTTP request in ingress_proxy.go.",
+      "action_items": [
+        "Cached compiled OpenAPI 3.0 schema in gateway proxy memory",
+        "Increased pod memory limit"
+      ]
+    }
+  },
+  {
+    "employee_id": "E03",
+    "employee_name": "Kshitij Naidu",
+    "source": "pagerduty",
+    "source_type": "incident",
+    "source_record_id": "Q0BR6INWL2DY4T",
+    "action": "lead_incident_response",
+    "timestamp": "2025-12-11T22:00:00Z",
+    "provenance_type": "Demonstrated",
+    "context": {
+      "title": "Prometheus latency alert manager rule evaluation failure",
+      "severity": "SEV-1",
+      "service": "AcmePay",
+      "summary": "P99 payment gateway latency alert failed to trigger PagerDuty on-call page.",
+      "status": "triggered",
+      "service_id": "PK9U7OK",
+      "source_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK/activity",
+      "lead_responder_id": "E03",
+      "lead_responder_name": "Kshitij Naidu",
+      "reporter_id": "E18",
+      "reporter_name": "Varun Saxena",
+      "root_cause": "Syntax error in Prometheus payment_alerts.yml rule expression.",
+      "action_items": [
+        "Patched Prometheus alert rule syntax",
+        "Triggered test alert to verify PagerDuty escalation route"
+      ]
+    }
+  },
+  {
+    "employee_id": "E05",
+    "employee_name": "Naman Nahar",
+    "source": "pagerduty",
+    "source_type": "incident",
+    "source_record_id": "Q19QZW0WICCSEA",
+    "action": "lead_incident_response",
+    "timestamp": "2026-02-17T17:10:00Z",
+    "provenance_type": "Demonstrated",
+    "context": {
+      "title": "Merchant settlement report CSV exporter buffer overflow",
+      "severity": "SEV-1",
+      "service": "AcmePay",
+      "summary": "Large monthly CSV audit log export failed for high-volume enterprise merchant.",
+      "status": "triggered",
+      "service_id": "PK9U7OK",
+      "source_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK/activity",
+      "lead_responder_id": "E05",
+      "lead_responder_name": "Naman Nahar",
+      "reporter_id": "E19",
+      "reporter_name": "Ritu Sengupta",
+      "root_cause": "Buffering 1,000,000 transaction rows into memory before CSV stream output.",
+      "action_items": [
+        "Implemented streaming line-by-line CSV exporter in audit_exporter.py",
+        "Added row pagination limiter"
+      ]
+    }
+  },
+  {
+    "employee_id": "E09",
+    "employee_name": "Deepa Raman",
+    "source": "pagerduty",
+    "source_type": "incident",
+    "source_record_id": "Q03Z7W2NSPN2GS",
+    "action": "lead_incident_response",
+    "timestamp": "2026-05-08T10:30:00Z",
+    "provenance_type": "Demonstrated",
+    "context": {
+      "title": "PCI-DSS Primary Account Number (PAN) sanitizer regex bypass warning",
+      "severity": "SEV-1",
+      "service": "AcmePay",
+      "summary": "Automated security scanner flagged unmasked 16-digit card number in audit log stdout.",
+      "status": "triggered",
+      "service_id": "PK9U7OK",
+      "source_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK/activity",
+      "lead_responder_id": "E09",
+      "lead_responder_name": "Deepa Raman",
+      "reporter_id": "E02",
+      "reporter_name": "Keyuri Sheth",
+      "root_cause": "Regex pattern in pci_sanitizer.go failed to match hyphenated card format.",
+      "action_items": [
+        "Updated PCI PAN masking regex in pci_sanitizer.go",
+        "Purged unmasked log entries from compliance archive"
+      ]
+    }
+  },
+  {
+    "employee_id": "E01",
+    "employee_name": "Rakshak Shetty",
+    "source": "pagerduty",
+    "source_type": "incident",
+    "source_record_id": "Q03CKBG5ZFW8MV",
+    "action": "lead_incident_response",
+    "timestamp": "2026-08-11T14:15:00Z",
+    "provenance_type": "Demonstrated",
+    "context": {
+      "title": "Acquirer authorization retry exponential backoff queue stall",
+      "severity": "SEV-1",
+      "service": "AcmePay",
+      "summary": "PaymentIntent retries stalled during acquirer network maintenance window.",
+      "status": "triggered",
+      "service_id": "PK9U7OK",
+      "source_url": "https://acmepay.pagerduty.com/service-directory/PK9U7OK/activity",
+      "lead_responder_id": "E01",
+      "lead_responder_name": "Rakshak Shetty",
+      "reporter_id": "E12",
+      "reporter_name": "Siddharth Joshi",
+      "root_cause": "Acquirer error code 503 treated as non-retryable terminal status.",
+      "action_items": [
+        "Updated retry_engine.go error code classification mapping",
+        "Flushed payment intent retry queue"
+      ]
+    }
+  }
+]

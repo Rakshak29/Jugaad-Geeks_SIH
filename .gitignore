@@ -20,3 +20,7 @@ htmlcov/
 .DS_Store
 .idea/
 .vscode/
+
+# Nested synthetic repository
+data/synthetic/acmepay_codebase/
+

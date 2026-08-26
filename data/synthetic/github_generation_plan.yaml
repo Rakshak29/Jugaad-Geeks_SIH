@@ -1,0 +1,519 @@
+meta:
+  plan_version: 1.0.0
+  blueprint_reference: data/synthetic/blueprint.yaml
+  created_at: 2026-08-26
+  purpose: >
+    Specification for generating realistic AcmePay GitHub commit history and planning
+    live PRs, reviews, and issues for real GitHub team members.
+    RAW GENERATED RECORDS MUST NEVER CONTAIN SHORTCUT GROUND TRUTH KEYS.
+
+repository_architecture:
+  organization: acmepay
+  primary_repository: acmepay/engineering-monorepo
+  branch_structure: [main, develop, feature/*, hotfix/*]
+  
+  modules:
+    - module_name: payment-service
+      path_prefix: services/payment/
+      core_files:
+        - services/payment/router.go
+        - services/payment/intent_handler.go
+        - services/payment/retry_engine.go
+        - services/payment/card_processor.go
+        - services/payment/state_machine.go
+
+    - module_name: fraud-service
+      path_prefix: services/fraud/
+      core_files:
+        - services/fraud/risk_evaluator.py
+        - services/fraud/velocity_checker.py
+        - services/fraud/ml_rules.py
+        - services/fraud/blacklist_filter.py
+
+    - module_name: auth-service
+      path_prefix: services/auth/
+      core_files:
+        - services/auth/jwt_issuer.go
+        - services/auth/oauth_handler.go
+        - services/auth/kms_vault.go
+        - services/auth/rbac_middleware.go
+
+    - module_name: ledger-service
+      path_prefix: services/ledger/
+      core_files:
+        - services/ledger/journal_entry.go
+        - services/ledger/balance_verifier.go
+        - services/ledger/double_entry.go
+        - services/ledger/audit_trail.go
+
+    - module_name: notification-service
+      path_prefix: services/notification/
+      core_files:
+        - services/notification/webhook_dispatcher.go
+        - services/notification/sms_gateway.go
+        - services/notification/email_template.go
+
+    - module_name: user-service
+      path_prefix: services/user/
+      core_files:
+        - services/user/merchant_profile.go
+        - services/user/kyc_verifier.go
+        - services/user/account_controller.go
+
+    - module_name: reporting-service
+      path_prefix: services/reporting/
+      core_files:
+        - services/reporting/settlement_report.py
+        - services/reporting/audit_exporter.py
+        - services/reporting/daily_summary.py
+
+    - module_name: settlement-service
+      path_prefix: services/settlement/
+      core_files:
+        - services/settlement/ach_clearing.go
+        - services/settlement/payout_batcher.go
+        - services/settlement/bank_reconciliation.go
+
+    - module_name: api-gateway
+      path_prefix: services/api-gateway/
+      core_files:
+        - services/api-gateway/ingress_proxy.go
+        - services/api-gateway/rate_limiter.go
+        - services/api-gateway/openapi_spec.json
+        - services/api-gateway/auth_plugin.go
+
+    - module_name: deployment-service
+      path_prefix: deployments/
+      core_files:
+        - deployments/helm/payment-service/values.yaml
+        - deployments/k8s/canary_rollout.yaml
+        - .github/workflows/deploy_production.yml
+        - .github/workflows/ci_build.yml
+
+    - module_name: monitoring-service
+      path_prefix: monitoring/
+      core_files:
+        - monitoring/prometheus/payment_alerts.yml
+        - monitoring/grafana/dashboards/latency.json
+        - monitoring/pagerduty/routing_rules.json
+
+    - module_name: compliance-service
+      path_prefix: services/compliance/
+      core_files:
+        - services/compliance/pci_sanitizer.go
+        - services/compliance/data_retention.go
+        - services/compliance/audit_logger.go
+
+employee_git_identities:
+  # Real GitHub Collaborators
+  - employee_id: E01
+    full_name: Rakshak Shetty
+    is_real_collaborator: true
+    github_handle: Rakshak29
+    git_author_email: rakshak@acmepay.io
+  - employee_id: E02
+    full_name: Keyuri Sheth
+    is_real_collaborator: true
+    github_handle: keys246
+    git_author_email: keyuri@acmepay.io
+  - employee_id: E03
+    full_name: Kshitij Naidu
+    is_real_collaborator: true
+    github_handle: kshitijnaidu
+    git_author_email: kshitij@acmepay.io
+  - employee_id: E04
+    full_name: Krish Trivedi
+    is_real_collaborator: true
+    github_handle: krish-exe
+    git_author_email: krish@acmepay.io
+  - employee_id: E05
+    full_name: Naman Nahar
+    is_real_collaborator: true
+    github_handle: NamanN-Creator
+    git_author_email: naman@acmepay.io
+  - employee_id: E06
+    full_name: Parth More
+    is_real_collaborator: true
+    github_handle: shadecodes10
+    git_author_email: parth@acmepay.io
+
+  # Historical Synthetic Employees
+  - employee_id: E07
+    full_name: Ananya Sharma
+    is_real_collaborator: false
+    github_handle: ananyas-code
+    git_author_email: ananya@acmepay.io
+  - employee_id: E08
+    full_name: Vikram Malhotra
+    is_real_collaborator: false
+    github_handle: vmalhotra-dev
+    git_author_email: vikram@acmepay.io
+  - employee_id: E09
+    full_name: Deepa Raman
+    is_real_collaborator: false
+    github_handle: deepa-ram
+    git_author_email: deepa@acmepay.io
+  - employee_id: E10
+    full_name: Rohan Gupta
+    is_real_collaborator: false
+    github_handle: rohan.gupta
+    git_author_email: rohan@acmepay.io
+  - employee_id: E11
+    full_name: Meera Patel
+    is_real_collaborator: false
+    github_handle: mpatel-infra
+    git_author_email: meera@acmepay.io
+  - employee_id: E12
+    full_name: Siddharth Joshi
+    is_real_collaborator: false
+    github_handle: sjoshi-backend
+    git_author_email: siddharth@acmepay.io
+  - employee_id: E13
+    full_name: Tanvi Deshmukh
+    is_real_collaborator: false
+    github_handle: tdeshmukh-qa
+    git_author_email: tanvi@acmepay.io
+  - employee_id: E14
+    full_name: Aditya Verma
+    is_real_collaborator: false
+    github_handle: averma-sec
+    git_author_email: aditya@acmepay.io
+  - employee_id: E15
+    full_name: Neha Kapoor
+    is_real_collaborator: false
+    github_handle: nkapoor-dev
+    git_author_email: neha@acmepay.io
+  - employee_id: E16
+    full_name: Arjun Nair
+    is_real_collaborator: false
+    github_handle: anair-backend
+    git_author_email: arjun@acmepay.io
+  - employee_id: E17
+    full_name: Pooja Bhatia
+    is_real_collaborator: false
+    github_handle: pbhatia-docs
+    git_author_email: pooja@acmepay.io
+  - employee_id: E18
+    full_name: Varun Saxena
+    is_real_collaborator: false
+    github_handle: vsaxena-ops
+    git_author_email: varun@acmepay.io
+  - employee_id: E19
+    full_name: Ritu Sengupta
+    is_real_collaborator: false
+    github_handle: rsengupta-data
+    git_author_email: ritu@acmepay.io
+  - employee_id: E20
+    full_name: Kabir Mehta
+    is_real_collaborator: false
+    github_handle: kmehta-auth
+    git_author_email: kabir@acmepay.io
+
+module_discovery_signals:
+  payment-service:
+    path_keywords: [services/payment/, cmd/payment/]
+    domain_terms: [payment intent, card routing, payment_processor, transaction state machine, capture_payment, refund_handler]
+  fraud-service:
+    path_keywords: [services/fraud/, pkg/risk/]
+    domain_terms: [risk evaluation, velocity rule, fraud score, ml model, blacklist check, fraud_evaluator]
+  auth-service:
+    path_keywords: [services/auth/, pkg/crypto/]
+    domain_terms: [jwt issuer, oauth token, kms key vault, rbac middleware, auth_token, password hash]
+  ledger-service:
+    path_keywords: [services/ledger/, db/ledger/]
+    domain_terms: [double-entry journal, ledger balance, debit credit matching, balance verifier, audit trail]
+  notification-service:
+    path_keywords: [services/notification/, pkg/webhook/]
+    domain_terms: [webhook dispatcher, sms gateway, email template, notification queue, event subscriber]
+  user-service:
+    path_keywords: [services/user/, pkg/identity/]
+    domain_terms: [merchant profile, kyc verification, user account, merchant onboarding, profile controller]
+  reporting-service:
+    path_keywords: [services/reporting/, jobs/analytics/]
+    domain_terms: [daily settlement report, audit export, transaction summary, csv exporter, analytics job]
+  settlement-service:
+    path_keywords: [services/settlement/, pkg/ach/]
+    domain_terms: [ach clearing, payout batcher, bank reconciliation, swift routing, settlement clearing]
+  api-gateway:
+    path_keywords: [services/api-gateway/, config/gateway/]
+    domain_terms: [ingress proxy, rate limiter, openapi spec, request router, cors middleware, api key proxy]
+  deployment-service:
+    path_keywords: [deployments/, .github/workflows/]
+    domain_terms: [helm values, canary rollout, github workflow, k8s manifest, blue-green deployment]
+  monitoring-service:
+    path_keywords: [monitoring/, config/alerts/]
+    domain_terms: [prometheus alert, grafana dashboard, latency metric, alertmanager routing, p99 trace]
+  compliance-service:
+    path_keywords: [services/compliance/, audit/]
+    domain_terms: [pci sanitizer, audit logger, data retention policy, privacy compliance, sensitive data scrubbing]
+
+capability_discovery_signals:
+  Payment Processing:
+    technical_concepts: [intent routing, payment capture, credit card validation, retry backoff, idempotency key]
+    code_elements: [ProcessPayment(), RouteIntent(), CaptureCharge(), ValidateCard()]
+  Fraud Detection:
+    technical_concepts: [risk score, velocity limit, blacklist IP, fraud probability, anomaly detection]
+    code_elements: [EvaluateRisk(), CheckVelocity(), IsBlacklisted(), ComputeFraudScore()]
+  Authentication:
+    technical_concepts: [jwt signing, bearer token, oauth2 flow, token validation, password hashing]
+    code_elements: [IssueToken(), VerifyJWT(), AuthenticateUser(), HashPassword()]
+  Authorization:
+    technical_concepts: [rbac role, scope check, permission matrix, resource access, token claims]
+    code_elements: [AuthorizeRole(), HasPermission(), EnforceScope(), ValidateClaims()]
+  Ledger Management:
+    technical_concepts: [double-entry, debit credit, balance integrity, journal entry, account ledger]
+    code_elements: [PostJournalEntry(), VerifyBalance(), MatchDebitsCredits(), AuditLedger()]
+  Notifications:
+    technical_concepts: [webhook payload, delivery retry, sms notification, email alert, event broadcast]
+    code_elements: [DispatchWebhook(), SendSMS(), TriggerEmailAlert(), BroadcastEvent()]
+  User Management:
+    technical_concepts: [merchant onboarding, kyc document, profile update, account suspension]
+    code_elements: [CreateUser(), VerifyKYC(), UpdateMerchantProfile(), SuspendAccount()]
+  Reporting:
+    technical_concepts: [settlement summary, daily export, transaction report, analytics pipeline]
+    code_elements: [GenerateDailyReport(), ExportAuditCSV(), AggregateTransactions()]
+  Settlement Processing:
+    technical_concepts: [ach batch, clearing file, bank payout, fund transfer, settlement window]
+    code_elements: [ExecuteACHClearing(), BatchPayouts(), ReconcileBankStatements()]
+  API Management:
+    technical_concepts: [rate limiting, ingress routing, swagger openapi, cors policy, proxy buffer]
+    code_elements: [RateLimitRequest(), RouteIngress(), ServeOpenAPI(), FilterCORS()]
+  Deployment Management:
+    technical_concepts: [k8s rollout, canary deploy, helm upgrade, workflow execution, rollback release]
+    code_elements: [helm_upgrade, kubectl_apply, rollback_deploy, run_pipeline]
+  Monitoring:
+    technical_concepts: [prometheus metric, grafana query, alert rule, latency histogram, trace span]
+    code_elements: [RegisterMetric(), RecordLatency(), TriggerPagerAlert(), TraceSpan()]
+  Incident Response:
+    technical_concepts: [root cause fix, hotfix patch, emergency rollback, pagerduty triage, postmortem bugfix]
+    code_elements: [ApplyEmergencyHotfix(), ResolveIncident(), PatchVulnerability()]
+  Compliance:
+    technical_concepts: [pci dss, pan masking, audit log, data retention, privacy scrubbing]
+    code_elements: [MaskPAN(), LogAuditEvent(), ScrubSensitiveData(), EnforceRetention()]
+  Data Analysis:
+    technical_concepts: [transaction metrics, fraud rate trend, latency analysis, data aggregation]
+    code_elements: [CalculateFraudTrend(), ComputeLatencyP99(), AggregateMetrics()]
+
+commit_generation_plan:
+  total_planned_commits: 300
+  historical_distribution:
+    year_2023: 80
+    year_2024: 100
+    year_2025: 80
+    year_2026: 40
+
+  demonstration_case_mappings:
+    case_1_concentration:
+      target_module: ledger-service
+      primary_author: rohan.gupta (E10)
+      commit_count: 35
+      timeframe: "2023-03-01 to 2026-08-01"
+      description: >
+        E10 contributes 35 out of 42 commits to services/ledger/. Demonstrates high knowledge concentration.
+
+    case_2_stale_evidence:
+      target_module: auth-service
+      stale_author: vikram.malhotra (E08)
+      commit_count: 25
+      timeframe: "2023-01-15 to 2023-11-20"
+      recent_commit_count: 0
+      description: >
+        E08 authored 25 commits on KMS vault & auth in 2023, but 0 commits in 2024-2026. Demonstrates stale evidence recency decay.
+
+    case_3_multi_module:
+      authors:
+        - author: Rakshak29 (E01)
+          modules: [api-gateway, payment-service, auth-service]
+        - author: krish-exe (E04)
+          modules: [payment-service, settlement-service, fraud-service]
+        - author: shadecodes10 (E06)
+          modules: [deployment-service, monitoring-service, api-gateway]
+      description: >
+        Seniors touch 3+ module path prefixes across history. Demonstrates multi-module expertise.
+
+    case_4_distributed_knowledge:
+      target_module: api-gateway
+      authors: [Rakshak29 (E01), keys246 (E02), krish-exe (E04), shadecodes10 (E06), mpatel-infra (E11), nkapoor-dev (E15)]
+      commit_count_each: 6
+      description: >
+        API Management evidence is evenly distributed across 6 engineers.
+
+    case_5_identity_resolution:
+      employee_id: E01
+      git_author_name: Rakshak Shetty
+      git_author_email: rakshak@acmepay.io
+      github_username: Rakshak29
+      description: >
+        Git commit headers contain name and email; GitHub API commits contain GitHub login.
+
+    case_6_ambiguous_evidence:
+      employee_id: E17  # Pooja Bhatia
+      commit_count: 0
+      description: >
+        E17 has 0 git commits in any codebase directory (docs activity only).
+
+real_github_collaborator_plans:
+  # Plans for live PRs, Reviews, and Issues to be executed by real accounts
+  pr_plans:
+    - plan_id: PR-REAL-01
+      author_github: Rakshak29
+      target_module: api-gateway
+      title: "feat(api-gateway): add token bucket rate limiting middleware for v2 payment endpoints"
+      branch: feature/gateway-rate-limiter
+      files_changed:
+        - services/api-gateway/rate_limiter.go
+        - services/api-gateway/config/limits.json
+      pr_body: >
+        Implements a redis-backed token bucket rate limiter middleware for incoming payment intent proxy routes.
+        Includes configurable burst limits and client IP throttling.
+
+    - plan_id: PR-REAL-02
+      author_github: keys246
+      target_module: auth-service
+      title: "sec(auth): enforce OAuth2 JWT claim verification and key rotation interval"
+      branch: feature/jwt-claim-rotation
+      files_changed:
+        - services/auth/jwt_issuer.go
+        - services/auth/rbac_middleware.go
+      pr_body: >
+        Updates JWT issuer to validate key rotation timestamps and restrict broad bearer scopes.
+
+    - plan_id: PR-REAL-03
+      author_github: krish-exe
+      target_module: payment-service
+      title: "refactor(payment): optimize card routing state machine retry backoff"
+      branch: feature/payment-retry-optimization
+      files_changed:
+        - services/payment/retry_engine.go
+        - services/payment/state_machine.go
+      pr_body: >
+        Adds exponential backoff with jitter to transient payment processor timeout retries.
+
+  review_plans:
+    - plan_id: REV-REAL-01
+      pr_target_plan_id: PR-REAL-01
+      reviewer_github: keys246
+      state: APPROVED
+      comments:
+        - file: services/api-gateway/rate_limiter.go
+          line: 42
+          body: "Approved. Verified redis key TTL expiration logic prevents memory leaks during traffic spikes."
+
+    - plan_id: REV-REAL-02
+      pr_target_plan_id: PR-REAL-02
+      reviewer_github: Rakshak29
+      state: APPROVED
+      comments:
+        - file: services/auth/jwt_issuer.go
+          line: 88
+          body: "LGTM. The claim rotation fallback properly handles legacy bearer tokens during transition."
+
+    - plan_id: REV-REAL-03
+      pr_target_plan_id: PR-REAL-03
+      reviewer_github: shadecodes10
+      state: APPROVED
+      comments:
+        - file: services/payment/retry_engine.go
+          line: 115
+          body: "Verified against canary deployment. Backoff jitter reduces database lock contention significantly."
+
+  issue_plans:
+    - plan_id: ISS-REAL-01
+      author_github: kshitijnaidu
+      assignee_github: shadecodes10
+      target_module: monitoring-service
+      title: "bug(monitoring): Prometheus p99 latency spikes on payment-service router during peak hours"
+      labels: [monitoring, performance, payment-service]
+      issue_body: >
+        Observed p99 latency exceeding 450ms on payment intent router proxy. Need to update Grafana trace filters
+        and adjust alertmanager threshold.
+
+    - plan_id: ISS-REAL-02
+      author_github: NamanN-Creator
+      assignee_github: NamanN-Creator
+      target_module: reporting-service
+      title: "feat(reporting): add daily settlement summary CSV exporter for merchant dashboard"
+      labels: [reporting, ledger, settlement]
+      issue_body: >
+        Merchants require automated daily CSV exports of reconciled ACH clearing transactions.
+
+    - plan_id: ISS-REAL-03
+      author_github: shadecodes10
+      assignee_github: kshitijnaidu
+      target_module: deployment-service
+      title: "infra(deploy): update Helm chart canary rollout timeout for payment-service v2.4 release"
+      labels: [deployment, sre, kubernetes]
+      issue_body: >
+        Extend canary evaluation window from 5m to 15m to allow sufficient traffic sampling before auto-promotion.
+
+example_commit_records:
+  # 5 Representative example JSON structures that the future generator will create
+  - commit_hash: "a1b2c3d4e5f678901234567890abcdef12345678"
+    author: "Rohan Gupta <rohan.gupta@acmepay.io>"
+    committer: "Rohan Gupta <rohan.gupta@acmepay.io>"
+    timestamp: "2023-04-12T14:32:10Z"
+    message: "feat(ledger): implement double-entry journal balance verifier and debit-credit matching"
+    repository: "acmepay/engineering-monorepo"
+    branch: "main"
+    files_changed:
+      - "services/ledger/journal_entry.go"
+      - "services/ledger/balance_verifier.go"
+    stats:
+      lines_added: 185
+      lines_deleted: 12
+
+  - commit_hash: "b2c3d4e5f6a178901234567890abcdef23456789"
+    author: "Vikram Malhotra <vikram@acmepay.io>"
+    committer: "Vikram Malhotra <vikram@acmepay.io>"
+    timestamp: "2023-08-19T09:15:44Z"
+    message: "sec(auth): add KMS key vault wrapper for JWT token signing keys"
+    repository: "acmepay/engineering-monorepo"
+    branch: "main"
+    files_changed:
+      - "services/auth/kms_vault.go"
+      - "services/auth/jwt_issuer.go"
+    stats:
+      lines_added: 240
+      lines_deleted: 45
+
+  - commit_hash: "c3d4e5f6a1b278901234567890abcdef34567890"
+    author: "Rakshak Shetty <rakshak@acmepay.io>"
+    committer: "Rakshak Shetty <rakshak@acmepay.io>"
+    timestamp: "2025-11-04T16:45:00Z"
+    message: "feat(api-gateway): add request payload validation and OpenAPI proxy buffer"
+    repository: "acmepay/engineering-monorepo"
+    branch: "main"
+    files_changed:
+      - "services/api-gateway/ingress_proxy.go"
+      - "services/api-gateway/openapi_spec.json"
+    stats:
+      lines_added: 110
+      lines_deleted: 28
+
+  - commit_hash: "d4e5f6a1b2c378901234567890abcdef45678901"
+    author: "Krish Trivedi <krish@acmepay.io>"
+    committer: "Krish Trivedi <krish@acmepay.io>"
+    timestamp: "2026-02-14T11:20:30Z"
+    message: "fix(payment): resolve card routing state machine lock deadlock on intent retry"
+    repository: "acmepay/engineering-monorepo"
+    branch: "main"
+    files_changed:
+      - "services/payment/state_machine.go"
+      - "services/payment/card_processor.go"
+    stats:
+      lines_added: 54
+      lines_deleted: 19
+
+  - commit_hash: "e5f6a1b2c3d478901234567890abcdef56789012"
+    author: "Aditya Verma <aditya.verma@acmepay.io>"
+    committer: "Aditya Verma <aditya.verma@acmepay.io>"
+    timestamp: "2026-05-22T13:05:15Z"
+    message: "feat(fraud): update risk evaluator threshold rules for international card velocity"
+    repository: "acmepay/engineering-monorepo"
+    branch: "main"
+    files_changed:
+      - "services/fraud/risk_evaluator.py"
+      - "services/fraud/velocity_checker.py"
+    stats:
+      lines_added: 95
+      lines_deleted: 32

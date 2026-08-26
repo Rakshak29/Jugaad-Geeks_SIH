@@ -10,8 +10,9 @@ from sqlalchemy.orm import sessionmaker
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 # ---------------------
 
-# Import your models
+# Import your models and database session
 from backend.models.core import EvidenceRecord, CapabilityScore
+from backend.database import SessionLocal
 
 # Import your friend's exact classes based on her test file
 from backend.engine.engine import Engine
@@ -19,6 +20,7 @@ from backend.engine.skills import load_taxonomy
 
 from backend.config import DATABASE_URL
 from backend.database import SessionLocal, engine as db_engine
+
 
 def execute_scoring_pipeline():
     db = SessionLocal()

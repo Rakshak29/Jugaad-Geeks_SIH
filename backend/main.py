@@ -11,10 +11,16 @@ from fastapi import FastAPI, Depends, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from sqlalchemy import text
-from typing import List, Optional
+from typing import List, Dict, Any, Optional
+from pydantic import BaseModel, Field
+
 
 from backend.database import get_db
 from backend.models.core import Employee, CapabilityScore, EvidenceRecord, Capability, Service, Module
+from backend.ingestion.pagerduty.client import PagerDutyClient, PagerDutyClientError
+from backend.ingestion.pagerduty.storage import save_raw_pagerduty_incidents
+from backend.ingestion.pagerduty.normalizer import normalize_pagerduty_dataset
+
 
 app = FastAPI(title="Engineering Continuity Engine API")
 
@@ -515,3 +521,98 @@ def reset_pipeline_data(db: Session = Depends(get_db)):
 
 def health_check():
     return {"status": "healthy"}
+
+
+# =====================================================================
+# PAGERDUTY INGESTION ENDPOINT
+# =====================================================================
+
+class PagerDutyIngestionRequest(BaseModel):
+    pagerduty_url: str = Field(
+        ...,
+        description="PagerDuty service URL (e.g. https://acmepay.pagerduty.com/service-directory/PK9U7OK/activity)"
+    )
+    api_token: str = Field(
+        ...,
+        description="PagerDuty REST API read token (User or Account token)"
+    )
+
+
+class PagerDutyIngestionResponse(BaseModel):
+    success: bool
+    service_id: str
+    pagerduty_url: str
+    total_incidents_fetched: int
+    incidents: List[Dict[str, Any]]
+    message: str
+
+
+@app.post("/api/ingestion/pagerduty", response_model=PagerDutyIngestionResponse)
+def ingest_pagerduty(request: PagerDutyIngestionRequest):
+    """
+    PagerDuty Ingestion API Endpoint.
+    
+    Accepts a PagerDuty service URL and a PagerDuty REST API read token.
+    Extracts the service ID, queries PagerDuty REST API v2, and returns fetched incidents.
+    """
+    url = request.pagerduty_url.strip() if request.pagerduty_url else ""
+    token = request.api_token.strip() if request.api_token else ""
+
+    if not url:
+        raise HTTPException(status_code=400, detail="pagerduty_url must be provided")
+
+    if not token:
+        raise HTTPException(status_code=400, detail="api_token must be provided")
+
+    service_id = PagerDutyClient.extract_service_id_from_url(url)
+    if not service_id:
+        raise HTTPException(
+            status_code=400,
+            detail=(
+                f"Invalid PagerDuty URL '{url}'. Unable to extract PagerDuty Service ID. "
+                "Expected format like 'https://acmepay.pagerduty.com/service-directory/PK9U7OK/activity'."
+            )
+        )
+
+    try:
+        client = PagerDutyClient(api_token=token)
+        incidents = client.get_incidents(service_ids=[service_id])
+        
+        # Step 4: Atomic Raw JSON Ingestion Storage (Overwrites previous dataset)
+        save_raw_pagerduty_incidents(service_id=service_id, pagerduty_url=url, incidents=incidents)
+        
+        # Step 5: Atomic Normalized JSON Ingestion Storage (Overwrites previous dataset)
+        normalize_pagerduty_dataset()
+    except PagerDutyClientError as e:
+
+
+        err_str = str(e)
+        if "HTTP 401" in err_str or "HTTP 403" in err_str:
+            raise HTTPException(
+                status_code=401,
+                detail="PagerDuty REST API authentication failed. Verify that your API token is a valid REST API read token."
+            )
+        elif "HTTP 404" in err_str:
+            raise HTTPException(
+                status_code=404,
+                detail=f"PagerDuty service ID '{service_id}' was not found."
+            )
+        else:
+            raise HTTPException(
+                status_code=502,
+                detail=f"Failed to communicate with PagerDuty API: {e}"
+            )
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Unexpected error during PagerDuty ingestion: {e}"
+        )
+
+    return PagerDutyIngestionResponse(
+        success=True,
+        service_id=service_id,
+        pagerduty_url=url,
+        total_incidents_fetched=len(incidents),
+        incidents=incidents,
+        message=f"Successfully fetched {len(incidents)} incidents for service '{service_id}' via PagerDuty REST API."
+    )

@@ -1,0 +1,642 @@
+company:
+  id: COMP01
+  name: AcmePay Financial
+  domain: acmepay.io
+  industry: Fintech / Digital Payments Infrastructure
+  description: >
+    AcmePay Financial is a digital payment processing platform handling credit card routing,
+    real-time settlement, double-entry ledgering, fraud verification, and open API gateways.
+
+meta:
+  schema_version: 1.0.0
+  created_at: 2026-08-26
+  purpose: >
+    Ground-truth blueprint for generating correlated synthetic engineering data across
+    GitHub, Jira, Documentation, Deployments, and Incidents. This blueprint is used EXCLUSIVELY
+    by synthetic data generators and MUST NOT be passed directly as ground truth to the discovery pipeline.
+
+employees:
+  # --- REAL TEAM COLLABORATORS (GitHub Accounts used for live PRs/Issues) ---
+  - id: E01
+    full_name: Rakshak Shetty
+    is_real_collaborator: true
+    github_handle: Rakshak29
+    jira_username: rakshak.shetty
+    email: rakshak@acmepay.io
+    deploy_actor: r.shetty
+    incident_alias: Rakshak
+    role: Principal Systems Architect
+    description: Lead architect overseeing API gateway routing, payment engine architecture, and resilience.
+
+  - id: E02
+    full_name: Keyuri Sheth
+    is_real_collaborator: true
+    github_handle: keys246
+    jira_username: keyuri.sheth
+    email: keyuri@acmepay.io
+    deploy_actor: k.sheth
+    incident_alias: Keyuri
+    role: Senior Backend & Security Engineer
+    description: Specialist in authentication, tokenization, authorization protocols, and API security.
+
+  - id: E03
+    full_name: Kshitij Naidu
+    is_real_collaborator: true
+    github_handle: kshitijnaidu
+    jira_username: kshitij.naidu
+    email: kshitij@acmepay.io
+    deploy_actor: k.naidu
+    incident_alias: Kshitij
+    role: Staff Reliability & Infrastructure Engineer
+    description: Expert in database recovery, observability pipelines, monitoring, and high-availability clusters.
+
+  - id: E04
+    full_name: Krish Trivedi
+    is_real_collaborator: true
+    github_handle: krish-exe
+    jira_username: krish.trivedi
+    email: krish@acmepay.io
+    deploy_actor: k.trivedi
+    incident_alias: Krish
+    role: Senior Payment Systems Engineer
+    description: Core developer on payment intent routing, settlement execution, and transaction retries.
+
+  - id: E05
+    full_name: Naman Nahar
+    is_real_collaborator: true
+    github_handle: NamanN-Creator
+    jira_username: naman.nahar
+    email: naman@acmepay.io
+    deploy_actor: n.nahar
+    incident_alias: Naman
+    role: Staff Data & Ledger Engineer
+    description: Primary owner of financial data pipelines, reporting engines, and immutable ledger operations.
+
+  - id: E06
+    full_name: Parth More
+    is_real_collaborator: true
+    github_handle: shadecodes10
+    jira_username: parth.more
+    email: parth@acmepay.io
+    deploy_actor: p.more
+    incident_alias: Parth
+    role: Senior DevOps & Platform Engineer
+    description: Lead engineer for deployment automation, canary rollouts, CI/CD pipelines, and incident triage.
+
+  # --- ADDITIONAL FICTIONAL EMPLOYEES ---
+  - id: E07
+    full_name: Ananya Sharma
+    is_real_collaborator: false
+    github_handle: ananyas-code
+    jira_username: ananya.sharma
+    email: ananya@acmepay.io
+    deploy_actor: a.sharma
+    incident_alias: Ananya
+    role: Senior Frontend & Integration Engineer
+    description: Focuses on user management APIs, portal integration, and webhook dispatcher logic.
+
+  - id: E08
+    full_name: Vikram Malhotra
+    is_real_collaborator: false
+    github_handle: vmalhotra-dev
+    jira_username: vikram.malhotra
+    email: vikram@acmepay.io
+    deploy_actor: v.malhotra
+    incident_alias: Vikram
+    role: Staff Security & Cryptography Specialist
+    description: Historical architect of the crypto vault and auth tokenization (Inactive since 2023 - Case 2 Stale Evidence).
+
+  - id: E09
+    full_name: Deepa Raman
+    is_real_collaborator: false
+    github_handle: deepa-ram
+    jira_username: deepa.raman
+    email: deepa@acmepay.io
+    deploy_actor: d.raman
+    incident_alias: Deepa
+    role: Lead Compliance & Risk Engineer
+    description: Drives PCI-DSS compliance checks, audit logging, and regulatory reporting systems.
+
+  - id: E10
+    full_name: Rohan Gupta
+    is_real_collaborator: false
+    github_handle: rohan.gupta
+    jira_username: rohan.gupta
+    email: rohan@acmepay.io
+    deploy_actor: r.gupta
+    incident_alias: Rohan
+    role: Principal Ledger Specialist
+    description: Sole deep subject matter expert on double-entry ledger balance reconciliation (Case 1 Concentration).
+
+  - id: E11
+    full_name: Meera Patel
+    is_real_collaborator: false
+    github_handle: mpatel-infra
+    jira_username: meera.patel
+    email: meera@acmepay.io
+    deploy_actor: m.patel
+    incident_alias: Meera
+    role: Cloud Infrastructure Engineer
+    description: Manages Kubernetes clusters, service mesh routing, and deployment-service tooling.
+
+  - id: E12
+    full_name: Siddharth Joshi
+    is_real_collaborator: false
+    github_handle: sjoshi-backend
+    jira_username: siddharth.joshi
+    email: siddharth@acmepay.io
+    deploy_actor: s.joshi
+    incident_alias: Siddharth
+    role: Backend Engineer
+    description: Mid-level engineer supporting payment-service and notification-service integrations.
+
+  - id: E13
+    full_name: Tanvi Deshmukh
+    is_real_collaborator: false
+    github_handle: tdeshmukh-qa
+    jira_username: tanvi.deshmukh
+    email: tanvi@acmepay.io
+    deploy_actor: t.deshmukh
+    incident_alias: Tanvi
+    role: Site Reliability Engineer
+    description: Operates monitoring-service dashboards, alerting routes, and incident postmortem workflows.
+
+  - id: E14
+    full_name: Aditya Verma
+    is_real_collaborator: false
+    github_handle: averma-sec
+    jira_username: aditya.verma
+    email: aditya@acmepay.io
+    deploy_actor: a.verma
+    incident_alias: Aditya
+    role: Fraud & ML Engineer
+    description: Builds machine-learning risk scoring rules and fraud detection algorithms in fraud-service.
+
+  - id: E15
+    full_name: Neha Kapoor
+    is_real_collaborator: false
+    github_handle: nkapoor-dev
+    jira_username: neha.kapoor
+    email: neha@acmepay.io
+    deploy_actor: n.kapoor
+    incident_alias: Neha
+    role: API Platform Engineer
+    description: Develops rate limiting, request validation middleware, and OpenAPI specifications.
+
+  - id: E16
+    full_name: Arjun Nair
+    is_real_collaborator: false
+    github_handle: anair-backend
+    jira_username: arjun.nair
+    email: arjun@acmepay.io
+    deploy_actor: a.nair
+    incident_alias: Arjun
+    role: Distributed Systems Engineer
+    description: Core developer on settlement-service batch clearing queues and asynchronous messaging.
+
+  - id: E17
+    full_name: Pooja Bhatia
+    is_real_collaborator: false
+    github_handle: pbhatia-docs
+    jira_username: pooja.bhatia
+    email: pooja@acmepay.io
+    deploy_actor: p.bhatia
+    incident_alias: Pooja
+    role: Technical Writer & Developer Advocate
+    description: Authors technical architecture docs & API guides (Case 6: High doc presence, zero code commits).
+
+  - id: E18
+    full_name: Varun Saxena
+    is_real_collaborator: false
+    github_handle: vsaxena-ops
+    jira_username: varun.saxena
+    email: varun@acmepay.io
+    deploy_actor: v.saxena
+    incident_alias: Varun
+    role: Incident & Operations Lead
+    description: Coordinates high-severity production incident response bridges and pager alerts.
+
+  - id: E19
+    full_name: Ritu Sengupta
+    is_real_collaborator: false
+    github_handle: rsengupta-data
+    jira_username: ritu.sengupta
+    email: ritu@acmepay.io
+    deploy_actor: r.sengupta
+    incident_alias: Ritu
+    role: Reporting & Analytics Engineer
+    description: Builds financial data pipelines, transaction summary reports, and analytics export jobs.
+
+  - id: E20
+    full_name: Kabir Mehta
+    is_real_collaborator: false
+    github_handle: kmehta-auth
+    jira_username: kabir.mehta
+    email: kabir@acmepay.io
+    deploy_actor: k.mehta
+    incident_alias: Kabir
+    role: Identity & Access Management Engineer
+    description: Implements OAuth2/OIDC protocols, user registration APIs, and MFA enforcement.
+
+modules:
+  - id: payment-service
+    name: Payment Service
+    repo_name: acmepay/payment-service
+    path_prefixes: ["services/payment/", "cmd/payment/"]
+    jira_component: payment-service
+    service_tag: payment-service
+    description: Core credit card intent creation, payment routing, and transaction state machine.
+
+  - id: fraud-service
+    name: Fraud Service
+    repo_name: acmepay/fraud-service
+    path_prefixes: ["services/fraud/", "pkg/risk/"]
+    jira_component: fraud-service
+    service_tag: fraud-service
+    description: Real-time fraud detection engine, velocity checks, and risk scoring ML pipelines.
+
+  - id: auth-service
+    name: Authentication Service
+    repo_name: acmepay/auth-service
+    path_prefixes: ["services/auth/", "pkg/crypto/"]
+    jira_component: auth-service
+    service_tag: auth-service
+    description: JWT authentication, OAuth2 token issuing, KMS key vault wrapper, and RBAC authorization.
+
+  - id: ledger-service
+    name: Ledger Service
+    repo_name: acmepay/ledger-service
+    path_prefixes: ["services/ledger/", "db/ledger/"]
+    jira_component: ledger-service
+    service_tag: ledger-service
+    description: Double-entry accounting ledger, transaction journal logging, and balance integrity verification.
+
+  - id: notification-service
+    name: Notification Service
+    repo_name: acmepay/notification-service
+    path_prefixes: ["services/notification/", "pkg/webhook/"]
+    jira_component: notification-service
+    service_tag: notification-service
+    description: Event-driven webhook delivery, SMS/email alerts, and customer payout notifications.
+
+  - id: user-service
+    name: User Service
+    repo_name: acmepay/user-service
+    path_prefixes: ["services/user/", "pkg/identity/"]
+    jira_component: user-service
+    service_tag: user-service
+    description: Merchant profiles, KYC documentation handling, and user account lifecycle management.
+
+  - id: reporting-service
+    name: Reporting Service
+    repo_name: acmepay/reporting-service
+    path_prefixes: ["services/reporting/", "jobs/analytics/"]
+    jira_component: reporting-service
+    service_tag: reporting-service
+    description: Financial audit report generation, daily settlement summaries, and merchant analytics.
+
+  - id: settlement-service
+    name: Settlement Service
+    repo_name: acmepay/settlement-service
+    path_prefixes: ["services/settlement/", "pkg/ach/"]
+    jira_component: settlement-service
+    service_tag: settlement-service
+    description: Automated ACH clearing, banking payout batches, and cross-border currency conversion.
+
+  - id: api-gateway
+    name: API Gateway
+    repo_name: acmepay/api-gateway
+    path_prefixes: ["services/api-gateway/", "config/gateway/"]
+    jira_component: api-gateway
+    service_tag: api-gateway
+    description: Ingress routing, SSL termination, rate limiting middleware, and OpenAPI specs.
+
+  - id: deployment-service
+    name: Deployment Service
+    repo_name: acmepay/deployment-service
+    path_prefixes: ["deployments/", ".github/workflows/"]
+    jira_component: deployment-service
+    service_tag: deployment-service
+    description: Helm chart releases, Kubernetes deployment manifests, canary rollouts, and rollback triggers.
+
+  - id: monitoring-service
+    name: Monitoring Service
+    repo_name: acmepay/monitoring-service
+    path_prefixes: ["monitoring/", "config/alerts/"]
+    jira_component: monitoring-service
+    service_tag: monitoring-service
+    description: Prometheus alert rules, Grafana dashboards, and PagerDuty incident routing configurations.
+
+  - id: compliance-service
+    name: Compliance Service
+    repo_name: acmepay/compliance-service
+    path_prefixes: ["services/compliance/", "audit/"]
+    jira_component: compliance-service
+    service_tag: compliance-service
+    description: PCI-DSS compliance verification, audit trail logging, and data privacy enforcement.
+
+capabilities:
+  - id: Payment Processing
+    name: Payment Processing
+    description: Designing, executing, and maintaining credit card payment routing and state transitions.
+
+  - id: Fraud Detection
+    name: Fraud Detection
+    description: Implementing risk evaluation algorithms, transaction velocity rules, and fraud prevention.
+
+  - id: Authentication
+    name: Authentication
+    description: Managing token generation, JWT verification, OAuth2 flows, and identity validation.
+
+  - id: Authorization
+    name: Authorization
+    description: Implementing role-based access control, scope enforcement, and secure API permissions.
+
+  - id: Ledger Management
+    name: Ledger Management
+    description: Maintaining double-entry journal balance books, financial reconciliation, and ledger integrity.
+
+  - id: Notifications
+    name: Notifications
+    description: Building webhook dispatcher systems, automated SMS/email alerts, and event notification queues.
+
+  - id: User Management
+    name: User Management
+    description: Building user profiles, KYC onboarding workflows, and merchant account controls.
+
+  - id: Reporting
+    name: Reporting
+    description: Creating analytics export jobs, audit logs, and financial transaction summary reports.
+
+  - id: Settlement Processing
+    name: Settlement Processing
+    description: Managing ACH clearing batches, bank payout reconciliation, and settlement execution.
+
+  - id: API Management
+    name: API Management
+    description: Configuring ingress API gateways, OpenAPI schemas, rate limiting, and request proxies.
+
+  - id: Deployment Management
+    name: Deployment Management
+    description: Automating CI/CD pipelines, Kubernetes manifests, canary deployments, and zero-downtime rollbacks.
+
+  - id: Monitoring
+    name: Monitoring
+    description: Configuring Prometheus metrics, Grafana dashboards, latency traces, and log aggregation.
+
+  - id: Incident Response
+    name: Incident Response
+    description: Leading emergency incident response bridges, root-cause troubleshooting, and hotfix rollouts.
+
+  - id: Compliance
+    name: Compliance
+    description: Enforcing PCI-DSS standards, audit logging standards, and data retention policies.
+
+  - id: Data Analysis
+    name: Data Analysis
+    description: Analyzing payment throughput trends, failure rates, and transaction data anomalies.
+
+# --- RELATIONSHIP MODELS ---
+
+module_capability_relationships:
+  - module_id: payment-service
+    capability_ids: [Payment Processing, Fraud Detection, API Management, Monitoring, Incident Response]
+  - module_id: fraud-service
+    capability_ids: [Fraud Detection, Payment Processing, Compliance, Data Analysis]
+  - module_id: auth-service
+    capability_ids: [Authentication, Authorization, Compliance]
+  - module_id: ledger-service
+    capability_ids: [Ledger Management, Settlement Processing, Compliance, Reporting]
+  - module_id: notification-service
+    capability_ids: [Notifications, Monitoring, User Management]
+  - module_id: user-service
+    capability_ids: [User Management, Authentication, Authorization, Compliance]
+  - module_id: reporting-service
+    capability_ids: [Reporting, Data Analysis, Ledger Management, Compliance]
+  - module_id: settlement-service
+    capability_ids: [Settlement Processing, Ledger Management, Payment Processing, Compliance]
+  - module_id: api-gateway
+    capability_ids: [API Management, Authentication, Authorization, Monitoring]
+  - module_id: deployment-service
+    capability_ids: [Deployment Management, Monitoring, Incident Response]
+  - module_id: monitoring-service
+    capability_ids: [Monitoring, Incident Response, Data Analysis]
+  - module_id: compliance-service
+    capability_ids: [Compliance, Reporting, User Management, Ledger Management]
+
+employee_module_relationships:
+  - employee_id: E01  # Rakshak Shetty (Multi-module senior)
+    primary_modules: [api-gateway, payment-service]
+    secondary_modules: [auth-service, monitoring-service]
+  - employee_id: E02  # Keyuri Sheth (Security specialist)
+    primary_modules: [auth-service, user-service]
+    secondary_modules: [api-gateway, compliance-service]
+  - employee_id: E03  # Kshitij Naidu (Infra & Reliability)
+    primary_modules: [monitoring-service, deployment-service]
+    secondary_modules: [payment-service, ledger-service]
+  - employee_id: E04  # Krish Trivedi (Payment systems core)
+    primary_modules: [payment-service, settlement-service]
+    secondary_modules: [api-gateway, fraud-service]
+  - employee_id: E05  # Naman Nahar (Data & Ledger)
+    primary_modules: [reporting-service, ledger-service]
+    secondary_modules: [settlement-service, compliance-service]
+  - employee_id: E06  # Parth More (DevOps & Platform)
+    primary_modules: [deployment-service, monitoring-service]
+    secondary_modules: [api-gateway, payment-service]
+  - employee_id: E07  # Ananya Sharma
+    primary_modules: [user-service, notification-service]
+    secondary_modules: [api-gateway]
+  - employee_id: E08  # Vikram Malhotra (Historical Auth expert - Case 2)
+    primary_modules: [auth-service]
+    secondary_modules: []
+  - employee_id: E09  # Deepa Raman
+    primary_modules: [compliance-service, reporting-service]
+    secondary_modules: [ledger-service]
+  - employee_id: E10  # Rohan Gupta (Ledger Specialist - Case 1 Concentration)
+    primary_modules: [ledger-service]
+    secondary_modules: [settlement-service]
+  - employee_id: E11  # Meera Patel
+    primary_modules: [deployment-service, api-gateway]
+    secondary_modules: [monitoring-service]
+  - employee_id: E12  # Siddharth Joshi
+    primary_modules: [payment-service, notification-service]
+    secondary_modules: [user-service]
+  - employee_id: E13  # Tanvi Deshmukh
+    primary_modules: [monitoring-service, deployment-service]
+    secondary_modules: [notification-service]
+  - employee_id: E14  # Aditya Verma
+    primary_modules: [fraud-service, payment-service]
+    secondary_modules: [reporting-service]
+  - employee_id: E15  # Neha Kapoor (Distributed API Management - Case 4)
+    primary_modules: [api-gateway, user-service]
+    secondary_modules: [payment-service]
+  - employee_id: E16  # Arjun Nair
+    primary_modules: [settlement-service, ledger-service]
+    secondary_modules: [payment-service]
+  - employee_id: E17  # Pooja Bhatia (Doc Writer - Case 6)
+    primary_modules: [api-gateway, user-service]
+    secondary_modules: [payment-service]
+  - employee_id: E18  # Varun Saxena
+    primary_modules: [monitoring-service, deployment-service]
+    secondary_modules: [payment-service]
+  - employee_id: E19  # Ritu Sengupta
+    primary_modules: [reporting-service, ledger-service]
+    secondary_modules: [compliance-service]
+  - employee_id: E20  # Kabir Mehta
+    primary_modules: [auth-service, user-service]
+    secondary_modules: [api-gateway]
+
+employee_capability_relationships_ground_truth:
+  # NOTE: Ground truth for synthetic generator ONLY. NEVER passed as input to discovery pipeline.
+  - employee_id: E01
+    capabilities: [API Management, Payment Processing, Authentication, Incident Response, Monitoring]
+  - employee_id: E02
+    capabilities: [Authentication, Authorization, Compliance, API Management]
+  - employee_id: E03
+    capabilities: [Monitoring, Incident Response, Deployment Management, Data Analysis]
+  - employee_id: E04
+    capabilities: [Payment Processing, Settlement Processing, API Management, Fraud Detection]
+  - employee_id: E05
+    capabilities: [Reporting, Ledger Management, Data Analysis, Compliance]
+  - employee_id: E06
+    capabilities: [Deployment Management, Monitoring, Incident Response, API Management]
+  - employee_id: E07
+    capabilities: [User Management, Notifications, API Management]
+  - employee_id: E08
+    capabilities: [Authentication, Authorization]  # Stale evidence pattern
+  - employee_id: E09
+    capabilities: [Compliance, Reporting, User Management]
+  - employee_id: E10
+    capabilities: [Ledger Management, Settlement Processing]  # Knowledge concentration pattern
+  - employee_id: E11
+    capabilities: [Deployment Management, API Management, Monitoring]
+  - employee_id: E12
+    capabilities: [Payment Processing, Notifications]
+  - employee_id: E13
+    capabilities: [Monitoring, Incident Response, Notifications]
+  - employee_id: E14
+    capabilities: [Fraud Detection, Payment Processing, Data Analysis]
+  - employee_id: E15
+    capabilities: [API Management, User Management]  # Distributed knowledge pattern
+  - employee_id: E16
+    capabilities: [Settlement Processing, Ledger Management]
+  - employee_id: E17
+    capabilities: [API Management, User Management]  # Ambiguous doc-only pattern
+  - employee_id: E18
+    capabilities: [Incident Response, Monitoring, Deployment Management]
+  - employee_id: E19
+    capabilities: [Reporting, Data Analysis, Ledger Management]
+  - employee_id: E20
+    capabilities: [Authentication, User Management, Authorization]
+
+# --- DEMONSTRATION SCENARIOS ---
+
+demonstration_scenarios:
+  case_1_knowledge_concentration:
+    capability: Ledger Management
+    target_module: ledger-service
+    primary_employee_id: E10  # Rohan Gupta
+    rationale: >
+      85% of commits, architectural docs, and incident leadership for double-entry ledger balance matching
+      belong to E10. If E10 is marked UNAVAILABLE in simulation, Ledger Management status drops directly to LOST.
+
+  case_2_stale_evidence:
+    capability: Authentication
+    target_module: auth-service
+    stale_employee_id: E08  # Vikram Malhotra
+    historical_period: "2023-01-01 to 2023-12-31"
+    recent_period: "2024-01-01 to 2026-08-01"
+    rationale: >
+      E08 authored 40+ commits on KMS auth vault in 2023 but has zero commits or activity in 2025–2026.
+      The recency decay algorithm degrades E08's credibility score to LOW/NONE, while E02 has recent 2026 evidence.
+
+  case_3_multi_module_employee:
+    employees: [E01, E04, E06]
+    rationale: >
+      E01 works across api-gateway, payment-service, and auth-service. E04 works on payment-service and settlement-service.
+      E06 works on deployment-service, monitoring-service, and api-gateway. Demonstrates broad architectural impact.
+
+  case_4_distributed_knowledge:
+    capability: API Management
+    target_module: api-gateway
+    distributed_employee_ids: [E01, E02, E04, E06, E11, E15]
+    rationale: >
+      API Management has strong, recent evidence across 6 employees. If any single engineer is marked UNAVAILABLE,
+      the capability coverage status remains MAINTAINED with zero residual gaps.
+
+  case_5_cross_source_identity_resolution:
+    employee_id: E01
+    representations:
+      github: Rakshak29
+      jira: rakshak.shetty
+      documentation: Rakshak Shetty
+      deployment: r.shetty
+      incident: Rakshak
+    rationale: >
+      The discovery pipeline's Identity Resolver must infer that these 5 source handles map to E01 using handle,
+      name, and email heuristics.
+
+  case_6_ambiguous_conflicting_evidence:
+    employee_id: E17  # Pooja Bhatia
+    doc_activity: High (authored 12 architecture docs on API Gateway)
+    code_activity: Zero (0 git commits, 0 PR merges in api-gateway)
+    rationale: >
+      E17 has doc-authoring evidence for API Management (Observed provenance, low weight) but zero engineering commits.
+      The evidence engine will weight engineering commits over doc authorship, preventing false high-credibility assignments.
+
+# --- TIMELINE & SOURCE ACTIVITY PLANS ---
+
+timeline:
+  start_date: "2023-01-15"
+  end_date: "2026-08-20"
+  historical_phase: "2023-01-15 to 2024-12-31"
+  recent_phase: "2025-01-01 to 2026-08-20"
+
+cross_source_correlation:
+  principle: >
+    Every major feature release or incident in payment-service, ledger-service, etc., produces correlated evidence across
+    GitHub (commits/PRs), Jira (tickets), Documentation (runbooks/docs), Deployments (k8s rollouts), and Incidents (pager logs).
+
+github_activity_plan:
+  total_historical_commits: 180
+  total_recent_commits: 120
+  repositories:
+    - acmepay/payment-service
+    - acmepay/fraud-service
+    - acmepay/auth-service
+    - acmepay/ledger-service
+    - acmepay/notification-service
+    - acmepay/user-service
+    - acmepay/reporting-service
+    - acmepay/settlement-service
+    - acmepay/api-gateway
+    - acmepay/deployment-service
+    - acmepay/monitoring-service
+    - acmepay/compliance-service
+
+  real_collaborators_plan:
+    # E01 - E06 will be used for live PRs, reviews, issues on GitHub
+    E01_Rakshak29: [api-gateway, payment-service]
+    E02_keys246: [auth-service, user-service]
+    E03_kshitijnaidu: [monitoring-service, deployment-service]
+    E04_krish-exe: [payment-service, settlement-service]
+    E05_NamanN-Creator: [reporting-service, ledger-service]
+    E06_shadecodes10: [deployment-service, api-gateway]
+
+jira_activity_plan:
+  total_tickets: 90
+  project_keys: [PAY, FRD, ATH, LDG, NTF, USR, RPT, STL, API, DEP, MON, CMP]
+  status_distribution: {DONE: 70%, IN_PROGRESS: 20%, OPEN: 10%}
+
+documentation_activity_plan:
+  total_documents: 35
+  doc_types: [Architecture Specification, Runbook, Postmortem, API Guide, Onboarding]
+
+deployment_activity_plan:
+  total_deployments: 60
+  environments: [production, staging]
+  actions: {DEPLOY: 85%, ROLLBACK: 15%}
+
+incident_activity_plan:
+  total_incidents: 25
+  severities: [SEV-1, SEV-2, SEV-3]
