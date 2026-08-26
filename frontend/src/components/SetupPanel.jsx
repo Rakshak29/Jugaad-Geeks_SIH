@@ -1,68 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { fetchSetupSources, fetchSetupContributors, fetchSetupCapabilities } from '../services/api';
 import './SetupPanel.css';
 
 export default function SetupPanel() {
-  const [sources] = useState([
-    { id: 'github', name: 'GitHub', type: 'github', status: 'connected', action: 'COLLECTING' },
-    { id: 'jira', name: 'Jira Cloud', type: 'jira', status: 'not connected', action: 'SET UP' },
-    { id: 'pd', name: 'PagerDuty', type: 'incident', status: 'not connected', action: 'SET UP' },
-    { id: 'self', name: 'Self-hosted incidents', type: 'incident', status: 'not connected', action: 'SET UP' }
-  ]);
+  const [sources, setSources] = useState([]);
+  const [contributors, setContributors] = useState([]);
+  const [capabilities, setCapabilities] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const [contributors] = useState([
-    { name: 'Rohan Gupta', email: 'rohan.gupta@acmepay.io', records: 35 },
-    { name: 'Rakshak Shetty', email: 'rakshak@acmepay.io', records: 26 },
-    { name: 'Vikram Malhotra', email: 'vikram@acmepay.io', records: 25 },
-    { name: 'Krish Trivedi', email: 'krish@acmepay.io', records: 24 },
-    { name: 'Keyuri Sheth', email: 'keyuri@acmepay.io', records: 22 },
-    { name: 'Parth More', email: 'parth@acmepay.io', records: 22 },
-    { name: 'Kshitij Naidu', email: 'kshitij@acmepay.io', records: 20 },
-    { name: 'Naman Nahar', email: 'naman@acmepay.io', records: 20 }
-  ]);
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const [srcRes, contRes, capRes] = await Promise.all([
+          fetchSetupSources(),
+          fetchSetupContributors(),
+          fetchSetupCapabilities()
+        ]);
+        
+        if (srcRes.success) setSources(srcRes.data);
+        if (contRes.success) setContributors(contRes.data);
+        if (capRes.success) setCapabilities(capRes.data);
+        
+      } catch (err) {
+        console.error("Failed to load setup data:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadData();
+  }, []);
 
-  const [capabilities] = useState([
-    {
-      id: 'cap1',
-      tag: 'services/payment',
-      records: 33,
-      source: 'github',
-      name: 'Payment Workflow Management',
-      domain: 'Payment',
-      key: 'payment',
-      commits: [
-        'fix(payment): resolve state machine deadlock during charge authorization retry',
-        'fix(payment): add exponential backoff jitter to payment processor retry loop',
-        'feat(payment): handle payment intent creation and idempotency verification'
-      ]
-    },
-    {
-      id: 'cap2',
-      tag: 'services/auth',
-      records: 46,
-      source: 'github',
-      name: 'Identity And Access Management',
-      domain: 'Auth',
-      key: 'auth',
-      commits: [
-        'sec(auth): enforce role-based authorization scope checking on API proxy',
-        'feat(auth): implement OAuth2 authorization code token exchange',
-        'feat(auth): issue bearer JWT with custom merchant roles and token signing'
-      ]
-    },
-    {
-      id: 'cap3',
-      tag: 'services/user',
-      records: 28,
-      source: 'github',
-      name: 'User Profile & Onboarding',
-      domain: 'User',
-      key: 'user',
-      commits: [
-        'feat(user): add comprehensive user profile completion wizard',
-        'fix(user): correct validation logic for international phone numbers'
-      ]
-    }
-  ]);
+  if (loading) {
+    return <div style={{ color: '#aaa', padding: '40px', textAlign: 'center' }}>Loading Setup Data...</div>;
+  }
+
 
   return (
     <div id="tab-setup">
@@ -84,7 +55,7 @@ export default function SetupPanel() {
 
         <div className="step-section">
           <div className="section-label mono">GITHUB RECORDS</div>
-          <div className="section-value">338</div>
+          <div className="section-value">{capabilities.reduce((sum, c) => sum + (c.records || 0), 0)}</div>
         </div>
 
         <div className="source-list">
@@ -108,7 +79,7 @@ export default function SetupPanel() {
           <div className="step-title-group">
             <div className="step-number">2</div>
             <h2 className="step-title">Map contributors</h2>
-            <span className="step-meta mono">20 people · no evidence unattributed</span>
+            <span className="step-meta mono">{contributors.length} people · no evidence unattributed</span>
           </div>
           <div className="step-status done">DONE</div>
         </div>
@@ -122,7 +93,7 @@ export default function SetupPanel() {
         </div>
 
         <div className="step-section" style={{marginTop: '30px', marginBottom: '15px'}}>
-          <div className="section-label mono">MAPPED — 20</div>
+          <div className="section-label mono">MAPPED — {contributors.length}</div>
         </div>
 
         <div className="contributor-list">
@@ -143,7 +114,7 @@ export default function SetupPanel() {
           <div className="step-title-group">
             <div className="step-number">3</div>
             <h2 className="step-title">Build capability tree</h2>
-            <span className="step-meta mono">16 capabilities</span>
+            <span className="step-meta mono">{capabilities.length} capabilities</span>
           </div>
           <div className="step-status done">DONE</div>
         </div>
@@ -155,26 +126,26 @@ export default function SetupPanel() {
         <div className="metrics-grid">
           <div className="metric-box">
             <div className="metric-label mono">RECORDS</div>
-            <div className="metric-value">338</div>
+            <div className="metric-value">{capabilities.reduce((sum, c) => sum + (c.records || 0), 0)}</div>
           </div>
           <div className="metric-box">
             <div className="metric-label mono">ITEMS</div>
-            <div className="metric-value">338</div>
+            <div className="metric-value">{capabilities.reduce((sum, c) => sum + (c.records || 0), 0)}</div>
           </div>
           <div className="metric-box">
             <div className="metric-label mono">PEOPLE</div>
-            <div className="metric-value">20</div>
+            <div className="metric-value">{contributors.length}</div>
           </div>
           <div className="metric-box">
             <div className="metric-label mono">CAPABILITIES</div>
-            <div className="metric-value">16</div>
+            <div className="metric-value">{capabilities.length}</div>
           </div>
         </div>
 
         <button className="rerun-btn">Re-run clustering</button>
 
         <div className="step-section" style={{marginTop: '40px', marginBottom: '20px'}}>
-          <div className="section-label mono">CANDIDATES — 16 found, 16 selected</div>
+          <div className="section-label mono">CANDIDATES — {capabilities.length} found, {capabilities.length} selected</div>
         </div>
 
         <div className="info-box">

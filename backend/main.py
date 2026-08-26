@@ -151,6 +151,72 @@ def get_knowledge_graph(db: Session = Depends(get_db)):
         "links": links
     }
 
+@app.get("/api/setup/sources")
+def get_setup_sources():
+    """Mock endpoint for data source integrations."""
+    return {
+        "success": True,
+        "data": [
+            { "id": "github", "name": "GitHub", "type": "github", "status": "connected", "action": "COLLECTING" },
+            { "id": "jira", "name": "Jira Cloud", "type": "jira", "status": "not connected", "action": "SET UP" },
+            { "id": "pd", "name": "PagerDuty", "type": "incident", "status": "not connected", "action": "SET UP" },
+            { "id": "self", "name": "Self-hosted incidents", "type": "incident", "status": "not connected", "action": "SET UP" }
+        ]
+    }
+
+@app.get("/api/setup/contributors")
+def get_setup_contributors(db: Session = Depends(get_db)):
+    """Fetch real mapped contributors from the database."""
+    employees = db.query(Employee).all()
+    result = []
+    for emp in employees:
+        # Count their evidence records
+        records = db.query(EvidenceRecord).filter(EvidenceRecord.employee_id == emp.id).count()
+        result.append({
+            "id": emp.id,
+            "name": emp.name,
+            "email": f"{emp.name.lower().replace(' ', '.')}@acmepay.io",
+            "records": records
+        })
+    return {
+        "success": True,
+        "data": result
+    }
+
+@app.get("/api/setup/capabilities")
+def get_setup_capabilities(db: Session = Depends(get_db)):
+    """Fetch real capability clusters from the database."""
+    capabilities = db.query(Capability).all()
+    result = []
+    for cap in capabilities:
+        # Count evidence for this capability
+        records = db.query(EvidenceRecord).filter(EvidenceRecord.capability_id == cap.id).count()
+        
+        # Get 3 sample commit messages (source_refs)
+        sample_evidence = db.query(EvidenceRecord).filter(
+            EvidenceRecord.capability_id == cap.id, 
+            EvidenceRecord.source == 'git_commit'
+        ).limit(3).all()
+        
+        commits = [ev.source_ref for ev in sample_evidence]
+        if not commits:
+            commits = [f"setup({cap.id}): initialized {cap.name}"]
+            
+        result.append({
+            "id": cap.id,
+            "tag": f"services/{cap.id.lower()}",
+            "records": records,
+            "source": "github",
+            "name": cap.name,
+            "domain": cap.name.split(' ')[0],
+            "key": cap.id.lower(),
+            "commits": commits
+        })
+    return {
+        "success": True,
+        "data": result
+    }
+
 @app.get("/")
 def health_check():
     return {"status": "healthy"}

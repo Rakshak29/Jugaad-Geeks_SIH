@@ -11,3 +11,18 @@ export const fetchKnowledgeGraph = async () => {
   const response = await axios.get(`${API_URL}/graph/knowledge`);
   return response.data;
 };
+
+export const fetchSetupSources = async () => {
+  const response = await axios.get(`${API_URL}/setup/sources`);
+  return response.data;
+};
+
+export const fetchSetupContributors = async () => {
+  const response = await axios.get(`${API_URL}/setup/contributors`);
+  return response.data;
+};
+
+export const fetchSetupCapabilities = async () => {
+  const response = await axios.get(`${API_URL}/setup/capabilities`);
+  return response.data;
+};
