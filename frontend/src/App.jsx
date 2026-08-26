@@ -90,14 +90,14 @@ function App() {
     <div className="app-container">
       <div className="chrome">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><rect x="3" y="4" width="18" height="14" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/></svg>
-        Coverage Team | Payment Service Dashboard
+        ECE | Payment Service Dashboard
       </div>
 
       <div className="navbar">
         <div className="navbar-left">
           <div className="brand">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M12 3 L20 6 V11 C20 16 16.5 19.5 12 21 C7.5 19.5 4 16 4 11 V6 Z"/></svg>
-            Coverage Team
+            ECE
           </div>
           <div className="navlinks">
             <span className={`navlink ${activeTab === 'setup' ? 'active' : ''}`} onClick={() => setActiveTab('setup')}>Setup Pipeline</span>
