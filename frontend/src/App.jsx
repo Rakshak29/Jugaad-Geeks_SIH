@@ -2,10 +2,11 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { fetchTechnicalGraph, fetchKnowledgeGraph } from './services/api';
 import GraphCanvas from './components/GraphCanvas';
 import DetailsPanel from './components/DetailsPanel';
+import SetupPanel from './components/SetupPanel';
 import './App.css';
 
 function App() {
-  const [activeTab, setActiveTab] = useState('dashboard');
+  const [activeTab, setActiveTab] = useState('setup');
   const [techGraphData, setTechGraphData] = useState(null);
   const [knowledgeGraphData, setKnowledgeGraphData] = useState(null);
   
@@ -99,6 +100,7 @@ function App() {
             Coverage Team
           </div>
           <div className="navlinks">
+            <span className={`navlink ${activeTab === 'setup' ? 'active' : ''}`} onClick={() => setActiveTab('setup')}>Setup Pipeline</span>
             <span className={`navlink ${activeTab === 'dashboard' ? 'active' : ''}`} onClick={() => setActiveTab('dashboard')}>Dashboard</span>
             <span className={`navlink ${activeTab === 'simulation' ? 'active' : ''}`} onClick={() => setActiveTab('simulation')}>Simulation</span>
           </div>
@@ -113,6 +115,8 @@ function App() {
       <div className="app-main">
         <div className="shell-scroll">
           <div className="shell">
+            
+            {activeTab === 'setup' && <SetupPanel />}
             
             {activeTab === 'dashboard' && (
               <div id="tab-dashboard">
