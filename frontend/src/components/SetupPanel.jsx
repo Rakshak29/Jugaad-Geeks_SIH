@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fetchSetupSources, fetchSetupContributors, fetchSetupCapabilities } from '../services/api';
+import { fetchSetupSources, fetchSetupContributors, fetchSetupCapabilities, collectSource } from '../services/api';
 import './SetupPanel.css';
 
 export default function SetupPanel() {
@@ -29,6 +29,21 @@ export default function SetupPanel() {
     };
     loadData();
   }, []);
+
+  const handleCollect = async (sourceId) => {
+    try {
+      const res = await collectSource(sourceId);
+      if (res.success) {
+        alert(res.message);
+        // Optionally update the status in UI to "COLLECTING"
+        setSources(sources.map(s => s.id === sourceId ? { ...s, action: 'COLLECTING', status: 'connected' } : s));
+      } else {
+        alert("Failed to collect: " + res.message);
+      }
+    } catch (e) {
+      alert("Error: " + e.message);
+    }
+  };
 
   if (loading) {
     return <div style={{ color: '#aaa', padding: '40px', textAlign: 'center' }}>Loading Setup Data...</div>;
@@ -65,7 +80,10 @@ export default function SetupPanel() {
                 <span className="source-name">{s.name}</span>
                 <span className="source-meta mono">{s.type} · {s.status}</span>
               </div>
-              <button className={`source-action ${s.action === 'COLLECTING' ? 'collecting' : 'setup'}`}>
+              <button 
+                className={`source-action ${s.action === 'COLLECTING' ? 'collecting' : 'setup'}`}
+                onClick={() => handleCollect(s.id)}
+              >
                 {s.action}
               </button>
             </div>
