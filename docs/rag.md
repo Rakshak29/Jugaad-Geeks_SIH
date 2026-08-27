@@ -59,6 +59,19 @@ Create the three new tables:
 alembic upgrade head
 ```
 
+That applies migration `b08348c6e229`, which creates `confluence_pages`,
+`confluence_sections` and `confluence_page_capabilities`. It is written to be
+safe on a database where those tables already exist (they can be created
+directly from the models by `python doctor.py --fix`), so a mixed-history
+database converges rather than erroring.
+
+If Alembic cannot run — the project's *initial* migration uses PostgreSQL-only
+syntax and fails on SQLite — create them straight from the models instead:
+
+```bash
+python doctor.py --fix
+```
+
 Install dependencies (`reportlab` and `python-docx` are optional — Markdown
 works without them):
 

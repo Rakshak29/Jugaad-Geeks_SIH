@@ -6,6 +6,10 @@ from alembic import context
 from backend.config import DATABASE_URL
 from backend.database import Base
 import backend.models  # Ensure all models are imported so Base.metadata knows them
+# The RAG's Confluence tables share the same Base. Without this import
+# autogenerate sees them in the database but not in the metadata, and
+# proposes DROP statements for them.
+import backend.rag.models  # noqa: F401
 
 config = context.config
 
