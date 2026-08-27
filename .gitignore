@@ -24,3 +24,16 @@ htmlcov/
 # Nested synthetic repository
 data/synthetic/acmepay_codebase/
 
+
+# Capability Gap RAG — generated transfer packages (md/pdf/docx)
+data/rag/packages/
+# UI-saved Confluence credentials: runtime config holding a real API token.
+data/rag/settings.json
+# NOTE: data/rag/confluence_mapping.json is deliberately NOT ignored — it is
+# mostly re-derived each sync, but it also records the space->service mappings
+# a human resolved by hand, and those are worth versioning.
+
+# Backups of env files — the `*.env` rule above does NOT match `.env.bak-*`,
+# and these hold real credentials.
+.env.*
+!.env.example
