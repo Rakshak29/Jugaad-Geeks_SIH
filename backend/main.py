@@ -17,6 +17,8 @@ from pydantic import BaseModel, Field
 
 from backend.database import get_db
 from backend.models.core import Employee, CapabilityScore, EvidenceRecord, Capability, Service, Module
+from backend.rag.api import router as rag_router
+from backend.rag.models import ConfluencePage
 from backend.ingestion.pagerduty.client import PagerDutyClient, PagerDutyClientError
 from backend.ingestion.pagerduty.storage import save_raw_pagerduty_incidents
 from backend.ingestion.pagerduty.normalizer import normalize_pagerduty_dataset
@@ -31,7 +33,16 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    # Response headers are not readable cross-origin unless named here, and the
+    # dashboard runs on :5173 while the API runs on :8000. Without this the
+    # browser cannot read the filename the server picked for a downloaded
+    # transfer package, so every download lands under a generic name.
+    expose_headers=["Content-Disposition"],
 )
+
+# Capability Gap RAG - Confluence sync, absence simulation, transfer packages.
+# Additive: everything it exposes lives under /api/rag.
+app.include_router(rag_router)
 
 @app.get("/employees")
 def get_employees(db: Session = Depends(get_db)):
@@ -197,6 +208,25 @@ def get_setup_sources(db: Session = Depends(get_db)):
         EvidenceRecord.source.in_(["jira", "jira_issue"])
     ).count()
 
+    # Confluence is documentation, not evidence: it never creates
+    # EvidenceRecords and never moves a capability score. Its record count is
+    # the number of indexed wiki pages available to the transfer-package RAG.
+    confluence_count = db.query(ConfluencePage).count()
+
+    # PagerDuty ingestion writes a raw dataset rather than EvidenceRecords, so
+    # its status comes from that file. The row was hardcoded to
+    # "disconnected / 0 records", which stayed wrong after a successful
+    # ingestion and made a working connection look broken.
+    pagerduty_count = 0
+    try:
+        pd_raw = BASE_DIR / "data" / "raw" / "pagerduty" / "incidents.json"
+        if pd_raw.exists():
+            payload = json.loads(pd_raw.read_text(encoding="utf-8"))
+            incidents = payload.get("incidents", payload) if isinstance(payload, dict) else payload
+            pagerduty_count = len(incidents or [])
+    except Exception:
+        pagerduty_count = 0
+
     return {
         "success": True,
         "data": [
@@ -217,12 +247,20 @@ def get_setup_sources(db: Session = Depends(get_db)):
                 "records": jira_count
             },
             {
+                "id": "confluence",
+                "name": "Confluence",
+                "type": "documentation",
+                "status": "connected" if confluence_count > 0 else "disconnected",
+                "action": "COLLECTING" if confluence_count > 0 else "SET UP",
+                "records": confluence_count
+            },
+            {
                 "id": "pd",
                 "name": "PagerDuty",
                 "type": "incident",
-                "status": "disconnected",
-                "action": "SET UP",
-                "records": 0
+                "status": "connected" if pagerduty_count > 0 else "disconnected",
+                "action": "COLLECTING" if pagerduty_count > 0 else "SET UP",
+                "records": pagerduty_count
             },
             {
                 "id": "self",
@@ -499,7 +537,12 @@ def reset_pipeline_data(db: Session = Depends(get_db)):
                 )
                 seed_db.add(mod)
                 seed_db.flush()
-                for cap_id in item.get("capabilities", []):
+                # modules.json uses "capability_ids"; "capabilities" is kept as a
+                # fallback for older files. Reading only "capabilities" left
+                # module_capabilities empty after every reset, and
+                # process_event_to_evidence walks module.capabilities -- so
+                # ingestion afterwards produced zero evidence records.
+                for cap_id in item.get("capability_ids", item.get("capabilities", [])):
                     cap = seed_db.query(Capability).filter_by(id=cap_id).first()
                     if cap:
                         mod.capabilities.append(cap)
@@ -519,6 +562,7 @@ def reset_pipeline_data(db: Session = Depends(get_db)):
         }
 
 
+@app.get("/")
 def health_check():
     return {"status": "healthy"}
 
