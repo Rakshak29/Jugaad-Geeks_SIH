@@ -197,3 +197,178 @@ details pre {
   font-size: 13px;
   color: #ccc;
 }
+/* ---- RAG Knowledge Transfer ---- */
+.rag-panel {
+  border-left: 3px solid #5b9cf2;
+}
+.rag-config-tag {
+  color: #5b9cf2;
+  font-size: 10px;
+  letter-spacing: 1px;
+  margin-left: 8px;
+  border: 1px solid rgba(91, 156, 242, 0.4);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.rag-meta {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+  color: #888;
+  font-size: 11px;
+  margin-bottom: 12px;
+}
+.rag-gaps {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.rag-gap {
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: #121212;
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+.rag-gap-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+.rag-gap-head strong {
+  color: #eee;
+}
+.rag-band {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 10px;
+  letter-spacing: 0.5px;
+}
+.rag-band.none {
+  background: rgba(244, 67, 54, 0.15);
+  color: #f87171;
+}
+.rag-band.low {
+  background: rgba(255, 152, 0, 0.15);
+  color: #ffb74d;
+}
+.rag-explanation {
+  color: #aaa;
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 0 0 10px 0;
+}
+.rag-docs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.rag-docs li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.rag-doc-title {
+  color: #5b9cf2;
+  font-size: 13px;
+  text-decoration: none;
+}
+.rag-doc-title:hover {
+  text-decoration: underline;
+}
+.rag-doc-reason {
+  color: #777;
+  font-size: 11px;
+}
+.rag-error {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: #f87171;
+  font-size: 13px;
+}
+.rag-retry-btn {
+  background: transparent;
+  border: 1px solid #333;
+  color: #ccc;
+  padding: 4px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 11px;
+}
+.rag-retry-btn:hover {
+  border-color: #888;
+  color: #fff;
+}
+.rag-downloads {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  flex-wrap: wrap;
+}
+.rag-downloads-label {
+  color: #666;
+  font-size: 11px;
+  letter-spacing: 1px;
+  margin-right: 4px;
+}
+.rag-dl-btn {
+  background: #3b82f6;
+  color: #fff;
+  text-decoration: none;
+  padding: 7px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+.rag-dl-btn:hover {
+  background: #2563eb;
+}
+.rag-dl-btn.disabled {
+  background: #2a2a2d;
+  color: #777;
+  cursor: not-allowed;
+}
+.rag-panel .spinner.mini {
+  width: 12px;
+  height: 12px;
+  border-width: 1.5px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.spinner {
+  display: inline-block;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-top-color: #5b9cf2;
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* The download controls became <button> so they can stream the file from
+   memory instead of pointing at a server file that may have been cleaned up.
+   These resets keep them looking exactly like the links they replaced. */
+button.rag-dl-btn {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  line-height: normal;
+}
+
+button.rag-dl-btn:disabled {
+  cursor: not-allowed;
+}

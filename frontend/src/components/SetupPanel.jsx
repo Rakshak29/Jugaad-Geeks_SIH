@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fetchSetupSources, fetchSetupContributors, fetchSetupCapabilities, collectSource, resetSetupData } from '../services/api';
+import { fetchSetupSources, fetchSetupContributors, fetchSetupCapabilities, collectSource, resetSetupData, getRagConfluenceSettings, saveRagConfluenceSettings, syncRagConfluence, ingestPagerDuty } from '../services/api';
 import './SetupPanel.css';
 
 export default function SetupPanel({ onDataIngested, onGoToDashboard }) {
@@ -20,6 +20,15 @@ export default function SetupPanel({ onDataIngested, onGoToDashboard }) {
   const [jiraEmail, setJiraEmail] = useState('rakshak.s@somaiya.edu');
   const [jiraToken, setJiraToken] = useState('');
   const [jiraIssueKey, setJiraIssueKey] = useState('SCRUM');
+
+  const [confluenceUrl, setConfluenceUrl] = useState('');
+  const [confluenceEmail, setConfluenceEmail] = useState('');
+  const [confluenceToken, setConfluenceToken] = useState('');
+  const [confluenceSpaces, setConfluenceSpaces] = useState('');
+  const [confluenceTokenSaved, setConfluenceTokenSaved] = useState(false);
+
+  const [pagerdutyUrl, setPagerdutyUrl] = useState('');
+  const [pagerdutyToken, setPagerdutyToken] = useState('');
 
   const [collectingSourceId, setCollectingSourceId] = useState(null);
   const [feedback, setFeedback] = useState(null);
@@ -43,8 +52,23 @@ export default function SetupPanel({ onDataIngested, onGoToDashboard }) {
     }
   };
 
+  const loadConfluenceSettings = async () => {
+    try {
+      const res = await getRagConfluenceSettings();
+      const c = res?.settings || {};
+      if (c.base_url) setConfluenceUrl(c.base_url);
+      if (c.email) setConfluenceEmail(c.email);
+      if (Array.isArray(c.space_keys)) setConfluenceSpaces(c.space_keys.join(', '));
+      setConfluenceTokenSaved(!!c.api_token_set);
+    } catch (e) {
+      // Not fatal: the drawer still works, it just starts empty.
+      console.warn('Could not read saved Confluence settings:', e);
+    }
+  };
+
   useEffect(() => {
     loadData();
+    loadConfluenceSettings();
   }, []);
 
   const toggleExpand = (sourceId) => {
@@ -69,6 +93,84 @@ export default function SetupPanel({ onDataIngested, onGoToDashboard }) {
         api_token: jiraToken.trim() || undefined,
         issue_key: jiraIssueKey.trim() || undefined
       };
+    }
+
+    if (sourceId === 'pd') {
+      try {
+        const res = await ingestPagerDuty(pagerdutyUrl.trim(), pagerdutyToken.trim());
+        setFeedback({
+          type: 'success',
+          sourceId,
+          message: `Fetched ${res.total_incidents_fetched} incident(s) for service ${res.service_id}. Raw and normalized datasets written.`
+        });
+        setPagerdutyToken('');
+        await loadData();
+        if (onDataIngested) onDataIngested();
+      } catch (e) {
+        setFeedback({
+          type: 'error',
+          sourceId,
+          message: e.response?.data?.detail || e.message || 'PagerDuty ingestion failed'
+        });
+      } finally {
+        setCollectingSourceId(null);
+      }
+      return;
+    }
+
+    if (sourceId === 'confluence') {
+      try {
+        await saveRagConfluenceSettings({
+          base_url: confluenceUrl.trim(),
+          email: confluenceEmail.trim(),
+          // Blank means "keep the token already saved" rather than clear it.
+          api_token: confluenceToken.trim() || undefined,
+          space_keys: confluenceSpaces.trim()
+        });
+
+        const sync = await syncRagConfluence(false);
+
+        // Report the state of the index, not just what this run re-parsed.
+        // sections_written is 0 whenever nothing changed, and showing that
+        // alone read as "0 searchable sections" — i.e. like a failure — even
+        // though the whole wiki was already indexed.
+        const pages = sync.indexed_pages ?? sync.pages_fetched ?? 0;
+        const sections = sync.indexed_sections ?? sync.sections_written ?? 0;
+        const links = sync.capability_links ?? 0;
+        const created = sync.pages_created ?? 0;
+        const updated = sync.pages_updated ?? 0;
+        const unchanged = sync.pages_unchanged ?? 0;
+
+        let changeNote;
+        if (created || updated) {
+          const parts = [];
+          if (created) parts.push(`${created} new`);
+          if (updated) parts.push(`${updated} updated`);
+          changeNote = `${parts.join(', ')}${unchanged ? `, ${unchanged} unchanged` : ''}`;
+        } else {
+          changeNote = 'already up to date';
+        }
+
+        let message = `Confluence indexed: ${pages} page(s), ${sections} searchable section(s), ${links} capability link(s) — ${changeNote}.`;
+        if (sync.pages_without_capability) {
+          message += ` ${sync.pages_without_capability} page(s) had no label or space match and will be found by keyword search only.`;
+        }
+
+        setFeedback({ type: 'success', sourceId, message });
+        setConfluenceToken('');
+        setConfluenceTokenSaved(true);
+        await loadData();
+        if (onDataIngested) onDataIngested();
+      } catch (e) {
+        setFeedback({
+          type: 'error',
+          sourceId,
+          message: e.response?.data?.detail || e.message || 'Confluence connection failed'
+        });
+      } finally {
+        setCollectingSourceId(null);
+      }
+      return;
     }
 
     try {
@@ -366,7 +468,124 @@ export default function SetupPanel({ onDataIngested, onGoToDashboard }) {
                       </div>
                     )}
 
-                    {(s.id === 'pd' || s.id === 'self') && (
+                    {s.id === 'confluence' && (
+                      <div className="drawer-content">
+                        <div className="drawer-title">Confluence Documentation Connection</div>
+                        <p className="drawer-desc">
+                          Index your team's Confluence wiki so knowledge transfer packages can cite real runbooks. Unlike the other sources, Confluence creates no evidence records and never changes a capability score — it supplies the documentation attached to each capability gap.
+                        </p>
+
+                        <div className="input-group">
+                          <label className="input-label mono">CONFLUENCE BASE URL</label>
+                          <input
+                            type="text"
+                            className="text-input"
+                            placeholder="https://your-domain.atlassian.net/wiki"
+                            value={confluenceUrl}
+                            onChange={(e) => setConfluenceUrl(e.target.value)}
+                          />
+                        </div>
+
+                        <div className="input-row">
+                          <div className="input-group flex-1">
+                            <label className="input-label mono">ATLASSIAN EMAIL</label>
+                            <input
+                              type="email"
+                              className="text-input"
+                              placeholder="engineer@company.com"
+                              value={confluenceEmail}
+                              onChange={(e) => setConfluenceEmail(e.target.value)}
+                            />
+                          </div>
+                          <div className="input-group flex-1">
+                            <label className="input-label mono">API TOKEN</label>
+                            <input
+                              type="password"
+                              className="text-input"
+                              placeholder={confluenceTokenSaved ? 'Saved — leave blank to keep it' : 'Atlassian API token'}
+                              value={confluenceToken}
+                              onChange={(e) => setConfluenceToken(e.target.value)}
+                            />
+                          </div>
+                        </div>
+
+                        <div className="input-group">
+                          <label className="input-label mono">SPACE KEYS (OPTIONAL)</label>
+                          <input
+                            type="text"
+                            className="text-input"
+                            placeholder="e.g. ACMEPAY, DBOPS — blank indexes every readable space"
+                            value={confluenceSpaces}
+                            onChange={(e) => setConfluenceSpaces(e.target.value)}
+                          />
+                        </div>
+
+                        <div className="drawer-actions">
+                          <button
+                            className="submit-collect-btn"
+                            disabled={isCollecting || !confluenceUrl.trim()}
+                            onClick={() => handleCollect('confluence')}
+                          >
+                            {isCollecting ? (
+                              <span className="btn-loading">
+                                <span className="spinner"></span> Indexing Confluence Pages...
+                              </span>
+                            ) : (
+                              'Connect & Index Confluence'
+                            )}
+                          </button>
+                        </div>
+                      </div>
+                    )}
+
+                    {s.id === 'pd' && (
+                      <div className="drawer-content">
+                        <div className="drawer-title">PagerDuty Incident Ingestion</div>
+                        <p className="drawer-desc">
+                          Paste the service URL from your PagerDuty service directory. ECE extracts the service ID, pulls its incidents through the PagerDuty REST API, and writes the raw and normalized datasets.
+                        </p>
+
+                        <div className="input-group">
+                          <label className="input-label mono">PAGERDUTY SERVICE URL</label>
+                          <input
+                            type="text"
+                            className="text-input"
+                            placeholder="https://your-org.pagerduty.com/service-directory/PXXXXXX/activity"
+                            value={pagerdutyUrl}
+                            onChange={(e) => setPagerdutyUrl(e.target.value)}
+                          />
+                        </div>
+
+                        <div className="input-group">
+                          <label className="input-label mono">REST API TOKEN</label>
+                          <input
+                            type="password"
+                            className="text-input"
+                            placeholder="PagerDuty REST API read token"
+                            value={pagerdutyToken}
+                            onChange={(e) => setPagerdutyToken(e.target.value)}
+                          />
+                        </div>
+
+                        <div className="drawer-actions">
+                          <button
+                            className="submit-collect-btn"
+                            disabled={isCollecting || !pagerdutyUrl.trim() || !pagerdutyToken.trim()}
+                            onClick={() => handleCollect('pd')}
+                          >
+                            {isCollecting ? (
+                              <span className="btn-loading">
+                                <span className="spinner"></span> Fetching Incidents...
+                              </span>
+                            ) : (
+                              'Connect & Ingest PagerDuty'
+                            )}
+                          </button>
+                        </div>
+                      </div>
+                    )}
+
+                    {s.id === 'self' && (
                       <div className="drawer-content">
                         <div className="drawer-title">{s.name} Configuration</div>
                         <p className="drawer-desc">
@@ -375,16 +594,16 @@ export default function SetupPanel({ onDataIngested, onGoToDashboard }) {
 
                         <div className="input-group">
                           <label className="input-label mono">ENDPOINT OR WEBHOOK URL</label>
-                          <input 
-                            type="text" 
-                            className="text-input" 
-                            placeholder="https://events.pagerduty.com/..." 
+                          <input
+                            type="text"
+                            className="text-input"
+                            placeholder="https://your-incident-feed/..."
                           />
                         </div>
 
                         <div className="drawer-actions">
-                          <button 
-                            className="submit-collect-btn" 
+                          <button
+                            className="submit-collect-btn"
                             disabled={isCollecting}
                             onClick={() => handleCollect(s.id)}
                           >
