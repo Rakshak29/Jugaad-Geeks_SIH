@@ -1,0 +1,53 @@
+{
+  "generated_at": "2026-08-27T00:50:41.570535+00:00",
+  "spaces": {
+    "ACMEPAY": {
+      "candidates": [
+        {
+          "matched_terms": [
+            "acmepay"
+          ],
+          "score": 0.125,
+          "service_id": "S001"
+        }
+      ],
+      "reasons": [
+        "name/description overlap: acmepay (leads next candidate by everything)"
+      ],
+      "score": 0.125,
+      "service_id": "S001",
+      "space_name": "Acmepay engineering",
+      "status": "auto"
+    },
+    "SD": {
+      "candidates": [],
+      "reasons": [
+        "no term overlap with any service name or description"
+      ],
+      "score": 0.0,
+      "service_id": null,
+      "space_name": "Software Development",
+      "status": "unmatched"
+    },
+    "~712020746d61518fba47ada526126de47b4855": {
+      "candidates": [],
+      "reasons": [
+        "no term overlap with any service name or description"
+      ],
+      "score": 0.0,
+      "service_id": null,
+      "space_name": "Rakshak Shetty",
+      "status": "unmatched"
+    },
+    "~712020a36ad468759442b79c57f42dd5b87d0a": {
+      "candidates": [],
+      "reasons": [
+        "no term overlap with any service name or description"
+      ],
+      "score": 0.0,
+      "service_id": null,
+      "space_name": "Krish Trivedi",
+      "status": "unmatched"
+    }
+  }
+}

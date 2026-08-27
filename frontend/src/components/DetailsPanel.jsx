@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import { calculateEvidenceBand, getCoverageStatus, findMinimumCoverageTeam } from '../services/coverageEngine';
+import { generateTransferPackage, downloadTransferPackage } from '../services/api';
 import './DetailsPanel.css';
 
 const DetailsPanel = ({ selectedNode, graphData, onClose, simulationState, setSimulationState }) => {
   const [selectedCapability, setSelectedCapability] = useState(null);
+  const [ragLoading, setRagLoading] = useState(false);
+  const [ragError, setRagError] = useState(null);
+  const [ragPackage, setRagPackage] = useState(null);
+  const [ragDownloading, setRagDownloading] = useState(null);
+  const [ragDownloadError, setRagDownloadError] = useState(null);
 
   if (!selectedNode) return null;
 
@@ -156,6 +162,54 @@ const DetailsPanel = ({ selectedNode, graphData, onClose, simulationState, setSi
       gaps,
       covered: [] // Not used in this version, handled by analysis
     });
+
+    // Once the coverage team has been computed, pull the RAG knowledge
+    // transfer package so the dashboard can show what documentation backs each
+    // gap and let the reader download the whole handover document.
+    generateRagPackage(unavailableId);
+  };
+
+  const stripPrefix = (id, prefix) => (id && id.startsWith(prefix) ? id.slice(prefix.length) : id);
+
+  const handleRagDownload = async (format) => {
+    setRagDownloading(format);
+    setRagDownloadError(null);
+    try {
+      const ids = (simulationState?.unavailableEmployees || []).map(
+        id => String(id).replace(/^employee:/, '')
+      );
+      await downloadTransferPackage(ids, format);
+    } catch (e) {
+      // With responseType 'blob' the error body arrives as a Blob, so it has
+      // to be read back before it can be shown.
+      let detail = e.message;
+      if (e.response?.data instanceof Blob) {
+        try {
+          detail = JSON.parse(await e.response.data.text()).detail || detail;
+        } catch (_) { /* not JSON; keep the original message */ }
+      } else if (e.response?.data?.detail) {
+        detail = e.response.data.detail;
+      }
+      setRagDownloadError(`${format.toUpperCase()} download failed: ${detail}`);
+    } finally {
+      setRagDownloading(null);
+    }
+  };
+
+  const generateRagPackage = async (unavailableId) => {
+    setRagLoading(true);
+    setRagError(null);
+    setRagPackage(null);
+    try {
+      // The selected node id is "employee:E003"; the RAG expects the bare id.
+      const employeeId = stripPrefix(unavailableId, 'employee:');
+      const res = await generateTransferPackage([employeeId], ['md', 'pdf', 'docx']);
+      setRagPackage(res);
+    } catch (e) {
+      setRagError(e.response?.data?.detail || e.message || 'Failed to build the transfer package');
+    } finally {
+      setRagLoading(false);
+    }
   };
 
   const getStatusDisplay = () => {
@@ -341,6 +395,87 @@ const DetailsPanel = ({ selectedNode, graphData, onClose, simulationState, setSi
             <div style={{marginTop:10}}>
               <strong>Readiness Scenario:</strong> <span style={{color: '#ff9800'}}>Not Identified</span>
             </div>
+          </div>
+        )}
+
+        {simulationState && simulationState.type === 'knowledge' && simulationState.unavailableEmployees.includes(selectedNode.id) && (
+          <div className="card rag-panel">
+            <h4>RAG KNOWLEDGE TRANSFER <span className="rag-config-tag mono">CONFLUENCE</span></h4>
+
+            {ragLoading && (
+              <p className="muted"><span className="spinner mini"></span> Building handover package from the Confluence index…</p>
+            )}
+
+            {!ragLoading && ragError && (
+              <div className="rag-error">
+                <span>{ragError}</span>
+                <button className="rag-retry-btn mono" onClick={() => generateRagPackage(simulationState.unavailableEmployees[0])}>Retry</button>
+              </div>
+            )}
+
+            {!ragLoading && !ragError && ragPackage && (
+              <>
+                <div className="rag-meta">
+                  <span className="mono">{ragPackage.package.gap_count} gap(s) · {ragPackage.package.none_count} NONE · {ragPackage.package.low_count} LOW · {ragPackage.package.undocumented_count} undocumented</span>
+                  <span className="mono">index: {ragPackage.package.index.pages} pages · {ragPackage.package.index.sections} sections</span>
+                </div>
+
+                {ragPackage.package.gaps.length > 0 ? (
+                  <div className="rag-gaps">
+                    {ragPackage.package.gaps.map(g => (
+                      <div className="rag-gap" key={g.capability_id}>
+                        <div className="rag-gap-head">
+                          <strong>{g.capability_name}</strong>
+                          <span className={`rag-band ${g.band_after.toLowerCase()}`}>{g.band_after}</span>
+                        </div>
+                        <p className="rag-explanation">{g.explanation}</p>
+
+                        {g.documents && g.documents.length > 0 ? (
+                          <ul className="rag-docs">
+                            {g.documents.map((d, i) => (
+                              <li key={i}>
+                                <a href={d.url} target="_blank" rel="noreferrer" className="rag-doc-title">{d.title}</a>
+                                <span className="mono rag-doc-reason">{d.match_type || 'matched'} · {(d.match_evidence || []).join(', ')}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <p className="muted" style={{fontSize:12}}>No documentation matched this capability in the Confluence index.</p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="muted">No capability gaps — nothing to hand over.</p>
+                )}
+
+                <div className="rag-downloads">
+                  <span className="mono rag-downloads-label">DOWNLOAD PACKAGE</span>
+                  {['md', 'pdf', 'docx'].map(fmt => {
+                    const skipReason = ragPackage.export?.skipped?.[fmt];
+                    const busy = ragDownloading === fmt;
+                    return (
+                      <button
+                        key={fmt}
+                        type="button"
+                        className={`rag-dl-btn mono ${skipReason ? 'disabled' : ''}`}
+                        disabled={!!skipReason || busy}
+                        title={skipReason || `Download ${fmt.toUpperCase()} handover document`}
+                        onClick={() => handleRagDownload(fmt)}
+                      >
+                        {busy ? '...' : fmt.toUpperCase()}
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {ragDownloadError && (
+                  <p className="muted" style={{fontSize: 12, color: '#f44336', marginTop: 6}}>
+                    {ragDownloadError}
+                  </p>
+                )}
+              </>
+            )}
           </div>
         )}
 
