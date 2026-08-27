@@ -1,0 +1,41 @@
+[
+  {
+    "id": 8800,
+    "_pr_number": 88,
+    "user": {
+      "login": "karan-m"
+    },
+    "state": "APPROVED",
+    "body": "Checked the retry path and the boundary cases; this looks right.",
+    "submitted_at": "2026-07-23T18:00:00Z",
+    "_capability_keys": [
+      "database-recovery"
+    ]
+  },
+  {
+    "id": 9100,
+    "_pr_number": 91,
+    "user": {
+      "login": "sneha-r"
+    },
+    "state": "APPROVED",
+    "body": "Checked the retry path and the boundary cases; this looks right.",
+    "submitted_at": "2026-07-23T18:00:00Z",
+    "_capability_keys": [
+      "api-logic"
+    ]
+  },
+  {
+    "id": 9400,
+    "_pr_number": 94,
+    "user": {
+      "login": "amit-d"
+    },
+    "state": "APPROVED",
+    "body": "",
+    "submitted_at": "2026-07-23T18:00:00Z",
+    "_capability_keys": [
+      "gateway-integration"
+    ]
+  }
+]

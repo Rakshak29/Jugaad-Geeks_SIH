@@ -1,0 +1,734 @@
+[
+  {
+    "key": "PAY-501",
+    "fields": {
+      "project": {
+        "key": "PAY",
+        "name": "Payment Service"
+      },
+      "issuetype": {
+        "name": "Task"
+      },
+      "summary": "Restore replica after failover",
+      "description": "Replica did not rejoin after the failover window; restore and verify.",
+      "components": [
+        {
+          "name": "Payment DB",
+          "id": "8187"
+        }
+      ],
+      "labels": [
+        "database-recovery"
+      ],
+      "assignee": {
+        "accountId": "5b10a2844c20165700ede21g",
+        "displayName": "Rahul Kulkarni"
+      },
+      "reporter": {
+        "accountId": "5b10a2844c20165700ede22h",
+        "displayName": "Karan Mehta"
+      },
+      "status": {
+        "name": "Done"
+      },
+      "resolution": {
+        "name": "Done"
+      },
+      "resolutiondate": "2026-03-23T12:00:00Z",
+      "created": "2026-03-18T12:00:00Z",
+      "updated": "2026-03-23T12:00:00Z"
+    },
+    "changelog": {
+      "histories": [
+        {
+          "id": "PAY-501-h1",
+          "created": "2026-03-20T12:00:00Z",
+          "author": {
+            "accountId": "5b10a2844c20165700ede21g",
+            "displayName": "Rahul Kulkarni"
+          },
+          "items": [
+            {
+              "field": "status",
+              "fromString": "To Do",
+              "toString": "In Progress"
+            }
+          ]
+        },
+        {
+          "id": "PAY-501-h2",
+          "created": "2026-03-23T12:00:00Z",
+          "author": {
+            "accountId": "5b10a2844c20165700ede21g",
+            "displayName": "Rahul Kulkarni"
+          },
+          "items": [
+            {
+              "field": "status",
+              "fromString": "In Progress",
+              "toString": "Done"
+            }
+          ]
+        }
+      ]
+    },
+    "comment": {
+      "comments": []
+    }
+  },
+  {
+    "key": "PAY-612",
+    "fields": {
+      "project": {
+        "key": "PAY",
+        "name": "Payment Service"
+      },
+      "issuetype": {
+        "name": "Task"
+      },
+      "summary": "Gateway webhook retries duplicating captures",
+      "description": "Provider retries on 5xx are creating duplicate capture rows.",
+      "components": [
+        {
+          "name": "Payment Gateway",
+          "id": "742"
+        }
+      ],
+      "labels": [
+        "gateway-integration"
+      ],
+      "assignee": {
+        "accountId": "5b10a2844c20165700ede21g",
+        "displayName": "Rahul Kulkarni"
+      },
+      "reporter": {
+        "accountId": "5b10a2844c20165700ede22h",
+        "displayName": "Karan Mehta"
+      },
+      "status": {
+        "name": "Done"
+      },
+      "resolution": {
+        "name": "Done"
+      },
+      "resolutiondate": "2026-04-23T12:00:00Z",
+      "created": "2026-04-18T12:00:00Z",
+      "updated": "2026-04-23T12:00:00Z"
+    },
+    "changelog": {
+      "histories": [
+        {
+          "id": "PAY-612-h1",
+          "created": "2026-04-20T12:00:00Z",
+          "author": {
+            "accountId": "5b10a2844c20165700ede21g",
+            "displayName": "Rahul Kulkarni"
+          },
+          "items": [
+            {
+              "field": "status",
+              "fromString": "To Do",
+              "toString": "In Progress"
+            }
+          ]
+        },
+        {
+          "id": "PAY-612-h2",
+          "created": "2026-04-23T12:00:00Z",
+          "author": {
+            "accountId": "5b10a2844c20165700ede21g",
+            "displayName": "Rahul Kulkarni"
+          },
+          "items": [
+            {
+              "field": "status",
+              "fromString": "In Progress",
+              "toString": "Done"
+            }
+          ]
+        }
+      ]
+    },
+    "comment": {
+      "comments": []
+    }
+  },
+  {
+    "key": "PAY-655",
+    "fields": {
+      "project": {
+        "key": "PAY",
+        "name": "Payment Service"
+      },
+      "issuetype": {
+        "name": "Task"
+      },
+      "summary": "Exception queue not draining for partial settlements",
+      "description": "Partial settlements are parked and never retried.",
+      "components": [
+        {
+          "name": "Reconciliation",
+          "id": "795"
+        }
+      ],
+      "labels": [
+        "reconciliation"
+      ],
+      "assignee": {
+        "accountId": "5b10a2844c20165700ede21g",
+        "displayName": "Rahul Kulkarni"
+      },
+      "reporter": {
+        "accountId": "5b10a2844c20165700ede22h",
+        "displayName": "Karan Mehta"
+      },
+      "status": {
+        "name": "Done"
+      },
+      "resolution": {
+        "name": "Done"
+      },
+      "resolutiondate": "2025-11-22T12:00:00Z",
+      "created": "2025-11-17T12:00:00Z",
+      "updated": "2025-11-22T12:00:00Z"
+    },
+    "changelog": {
+      "histories": [
+        {
+          "id": "PAY-655-h1",
+          "created": "2025-11-19T12:00:00Z",
+          "author": {
+            "accountId": "5b10a2844c20165700ede21g",
+            "displayName": "Rahul Kulkarni"
+          },
+          "items": [
+            {
+              "field": "status",
+              "fromString": "To Do",
+              "toString": "In Progress"
+            }
+          ]
+        },
+        {
+          "id": "PAY-655-h2",
+          "created": "2025-11-22T12:00:00Z",
+          "author": {
+            "accountId": "5b10a2844c20165700ede21g",
+            "displayName": "Rahul Kulkarni"
+          },
+          "items": [
+            {
+              "field": "status",
+              "fromString": "In Progress",
+              "toString": "Done"
+            }
+          ]
+        }
+      ]
+    },
+    "comment": {
+      "comments": []
+    }
+  },
+  {
+    "key": "PAY-701",
+    "fields": {
+      "project": {
+        "key": "PAY",
+        "name": "Payment Service"
+      },
+      "issuetype": {
+        "name": "Task"
+      },
+      "summary": "Rollup drift after bulk adjustment import",
+      "description": "Balances drift by a few paise after bulk imports.",
+      "components": [
+        {
+          "name": "Ledger",
+          "id": "1090"
+        }
+      ],
+      "labels": [
+        "ledger-adjustment"
+      ],
+      "assignee": {
+        "accountId": "5b10a2844c20165700ede24j",
+        "displayName": "Sneha Rao"
+      },
+      "reporter": {
+        "accountId": "5b10a2844c20165700ede22h",
+        "displayName": "Karan Mehta"
+      },
+      "status": {
+        "name": "Done"
+      },
+      "resolution": {
+        "name": "Done"
+      },
+      "resolutiondate": "2026-03-23T12:00:00Z",
+      "created": "2026-03-18T12:00:00Z",
+      "updated": "2026-03-23T12:00:00Z"
+    },
+    "changelog": {
+      "histories": [
+        {
+          "id": "PAY-701-h1",
+          "created": "2026-03-20T12:00:00Z",
+          "author": {
+            "accountId": "5b10a2844c20165700ede24j",
+            "displayName": "Sneha Rao"
+          },
+          "items": [
+            {
+              "field": "status",
+              "fromString": "To Do",
+              "toString": "In Progress"
+            }
+          ]
+        },
+        {
+          "id": "PAY-701-h2",
+          "created": "2026-03-23T12:00:00Z",
+          "author": {
+            "accountId": "5b10a2844c20165700ede24j",
+            "displayName": "Sneha Rao"
+          },
+          "items": [
+            {
+              "field": "status",
+              "fromString": "In Progress",
+              "toString": "Done"
+            }
+          ]
+        }
+      ]
+    },
+    "comment": {
+      "comments": []
+    }
+  },
+  {
+    "key": "PAY-733",
+    "fields": {
+      "project": {
+        "key": "PAY",
+        "name": "Payment Service"
+      },
+      "issuetype": {
+        "name": "Task"
+      },
+      "summary": "Smoke checks pass while gateway is degraded",
+      "description": "Verification job reports green on a degraded provider.",
+      "components": [
+        {
+          "name": "Release Verification",
+          "id": "825"
+        }
+      ],
+      "labels": [
+        "release-verification"
+      ],
+      "assignee": {
+        "accountId": "5b10a2844c20165700ede24j",
+        "displayName": "Sneha Rao"
+      },
+      "reporter": {
+        "accountId": "5b10a2844c20165700ede22h",
+        "displayName": "Karan Mehta"
+      },
+      "status": {
+        "name": "Done"
+      },
+      "resolution": {
+        "name": "Done"
+      },
+      "resolutiondate": "2026-02-21T12:00:00Z",
+      "created": "2026-02-16T12:00:00Z",
+      "updated": "2026-02-21T12:00:00Z"
+    },
+    "changelog": {
+      "histories": [
+        {
+          "id": "PAY-733-h1",
+          "created": "2026-02-18T12:00:00Z",
+          "author": {
+            "accountId": "5b10a2844c20165700ede24j",
+            "displayName": "Sneha Rao"
+          },
+          "items": [
+            {
+              "field": "status",
+              "fromString": "To Do",
+              "toString": "In Progress"
+            }
+          ]
+        },
+        {
+          "id": "PAY-733-h2",
+          "created": "2026-02-21T12:00:00Z",
+          "author": {
+            "accountId": "5b10a2844c20165700ede24j",
+            "displayName": "Sneha Rao"
+          },
+          "items": [
+            {
+              "field": "status",
+              "fromString": "In Progress",
+              "toString": "Done"
+            }
+          ]
+        }
+      ]
+    },
+    "comment": {
+      "comments": []
+    }
+  },
+  {
+    "key": "PAY-790",
+    "fields": {
+      "project": {
+        "key": "PAY",
+        "name": "Payment Service"
+      },
+      "issuetype": {
+        "name": "Task"
+      },
+      "summary": "Idempotency keys collide across retries",
+      "description": "Two retries of one intent produce distinct keys.",
+      "components": [
+        {
+          "name": "Payment API",
+          "id": "7182"
+        }
+      ],
+      "labels": [
+        "api-logic"
+      ],
+      "assignee": {
+        "accountId": "5b10a2844c20165700ede23i",
+        "displayName": "Priya Nair"
+      },
+      "reporter": {
+        "accountId": "5b10a2844c20165700ede22h",
+        "displayName": "Karan Mehta"
+      },
+      "status": {
+        "name": "Done"
+      },
+      "resolution": {
+        "name": "Done"
+      },
+      "resolutiondate": "2026-06-23T12:00:00Z",
+      "created": "2026-06-18T12:00:00Z",
+      "updated": "2026-06-23T12:00:00Z"
+    },
+    "changelog": {
+      "histories": [
+        {
+          "id": "PAY-790-h1",
+          "created": "2026-06-20T12:00:00Z",
+          "author": {
+            "accountId": "5b10a2844c20165700ede23i",
+            "displayName": "Priya Nair"
+          },
+          "items": [
+            {
+              "field": "status",
+              "fromString": "To Do",
+              "toString": "In Progress"
+            }
+          ]
+        },
+        {
+          "id": "PAY-790-h2",
+          "created": "2026-06-23T12:00:00Z",
+          "author": {
+            "accountId": "5b10a2844c20165700ede23i",
+            "displayName": "Priya Nair"
+          },
+          "items": [
+            {
+              "field": "status",
+              "fromString": "In Progress",
+              "toString": "Done"
+            }
+          ]
+        }
+      ]
+    },
+    "comment": {
+      "comments": []
+    }
+  },
+  {
+    "key": "PAY-810",
+    "fields": {
+      "project": {
+        "key": "PAY",
+        "name": "Payment Service"
+      },
+      "issuetype": {
+        "name": "Task"
+      },
+      "summary": "Canary gate does not halt on error-rate spike",
+      "description": "Release proceeds past the canary despite elevated 5xx.",
+      "components": [
+        {
+          "name": "Deployment",
+          "id": "8854"
+        }
+      ],
+      "labels": [
+        "deployment-rollback"
+      ],
+      "assignee": {
+        "accountId": "5b10a2844c20165700ede22h",
+        "displayName": "Karan Mehta"
+      },
+      "reporter": {
+        "accountId": "5b10a2844c20165700ede22h",
+        "displayName": "Karan Mehta"
+      },
+      "status": {
+        "name": "Done"
+      },
+      "resolution": {
+        "name": "Done"
+      },
+      "resolutiondate": "2026-04-23T12:00:00Z",
+      "created": "2026-04-18T12:00:00Z",
+      "updated": "2026-04-23T12:00:00Z"
+    },
+    "changelog": {
+      "histories": [
+        {
+          "id": "PAY-810-h1",
+          "created": "2026-04-20T12:00:00Z",
+          "author": {
+            "accountId": "5b10a2844c20165700ede22h",
+            "displayName": "Karan Mehta"
+          },
+          "items": [
+            {
+              "field": "status",
+              "fromString": "To Do",
+              "toString": "In Progress"
+            }
+          ]
+        },
+        {
+          "id": "PAY-810-h2",
+          "created": "2026-04-23T12:00:00Z",
+          "author": {
+            "accountId": "5b10a2844c20165700ede22h",
+            "displayName": "Karan Mehta"
+          },
+          "items": [
+            {
+              "field": "status",
+              "fromString": "In Progress",
+              "toString": "Done"
+            }
+          ]
+        }
+      ]
+    },
+    "comment": {
+      "comments": []
+    }
+  },
+  {
+    "key": "PAY-820",
+    "fields": {
+      "project": {
+        "key": "PAY",
+        "name": "Payment Service"
+      },
+      "issuetype": {
+        "name": "Task"
+      },
+      "summary": "Migration lock blocks writes during deploy",
+      "description": "Expand-contract step holds a lock for the full backfill.",
+      "components": [
+        {
+          "name": "Schema Migration",
+          "id": "6670"
+        }
+      ],
+      "labels": [
+        "schema-migration"
+      ],
+      "assignee": {
+        "accountId": "5b10a2844c20165700ede26l",
+        "displayName": "Vikram Shah"
+      },
+      "reporter": {
+        "accountId": "5b10a2844c20165700ede22h",
+        "displayName": "Karan Mehta"
+      },
+      "status": {
+        "name": "Done"
+      },
+      "resolution": {
+        "name": "Done"
+      },
+      "resolutiondate": "2025-05-23T12:00:00Z",
+      "created": "2025-05-18T12:00:00Z",
+      "updated": "2025-05-23T12:00:00Z"
+    },
+    "changelog": {
+      "histories": [
+        {
+          "id": "PAY-820-h1",
+          "created": "2025-05-20T12:00:00Z",
+          "author": {
+            "accountId": "5b10a2844c20165700ede26l",
+            "displayName": "Vikram Shah"
+          },
+          "items": [
+            {
+              "field": "status",
+              "fromString": "To Do",
+              "toString": "In Progress"
+            }
+          ]
+        },
+        {
+          "id": "PAY-820-h2",
+          "created": "2025-05-23T12:00:00Z",
+          "author": {
+            "accountId": "5b10a2844c20165700ede26l",
+            "displayName": "Vikram Shah"
+          },
+          "items": [
+            {
+              "field": "status",
+              "fromString": "In Progress",
+              "toString": "Done"
+            }
+          ]
+        }
+      ]
+    },
+    "comment": {
+      "comments": []
+    }
+  },
+  {
+    "key": "PAY-780",
+    "fields": {
+      "project": {
+        "key": "PAY",
+        "name": "Payment Service"
+      },
+      "issuetype": {
+        "name": "Task"
+      },
+      "summary": "Support legacy v1 payment payloads",
+      "description": "Requested by one integrator; superseded by v3.",
+      "components": [
+        {
+          "name": "Payment API",
+          "id": "7182"
+        }
+      ],
+      "labels": [
+        "api-logic"
+      ],
+      "assignee": {
+        "accountId": "5b10a2844c20165700ede25k",
+        "displayName": "Amit Desai"
+      },
+      "reporter": {
+        "accountId": "5b10a2844c20165700ede22h",
+        "displayName": "Karan Mehta"
+      },
+      "status": {
+        "name": "Done"
+      },
+      "resolution": {
+        "name": "Won't Do"
+      },
+      "resolutiondate": "2026-04-23T12:00:00Z",
+      "created": "2026-04-18T12:00:00Z",
+      "updated": "2026-04-23T12:00:00Z"
+    },
+    "changelog": {
+      "histories": []
+    },
+    "comment": {
+      "comments": []
+    }
+  },
+  {
+    "key": "PAY-777",
+    "fields": {
+      "project": {
+        "key": "PAY",
+        "name": "Payment Service"
+      },
+      "issuetype": {
+        "name": "Task"
+      },
+      "summary": "Investigate intermittent settlement mismatch",
+      "description": "Occasional mismatch between provider report and ledger for reconciliation runs; needs investigation.",
+      "components": [],
+      "labels": [],
+      "assignee": {
+        "accountId": "5b10a2844c20165700ede22h",
+        "displayName": "Karan Mehta"
+      },
+      "reporter": {
+        "accountId": "5b10a2844c20165700ede22h",
+        "displayName": "Karan Mehta"
+      },
+      "status": {
+        "name": "Done"
+      },
+      "resolution": {
+        "name": "Done"
+      },
+      "resolutiondate": "2026-05-23T12:00:00Z",
+      "created": "2026-05-18T12:00:00Z",
+      "updated": "2026-05-23T12:00:00Z"
+    },
+    "changelog": {
+      "histories": [
+        {
+          "id": "PAY-777-h1",
+          "created": "2026-05-20T12:00:00Z",
+          "author": {
+            "accountId": "5b10a2844c20165700ede22h",
+            "displayName": "Karan Mehta"
+          },
+          "items": [
+            {
+              "field": "status",
+              "fromString": "To Do",
+              "toString": "In Progress"
+            }
+          ]
+        },
+        {
+          "id": "PAY-777-h2",
+          "created": "2026-05-23T12:00:00Z",
+          "author": {
+            "accountId": "5b10a2844c20165700ede22h",
+            "displayName": "Karan Mehta"
+          },
+          "items": [
+            {
+              "field": "status",
+              "fromString": "In Progress",
+              "toString": "Done"
+            }
+          ]
+        }
+      ]
+    },
+    "comment": {
+      "comments": []
+    }
+  }
+]

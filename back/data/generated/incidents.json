@@ -1,0 +1,163 @@
+[
+  {
+    "id": "INC-741",
+    "incident_number": 741,
+    "title": "Replica lag on payment-db after failover; writes queuing",
+    "status": "resolved",
+    "urgency": "high",
+    "created_at": "2026-04-23T12:00:00Z",
+    "resolved_at": "2026-04-23T12:41:00Z",
+    "service": {
+      "id": "payment-db",
+      "summary": "payment-db",
+      "type": "service_reference"
+    },
+    "service_id": "payment-db",
+    "responder": "PXR4HL1",
+    "tracking_ticket": "PAY-501",
+    "log_entries": [
+      {
+        "id": "INC-741-L0",
+        "type": "trigger_log_entry",
+        "created_at": "2026-04-23T12:00:00Z",
+        "agent": {
+          "id": "PMONITOR",
+          "type": "service_reference",
+          "summary": "Datadog Monitor"
+        }
+      },
+      {
+        "id": "INC-741-L2",
+        "type": "escalate_log_entry",
+        "created_at": "2026-04-23T12:04:00Z",
+        "agent": {
+          "id": "PMONITOR",
+          "type": "service_reference",
+          "summary": "Datadog Monitor"
+        },
+        "assignees": [
+          {
+            "id": "PXR4HL1",
+            "type": "user_reference",
+            "summary": "Rahul Kulkarni"
+          }
+        ]
+      },
+      {
+        "id": "INC-741-L3",
+        "type": "resolve_log_entry",
+        "created_at": "2026-04-23T12:41:00Z",
+        "agent": {
+          "id": "PXR4HL1",
+          "type": "user_reference",
+          "summary": "Rahul Kulkarni"
+        }
+      }
+    ]
+  },
+  {
+    "id": "INC-655",
+    "incident_number": 655,
+    "title": "Migration lock held during deploy; schema change blocked writes",
+    "status": "resolved",
+    "urgency": "high",
+    "created_at": "2025-06-22T12:00:00Z",
+    "resolved_at": "2025-06-22T12:41:00Z",
+    "service": {
+      "id": "payment-db",
+      "summary": "payment-db",
+      "type": "service_reference"
+    },
+    "service_id": "payment-db",
+    "responder": "PVKM661",
+    "tracking_ticket": "PAY-820",
+    "log_entries": [
+      {
+        "id": "INC-655-L0",
+        "type": "trigger_log_entry",
+        "created_at": "2025-06-22T12:00:00Z",
+        "agent": {
+          "id": "PMONITOR",
+          "type": "service_reference",
+          "summary": "Datadog Monitor"
+        }
+      },
+      {
+        "id": "INC-655-L3",
+        "type": "resolve_log_entry",
+        "created_at": "2025-06-22T12:41:00Z",
+        "agent": {
+          "id": "PVKM661",
+          "type": "user_reference",
+          "summary": "Vikram Shah"
+        }
+      }
+    ]
+  },
+  {
+    "id": "INC-802",
+    "incident_number": 802,
+    "title": "Settlement file mismatch; reconciliation queue backing up",
+    "status": "resolved",
+    "urgency": "high",
+    "created_at": "2026-05-23T12:00:00Z",
+    "resolved_at": "2026-05-23T12:41:00Z",
+    "service": {
+      "id": "reconciliation-worker",
+      "summary": "reconciliation-worker",
+      "type": "service_reference"
+    },
+    "service_id": "reconciliation-worker",
+    "responder": "PSNH445",
+    "tracking_ticket": "PAY-655",
+    "log_entries": [
+      {
+        "id": "INC-802-L0",
+        "type": "trigger_log_entry",
+        "created_at": "2026-05-23T12:00:00Z",
+        "agent": {
+          "id": "PMONITOR",
+          "type": "service_reference",
+          "summary": "Datadog Monitor"
+        }
+      },
+      {
+        "id": "INC-802-L1",
+        "type": "acknowledge_log_entry",
+        "created_at": "2026-05-23T12:02:00Z",
+        "agent": {
+          "id": "PKRN229",
+          "type": "user_reference",
+          "summary": "Karan Mehta"
+        }
+      },
+      {
+        "id": "INC-802-L2",
+        "type": "escalate_log_entry",
+        "created_at": "2026-05-23T12:04:00Z",
+        "agent": {
+          "id": "PKRN229",
+          "type": "user_reference",
+          "summary": "Karan Mehta"
+        },
+        "assignees": [
+          {
+            "id": "PSNH445",
+            "type": "user_reference",
+            "summary": "Sneha Rao"
+          }
+        ]
+      },
+      {
+        "id": "INC-802-L3",
+        "type": "resolve_log_entry",
+        "created_at": "2026-05-23T12:41:00Z",
+        "agent": {
+          "id": "PSNH445",
+          "type": "user_reference",
+          "summary": "Sneha Rao"
+        }
+      }
+    ]
+  }
+]

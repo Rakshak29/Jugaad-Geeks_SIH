@@ -1,0 +1,56 @@
+[
+  {
+    "number": 88,
+    "title": "Restore replica after failover",
+    "body": "Restore replica after failover\n\nCloses PAY-501",
+    "user": {
+      "login": "rahul-k"
+    },
+    "state": "closed",
+    "merged": true,
+    "created_at": "2026-07-23T12:00:00Z",
+    "merged_at": "2026-07-24T12:00:00Z",
+    "merge_commit_sha": "a93b883d2f68d90e9baba76274ca94b70bc52e70",
+    "_files": [
+      {
+        "filename": "payment-db/recovery/service.py"
+      }
+    ]
+  },
+  {
+    "number": 91,
+    "title": "Idempotency key handling",
+    "body": "Idempotency key handling",
+    "user": {
+      "login": "priya-n"
+    },
+    "state": "closed",
+    "merged": true,
+    "created_at": "2026-07-23T12:00:00Z",
+    "merged_at": "2026-07-24T12:00:00Z",
+    "merge_commit_sha": "9e8998da6bac9f85707964a1030c04a86f6cebaa",
+    "_files": [
+      {
+        "filename": "payment-api/logic/service.py"
+      }
+    ]
+  },
+  {
+    "number": 94,
+    "title": "Tokenised card adapter",
+    "body": "Tokenised card adapter",
+    "user": {
+      "login": "karan-m"
+    },
+    "state": "closed",
+    "merged": true,
+    "created_at": "2026-07-23T12:00:00Z",
+    "merged_at": "2026-07-24T12:00:00Z",
+    "merge_commit_sha": "b1900c2c15fcfa59bc8c7dda63378ea3eebf4889",
+    "_files": [
+      {
+        "filename": "payment-api/gateway/service.py"
+      }
+    ]
+  }
+]

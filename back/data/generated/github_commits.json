@@ -1,0 +1,2632 @@
+[
+  {
+    "sha": "5f5fef76441b4baf7805e1a087350fe9bd0fea08",
+    "commit": {
+      "author": {
+        "name": "Rahul Kulkarni",
+        "email": "rahul@sih26.invalid",
+        "date": "2026-03-23T12:00:00Z"
+      },
+      "committer": {
+        "name": "Rahul Kulkarni",
+        "date": "2026-03-23T12:00:00Z"
+      },
+      "message": "Restore replica after failover. Closes PAY-501"
+    },
+    "author": {
+      "login": "rahul-k",
+      "id": 7146546
+    },
+    "committer": {
+      "login": "rahul-k"
+    },
+    "parents": [
+      {
+        "sha": "8b048df49e62fe1e4ea6b46f24afb7393db0d767"
+      }
+    ],
+    "stats": {
+      "additions": 147,
+      "deletions": 63,
+      "total": 210
+    },
+    "files": [
+      {
+        "filename": "payment-db/recovery/handler.py",
+        "additions": 70,
+        "deletions": 0,
+        "changes": 70,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-db/recovery/service.py",
+        "additions": 70,
+        "deletions": 0,
+        "changes": 70,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-db/recovery/client.py",
+        "additions": 70,
+        "deletions": 0,
+        "changes": 70,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "01e3ed2fe47d2234dcabddfd6e8a09a9b2d107aa",
+    "commit": {
+      "author": {
+        "name": "Rahul Kulkarni",
+        "email": "rahul@sih26.invalid",
+        "date": "2026-01-21T12:00:00Z"
+      },
+      "committer": {
+        "name": "Rahul Kulkarni",
+        "date": "2026-01-21T12:00:00Z"
+      },
+      "message": "Harden connection pool recovery on primary promotion"
+    },
+    "author": {
+      "login": "rahul-k",
+      "id": 7146546
+    },
+    "committer": {
+      "login": "rahul-k"
+    },
+    "parents": [
+      {
+        "sha": "3438df5d612d45f9374851dc5b81494331f890c8"
+      }
+    ],
+    "stats": {
+      "additions": 98,
+      "deletions": 42,
+      "total": 140
+    },
+    "files": [
+      {
+        "filename": "payment-db/recovery/worker.py",
+        "additions": 70,
+        "deletions": 0,
+        "changes": 70,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-db/recovery/validator.py",
+        "additions": 70,
+        "deletions": 0,
+        "changes": 70,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "b4b5b50dd2ca9ef4e564058cb35e73ff8d8f9458",
+    "commit": {
+      "author": {
+        "name": "Amit Desai",
+        "email": "amit@sih26.invalid",
+        "date": "2025-02-21T12:00:00Z"
+      },
+      "committer": {
+        "name": "Amit Desai",
+        "date": "2025-02-21T12:00:00Z"
+      },
+      "message": "Fix typo in recovery runbook comment"
+    },
+    "author": {
+      "login": "amit-d",
+      "id": 8381522
+    },
+    "committer": {
+      "login": "amit-d"
+    },
+    "parents": [
+      {
+        "sha": "6b624a553b937135b695f31420db2d613be44877"
+      }
+    ],
+    "stats": {
+      "additions": 2,
+      "deletions": 1,
+      "total": 3
+    },
+    "files": [
+      {
+        "filename": "payment-db/recovery/adapter.py",
+        "additions": 3,
+        "deletions": 0,
+        "changes": 3,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "68f2c364cff8c99fda6d8b84ba02cdc43f539bd5",
+    "commit": {
+      "author": {
+        "name": "Amit Desai",
+        "email": "amit@sih26.invalid",
+        "date": "2025-03-02T12:00:00Z"
+      },
+      "committer": {
+        "name": "Amit Desai",
+        "date": "2025-03-02T12:00:00Z"
+      },
+      "message": "Fix typo in recovery runbook comment"
+    },
+    "author": {
+      "login": "amit-d",
+      "id": 8381522
+    },
+    "committer": {
+      "login": "amit-d"
+    },
+    "parents": [
+      {
+        "sha": "7d6e2783d9a24c25edbdcf8a2e3415ddaae85a84"
+      }
+    ],
+    "stats": {
+      "additions": 2,
+      "deletions": 2,
+      "total": 4
+    },
+    "files": [
+      {
+        "filename": "payment-db/recovery/runner.py",
+        "additions": 4,
+        "deletions": 0,
+        "changes": 4,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "6a9efc709b21c5097704731ac56c04173229bd7a",
+    "commit": {
+      "author": {
+        "name": "Amit Desai",
+        "email": "amit@sih26.invalid",
+        "date": "2025-03-11T12:00:00Z"
+      },
+      "committer": {
+        "name": "Amit Desai",
+        "date": "2025-03-11T12:00:00Z"
+      },
+      "message": "Fix typo in recovery runbook comment"
+    },
+    "author": {
+      "login": "amit-d",
+      "id": 8381522
+    },
+    "committer": {
+      "login": "amit-d"
+    },
+    "parents": [
+      {
+        "sha": "23bcfcacda6ad14c5f6b09a5d0e86efa8b71327f"
+      }
+    ],
+    "stats": {
+      "additions": 3,
+      "deletions": 2,
+      "total": 5
+    },
+    "files": [
+      {
+        "filename": "payment-db/recovery/config.py",
+        "additions": 5,
+        "deletions": 0,
+        "changes": 5,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "867b543cb39cdd00210e80479b5ba30604e28657",
+    "commit": {
+      "author": {
+        "name": "Vikram Shah",
+        "email": "vikram@sih26.invalid",
+        "date": "2024-03-23T12:00:00Z"
+      },
+      "committer": {
+        "name": "Vikram Shah",
+        "date": "2024-03-23T12:00:00Z"
+      },
+      "message": "Add backup restore verification step"
+    },
+    "author": {
+      "login": "vikram-s",
+      "id": 729625
+    },
+    "committer": {
+      "login": "vikram-s"
+    },
+    "parents": [
+      {
+        "sha": "eb4ffbbae0a91e272aaab761e103e881c288422d"
+      }
+    ],
+    "stats": {
+      "additions": 66,
+      "deletions": 29,
+      "total": 95
+    },
+    "files": [
+      {
+        "filename": "payment-db/recovery/config.py",
+        "additions": 47,
+        "deletions": 0,
+        "changes": 47,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-db/recovery/helper.py",
+        "additions": 47,
+        "deletions": 0,
+        "changes": 47,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "85cc9a730a7e7dc4ed9f3b981b6c073c57e77d84",
+    "commit": {
+      "author": {
+        "name": "Vikram Shah",
+        "email": "vikram@sih26.invalid",
+        "date": "2024-04-06T12:00:00Z"
+      },
+      "committer": {
+        "name": "Vikram Shah",
+        "date": "2024-04-06T12:00:00Z"
+      },
+      "message": "Add backup restore verification step"
+    },
+    "author": {
+      "login": "vikram-s",
+      "id": 729625
+    },
+    "committer": {
+      "login": "vikram-s"
+    },
+    "parents": [
+      {
+        "sha": "a863edde6286619459ff737104d245e9635a3af3"
+      }
+    ],
+    "stats": {
+      "additions": 66,
+      "deletions": 29,
+      "total": 95
+    },
+    "files": [
+      {
+        "filename": "payment-db/recovery/helper.py",
+        "additions": 47,
+        "deletions": 0,
+        "changes": 47,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-db/recovery/mapper.py",
+        "additions": 47,
+        "deletions": 0,
+        "changes": 47,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "3fc1b1d46f26eeaaa9f1160b17c887ea64a2df06",
+    "commit": {
+      "author": {
+        "name": "Vikram Shah",
+        "email": "vikram@sih26.invalid",
+        "date": "2025-05-23T12:00:00Z"
+      },
+      "committer": {
+        "name": "Vikram Shah",
+        "date": "2025-05-23T12:00:00Z"
+      },
+      "message": "Add online migration runner with backfill checkpoints. Closes PAY-820"
+    },
+    "author": {
+      "login": "vikram-s",
+      "id": 729625
+    },
+    "committer": {
+      "login": "vikram-s"
+    },
+    "parents": [
+      {
+        "sha": "95bca26700e916135270df2d90052afa1edaefc4"
+      }
+    ],
+    "stats": {
+      "additions": 125,
+      "deletions": 55,
+      "total": 180
+    },
+    "files": [
+      {
+        "filename": "payment-db/migrations/handler.py",
+        "additions": 60,
+        "deletions": 0,
+        "changes": 60,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-db/migrations/service.py",
+        "additions": 60,
+        "deletions": 0,
+        "changes": 60,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-db/migrations/client.py",
+        "additions": 60,
+        "deletions": 0,
+        "changes": 60,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "7a8309f147f85296286f771da7a84d7ce9f9f016",
+    "commit": {
+      "author": {
+        "name": "Vikram Shah",
+        "email": "vikram@sih26.invalid",
+        "date": "2025-06-12T12:00:00Z"
+      },
+      "committer": {
+        "name": "Vikram Shah",
+        "date": "2025-06-12T12:00:00Z"
+      },
+      "message": "Add online migration runner with backfill checkpoints"
+    },
+    "author": {
+      "login": "vikram-s",
+      "id": 729625
+    },
+    "committer": {
+      "login": "vikram-s"
+    },
+    "parents": [
+      {
+        "sha": "c8cd45d19c4bd137b6a6f636a78782553622cca6"
+      }
+    ],
+    "stats": {
+      "additions": 125,
+      "deletions": 55,
+      "total": 180
+    },
+    "files": [
+      {
+        "filename": "payment-db/migrations/service.py",
+        "additions": 60,
+        "deletions": 0,
+        "changes": 60,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-db/migrations/client.py",
+        "additions": 60,
+        "deletions": 0,
+        "changes": 60,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-db/migrations/store.py",
+        "additions": 60,
+        "deletions": 0,
+        "changes": 60,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "c312705aeefb09911c4b47d0607e8343f1322846",
+    "commit": {
+      "author": {
+        "name": "Vikram Shah",
+        "email": "vikram@sih26.invalid",
+        "date": "2025-07-02T12:00:00Z"
+      },
+      "committer": {
+        "name": "Vikram Shah",
+        "date": "2025-07-02T12:00:00Z"
+      },
+      "message": "Add online migration runner with backfill checkpoints"
+    },
+    "author": {
+      "login": "vikram-s",
+      "id": 729625
+    },
+    "committer": {
+      "login": "vikram-s"
+    },
+    "parents": [
+      {
+        "sha": "cc7b1e45483e80f1afc518d9ded36c001c2973b2"
+      }
+    ],
+    "stats": {
+      "additions": 125,
+      "deletions": 55,
+      "total": 180
+    },
+    "files": [
+      {
+        "filename": "payment-db/migrations/client.py",
+        "additions": 60,
+        "deletions": 0,
+        "changes": 60,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-db/migrations/store.py",
+        "additions": 60,
+        "deletions": 0,
+        "changes": 60,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-db/migrations/worker.py",
+        "additions": 60,
+        "deletions": 0,
+        "changes": 60,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "048f88902543edd7aa0e6a3a7f26ff3b6acfc969",
+    "commit": {
+      "author": {
+        "name": "Karan Mehta",
+        "email": "karan@sih26.invalid",
+        "date": "2024-01-22T12:00:00Z"
+      },
+      "committer": {
+        "name": "Karan Mehta",
+        "date": "2024-01-22T12:00:00Z"
+      },
+      "message": "Introduce expand-contract migration pattern"
+    },
+    "author": {
+      "login": "karan-m",
+      "id": 9110435
+    },
+    "committer": {
+      "login": "karan-m"
+    },
+    "parents": [
+      {
+        "sha": "56f6fbf2824b258727d2a0a2ea586d6cddb342b5"
+      }
+    ],
+    "stats": {
+      "additions": 168,
+      "deletions": 72,
+      "total": 240
+    },
+    "files": [
+      {
+        "filename": "payment-db/migrations/store.py",
+        "additions": 80,
+        "deletions": 0,
+        "changes": 80,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-db/migrations/worker.py",
+        "additions": 80,
+        "deletions": 0,
+        "changes": 80,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-db/migrations/validator.py",
+        "additions": 80,
+        "deletions": 0,
+        "changes": 80,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "903f7f4af579ecf539efc2842fac3f10aee17e04",
+    "commit": {
+      "author": {
+        "name": "Karan Mehta",
+        "email": "karan@sih26.invalid",
+        "date": "2024-02-16T12:00:00Z"
+      },
+      "committer": {
+        "name": "Karan Mehta",
+        "date": "2024-02-16T12:00:00Z"
+      },
+      "message": "Introduce expand-contract migration pattern"
+    },
+    "author": {
+      "login": "karan-m",
+      "id": 9110435
+    },
+    "committer": {
+      "login": "karan-m"
+    },
+    "parents": [
+      {
+        "sha": "0a3c9ee94db1d95cb5885c422c149b2cc7b65e32"
+      }
+    ],
+    "stats": {
+      "additions": 168,
+      "deletions": 72,
+      "total": 240
+    },
+    "files": [
+      {
+        "filename": "payment-db/migrations/worker.py",
+        "additions": 80,
+        "deletions": 0,
+        "changes": 80,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-db/migrations/validator.py",
+        "additions": 80,
+        "deletions": 0,
+        "changes": 80,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-db/migrations/adapter.py",
+        "additions": 80,
+        "deletions": 0,
+        "changes": 80,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "960bceaed41ecf369845c462ca4f2ab3b1ee6a91",
+    "commit": {
+      "author": {
+        "name": "Karan Mehta",
+        "email": "karan@sih26.invalid",
+        "date": "2024-03-12T12:00:00Z"
+      },
+      "committer": {
+        "name": "Karan Mehta",
+        "date": "2024-03-12T12:00:00Z"
+      },
+      "message": "Introduce expand-contract migration pattern"
+    },
+    "author": {
+      "login": "karan-m",
+      "id": 9110435
+    },
+    "committer": {
+      "login": "karan-m"
+    },
+    "parents": [
+      {
+        "sha": "675d836fe5ce234c1d7be0fb4b00140e914c7843"
+      }
+    ],
+    "stats": {
+      "additions": 168,
+      "deletions": 72,
+      "total": 240
+    },
+    "files": [
+      {
+        "filename": "payment-db/migrations/validator.py",
+        "additions": 80,
+        "deletions": 0,
+        "changes": 80,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-db/migrations/adapter.py",
+        "additions": 80,
+        "deletions": 0,
+        "changes": 80,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-db/migrations/runner.py",
+        "additions": 80,
+        "deletions": 0,
+        "changes": 80,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "0610ed728f58eafe99bb14bdba07dc7fa3675bd6",
+    "commit": {
+      "author": {
+        "name": "Priya Nair",
+        "email": "priya@sih26.invalid",
+        "date": "2026-06-23T12:00:00Z"
+      },
+      "committer": {
+        "name": "Priya Nair",
+        "date": "2026-06-23T12:00:00Z"
+      },
+      "message": "Tighten idempotency key handling on payment intents. Closes PAY-790"
+    },
+    "author": {
+      "login": "priya-n",
+      "id": 2127875
+    },
+    "committer": {
+      "login": "priya-n"
+    },
+    "parents": [
+      {
+        "sha": "f30a01770f18da9a50ee32d240f33fe0dd997774"
+      }
+    ],
+    "stats": {
+      "additions": 112,
+      "deletions": 48,
+      "total": 160
+    },
+    "files": [
+      {
+        "filename": "payment-api/logic/handler.py",
+        "additions": 53,
+        "deletions": 0,
+        "changes": 53,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-api/logic/service.py",
+        "additions": 53,
+        "deletions": 0,
+        "changes": 53,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-api/logic/client.py",
+        "additions": 53,
+        "deletions": 0,
+        "changes": 53,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "33b9162aa90a12d4f116cd179e13a3b46028c7f5",
+    "commit": {
+      "author": {
+        "name": "Priya Nair",
+        "email": "priya@sih26.invalid",
+        "date": "2026-07-04T12:00:00Z"
+      },
+      "committer": {
+        "name": "Priya Nair",
+        "date": "2026-07-04T12:00:00Z"
+      },
+      "message": "Tighten idempotency key handling on payment intents"
+    },
+    "author": {
+      "login": "priya-n",
+      "id": 2127875
+    },
+    "committer": {
+      "login": "priya-n"
+    },
+    "parents": [
+      {
+        "sha": "6de693a3245184acb3bb1e899937a3251344c448"
+      }
+    ],
+    "stats": {
+      "additions": 125,
+      "deletions": 55,
+      "total": 180
+    },
+    "files": [
+      {
+        "filename": "payment-api/logic/service.py",
+        "additions": 60,
+        "deletions": 0,
+        "changes": 60,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-api/logic/client.py",
+        "additions": 60,
+        "deletions": 0,
+        "changes": 60,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-api/logic/store.py",
+        "additions": 60,
+        "deletions": 0,
+        "changes": 60,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "4355ceb7648e59a25f768405deb967acacfa464f",
+    "commit": {
+      "author": {
+        "name": "Priya Nair",
+        "email": "priya@sih26.invalid",
+        "date": "2026-07-15T12:00:00Z"
+      },
+      "committer": {
+        "name": "Priya Nair",
+        "date": "2026-07-15T12:00:00Z"
+      },
+      "message": "Tighten idempotency key handling on payment intents"
+    },
+    "author": {
+      "login": "priya-n",
+      "id": 2127875
+    },
+    "committer": {
+      "login": "priya-n"
+    },
+    "parents": [
+      {
+        "sha": "639656b7b4cb7cc6515786fa684d364418f94193"
+      }
+    ],
+    "stats": {
+      "additions": 140,
+      "deletions": 60,
+      "total": 200
+    },
+    "files": [
+      {
+        "filename": "payment-api/logic/client.py",
+        "additions": 66,
+        "deletions": 0,
+        "changes": 66,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-api/logic/store.py",
+        "additions": 66,
+        "deletions": 0,
+        "changes": 66,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-api/logic/worker.py",
+        "additions": 66,
+        "deletions": 0,
+        "changes": 66,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "e04f79b2a2d3763849b69d80c762ee23e3e26e94",
+    "commit": {
+      "author": {
+        "name": "Priya Nair",
+        "email": "priya@sih26.invalid",
+        "date": "2026-07-26T12:00:00Z"
+      },
+      "committer": {
+        "name": "Priya Nair",
+        "date": "2026-07-26T12:00:00Z"
+      },
+      "message": "Tighten idempotency key handling on payment intents"
+    },
+    "author": {
+      "login": "priya-n",
+      "id": 2127875
+    },
+    "committer": {
+      "login": "priya-n"
+    },
+    "parents": [
+      {
+        "sha": "ad8e0967acda72a4b5d1bb57265b92221091240d"
+      }
+    ],
+    "stats": {
+      "additions": 154,
+      "deletions": 66,
+      "total": 220
+    },
+    "files": [
+      {
+        "filename": "payment-api/logic/store.py",
+        "additions": 73,
+        "deletions": 0,
+        "changes": 73,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-api/logic/worker.py",
+        "additions": 73,
+        "deletions": 0,
+        "changes": 73,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-api/logic/validator.py",
+        "additions": 73,
+        "deletions": 0,
+        "changes": 73,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "03607505caeaca0579d63ce41cf0432c43b64bec",
+    "commit": {
+      "author": {
+        "name": "Priya Nair",
+        "email": "priya@sih26.invalid",
+        "date": "2026-08-06T12:00:00Z"
+      },
+      "committer": {
+        "name": "Priya Nair",
+        "date": "2026-08-06T12:00:00Z"
+      },
+      "message": "Tighten idempotency key handling on payment intents"
+    },
+    "author": {
+      "login": "priya-n",
+      "id": 2127875
+    },
+    "committer": {
+      "login": "priya-n"
+    },
+    "parents": [
+      {
+        "sha": "8879f5d1e175dba63202e733ab07d03089918483"
+      }
+    ],
+    "stats": {
+      "additions": 168,
+      "deletions": 72,
+      "total": 240
+    },
+    "files": [
+      {
+        "filename": "payment-api/logic/worker.py",
+        "additions": 80,
+        "deletions": 0,
+        "changes": 80,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-api/logic/validator.py",
+        "additions": 80,
+        "deletions": 0,
+        "changes": 80,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-api/logic/adapter.py",
+        "additions": 80,
+        "deletions": 0,
+        "changes": 80,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "1f05503b5618afd81d7ec8bf9076e54021312cad",
+    "commit": {
+      "author": {
+        "name": "Priya Nair",
+        "email": "priya@sih26.invalid",
+        "date": "2026-08-17T12:00:00Z"
+      },
+      "committer": {
+        "name": "Priya Nair",
+        "date": "2026-08-17T12:00:00Z"
+      },
+      "message": "Tighten idempotency key handling on payment intents"
+    },
+    "author": {
+      "login": "priya-n",
+      "id": 2127875
+    },
+    "committer": {
+      "login": "priya-n"
+    },
+    "parents": [
+      {
+        "sha": "9e770794d69977d32040db1b5f5abab97517fa5f"
+      }
+    ],
+    "stats": {
+      "additions": 182,
+      "deletions": 78,
+      "total": 260
+    },
+    "files": [
+      {
+        "filename": "payment-api/logic/validator.py",
+        "additions": 86,
+        "deletions": 0,
+        "changes": 86,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-api/logic/adapter.py",
+        "additions": 86,
+        "deletions": 0,
+        "changes": 86,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-api/logic/runner.py",
+        "additions": 86,
+        "deletions": 0,
+        "changes": 86,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "a1c310af7e6ae458a3723275d3b5e4320a6c193a",
+    "commit": {
+      "author": {
+        "name": "Amit Desai",
+        "email": "amit@sih26.invalid",
+        "date": "2026-05-23T12:00:00Z"
+      },
+      "committer": {
+        "name": "Amit Desai",
+        "date": "2026-05-23T12:00:00Z"
+      },
+      "message": "Extend request validation for partial captures"
+    },
+    "author": {
+      "login": "amit-d",
+      "id": 8381522
+    },
+    "committer": {
+      "login": "amit-d"
+    },
+    "parents": [
+      {
+        "sha": "e3aab651e493c9aba79a3830272c1da3a898fbad"
+      }
+    ],
+    "stats": {
+      "additions": 84,
+      "deletions": 36,
+      "total": 120
+    },
+    "files": [
+      {
+        "filename": "payment-api/logic/adapter.py",
+        "additions": 60,
+        "deletions": 0,
+        "changes": 60,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-api/logic/runner.py",
+        "additions": 60,
+        "deletions": 0,
+        "changes": 60,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "ec2927f99c8360999719016da205dd6c6ce00b67",
+    "commit": {
+      "author": {
+        "name": "Amit Desai",
+        "email": "amit@sih26.invalid",
+        "date": "2026-06-05T12:00:00Z"
+      },
+      "committer": {
+        "name": "Amit Desai",
+        "date": "2026-06-05T12:00:00Z"
+      },
+      "message": "Extend request validation for partial captures"
+    },
+    "author": {
+      "login": "amit-d",
+      "id": 8381522
+    },
+    "committer": {
+      "login": "amit-d"
+    },
+    "parents": [
+      {
+        "sha": "21a84e7eace75635ca4e69acbb7ee3d9ac41d923"
+      }
+    ],
+    "stats": {
+      "additions": 84,
+      "deletions": 36,
+      "total": 120
+    },
+    "files": [
+      {
+        "filename": "payment-api/logic/runner.py",
+        "additions": 60,
+        "deletions": 0,
+        "changes": 60,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-api/logic/config.py",
+        "additions": 60,
+        "deletions": 0,
+        "changes": 60,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "cde5f6a216d09b1aeccd36973bd3f5d68dcbb3f0",
+    "commit": {
+      "author": {
+        "name": "Amit Desai",
+        "email": "amit@sih26.invalid",
+        "date": "2026-06-18T12:00:00Z"
+      },
+      "committer": {
+        "name": "Amit Desai",
+        "date": "2026-06-18T12:00:00Z"
+      },
+      "message": "Extend request validation for partial captures"
+    },
+    "author": {
+      "login": "amit-d",
+      "id": 8381522
+    },
+    "committer": {
+      "login": "amit-d"
+    },
+    "parents": [
+      {
+        "sha": "39d2b28dddabbdfcf9869f779016726481a89fad"
+      }
+    ],
+    "stats": {
+      "additions": 84,
+      "deletions": 36,
+      "total": 120
+    },
+    "files": [
+      {
+        "filename": "payment-api/logic/config.py",
+        "additions": 60,
+        "deletions": 0,
+        "changes": 60,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-api/logic/helper.py",
+        "additions": 60,
+        "deletions": 0,
+        "changes": 60,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "09215d73de6d3d0fc050f81ddc1d093c91963018",
+    "commit": {
+      "author": {
+        "name": "Karan Mehta",
+        "email": "karan@sih26.invalid",
+        "date": "2026-02-21T12:00:00Z"
+      },
+      "committer": {
+        "name": "Karan Mehta",
+        "date": "2026-02-21T12:00:00Z"
+      },
+      "message": "Normalise error envelope on payment routes"
+    },
+    "author": {
+      "login": "karan-m",
+      "id": 9110435
+    },
+    "committer": {
+      "login": "karan-m"
+    },
+    "parents": [
+      {
+        "sha": "abe87dfbb65ad0938762dea469a5a69a14562ddf"
+      }
+    ],
+    "stats": {
+      "additions": 66,
+      "deletions": 29,
+      "total": 95
+    },
+    "files": [
+      {
+        "filename": "payment-api/logic/helper.py",
+        "additions": 47,
+        "deletions": 0,
+        "changes": 47,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-api/logic/mapper.py",
+        "additions": 47,
+        "deletions": 0,
+        "changes": 47,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "4ca5e581e23e82a436ae85f304325d653f8449f2",
+    "commit": {
+      "author": {
+        "name": "Rahul Kulkarni",
+        "email": "rahul@sih26.invalid",
+        "date": "2025-12-22T12:00:00Z"
+      },
+      "committer": {
+        "name": "Rahul Kulkarni",
+        "date": "2025-12-22T12:00:00Z"
+      },
+      "message": "Add retry budget to payment intent creation"
+    },
+    "author": {
+      "login": "rahul-k",
+      "id": 7146546
+    },
+    "committer": {
+      "login": "rahul-k"
+    },
+    "parents": [
+      {
+        "sha": "522a84b700a8e3e4d6d992d3edb4f976f17f6d3c"
+      }
+    ],
+    "stats": {
+      "additions": 77,
+      "deletions": 33,
+      "total": 110
+    },
+    "files": [
+      {
+        "filename": "payment-api/logic/service.py",
+        "additions": 55,
+        "deletions": 0,
+        "changes": 55,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-api/logic/client.py",
+        "additions": 55,
+        "deletions": 0,
+        "changes": 55,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "6eceaae3a343a1a60e5fbb2ff247088050e2a94f",
+    "commit": {
+      "author": {
+        "name": "Sneha Rao",
+        "email": "sneha@sih26.invalid",
+        "date": "2024-04-22T12:00:00Z"
+      },
+      "committer": {
+        "name": "Sneha Rao",
+        "date": "2024-04-22T12:00:00Z"
+      },
+      "message": "Add structured logging to payment intent handler"
+    },
+    "author": {
+      "login": "sneha-r",
+      "id": 8762921
+    },
+    "committer": {
+      "login": "sneha-r"
+    },
+    "parents": [
+      {
+        "sha": "7336e150a82bd49e7a429ee25495bdd6a4e3f9d1"
+      }
+    ],
+    "stats": {
+      "additions": 52,
+      "deletions": 23,
+      "total": 75
+    },
+    "files": [
+      {
+        "filename": "payment-api/logic/reporter.py",
+        "additions": 75,
+        "deletions": 0,
+        "changes": 75,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "fa792b50261823617c212a628fedb2d7450edfb7",
+    "commit": {
+      "author": {
+        "name": "Karan Mehta",
+        "email": "karan@sih26.invalid",
+        "date": "2026-03-23T12:00:00Z"
+      },
+      "committer": {
+        "name": "Karan Mehta",
+        "date": "2026-03-23T12:00:00Z"
+      },
+      "message": "Add provider adapter for tokenised cards. Closes PAY-612"
+    },
+    "author": {
+      "login": "karan-m",
+      "id": 9110435
+    },
+    "committer": {
+      "login": "karan-m"
+    },
+    "parents": [
+      {
+        "sha": "8c9c8eab5a10305e4b01591cf2283288ddb9c6d5"
+      }
+    ],
+    "stats": {
+      "additions": 105,
+      "deletions": 45,
+      "total": 150
+    },
+    "files": [
+      {
+        "filename": "payment-api/gateway/handler.py",
+        "additions": 75,
+        "deletions": 0,
+        "changes": 75,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-api/gateway/service.py",
+        "additions": 75,
+        "deletions": 0,
+        "changes": 75,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "cdfcab9a0cc7ca7eb59f8f230b3667525e24e8a9",
+    "commit": {
+      "author": {
+        "name": "Karan Mehta",
+        "email": "karan@sih26.invalid",
+        "date": "2026-04-07T12:00:00Z"
+      },
+      "committer": {
+        "name": "Karan Mehta",
+        "date": "2026-04-07T12:00:00Z"
+      },
+      "message": "Add provider adapter for tokenised cards"
+    },
+    "author": {
+      "login": "karan-m",
+      "id": 9110435
+    },
+    "committer": {
+      "login": "karan-m"
+    },
+    "parents": [
+      {
+        "sha": "458ff06c73d73e75d44a882da5f166e1616ff408"
+      }
+    ],
+    "stats": {
+      "additions": 105,
+      "deletions": 45,
+      "total": 150
+    },
+    "files": [
+      {
+        "filename": "payment-api/gateway/service.py",
+        "additions": 75,
+        "deletions": 0,
+        "changes": 75,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-api/gateway/client.py",
+        "additions": 75,
+        "deletions": 0,
+        "changes": 75,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "e3bdfdd52a2fb57aaece4946a1dcde48ec26636d",
+    "commit": {
+      "author": {
+        "name": "Priya Nair",
+        "email": "priya@sih26.invalid",
+        "date": "2026-01-21T12:00:00Z"
+      },
+      "committer": {
+        "name": "Priya Nair",
+        "date": "2026-01-21T12:00:00Z"
+      },
+      "message": "Harden webhook signature verification"
+    },
+    "author": {
+      "login": "priya-n",
+      "id": 2127875
+    },
+    "committer": {
+      "login": "priya-n"
+    },
+    "parents": [
+      {
+        "sha": "0c116aa30d04429b342b17e97753662feacb0dd4"
+      }
+    ],
+    "stats": {
+      "additions": 91,
+      "deletions": 39,
+      "total": 130
+    },
+    "files": [
+      {
+        "filename": "payment-api/gateway/client.py",
+        "additions": 65,
+        "deletions": 0,
+        "changes": 65,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-api/gateway/store.py",
+        "additions": 65,
+        "deletions": 0,
+        "changes": 65,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "aba66d3d7c5156edc54c17a92eab8a71a7b805b6",
+    "commit": {
+      "author": {
+        "name": "Priya Nair",
+        "email": "priya@sih26.invalid",
+        "date": "2026-02-05T12:00:00Z"
+      },
+      "committer": {
+        "name": "Priya Nair",
+        "date": "2026-02-05T12:00:00Z"
+      },
+      "message": "Harden webhook signature verification"
+    },
+    "author": {
+      "login": "priya-n",
+      "id": 2127875
+    },
+    "committer": {
+      "login": "priya-n"
+    },
+    "parents": [
+      {
+        "sha": "bd589419c47e02329309956f052c3df7682ce641"
+      }
+    ],
+    "stats": {
+      "additions": 91,
+      "deletions": 39,
+      "total": 130
+    },
+    "files": [
+      {
+        "filename": "payment-api/gateway/store.py",
+        "additions": 65,
+        "deletions": 0,
+        "changes": 65,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-api/gateway/worker.py",
+        "additions": 65,
+        "deletions": 0,
+        "changes": 65,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "76444e256a8cc55542f45977a4d7cb914fc1114a",
+    "commit": {
+      "author": {
+        "name": "Amit Desai",
+        "email": "amit@sih26.invalid",
+        "date": "2024-06-22T12:00:00Z"
+      },
+      "committer": {
+        "name": "Amit Desai",
+        "date": "2024-06-22T12:00:00Z"
+      },
+      "message": "Add gateway timeout configuration"
+    },
+    "author": {
+      "login": "amit-d",
+      "id": 8381522
+    },
+    "committer": {
+      "login": "amit-d"
+    },
+    "parents": [
+      {
+        "sha": "e3ff54a805cff5b682d7903c45127cbbeaa062e8"
+      }
+    ],
+    "stats": {
+      "additions": 59,
+      "deletions": 26,
+      "total": 85
+    },
+    "files": [
+      {
+        "filename": "payment-api/gateway/adapter.py",
+        "additions": 85,
+        "deletions": 0,
+        "changes": 85,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "3535b3ea49ae8a3c1957ba794d75086e5b4a9e4a",
+    "commit": {
+      "author": {
+        "name": "Karan Mehta",
+        "email": "karan@sih26.invalid",
+        "date": "2026-02-21T12:00:00Z"
+      },
+      "committer": {
+        "name": "Karan Mehta",
+        "date": "2026-02-21T12:00:00Z"
+      },
+      "message": "Rework settlement matching tolerance windows. Closes PAY-655"
+    },
+    "author": {
+      "login": "karan-m",
+      "id": 9110435
+    },
+    "committer": {
+      "login": "karan-m"
+    },
+    "parents": [
+      {
+        "sha": "0961fbdb98f8d7373808bd801407a2ca97cb1711"
+      }
+    ],
+    "stats": {
+      "additions": 118,
+      "deletions": 52,
+      "total": 170
+    },
+    "files": [
+      {
+        "filename": "reconciliation/matching/handler.py",
+        "additions": 85,
+        "deletions": 0,
+        "changes": 85,
+        "status": "modified"
+      },
+      {
+        "filename": "reconciliation/matching/service.py",
+        "additions": 85,
+        "deletions": 0,
+        "changes": 85,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "7dd8c51167b0c567ddca8c592a3cdbffbe0e92cd",
+    "commit": {
+      "author": {
+        "name": "Karan Mehta",
+        "email": "karan@sih26.invalid",
+        "date": "2025-06-07T12:00:00Z"
+      },
+      "committer": {
+        "name": "Karan Mehta",
+        "date": "2025-06-07T12:00:00Z"
+      },
+      "message": "Rework settlement matching tolerance windows"
+    },
+    "author": {
+      "login": "karan-m",
+      "id": 9110435
+    },
+    "committer": {
+      "login": "karan-m"
+    },
+    "parents": [
+      {
+        "sha": "fe6fd4b7b9237783362074491d11231922772b88"
+      }
+    ],
+    "stats": {
+      "additions": 118,
+      "deletions": 52,
+      "total": 170
+    },
+    "files": [
+      {
+        "filename": "reconciliation/matching/service.py",
+        "additions": 85,
+        "deletions": 0,
+        "changes": 85,
+        "status": "modified"
+      },
+      {
+        "filename": "reconciliation/matching/client.py",
+        "additions": 85,
+        "deletions": 0,
+        "changes": 85,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "282895b32666ba95fb11117d7aabd40a49c0551f",
+    "commit": {
+      "author": {
+        "name": "Sneha Rao",
+        "email": "sneha@sih26.invalid",
+        "date": "2026-03-23T12:00:00Z"
+      },
+      "committer": {
+        "name": "Sneha Rao",
+        "date": "2026-03-23T12:00:00Z"
+      },
+      "message": "Rebuild the settlement exception queue drain"
+    },
+    "author": {
+      "login": "sneha-r",
+      "id": 8762921
+    },
+    "committer": {
+      "login": "sneha-r"
+    },
+    "parents": [
+      {
+        "sha": "70399cdfadff21b2ae33bc496f32e8c71c556d19"
+      }
+    ],
+    "stats": {
+      "additions": 112,
+      "deletions": 48,
+      "total": 160
+    },
+    "files": [
+      {
+        "filename": "reconciliation/matching/store.py",
+        "additions": 80,
+        "deletions": 0,
+        "changes": 80,
+        "status": "modified"
+      },
+      {
+        "filename": "reconciliation/matching/worker.py",
+        "additions": 80,
+        "deletions": 0,
+        "changes": 80,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "d7e7b2083a815662c7d526f6a85418a11bfa14e6",
+    "commit": {
+      "author": {
+        "name": "Sneha Rao",
+        "email": "sneha@sih26.invalid",
+        "date": "2026-04-04T12:00:00Z"
+      },
+      "committer": {
+        "name": "Sneha Rao",
+        "date": "2026-04-04T12:00:00Z"
+      },
+      "message": "Rebuild the settlement exception queue drain"
+    },
+    "author": {
+      "login": "sneha-r",
+      "id": 8762921
+    },
+    "committer": {
+      "login": "sneha-r"
+    },
+    "parents": [
+      {
+        "sha": "1a2805b095eb24e561e53f44cb96fc4bd2d0501e"
+      }
+    ],
+    "stats": {
+      "additions": 112,
+      "deletions": 48,
+      "total": 160
+    },
+    "files": [
+      {
+        "filename": "reconciliation/matching/worker.py",
+        "additions": 80,
+        "deletions": 0,
+        "changes": 80,
+        "status": "modified"
+      },
+      {
+        "filename": "reconciliation/matching/validator.py",
+        "additions": 80,
+        "deletions": 0,
+        "changes": 80,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "cb2bbf229bf82ac4442bb917434259287ea7f660",
+    "commit": {
+      "author": {
+        "name": "Sneha Rao",
+        "email": "sneha@sih26.invalid",
+        "date": "2026-04-16T12:00:00Z"
+      },
+      "committer": {
+        "name": "Sneha Rao",
+        "date": "2026-04-16T12:00:00Z"
+      },
+      "message": "Rebuild the settlement exception queue drain"
+    },
+    "author": {
+      "login": "sneha-r",
+      "id": 8762921
+    },
+    "committer": {
+      "login": "sneha-r"
+    },
+    "parents": [
+      {
+        "sha": "0fef0203b7db37dbc7b73ce095d9694f870c9a7e"
+      }
+    ],
+    "stats": {
+      "additions": 112,
+      "deletions": 48,
+      "total": 160
+    },
+    "files": [
+      {
+        "filename": "reconciliation/matching/validator.py",
+        "additions": 80,
+        "deletions": 0,
+        "changes": 80,
+        "status": "modified"
+      },
+      {
+        "filename": "reconciliation/matching/adapter.py",
+        "additions": 80,
+        "deletions": 0,
+        "changes": 80,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "f943f6254dbe71ac16dd0365363b5c45e8305ae7",
+    "commit": {
+      "author": {
+        "name": "Karan Mehta",
+        "email": "karan@sih26.invalid",
+        "date": "2026-05-23T12:00:00Z"
+      },
+      "committer": {
+        "name": "Karan Mehta",
+        "date": "2026-05-23T12:00:00Z"
+      },
+      "message": "Log provider reference on unmatched settlements. Closes PAY-777"
+    },
+    "author": {
+      "login": "karan-m",
+      "id": 9110435
+    },
+    "committer": {
+      "login": "karan-m"
+    },
+    "parents": [
+      {
+        "sha": "fdc2108c4dd0e53e177f696c9fa710f11db7559b"
+      }
+    ],
+    "stats": {
+      "additions": 91,
+      "deletions": 39,
+      "total": 130
+    },
+    "files": [
+      {
+        "filename": "reconciliation/matching/helper.py",
+        "additions": 65,
+        "deletions": 0,
+        "changes": 65,
+        "status": "modified"
+      },
+      {
+        "filename": "reconciliation/matching/mapper.py",
+        "additions": 65,
+        "deletions": 0,
+        "changes": 65,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "5062c2e78697f3850db90d606f71a0b197d9bfc6",
+    "commit": {
+      "author": {
+        "name": "Priya Nair",
+        "email": "priya@sih26.invalid",
+        "date": "2024-04-22T12:00:00Z"
+      },
+      "committer": {
+        "name": "Priya Nair",
+        "date": "2024-04-22T12:00:00Z"
+      },
+      "message": "Log unmatched settlement rows with provider id"
+    },
+    "author": {
+      "login": "priya-n",
+      "id": 2127875
+    },
+    "committer": {
+      "login": "priya-n"
+    },
+    "parents": [
+      {
+        "sha": "c2e98286547ead6d703613a9926d5599623b244c"
+      }
+    ],
+    "stats": {
+      "additions": 62,
+      "deletions": 28,
+      "total": 90
+    },
+    "files": [
+      {
+        "filename": "reconciliation/matching/validator.py",
+        "additions": 90,
+        "deletions": 0,
+        "changes": 90,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "983667d61cbd2db0fdc91c6bf32cedd3aa685191",
+    "commit": {
+      "author": {
+        "name": "Karan Mehta",
+        "email": "karan@sih26.invalid",
+        "date": "2025-04-22T12:00:00Z"
+      },
+      "committer": {
+        "name": "Karan Mehta",
+        "date": "2025-04-22T12:00:00Z"
+      },
+      "message": "Add manual ledger adjustment audit trail"
+    },
+    "author": {
+      "login": "karan-m",
+      "id": 9110435
+    },
+    "committer": {
+      "login": "karan-m"
+    },
+    "parents": [
+      {
+        "sha": "eb744e03ce0322c79e8eafaaa0cb374ee3ce35d2"
+      }
+    ],
+    "stats": {
+      "additions": 140,
+      "deletions": 60,
+      "total": 200
+    },
+    "files": [
+      {
+        "filename": "reconciliation/ledger/handler.py",
+        "additions": 100,
+        "deletions": 0,
+        "changes": 100,
+        "status": "modified"
+      },
+      {
+        "filename": "reconciliation/ledger/service.py",
+        "additions": 100,
+        "deletions": 0,
+        "changes": 100,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "ef5f2c6f0db8b36770e5aec4e813bdf18349b407",
+    "commit": {
+      "author": {
+        "name": "Karan Mehta",
+        "email": "karan@sih26.invalid",
+        "date": "2025-05-12T12:00:00Z"
+      },
+      "committer": {
+        "name": "Karan Mehta",
+        "date": "2025-05-12T12:00:00Z"
+      },
+      "message": "Add manual ledger adjustment audit trail"
+    },
+    "author": {
+      "login": "karan-m",
+      "id": 9110435
+    },
+    "committer": {
+      "login": "karan-m"
+    },
+    "parents": [
+      {
+        "sha": "00e99bfb7caae59d5aaf3ed1f20a1cac7099023e"
+      }
+    ],
+    "stats": {
+      "additions": 140,
+      "deletions": 60,
+      "total": 200
+    },
+    "files": [
+      {
+        "filename": "reconciliation/ledger/service.py",
+        "additions": 100,
+        "deletions": 0,
+        "changes": 100,
+        "status": "modified"
+      },
+      {
+        "filename": "reconciliation/ledger/client.py",
+        "additions": 100,
+        "deletions": 0,
+        "changes": 100,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "15c97c095c82cc5031e68356121eb5aea3684a83",
+    "commit": {
+      "author": {
+        "name": "Rahul Kulkarni",
+        "email": "rahul@sih26.invalid",
+        "date": "2026-02-21T12:00:00Z"
+      },
+      "committer": {
+        "name": "Rahul Kulkarni",
+        "date": "2026-02-21T12:00:00Z"
+      },
+      "message": "Fix balance rollup for reversed adjustments. Closes PAY-701"
+    },
+    "author": {
+      "login": "rahul-k",
+      "id": 7146546
+    },
+    "committer": {
+      "login": "rahul-k"
+    },
+    "parents": [
+      {
+        "sha": "91a0373d2b7d84e76879aae616679c067ad1d734"
+      }
+    ],
+    "stats": {
+      "additions": 98,
+      "deletions": 42,
+      "total": 140
+    },
+    "files": [
+      {
+        "filename": "reconciliation/ledger/client.py",
+        "additions": 70,
+        "deletions": 0,
+        "changes": 70,
+        "status": "modified"
+      },
+      {
+        "filename": "reconciliation/ledger/store.py",
+        "additions": 70,
+        "deletions": 0,
+        "changes": 70,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "8382fbdc000bac358dc1dfa4062ec48da9e26237",
+    "commit": {
+      "author": {
+        "name": "Amit Desai",
+        "email": "amit@sih26.invalid",
+        "date": "2024-05-23T12:00:00Z"
+      },
+      "committer": {
+        "name": "Amit Desai",
+        "date": "2024-05-23T12:00:00Z"
+      },
+      "message": "Add ledger adjustment reason codes"
+    },
+    "author": {
+      "login": "amit-d",
+      "id": 8381522
+    },
+    "committer": {
+      "login": "amit-d"
+    },
+    "parents": [
+      {
+        "sha": "c7517b127d0d1c9fef66edeca8dc8ccf28dac9a8"
+      }
+    ],
+    "stats": {
+      "additions": 56,
+      "deletions": 24,
+      "total": 80
+    },
+    "files": [
+      {
+        "filename": "reconciliation/ledger/worker.py",
+        "additions": 80,
+        "deletions": 0,
+        "changes": 80,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "9311d7cb26eabc4bcb7158191abd0fb1c7469556",
+    "commit": {
+      "author": {
+        "name": "Karan Mehta",
+        "email": "karan@sih26.invalid",
+        "date": "2026-04-23T12:00:00Z"
+      },
+      "committer": {
+        "name": "Karan Mehta",
+        "date": "2026-04-23T12:00:00Z"
+      },
+      "message": "Add canary gate to payment release pipeline. Closes PAY-810"
+    },
+    "author": {
+      "login": "karan-m",
+      "id": 9110435
+    },
+    "committer": {
+      "login": "karan-m"
+    },
+    "parents": [
+      {
+        "sha": "f39c11388eeaba2221e5f43a77a05d1fcd1a82e1"
+      }
+    ],
+    "stats": {
+      "additions": 108,
+      "deletions": 47,
+      "total": 155
+    },
+    "files": [
+      {
+        "filename": "prod-env/deploy/handler.py",
+        "additions": 77,
+        "deletions": 0,
+        "changes": 77,
+        "status": "modified"
+      },
+      {
+        "filename": "prod-env/deploy/service.py",
+        "additions": 77,
+        "deletions": 0,
+        "changes": 77,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "50a3878ba793c97337faa930674b1602918ec5dd",
+    "commit": {
+      "author": {
+        "name": "Karan Mehta",
+        "email": "karan@sih26.invalid",
+        "date": "2026-05-11T12:00:00Z"
+      },
+      "committer": {
+        "name": "Karan Mehta",
+        "date": "2026-05-11T12:00:00Z"
+      },
+      "message": "Add canary gate to payment release pipeline"
+    },
+    "author": {
+      "login": "karan-m",
+      "id": 9110435
+    },
+    "committer": {
+      "login": "karan-m"
+    },
+    "parents": [
+      {
+        "sha": "5a0fdc063374f30e7ce0aa73b85523c347ac4c69"
+      }
+    ],
+    "stats": {
+      "additions": 108,
+      "deletions": 47,
+      "total": 155
+    },
+    "files": [
+      {
+        "filename": "prod-env/deploy/service.py",
+        "additions": 77,
+        "deletions": 0,
+        "changes": 77,
+        "status": "modified"
+      },
+      {
+        "filename": "prod-env/deploy/client.py",
+        "additions": 77,
+        "deletions": 0,
+        "changes": 77,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "96c75d102dd2d2b102e4459a58bf48b44b565dce",
+    "commit": {
+      "author": {
+        "name": "Priya Nair",
+        "email": "priya@sih26.invalid",
+        "date": "2025-12-22T12:00:00Z"
+      },
+      "committer": {
+        "name": "Priya Nair",
+        "date": "2025-12-22T12:00:00Z"
+      },
+      "message": "Automate rollback to previous release manifest"
+    },
+    "author": {
+      "login": "priya-n",
+      "id": 2127875
+    },
+    "committer": {
+      "login": "priya-n"
+    },
+    "parents": [
+      {
+        "sha": "233c3c5bd11542b07992b01e4c24116c00f3ce5b"
+      }
+    ],
+    "stats": {
+      "additions": 101,
+      "deletions": 44,
+      "total": 145
+    },
+    "files": [
+      {
+        "filename": "prod-env/deploy/client.py",
+        "additions": 72,
+        "deletions": 0,
+        "changes": 72,
+        "status": "modified"
+      },
+      {
+        "filename": "prod-env/deploy/store.py",
+        "additions": 72,
+        "deletions": 0,
+        "changes": 72,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "f60fdf65154fdfa58af8e88645dd5667f2746731",
+    "commit": {
+      "author": {
+        "name": "Priya Nair",
+        "email": "priya@sih26.invalid",
+        "date": "2026-01-09T12:00:00Z"
+      },
+      "committer": {
+        "name": "Priya Nair",
+        "date": "2026-01-09T12:00:00Z"
+      },
+      "message": "Automate rollback to previous release manifest"
+    },
+    "author": {
+      "login": "priya-n",
+      "id": 2127875
+    },
+    "committer": {
+      "login": "priya-n"
+    },
+    "parents": [
+      {
+        "sha": "29c2733377b23d4a056a08aa9e2f4ba645507427"
+      }
+    ],
+    "stats": {
+      "additions": 101,
+      "deletions": 44,
+      "total": 145
+    },
+    "files": [
+      {
+        "filename": "prod-env/deploy/store.py",
+        "additions": 72,
+        "deletions": 0,
+        "changes": 72,
+        "status": "modified"
+      },
+      {
+        "filename": "prod-env/deploy/worker.py",
+        "additions": 72,
+        "deletions": 0,
+        "changes": 72,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "589d6ca31c08428e482b4ac5d526cf04abf950fe",
+    "commit": {
+      "author": {
+        "name": "Sneha Rao",
+        "email": "sneha@sih26.invalid",
+        "date": "2024-02-21T12:00:00Z"
+      },
+      "committer": {
+        "name": "Sneha Rao",
+        "date": "2024-02-21T12:00:00Z"
+      },
+      "message": "Document deploy freeze windows"
+    },
+    "author": {
+      "login": "sneha-r",
+      "id": 8762921
+    },
+    "committer": {
+      "login": "sneha-r"
+    },
+    "parents": [
+      {
+        "sha": "70ca075dfe78342600156c35709f8ea5609ec68b"
+      }
+    ],
+    "stats": {
+      "additions": 49,
+      "deletions": 21,
+      "total": 70
+    },
+    "files": [
+      {
+        "filename": "prod-env/deploy/validator.py",
+        "additions": 70,
+        "deletions": 0,
+        "changes": 70,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "216994f3ff440786a742caac32d6e90b2349003a",
+    "commit": {
+      "author": {
+        "name": "Karan Mehta",
+        "email": "karan@sih26.invalid",
+        "date": "2026-03-23T12:00:00Z"
+      },
+      "committer": {
+        "name": "Karan Mehta",
+        "date": "2026-03-23T12:00:00Z"
+      },
+      "message": "Add post-release smoke verification job. Closes PAY-733"
+    },
+    "author": {
+      "login": "karan-m",
+      "id": 9110435
+    },
+    "committer": {
+      "login": "karan-m"
+    },
+    "parents": [
+      {
+        "sha": "09bff24785d46481894f1b364688c68a15828af0"
+      }
+    ],
+    "stats": {
+      "additions": 84,
+      "deletions": 36,
+      "total": 120
+    },
+    "files": [
+      {
+        "filename": "prod-env/verify/handler.py",
+        "additions": 60,
+        "deletions": 0,
+        "changes": 60,
+        "status": "modified"
+      },
+      {
+        "filename": "prod-env/verify/service.py",
+        "additions": 60,
+        "deletions": 0,
+        "changes": 60,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "3821a9d958a3be8147ddee368bd55e8751996c91",
+    "commit": {
+      "author": {
+        "name": "Priya Nair",
+        "email": "priya@sih26.invalid",
+        "date": "2024-03-23T12:00:00Z"
+      },
+      "committer": {
+        "name": "Priya Nair",
+        "date": "2024-03-23T12:00:00Z"
+      },
+      "message": "Record release verification results to build log"
+    },
+    "author": {
+      "login": "priya-n",
+      "id": 2127875
+    },
+    "committer": {
+      "login": "priya-n"
+    },
+    "parents": [
+      {
+        "sha": "59127a26cf93117e20c6fa45e26e653af79d1915"
+      }
+    ],
+    "stats": {
+      "additions": 42,
+      "deletions": 18,
+      "total": 60
+    },
+    "files": [
+      {
+        "filename": "prod-env/verify/store.py",
+        "additions": 60,
+        "deletions": 0,
+        "changes": 60,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "8d2c336c3b085c9832f04f3e66f459e2717dde15",
+    "commit": {
+      "author": {
+        "name": "Priya Nair",
+        "email": "priya@sih26.invalid",
+        "date": "2025-07-23T12:00:00Z"
+      },
+      "committer": {
+        "name": "Priya Nair",
+        "date": "2025-07-23T12:00:00Z"
+      },
+      "message": "Rename settlement_id to settlement_ref across payment services"
+    },
+    "author": {
+      "login": "priya-n",
+      "id": 2127875
+    },
+    "committer": {
+      "login": "priya-n"
+    },
+    "parents": [
+      {
+        "sha": "fcbeb11bd609bdf3e03345d03635fd20fe7cb790"
+      }
+    ],
+    "stats": {
+      "additions": 1288,
+      "deletions": 552,
+      "total": 1840
+    },
+    "files": [
+      {
+        "filename": "payment-api/logic/mapper.py",
+        "additions": 153,
+        "deletions": 0,
+        "changes": 153,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-api/logic/reporter.py",
+        "additions": 153,
+        "deletions": 0,
+        "changes": 153,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-api/gateway/mapper.py",
+        "additions": 153,
+        "deletions": 0,
+        "changes": 153,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-api/gateway/reporter.py",
+        "additions": 153,
+        "deletions": 0,
+        "changes": 153,
+        "status": "modified"
+      },
+      {
+        "filename": "reconciliation/matching/mapper.py",
+        "additions": 153,
+        "deletions": 0,
+        "changes": 153,
+        "status": "modified"
+      },
+      {
+        "filename": "reconciliation/matching/reporter.py",
+        "additions": 153,
+        "deletions": 0,
+        "changes": 153,
+        "status": "modified"
+      },
+      {
+        "filename": "reconciliation/ledger/mapper.py",
+        "additions": 153,
+        "deletions": 0,
+        "changes": 153,
+        "status": "modified"
+      },
+      {
+        "filename": "reconciliation/ledger/reporter.py",
+        "additions": 153,
+        "deletions": 0,
+        "changes": 153,
+        "status": "modified"
+      },
+      {
+        "filename": "prod-env/deploy/mapper.py",
+        "additions": 153,
+        "deletions": 0,
+        "changes": 153,
+        "status": "modified"
+      },
+      {
+        "filename": "prod-env/deploy/reporter.py",
+        "additions": 153,
+        "deletions": 0,
+        "changes": 153,
+        "status": "modified"
+      },
+      {
+        "filename": "prod-env/verify/mapper.py",
+        "additions": 153,
+        "deletions": 0,
+        "changes": 153,
+        "status": "modified"
+      },
+      {
+        "filename": "prod-env/verify/reporter.py",
+        "additions": 153,
+        "deletions": 0,
+        "changes": 153,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "53e3c73bed4db0fa5dda5509d1b5a7a35aa84440",
+    "commit": {
+      "author": {
+        "name": "Dependabot",
+        "email": "dependabot@sih26.invalid",
+        "date": "2026-06-23T12:00:00Z"
+      },
+      "committer": {
+        "name": "Dependabot",
+        "date": "2026-06-23T12:00:00Z"
+      },
+      "message": "Bump urllib3 from 2.2.1 to 2.2.2"
+    },
+    "author": {
+      "login": "dependabot[bot]",
+      "id": 1554119
+    },
+    "committer": {
+      "login": "dependabot[bot]"
+    },
+    "parents": [
+      {
+        "sha": "23c909b5319cf1911be593a3183db106343269fc"
+      }
+    ],
+    "stats": {
+      "additions": 9,
+      "deletions": 5,
+      "total": 14
+    },
+    "files": [
+      {
+        "filename": "payment-api/logic/requirements.txt",
+        "additions": 7,
+        "deletions": 0,
+        "changes": 7,
+        "status": "modified"
+      },
+      {
+        "filename": "poetry.lock",
+        "additions": 7,
+        "deletions": 0,
+        "changes": 7,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "c613f7357028ead48367ce1e5dfcfd1bc25646c1",
+    "commit": {
+      "author": {
+        "name": "Amit Desai",
+        "email": "amit@sih26.invalid",
+        "date": "2026-05-23T12:00:00Z"
+      },
+      "committer": {
+        "name": "Amit Desai",
+        "date": "2026-05-23T12:00:00Z"
+      },
+      "message": "Revert \"Extend request validation for partial captures\""
+    },
+    "author": {
+      "login": "amit-d",
+      "id": 8381522
+    },
+    "committer": {
+      "login": "amit-d"
+    },
+    "parents": [
+      {
+        "sha": "a32a1fda287f8ea471728e1a6b43c363be8c354f"
+      }
+    ],
+    "stats": {
+      "additions": 112,
+      "deletions": 48,
+      "total": 160
+    },
+    "files": [
+      {
+        "filename": "payment-api/logic/adapter.py",
+        "additions": 80,
+        "deletions": 0,
+        "changes": 80,
+        "status": "modified"
+      },
+      {
+        "filename": "payment-api/logic/runner.py",
+        "additions": 80,
+        "deletions": 0,
+        "changes": 80,
+        "status": "modified"
+      }
+    ]
+  },
+  {
+    "sha": "81acab1002f190913dc61c5385a8cacad4d13482",
+    "commit": {
+      "author": {
+        "name": "Karan Mehta",
+        "email": "karan@sih26.invalid",
+        "date": "2026-06-23T12:00:00Z"
+      },
+      "committer": {
+        "name": "Karan Mehta",
+        "date": "2026-06-23T12:00:00Z"
+      },
+      "message": "Merge branch 'main' into feature/idempotency"
+    },
+    "author": {
+      "login": "karan-m",
+      "id": 9110435
+    },
+    "committer": {
+      "login": "karan-m"
+    },
+    "parents": [
+      {
+        "sha": "6aa6a3557e5ca8e6e5c1e8c1f1d69ebeb3e802eb"
+      },
+      {
+        "sha": "86810273cb567ca285ea3b664dd257f9078b3085"
+      }
+    ],
+    "stats": {
+      "additions": 0,
+      "deletions": 0,
+      "total": 0
+    },
+    "files": []
+  },
+  {
+    "sha": "d348aa8ab5136f112af732a4f20bc97283569c3d",
+    "commit": {
+      "author": {
+        "name": "Karan Mehta",
+        "email": "karan@sih26.invalid",
+        "date": "2026-01-21T12:00:00Z"
+      },
+      "committer": {
+        "name": "Karan Mehta",
+        "date": "2026-01-21T12:00:00Z"
+      },
+      "message": "Add settlement exception replay tool\n\nCo-authored-by: Sneha Rao <sneha@sih26.invalid>"
+    },
+    "author": {
+      "login": "karan-m",
+      "id": 9110435
+    },
+    "committer": {
+      "login": "karan-m"
+    },
+    "parents": [
+      {
+        "sha": "5766539f3fc33ba44e907e229f913b54e6f5eba5"
+      }
+    ],
+    "stats": {
+      "additions": 129,
+      "deletions": 56,
+      "total": 185
+    },
+    "files": [
+      {
+        "filename": "reconciliation/matching/runner.py",
+        "additions": 92,
+        "deletions": 0,
+        "changes": 92,
+        "status": "modified"
+      },
+      {
+        "filename": "reconciliation/matching/config.py",
+        "additions": 92,
+        "deletions": 0,
+        "changes": 92,
+        "status": "modified"
+      }
+    ]
+  }
+]
